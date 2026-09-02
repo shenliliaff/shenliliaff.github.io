@@ -1,3 +1,3 @@
-- [🚀 LearnData](https://newzone.top/)
-- [📝 博客文章](https://newzone.top/blog.html)
-- [🔨 工具收藏](https://nav.newzone.top/)
+- [fengsKB](https://shenliliaff.github.io/)
+- [博客](https://shenliliaff.github.io/blog.html)
+- [GitHub](https://github.com/shenliliaff/shenliliaff.github.io)
