@@ -5,22 +5,21 @@ import sidebar from "./sidebar.js";
 export default hopeTheme(
   {
     // 主题选项：https://theme-hope.vuejs.press/zh/config/theme/layout.html
-    hostname: "https://newzone.top",
+    hostname: "https://shenliliaff.github.io",
     author: {
-      name: "LearnData",
-      url: "https://newzone.top",
+      name: "shenliliaff",
+      url: "https://github.com/shenliliaff",
     },
 
-    favicon: "/favicon.ico",
-    logo: "/logo.svg",
+    favicon: "/fengskb-icon.svg",
+    logo: "/fengskb-icon.svg",
 
     // 网站文章的版权声明
     license: "CC BY-NC-ND 4.0",
 
     // copyright 默认为 Copyright © <作者>
     copyright: `
-  版权声明：自由转载 - 非商用 - 非衍生 - 保持署名<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans" target="_blank" rel="noopener noreferrer">（创意共享 4.0 许可证）</a>|
-  Copyright © 2023-present LearnData</a>
+  Copyright © 2026-present fengsKB
   `,
     displayFooter: true,
     // 页脚，支持使用 HTMLString 以显示备案信息等
@@ -40,7 +39,7 @@ export default hopeTheme(
     fullscreen: true,
 
     // 默认为 GitHub. 同时也可以是一个完整的 URL
-    repo: "rockbenben/LearnData",
+    repo: "shenliliaff/shenliliaff.github.io",
     // 自定义仓库链接文字。默认从 `repo` 中自动推断为 "GitHub" / "GitLab" / "Gitee" / "Bitbucket" 其中之一，或是 "Source"。
     repoLabel: "GitHub",
     // 是否在导航栏内显示仓库链接，默认为 `true`
@@ -70,17 +69,11 @@ export default hopeTheme(
     // 主题功能选项：https://theme-hope.vuejs.press/zh/config/theme/feature.html
     blog: {
       articleInfo: ["Date", "PageView", "Category", "Tag", "ReadingTime"],
-      name: "清顺",
-      avatar: "/avatar_self.webp",
-      description: "迷信新工具，热衷于研究开源软件、心理学理论，定期分享探索成果",
+      name: "fengsKB",
+      description: "个人知识库",
       intro: "/intro.html",
       medias: {
-        GitHub: "https://github.com/rockbenben",
-        Zhihu: "https://www.zhihu.com/people/qingwhat",
-        少数派: { icon: "https://newzone.top/icons/sspai.svg", link: "https://sspai.com/u/zqj05i4v/posts" },
-        Wechat: "https://img.newzone.top/wechat.svg",
-        Email: "mailto:learndata@newzone.top",
-        Discord: "https://discord.gg/PZTQfJ4GjX",
+        GitHub: "https://github.com/shenliliaff",
         RSS: "/rss.xml",
       },
     },
@@ -120,49 +113,16 @@ export default hopeTheme(
         assets: "iconify",
       },
 
-      // 评论配置（仅做样例，记得更换）
+      // 配置自己的 Giscus Discussions 后取消注释。
+      /*
       comment: {
-        /*
-      // 在本地运行 `pnpm docs:dev` 并使用非 localhost 域名时，容易出现 403 错误，移除本部分即可解决
-      provider: "Waline",
-      serverURL: "https://waline.newzone.top",
-      reaction: [
-        "https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/twemoji/13.1.0/72x72/1f44d.png",
-        "https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/twemoji/13.1.0/72x72/1f44f.png",
-        "https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/twemoji/13.1.0/72x72/1f60e.png",
-        "https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/twemoji/13.1.0/72x72/1f602.png",
-        "https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/twemoji/13.1.0/72x72/1f635-200d-1f4ab.png",
-      ],
-      // 部署 Waline：https://waline.js.org/guide/get-started.html
-      // pageview: true, // 浏览量统计
-      locales: {
-        "/": {
-          // 表情互动提示文字
-          reactionTitle: "已到达文章底部，欢迎留言、表情互动~",
-          reaction0: "赞一个",
-          reaction1: "支持下",
-          reaction2: "有点酷",
-          reaction3: "啥玩意",
-          reaction4: "看不懂",
-          // Waline 等级标签
-          admin: "盛年不重来，一日难再晨",
-          level0: "锻体",
-          level1: "炼气",
-          level2: "筑基",
-          level3: "金丹",
-          level4: "元婴",
-          level5: "化神",
-        },
+        provider: "Giscus",
+        repo: "shenliliaff/shenliliaff.github.io",
+        repoId: "R_XXXXXXXXXX",
+        category: "Announcements",
+        categoryId: "DIC_XXXXXXXXXX",
       },
       */
-
-        // Giscus
-        provider: "Giscus",
-        repo: "rockbenben/giscus-comment",
-        repoId: "R_kgDOM_MPJA",
-        category: "Comments",
-        categoryId: "DIC_kwDOM_MPJM4CjS0P",
-      },
 
       // 组件库
       components: {
@@ -192,23 +152,6 @@ export default hopeTheme(
         sorter: (a, b) => Number(b.frontmatter.date) - Number(a.frontmatter.date),
       },
     },
-    // https://theme-hope.vuejs.press/zh/guide/feature/encrypt.html
-    // 加密配置样例（不需要可删除）注意，受到 VuePress 的限制，在未解密前，文章内容仅仅被隐藏，访问者仍可以从源码中获取文章的内容。
-    encrypt: {
-      config: {
-        // 这会加密整个 encrypt 目录，并且两个密码都是可用的
-        "/encrypt/": {
-          password: ["1234", "5678"],
-          hint: "从 xxx 获取密码",
-        },
-        // 这只会加密 /apps/encrypt03.html 页面
-        "/apps/encrypt03.html": {
-          password: "1234",
-          hint: "从 xxx 获取密码",
-        },
-      },
-    },
-
     // 开发模式下是否启动热更新，显示所有更改并重新渲染
     hotReload: true,
   },

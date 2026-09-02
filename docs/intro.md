@@ -1,13 +1,9 @@
 ---
+title: 关于 fengsKB
+icon: fa6-solid:circle-info
 article: false
-title: 个人介绍
-icon: fa6-solid:circle-nodes
 ---
 
-互联网广告人，
+fengsKB 是 shenliliaff 的个人知识库。
 
-迷信新工具、新方法，
-
-坚持批评与自我批评，对每一个机遇保持开放的态度，勇于尝试新鲜事物，
-
-热衷于研究开源软件和心理学理论，定期分享探索成果。
+- GitHub: [shenliliaff/shenliliaff.github.io](https://github.com/shenliliaff/shenliliaff.github.io)

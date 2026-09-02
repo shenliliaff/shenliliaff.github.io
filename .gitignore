@@ -8,6 +8,9 @@
 # Output
 **/.vuepress/dist/**
 
+# Generated Docsify reading-site copy
+docs/.vuepress/public/reading/
+
 # 自定义草稿箱
 docs/_temp/
 
