@@ -1,21 +1,70 @@
-// toc.scss, navbar.scss, sidebar.scss
 @import "vidstack/player/styles/default/theme.css";
 @import "vidstack/player/styles/default/layouts/audio.css";
 @import "vidstack/player/styles/default/layouts/video.css";
 
-/* 
-.toc-place-holder {
-  // 从原本距离导航栏 2rem 改为 5rem
-  top: calc(var(--navbar-height) + 5rem);
+.vp-project-home .vp-hero-info-wrapper {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.85fr);
+	align-items: center;
+	gap: clamp(2rem, 6vw, 6rem);
+	max-width: 70rem;
+	min-height: 34rem;
+	padding: clamp(3.5rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
 }
 
-#toc {
-  // 增加 toc 与内容区的距离
-  left: calc(100% + 2rem);
-
-  // 隐藏目录文字「此页内容」
-  .toc-header {
-     visibility: hidden;
-  }
+.vp-project-home .vp-hero-info {
+	max-width: 35rem;
+	margin: 0;
+	text-align: left;
 }
- */
+
+.vp-project-home .vp-hero-title {
+	margin-inline: 0;
+	color: #2f855a;
+	font-size: clamp(2.8rem, 6vw, 5rem);
+	letter-spacing: 0;
+}
+
+.vp-project-home #main-description {
+	max-width: none;
+	margin: 1.25rem 0 0;
+	font-size: clamp(0.9rem, 1.35vw, 1.05rem);
+	line-height: 1.65;
+	white-space: nowrap;
+}
+
+.vp-project-home .vp-hero-image {
+	width: min(100%, 29rem);
+	max-height: 28rem;
+	margin: 0;
+	justify-self: end;
+	object-fit: contain;
+}
+
+@media (width <= 719px) {
+	.vp-project-home .vp-hero-info-wrapper {
+		grid-template-columns: 1fr;
+		min-height: auto;
+		padding-block: 4rem 3rem;
+	}
+
+	.vp-project-home .vp-hero-info {
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.vp-project-home .vp-hero-title,
+	.vp-project-home #main-description {
+		margin-inline: auto;
+	}
+
+	.vp-project-home #main-description {
+		white-space: normal;
+	}
+
+	.vp-project-home .vp-hero-image {
+		width: min(100%, 22rem);
+		margin-inline: auto;
+		justify-self: center;
+	}
+}
