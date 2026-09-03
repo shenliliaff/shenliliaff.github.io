@@ -1,3 +1,3 @@
-- [fengsKB](https://shenliliaff.github.io/)
-- [博客](https://shenliliaff.github.io/blog.html)
+- <a href="/" data-no-router>fengsKB</a>
+- <a href="/blog.html" data-no-router>博客</a>
 - [GitHub](https://github.com/shenliliaff/shenliliaff.github.io)

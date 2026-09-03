@@ -4,19 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>读书笔记 | fengsKB</title>
+    <link rel="icon" href="reading-icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="https://unpkg.com/docsify@4/lib/themes/vue.css" />
+    <style>
+      .sidebar .app-name img {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+    </style>
   </head>
   <body>
     <div id="app">加载中...</div>
     <script>
       window.$docsify = {
-        name: "fengsKB 读书笔记",
+        name: '<img src="reading-icon.svg" alt="" aria-hidden="true" /> fengsKB 读书笔记',
         repo: "https://github.com/shenliliaff/shenliliaff.github.io",
         homepage: "README.md",
-        loadNavbar: false,
-        loadSidebar: false,
+        loadNavbar: true,
+        loadSidebar: true,
         subMaxLevel: 3,
-        search: "auto",
+        search: {
+          paths: "auto",
+          placeholder: "搜索读书笔记",
+          noData: "没有找到匹配的笔记",
+        },
+        plugins: [
+          function (hook) {
+            hook.beforeEach(function (content) {
+              return content.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, "");
+            });
+          },
+        ],
       };
     </script>
     <script src="https://unpkg.com/docsify@4"></script>
