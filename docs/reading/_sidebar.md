@@ -1,2 +1,3 @@
 - [读书笔记](README.md)
-- [从 ImageNet 到生成式 AI](from-imagenet-to-generative-ai.md)
+- [万历十五年：两声欢呼，一声倒彩](2026-09-03-the-year-of-1587.md)
+- [从 ImageNet 到生成式 AI：读《我看见的世界》](2026-09-02-the-world-i-see-fei-fei-li.md)
