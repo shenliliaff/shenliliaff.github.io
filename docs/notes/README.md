@@ -11,6 +11,7 @@ article: false
 ## 置顶
 
 - [AI Thought](AI%20thought.md)：关于 AI、认知与学习能力的一些初步想法。
+- [AI 动态追踪](AI%20动态追踪.md)：AI 领域官方信源的持续追踪与关键进展。
 
 ## 技术
 
