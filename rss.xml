@@ -6,10 +6,108 @@
     <link>https://shenliliaff.github.io/</link>
     <description>fengsKB 个人知识库</description>
     <language>zh-CN</language>
-    <pubDate>Thu, 10 Sep 2026 07:15:57 GMT</pubDate>
-    <lastBuildDate>Thu, 10 Sep 2026 07:15:57 GMT</lastBuildDate>
+    <pubDate>Mon, 28 Sep 2026 06:57:04 GMT</pubDate>
+    <lastBuildDate>Mon, 28 Sep 2026 06:57:04 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <category>人工智能</category>
+    <item>
+      <title>两家公司，同一天，抢着降价</title>
+      <link>https://shenliliaff.github.io/blog/2026-09-27-two-companies-cut-prices-same-day.html</link>
+      <guid>https://shenliliaff.github.io/blog/2026-09-27-two-companies-cut-prices-same-day.html</guid>
+      <source url="https://shenliliaff.github.io/rss.xml">两家公司，同一天，抢着降价</source>
+      <description>两家公司，同一天，抢着降价 2026-09-27 · 人工智能 9月22日，AI 圈出了件挺少见的事：OpenAI 和 Anthropic，两个死对头，隔了不到一个小时，先后把新模型摆上货架。而且这次抢的不是&amp;quot;谁更强&amp;quot;，是&amp;quot;谁更便宜&amp;quot;。 这年头，降价是个稀罕词。尤其在一个人人都在喊&amp;quot;算力不够用&amp;quot;的行业里。 先看数字 Anthropic 发的是 Clau...</description>
+      <category>人工智能</category>
+      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>2026-09-27 · 人工智能</p>
+<p>9月22日，AI 圈出了件挺少见的事：OpenAI 和 Anthropic，两个死对头，隔了不到一个小时，先后把新模型摆上货架。而且这次抢的不是"谁更强"，是"谁更便宜"。</p>
+<p>这年头，降价是个稀罕词。尤其在一个人人都在喊"算力不够用"的行业里。</p>
+<h2>先看数字</h2>
+<p>Anthropic 发的是 Claude Opus 5.5。官方的说法很克制：它在大多数任务上，表现追平了自己最强的 Fable 5.1，但运行成本比上一代 Opus 5 低了 40%，输出速度还快了 30%。定价上，每百万输入 token 4 美元、输出 20 美元。</p>
+<p>OpenAI 发的是 GPT-6 Sol 和 Luna，两兄弟。Sol 管复杂活儿——编码、专业工作、跑智能体；Luna 管高频便宜的碎活儿——信息提取、文档摘要。两者价格，比起上一代 GPT-5.6 的促销价，直接腰斩。</p>
+<p>腰斩这个词，我一开始以为是小作文用词。查完发现是真的——Sol 每百万 token 2 美元进、10 美元出，Luna 更狠，0.10 美元进、0.50 美元出。</p>
+<h2>更便宜，不是更好心</h2>
+<p>别急着感动。降价从来不是因为公司忽然有了慈悲心。</p>
+<p>真正的原因有两层，明面上的和暗里的。</p>
+<p>明面上，是山姆·奥特曼那句话：他希望 AI 被更广泛地用起来，推动一场新的"文艺复兴"。翻译一下就是——天花板已经够高了，现在要的是"更多人来用"，而不是"再多刷几个跑分"。</p>
+<p>暗里的原因，是中文开源模型。千问、月之暗面、DeepSeek 这些家伙，用便宜到不讲道理的价格，把"性价比"这三个字焊死在了 AI 的牌桌上。美国那几家被逼得没辙，只好跟着打价格战。说到底，是有人在后面拿鞭子抽，他们才想起降价这回事。</p>
+<h2>还有个更拧巴的地方</h2>
+<p>时间点很微妙。</p>
+<p>就在这两款模型发布前不久，Anthropic 的 CEO 达里奥·阿莫代伊刚公开喊过话，说"前沿 AI 的开发应该放慢脚步"。结果话音没落，自己家先上新了，还比上一代便宜四成。</p>
+<p>有人拿这个说事，说他嘴上喊慢、手上没停。我倒觉得，这俩不矛盾。放慢的是"往前沿极限再冲一档"的野心，没停的是"把已有的能力，用更便宜的方式铺开"。一个是百米冲刺，一个是把跑道铺到更多地方。你可以一边喊"别跑太快"，一边把门票降价——这本来就是一回事的两面。</p>
+<p>更值得留意的是安全。Opus 5.5 发布前，过了 Frontier Design、METR 这些外部机构的安全测试，Anthropic 说它"越界尝试"的次数比前代少了 85%。OpenAI 那两款，也在推理、事实可靠性、对齐上做了收紧。</p>
+<p>翻译成大白话：以前是"又快又强，但有点野"，现在是"慢半拍，稳一点，还便宜"。这大概就是"AI 威胁论"吵了一阵子之后，行业给出的一个不那么显眼的回应。</p>
+<h2>一句话</h2>
+<p>这周 AI 圈最大的新闻，不是谁又破了什么纪录，而是两家头部公司，在同一天，把"更便宜"当成了新模型的头号卖点。</p>
+<p>这信号其实挺清楚：AI 的竞赛，从"谁更强"这一局，悄悄滑到了"谁更便宜、更快、更能铺开"这一局。跑分的时代也许还没结束，但算账的时代，已经来了。</p>
+<blockquote>
+<p>本文事实来自 OpenAI、Anthropic 官方公告，及每日经济新闻、中新经纬、光明网等交叉印证，逐条信源见「<a href="/notes/AI%20%E5%8A%A8%E6%80%81%E8%BF%BD%E8%B8%AA.html" target="_blank">AI 动态追踪</a>」。本期只写"同日降价"一个主题。</p>
+</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Atlas：让机器学会&amp;quot;进入&amp;quot;</title>
+      <link>https://shenliliaff.github.io/blog/2026-09-20-atlas-lets-machines-enter.html</link>
+      <guid>https://shenliliaff.github.io/blog/2026-09-20-atlas-lets-machines-enter.html</guid>
+      <source url="https://shenliliaff.github.io/rss.xml">Atlas：让机器学会&amp;quot;进入&amp;quot;</source>
+      <description>Atlas：让机器学会&amp;quot;进入&amp;quot; 2026-09-20 · 人工智能 九月初，李飞飞创办的 World Labs 发布了一款新模型，叫 Atlas。 在希腊神话里，阿特拉斯是用肩膀扛天的巨人。我不知道取名字的人有没有想到这一层，但这个名字让我愣了一下——因为李飞飞这次要扛的东西，比&amp;quot;让机器看懂一张图&amp;quot;重得多，而且重得有点不讲道理。 从&amp;quot;看见&amp;quot;到&amp;quot;进入&amp;quot; ...</description>
+      <category>人工智能</category>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>2026-09-20 · 人工智能</p>
+<p>九月初，李飞飞创办的 World Labs 发布了一款新模型，叫 Atlas。</p>
+<p>在希腊神话里，阿特拉斯是用肩膀扛天的巨人。我不知道取名字的人有没有想到这一层，但这个名字让我愣了一下——因为李飞飞这次要扛的东西，比"让机器看懂一张图"重得多，而且重得有点不讲道理。</p>
+<h2>从"看见"到"进入"</h2>
+<p>我最早记住李飞飞，是因为 ImageNet。</p>
+<p>在那之前，计算机视觉在原地打转了挺久。大家都忙着改进算法，收效甚微。李飞飞的判断和别人不一样：问题不在模型，在数据。她花了三年，顶着同行"这是浪费时间"的质疑，建起了一千四百多万张人工标注的图像库。后来的事我们都知道了——2012 年 AlexNet 在这个数据集上一战成名，深度学习换了赛道。</p>
+<p>那是让机器第一次"看见"。</p>
+<p>而 Atlas 要做的，是让机器第一次"进入"。从"看见"到"进入"，听着像是一小步，其实隔着一整座山。</p>
+<h2>几张照片，一个可以走进去的世界</h2>
+<p>Atlas 的本事，我尽量用大白话说。</p>
+<p>给它两到三张真实场景的照片，它能重建出一个三维空间。不是那种只能转着看的模型，是你可以走进去、可以动手改的那种。官方说，它对空间的理解，已经超过了专门做三维重建的最先进模型。</p>
+<p>再给它一条相机路径，它能生成一分钟的视频，最高 1440p。让我觉得有意思的，不是"能生成视频"——这年头会生成视频的模型比会做饭的人还多——而是它把相机的移动当成一种精确的输入。镜头往哪走、走多快，像导演一样指，而不是靠一句"镜头缓缓推近"这种糊弄人的话去猜。</p>
+<p>还有一件事，普通观众大概不会在意，但做机器人的人会。从一段手机拍的视频里抽二十四帧，它就能重建一个大环境，顺便把机器人传感器要用的那些数据也生出来。这意味着什么，先卖个关子。</p>
+<h2>语言已经到顶了</h2>
+<p>李飞飞不止一次说过一个判断：语言模型正在撞墙。</p>
+<p>她的理由我大致明白。文字是扁平的。它没有深度，没有运动，没有后果。一句话说错了，改回来就是，天塌不下来。但物理世界不是这么好说话的地方。一个机器人伸出手，抓错了位置，东西会掉下来；一辆车判断错了距离，是会真的撞上去的。</p>
+<p>所以 Atlas 要解决的，不是"生成更漂亮的视频"，而是让机器真的懂空间——懂物体之间的远近、遮挡、因果。这不是个图像问题，是个世界问题。世界问题，向来比文字问题难伺候得多。</p>
+<h2>为什么是现在</h2>
+<p>把时间线铺开，会发现这次发布不是孤零零冒出来的。</p>
+<p>今年二月，World Labs 完成了十亿美元的融资，估值到了五十亿美元上下，英伟达、AMD 都在名单里。七月，它收购了一家做机器人仿真的公司 SceniX。再到九月，Atlas 发布，官方明说：Atlas 会驱动它现有产品 Marble 的下一代。</p>
+<p>这三步连起来，指的都是同一个地方：机器人。</p>
+<p>训练一个机器人，最难的不是算法，是数据。真实世界的数据又贵又慢，所以行业的土办法是"先在数字世界里练，再回现实里用"。一个能高保真重建物理世界的模型，正好是这个环节里最值钱的那块。Atlas 的价码，也许不在它自己身上，而在它让"训练机器人"这件事头一回有了个可规模化的入口。翻译成大白话就是：以前得真金白银搭场地、抓数据，现在可以先在电脑里折腾了。</p>
+<h2>一点私人的想法</h2>
+<p>读完这些材料，我脑子里挥之不去的，是很久以前读到的一句话。李飞飞在她的 TED 演讲里说，她梦想有一天能唤醒一台电脑，让它"看见一个充满温暖、同情与爱的世界"，但眼下，我们得先教会它"看见"。</p>
+<p>从 ImageNet 到 Atlas，中间隔了差不多十五年。她当年要教机器"看见"，现在要教机器"进入"。</p>
+<p>我有时候会想，技术走到最后，真正难的从来不是算法，而是我们愿不愿意把自己对世界的理解，一点点地，教给一个还什么都不懂的机器。这既是一种托付，也是一种冒险。换个角度讲，这事儿还挺像养孩子的——只不过这个孩子，学东西快得吓人，而且不太会抱怨。</p>
+<blockquote>
+<p>本文事实均来自 World Labs 官方发布与公开融资记录，逐条信源见「<a href="/notes/AI%20%E5%8A%A8%E6%80%81%E8%BF%BD%E8%B8%AA.html" target="_blank">AI 动态追踪</a>」。本期只写 Atlas 一个主题。</p>
+</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>口播脚本 · 两家公司，同一天，抢着降价</title>
+      <link>https://shenliliaff.github.io/notes/%E5%8F%A3%E6%92%AD%E8%84%9A%E6%9C%AC.html</link>
+      <guid>https://shenliliaff.github.io/notes/%E5%8F%A3%E6%92%AD%E8%84%9A%E6%9C%AC.html</guid>
+      <source url="https://shenliliaff.github.io/rss.xml">口播脚本 · 两家公司，同一天，抢着降价</source>
+      <description>口播脚本 · 两家公司，同一天，抢着降价 时长约 45 秒 · 目标平台：短视频（数字人口播） 【开场 · 0-6 秒】 9月22号，AI 圈出了件少见的事。OpenAI 和 Anthropic 两个死对头，隔了不到一小时，先后把新模型摆上货架。这次抢的不是谁更强，是谁更便宜。 【主体 · 6-35 秒】 Anthropic 发了 Claude Opu...</description>
+      <pubDate>Sun, 27 Sep 2026 06:22:18 GMT</pubDate>
+      <content:encoded><![CDATA[
+<blockquote>
+<p>时长约 45 秒 · 目标平台：短视频（数字人口播）</p>
+</blockquote>
+<p>【开场 · 0-6 秒】
+9月22号，AI 圈出了件少见的事。OpenAI 和 Anthropic 两个死对头，隔了不到一小时，先后把新模型摆上货架。这次抢的不是谁更强，是谁更便宜。</p>
+<p>【主体 · 6-35 秒】
+Anthropic 发了 Claude Opus 5.5，表现追平自己最强的 Fable，成本却降了四成。
+OpenAI 发了 GPT-6 Sol 和 Luna，价格比起上一代，直接腰斩。</p>
+<p>别急着感动。降价从来不是因为公司有了慈悲心。明面上，是奥特曼想推动一场"文艺复兴"；暗地里，是千问、DeepSeek 这些国产开源模型，用不讲道理的低价，把"性价比"焊死在了牌桌上。有人拿鞭子抽，他们才想起降价这回事。</p>
+<p>【收尾 · 35-45 秒】
+所以这周最大的新闻，不是谁破了纪录，而是两家头部，在同一天，把"更便宜"当成了头号卖点。AI 的竞赛，从"谁更强"，悄悄滑到了"谁更便宜、更快、更能铺开"。跑分的时代还没结束，算账的时代，已经来了。</p>
+<p>我是 Feng，我们下期见。</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>Reading Search Sidebar Redirect</title>
       <link>https://shenliliaff.github.io/superpowers/specs/2026-09-10-reading-search-sidebar-design.html</link>
