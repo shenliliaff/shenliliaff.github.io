@@ -56,7 +56,7 @@ order: -9
 
 ## OpenAI
 
-- **2026-09-22** — GPT-6 系列扩展，新增 **GPT-6 Sol** 与 **GPT-6 Luna**；Astra 面向全部订阅用户与 API 开放。
+- **2026-09-22** — 发布 **GPT-6 Sol / Luna**，API 价格较 GPT-5.6 促销价下调 50%（长期定价）。Sol $2/$10（输入/输出，每 1M token），定位编码、专业工作、智能体；Luna $0.10/$0.50，定位高频低成本（信息提取、摘要）。已上线 ChatGPT Work、Codex 及 API。距离 Astra 发布不到三周。
 - **2026-09-04** — 发布 **GPT-6 Astra**，自称「最智能且对齐最好的模型」。FrontierMath Tier 4 达 98%，ARC-AGI-3 达 99.9%，ExploitBench 100%。API 定价 $10/1M 输入、$50/1M 输出。
 
 ## Google DeepMind
@@ -66,8 +66,14 @@ order: -9
 
 ## Anthropic
 
-- **2026-09-22** — 发布 **Claude Opus 5.5**，性能对齐 Fable 5.1，运行成本比 Opus 5 低 40%。
+- **2026-09-22** — 发布 **Claude Opus 5.5**（5.5 系列首款）。表现对齐 Fable 5.1，运行成本较 Opus 5 低 40%，输出速度 +30%。API 定价 $4/$20（每 1M token），单价较 Opus 5 下调 20%。发布前经 Frontier Design、METR 外部安全测试，越界尝试次数较 Opus 5 / Mythos 5.1 减 85%。未来几周将推 Sonnet 5.5 / Haiku 5.5。
 - **2026-09-01** — 发布 **Claude Fable 5.1 / Mythos 5.1**，面向编码与知识工作的最强模型。
+
+## 其他巨头动向（9 月下旬）
+
+- **2026-09-22** — xAI 发布 **Grok 4.7**（$2/$6，500K 上下文）；同日高通发布骁龙 8 Elite Gen 6（台积电 2nm，端侧可跑 300 亿参数 MoE）。
+- **2026-09-25** — 微软将 **Copilot** 重构为 agentic「办公 OS」，分 Home / Code / Autopilot 三层，合并消费端与企业端。
+- **2026-09-20** — 三家前沿实验室同日发布网络安全 AI 工具（Google Gemini 3.8 Flash Cyber / Anthropic Fable 5.1 / OpenAI Astra 满足 Preparedness Critical 门槛）。
 
 ## 马斯克 & 星链
 

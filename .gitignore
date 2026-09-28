@@ -17,3 +17,5 @@ docs/_temp/
 
 # GoodSync
 _gsdata_/
+# pnpm 本地构建配置
+pnpm-workspace.yaml
