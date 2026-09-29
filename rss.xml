@@ -6,8 +6,8 @@
     <link>https://shenliliaff.github.io/</link>
     <description>fengsKB 个人知识库</description>
     <language>zh-CN</language>
-    <pubDate>Tue, 29 Sep 2026 03:02:42 GMT</pubDate>
-    <lastBuildDate>Tue, 29 Sep 2026 03:02:42 GMT</lastBuildDate>
+    <pubDate>Tue, 29 Sep 2026 03:43:46 GMT</pubDate>
+    <lastBuildDate>Tue, 29 Sep 2026 03:43:46 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>人工智能</category>
@@ -123,7 +123,7 @@
 <p>这周 AI 圈最大的新闻，不是谁又破了什么纪录，而是两家头部公司，在同一天，把"更便宜"当成了新模型的头号卖点。</p>
 <p>这信号其实挺清楚：AI 的竞赛，从"谁更强"这一局，悄悄滑到了"谁更便宜、更快、更能铺开"这一局。跑分的时代也许还没结束，但算账的时代，已经来了。</p>
 <blockquote>
-<p>本文事实来自 OpenAI、Anthropic 官方公告，及每日经济新闻、中新经纬、光明网等交叉印证，逐条信源见「<a href="/notes/AI%20%E5%8A%A8%E6%80%81%E8%BF%BD%E8%B8%AA.html" target="_blank">AI 动态追踪</a>」。本期只写"同日降价"一个主题。</p>
+<p>本文事实来自 OpenAI、Anthropic 官方公告，及每日经济新闻、中新经纬、光明网等交叉印证，逐条信源见「[AI 动态追踪](../notes/AI 动态追踪.md)」。本期只写"同日降价"一个主题。</p>
 </blockquote>
 ]]></content:encoded>
     </item>
@@ -164,7 +164,7 @@
 <p>从 ImageNet 到 Atlas，中间隔了差不多十五年。她当年要教机器"看见"，现在要教机器"进入"。</p>
 <p>我有时候会想，技术走到最后，真正难的从来不是算法，而是我们愿不愿意把自己对世界的理解，一点点地，教给一个还什么都不懂的机器。这既是一种托付，也是一种冒险。换个角度讲，这事儿还挺像养孩子的——只不过这个孩子，学东西快得吓人，而且不太会抱怨。</p>
 <blockquote>
-<p>本文事实均来自 World Labs 官方发布与公开融资记录，逐条信源见「<a href="/notes/AI%20%E5%8A%A8%E6%80%81%E8%BF%BD%E8%B8%AA.html" target="_blank">AI 动态追踪</a>」。本期只写 Atlas 一个主题。</p>
+<p>本文事实均来自 World Labs 官方发布与公开融资记录，逐条信源见「[AI 动态追踪](../notes/AI 动态追踪.md)」。本期只写 Atlas 一个主题。</p>
 </blockquote>
 ]]></content:encoded>
     </item>
