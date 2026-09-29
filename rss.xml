@@ -6,8 +6,8 @@
     <link>https://shenliliaff.github.io/</link>
     <description>fengsKB 个人知识库</description>
     <language>zh-CN</language>
-    <pubDate>Tue, 29 Sep 2026 00:04:35 GMT</pubDate>
-    <lastBuildDate>Tue, 29 Sep 2026 00:04:35 GMT</lastBuildDate>
+    <pubDate>Tue, 29 Sep 2026 03:02:42 GMT</pubDate>
+    <lastBuildDate>Tue, 29 Sep 2026 03:02:42 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>人工智能</category>
@@ -16,11 +16,12 @@
       <link>https://shenliliaff.github.io/blog/2026-09-29-feifei-li-sells-world-labs-to-amd.html</link>
       <guid>https://shenliliaff.github.io/blog/2026-09-29-feifei-li-sells-world-labs-to-amd.html</guid>
       <source url="https://shenliliaff.github.io/rss.xml">李飞飞把公司卖了 82 亿，她说宇宙不是由文字组成的</source>
-      <description>李飞飞把公司卖了 82 亿，她说宇宙不是由文字组成的 2026-09-29 · 人工智能 九月二十八号，周一。AMD 发了条新闻稿：以全股票交易收购 World Labs，价值约 82 亿美元，折人民币约 550 亿。 World Labs 成立两年多。 我看到这条消息的时候正在吃早饭，第一反应不是&amp;quot;好贵&amp;quot;，是——她居然卖了。 一家不打算卖的公司 Wo...</description>
+      <description>李飞飞把公司卖了 82 亿，她说宇宙不是由文字组成的 2026-09-29 · 人工智能 AMD 收购 World Labs 九月二十八号，周一。AMD 发了条新闻稿：以全股票交易收购 World Labs，价值约 82 亿美元，折人民币约 550 亿。 World Labs 成立两年多。 我看到这条消息的时候正在吃早饭，第一反应不是&amp;quot;好贵&amp;quot;，是——她...</description>
       <category>人工智能</category>
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
       <content:encoded><![CDATA[
 <p>2026-09-29 · 人工智能</p>
+<img src="/covers/2026-09-29-cover.png" alt="AMD 收购 World Labs" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
 <p>九月二十八号，周一。AMD 发了条新闻稿：以全股票交易收购 World Labs，价值约 82 亿美元，折人民币约 550 亿。</p>
 <p>World Labs 成立两年多。</p>
 <p>我看到这条消息的时候正在吃早饭，第一反应不是"好贵"，是——<strong>她居然卖了。</strong></p>
@@ -50,11 +51,12 @@
       <link>https://shenliliaff.github.io/blog/2026-09-28-feifei-li-calls-for-independent-ai-oversight.html</link>
       <guid>https://shenliliaff.github.io/blog/2026-09-28-feifei-li-calls-for-independent-ai-oversight.html</guid>
       <source url="https://shenliliaff.github.io/rss.xml">李飞飞说，别让造 AI 的人自己给自己打分</source>
-      <description>李飞飞说，别让造 AI 的人自己给自己打分 2026-09-28 · 人工智能 九月下旬，李飞飞说了一句话，被彭博社转了出去，接着国内的科创板日报、财联社、36氪跟着转了一圈。 这句话拆开来看，其实没什么新鲜的：AI 系统越来越强，安全评估这件事，不能只由造它的公司自己说了算。 但说这话的人，是李飞飞。 这就有意思了。 自己考自己，分数不会太难看 她的...</description>
+      <description>李飞飞说，别让造 AI 的人自己给自己打分 2026-09-28 · 人工智能 AI 独立监管 九月下旬，李飞飞说了一句话，被彭博社转了出去，接着国内的科创板日报、财联社、36氪跟着转了一圈。 这句话拆开来看，其实没什么新鲜的：AI 系统越来越强，安全评估这件事，不能只由造它的公司自己说了算。 但说这话的人，是李飞飞。 这就有意思了。 自己考自己，分数...</description>
       <category>人工智能</category>
       <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
       <content:encoded><![CDATA[
 <p>2026-09-28 · 人工智能</p>
+<img src="/covers/2026-09-28-cover.png" alt="AI 独立监管" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
 <p>九月下旬，李飞飞说了一句话，被彭博社转了出去，接着国内的科创板日报、财联社、36氪跟着转了一圈。</p>
 <p>这句话拆开来看，其实没什么新鲜的：AI 系统越来越强，安全评估这件事，不能只由造它的公司自己说了算。</p>
 <p>但说这话的人，是李飞飞。</p>
@@ -94,11 +96,12 @@
       <link>https://shenliliaff.github.io/blog/2026-09-27-two-companies-cut-prices-same-day.html</link>
       <guid>https://shenliliaff.github.io/blog/2026-09-27-two-companies-cut-prices-same-day.html</guid>
       <source url="https://shenliliaff.github.io/rss.xml">两家公司，同一天，抢着降价</source>
-      <description>两家公司，同一天，抢着降价 2026-09-27 · 人工智能 9月22日，AI 圈出了件挺少见的事：OpenAI 和 Anthropic，两个死对头，隔了不到一个小时，先后把新模型摆上货架。而且这次抢的不是&amp;quot;谁更强&amp;quot;，是&amp;quot;谁更便宜&amp;quot;。 这年头，降价是个稀罕词。尤其在一个人人都在喊&amp;quot;算力不够用&amp;quot;的行业里。 先看数字 Anthropic 发的是 Clau...</description>
+      <description>两家公司，同一天，抢着降价 2026-09-27 · 人工智能 两家公司同一天抢着降价 9月22日，AI 圈出了件挺少见的事：OpenAI 和 Anthropic，两个死对头，隔了不到一个小时，先后把新模型摆上货架。而且这次抢的不是&amp;quot;谁更强&amp;quot;，是&amp;quot;谁更便宜&amp;quot;。 这年头，降价是个稀罕词。尤其在一个人人都在喊&amp;quot;算力不够用&amp;quot;的行业里。 先看数字 Anthro...</description>
       <category>人工智能</category>
       <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
       <content:encoded><![CDATA[
 <p>2026-09-27 · 人工智能</p>
+<img src="/covers/2026-09-27-cover.png" alt="两家公司同一天抢着降价" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
 <p>9月22日，AI 圈出了件挺少见的事：OpenAI 和 Anthropic，两个死对头，隔了不到一个小时，先后把新模型摆上货架。而且这次抢的不是"谁更强"，是"谁更便宜"。</p>
 <p>这年头，降价是个稀罕词。尤其在一个人人都在喊"算力不够用"的行业里。</p>
 <h2>先看数字</h2>
@@ -129,11 +132,12 @@
       <link>https://shenliliaff.github.io/blog/2026-09-20-atlas-lets-machines-enter.html</link>
       <guid>https://shenliliaff.github.io/blog/2026-09-20-atlas-lets-machines-enter.html</guid>
       <source url="https://shenliliaff.github.io/rss.xml">Atlas：让机器学会&amp;quot;进入&amp;quot;</source>
-      <description>Atlas：让机器学会&amp;quot;进入&amp;quot; 2026-09-20 · 人工智能 九月初，李飞飞创办的 World Labs 发布了一款新模型，叫 Atlas。 在希腊神话里，阿特拉斯是用肩膀扛天的巨人。我不知道取名字的人有没有想到这一层，但这个名字让我愣了一下——因为李飞飞这次要扛的东西，比&amp;quot;让机器看懂一张图&amp;quot;重得多，而且重得有点不讲道理。 从&amp;quot;看见&amp;quot;到&amp;quot;进入&amp;quot; ...</description>
+      <description>Atlas：让机器学会&amp;quot;进入&amp;quot; 2026-09-20 · 人工智能 Atlas 让机器学会进入 九月初，李飞飞创办的 World Labs 发布了一款新模型，叫 Atlas。 在希腊神话里，阿特拉斯是用肩膀扛天的巨人。我不知道取名字的人有没有想到这一层，但这个名字让我愣了一下——因为李飞飞这次要扛的东西，比&amp;quot;让机器看懂一张图&amp;quot;重得多，而且重得有点不讲道...</description>
       <category>人工智能</category>
       <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
       <content:encoded><![CDATA[
 <p>2026-09-20 · 人工智能</p>
+<img src="/covers/2026-09-20-cover.png" alt="Atlas 让机器学会进入" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
 <p>九月初，李飞飞创办的 World Labs 发布了一款新模型，叫 Atlas。</p>
 <p>在希腊神话里，阿特拉斯是用肩膀扛天的巨人。我不知道取名字的人有没有想到这一层，但这个名字让我愣了一下——因为李飞飞这次要扛的东西，比"让机器看懂一张图"重得多，而且重得有点不讲道理。</p>
 <h2>从"看见"到"进入"</h2>

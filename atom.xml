@@ -4,7 +4,7 @@
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
   <icon>https://shenliliaff.github.io/fengskb-icon.svg</icon>
-  <updated>2026-09-29T00:04:35.060Z</updated>
+  <updated>2026-09-29T03:02:42.655Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://shenliliaff.github.io/atom.xml"/>
   <link rel="alternate" href="https://shenliliaff.github.io/"/>
@@ -13,16 +13,16 @@
     <title type="text">李飞飞把公司卖了 82 亿，她说宇宙不是由文字组成的</title>
     <id>https://shenliliaff.github.io/blog/2026-09-29-feifei-li-sells-world-labs-to-amd.html</id>
     <link href="https://shenliliaff.github.io/blog/2026-09-29-feifei-li-sells-world-labs-to-amd.html"/>
-    <updated>2026-09-29T00:03:37.000Z</updated>
+    <updated>2026-09-29T02:56:05.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-09-29 · 人工智能</p>
+<img src="/covers/2026-09-29-cover.png" alt="AMD 收购 World Labs" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
 <p>九月二十八号，周一。AMD 发了条新闻稿：以全股票交易收购 World Labs，价值约 82 亿美元，折人民币约 550 亿。</p>
 <p>World Labs 成立两年多。</p>
-<p>我看到这条消息的时候正在吃早饭，第一反应不是"好贵"，是——<strong>她居然卖了。</strong></p>
-<h2>一家不打算卖的公司</h2>
-<p>World Labs 这两个月还挺忙的。九月一号刚发了 Atlas，全模态世界模型，几张照片就能重建出可以走进去的三维空间。七月收了 SceniX，做机器人仿真。今年一月出了 World API。</p>]]></summary>
+<p>我看到这条消息的时候正在吃早饭，第一反应不是"好贵"，是——<strong>她居然卖了。</strong></p>]]></summary>
     <content type="html"><![CDATA[
 <p>2026-09-29 · 人工智能</p>
+<img src="/covers/2026-09-29-cover.png" alt="AMD 收购 World Labs" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
 <p>九月二十八号，周一。AMD 发了条新闻稿：以全股票交易收购 World Labs，价值约 82 亿美元，折人民币约 550 亿。</p>
 <p>World Labs 成立两年多。</p>
 <p>我看到这条消息的时候正在吃早饭，第一反应不是"好贵"，是——<strong>她居然卖了。</strong></p>
@@ -53,18 +53,17 @@
     <title type="text">李飞飞说，别让造 AI 的人自己给自己打分</title>
     <id>https://shenliliaff.github.io/blog/2026-09-28-feifei-li-calls-for-independent-ai-oversight.html</id>
     <link href="https://shenliliaff.github.io/blog/2026-09-28-feifei-li-calls-for-independent-ai-oversight.html"/>
-    <updated>2026-09-28T07:22:12.000Z</updated>
+    <updated>2026-09-29T02:56:05.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-09-28 · 人工智能</p>
+<img src="/covers/2026-09-28-cover.png" alt="AI 独立监管" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
 <p>九月下旬，李飞飞说了一句话，被彭博社转了出去，接着国内的科创板日报、财联社、36氪跟着转了一圈。</p>
 <p>这句话拆开来看，其实没什么新鲜的：AI 系统越来越强，安全评估这件事，不能只由造它的公司自己说了算。</p>
 <p>但说这话的人，是李飞飞。</p>
-<p>这就有意思了。</p>
-<h2>自己考自己，分数不会太难看</h2>
-<p>她的原话大意是这样：AI 公司内部的研究人员，可以测出单个模型的能力和安全属性，但这取代不了政府、学术界、产业界一起建立的那套更宽的标准。</p>
-<p>"我仍然相信独立机构和学术界这些公共部门制定基准的重要性，以及产业界和政府共同承担责任的重要性。"</p>]]></summary>
+<p>这就有意思了。</p>]]></summary>
     <content type="html"><![CDATA[
 <p>2026-09-28 · 人工智能</p>
+<img src="/covers/2026-09-28-cover.png" alt="AI 独立监管" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
 <p>九月下旬，李飞飞说了一句话，被彭博社转了出去，接着国内的科创板日报、财联社、36氪跟着转了一圈。</p>
 <p>这句话拆开来看，其实没什么新鲜的：AI 系统越来越强，安全评估这件事，不能只由造它的公司自己说了算。</p>
 <p>但说这话的人，是李飞飞。</p>
@@ -105,15 +104,16 @@
     <title type="text">两家公司，同一天，抢着降价</title>
     <id>https://shenliliaff.github.io/blog/2026-09-27-two-companies-cut-prices-same-day.html</id>
     <link href="https://shenliliaff.github.io/blog/2026-09-27-two-companies-cut-prices-same-day.html"/>
-    <updated>2026-09-28T06:56:10.000Z</updated>
+    <updated>2026-09-29T02:56:05.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-09-27 · 人工智能</p>
+<img src="/covers/2026-09-27-cover.png" alt="两家公司同一天抢着降价" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
 <p>9月22日，AI 圈出了件挺少见的事：OpenAI 和 Anthropic，两个死对头，隔了不到一个小时，先后把新模型摆上货架。而且这次抢的不是"谁更强"，是"谁更便宜"。</p>
 <p>这年头，降价是个稀罕词。尤其在一个人人都在喊"算力不够用"的行业里。</p>
-<h2>先看数字</h2>
-<p>Anthropic 发的是 Claude Opus 5.5。官方的说法很克制：它在大多数任务上，表现追平了自己最强的 Fable 5.1，但运行成本比上一代 Opus 5 低了 40%，输出速度还快了 30%。定价上，每百万输入 token 4 美元、输出 20 美元。</p>]]></summary>
+<h2>先看数字</h2>]]></summary>
     <content type="html"><![CDATA[
 <p>2026-09-27 · 人工智能</p>
+<img src="/covers/2026-09-27-cover.png" alt="两家公司同一天抢着降价" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
 <p>9月22日，AI 圈出了件挺少见的事：OpenAI 和 Anthropic，两个死对头，隔了不到一个小时，先后把新模型摆上货架。而且这次抢的不是"谁更强"，是"谁更便宜"。</p>
 <p>这年头，降价是个稀罕词。尤其在一个人人都在喊"算力不够用"的行业里。</p>
 <h2>先看数字</h2>
@@ -145,16 +145,15 @@
     <title type="text">Atlas：让机器学会&amp;quot;进入&amp;quot;</title>
     <id>https://shenliliaff.github.io/blog/2026-09-20-atlas-lets-machines-enter.html</id>
     <link href="https://shenliliaff.github.io/blog/2026-09-20-atlas-lets-machines-enter.html"/>
-    <updated>2026-09-28T06:56:10.000Z</updated>
+    <updated>2026-09-29T02:56:05.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-09-20 · 人工智能</p>
+<img src="/covers/2026-09-20-cover.png" alt="Atlas 让机器学会进入" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
 <p>九月初，李飞飞创办的 World Labs 发布了一款新模型，叫 Atlas。</p>
-<p>在希腊神话里，阿特拉斯是用肩膀扛天的巨人。我不知道取名字的人有没有想到这一层，但这个名字让我愣了一下——因为李飞飞这次要扛的东西，比"让机器看懂一张图"重得多，而且重得有点不讲道理。</p>
-<h2>从"看见"到"进入"</h2>
-<p>我最早记住李飞飞，是因为 ImageNet。</p>
-<p>在那之前，计算机视觉在原地打转了挺久。大家都忙着改进算法，收效甚微。李飞飞的判断和别人不一样：问题不在模型，在数据。她花了三年，顶着同行"这是浪费时间"的质疑，建起了一千四百多万张人工标注的图像库。后来的事我们都知道了——2012 年 AlexNet 在这个数据集上一战成名，深度学习换了赛道。</p>]]></summary>
+<p>在希腊神话里，阿特拉斯是用肩膀扛天的巨人。我不知道取名字的人有没有想到这一层，但这个名字让我愣了一下——因为李飞飞这次要扛的东西，比"让机器看懂一张图"重得多，而且重得有点不讲道理。</p>]]></summary>
     <content type="html"><![CDATA[
 <p>2026-09-20 · 人工智能</p>
+<img src="/covers/2026-09-20-cover.png" alt="Atlas 让机器学会进入" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
 <p>九月初，李飞飞创办的 World Labs 发布了一款新模型，叫 Atlas。</p>
 <p>在希腊神话里，阿特拉斯是用肩膀扛天的巨人。我不知道取名字的人有没有想到这一层，但这个名字让我愣了一下——因为李飞飞这次要扛的东西，比"让机器看懂一张图"重得多，而且重得有点不讲道理。</p>
 <h2>从"看见"到"进入"</h2>
