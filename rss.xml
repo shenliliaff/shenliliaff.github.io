@@ -6,11 +6,45 @@
     <link>https://shenliliaff.github.io/</link>
     <description>fengsKB 个人知识库</description>
     <language>zh-CN</language>
-    <pubDate>Mon, 28 Sep 2026 07:23:04 GMT</pubDate>
-    <lastBuildDate>Mon, 28 Sep 2026 07:23:04 GMT</lastBuildDate>
+    <pubDate>Tue, 29 Sep 2026 00:04:35 GMT</pubDate>
+    <lastBuildDate>Tue, 29 Sep 2026 00:04:35 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>人工智能</category>
+    <item>
+      <title>李飞飞把公司卖了 82 亿，她说宇宙不是由文字组成的</title>
+      <link>https://shenliliaff.github.io/blog/2026-09-29-feifei-li-sells-world-labs-to-amd.html</link>
+      <guid>https://shenliliaff.github.io/blog/2026-09-29-feifei-li-sells-world-labs-to-amd.html</guid>
+      <source url="https://shenliliaff.github.io/rss.xml">李飞飞把公司卖了 82 亿，她说宇宙不是由文字组成的</source>
+      <description>李飞飞把公司卖了 82 亿，她说宇宙不是由文字组成的 2026-09-29 · 人工智能 九月二十八号，周一。AMD 发了条新闻稿：以全股票交易收购 World Labs，价值约 82 亿美元，折人民币约 550 亿。 World Labs 成立两年多。 我看到这条消息的时候正在吃早饭，第一反应不是&amp;quot;好贵&amp;quot;，是——她居然卖了。 一家不打算卖的公司 Wo...</description>
+      <category>人工智能</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>2026-09-29 · 人工智能</p>
+<p>九月二十八号，周一。AMD 发了条新闻稿：以全股票交易收购 World Labs，价值约 82 亿美元，折人民币约 550 亿。</p>
+<p>World Labs 成立两年多。</p>
+<p>我看到这条消息的时候正在吃早饭，第一反应不是"好贵"，是——<strong>她居然卖了。</strong></p>
+<h2>一家不打算卖的公司</h2>
+<p>World Labs 这两个月还挺忙的。九月一号刚发了 Atlas，全模态世界模型，几张照片就能重建出可以走进去的三维空间。七月收了 SceniX，做机器人仿真。今年一月出了 World API。</p>
+<p>都是往前铺路的动作，不像要收摊的。</p>
+<p>李飞飞自己写的官宣长文叫《To Seek a Newer World》，开头引了丁尼生《尤利西斯》里的句子：</p>
+<blockquote>
+<p>来吧，我的朋友们，去寻找一个更新的世界，现在尚不算晚。</p>
+</blockquote>
+<p>这话听着挺浪漫。但一个刚从斯坦福教授变成创业者、两年就把公司交出去的人，引用这句诗，味道不太一样。尤利西斯说的是出海，不是靠岸。</p>
+<h2>她给的理由，是个硬理由</h2>
+<p>公告里那句话写得挺实在：要加速进入未来，就得"扩大工作规模、扩大影响范围，并更贴近硬件"。</p>
+<p>翻译过来就是：<strong>算力不够，钱不够烧，得找个有厂子的。</strong></p>
+<p>她在长文里解释得更直接——没有专门且深度的硬件结合，AI 的计算效率和扩展规模都会跛脚，而且会一直被困在数字世界里。</p>
+<p>这个说法不新鲜。新鲜的是，她真信了，而且真去做了。</p>
+<p>今年一月 CES，苏姿丰把李飞飞请上主题演讲的舞台，公布了 Marble 在 AMD 的 MI325X 上优化后提速四倍多的成绩。李飞飞当时放话，等不及看它在 MI450 上继续进步。</p>
+<p>九个月后，苏姿丰没让她等——<strong>直接把整家公司买下来。</strong></p>
+<h2>82 亿买的是什么</h2>
+<p>先把账算清楚。</p>
+<p>| 时间 | 事件 | 金额 / 数字 |
+|</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>李飞飞说，别让造 AI 的人自己给自己打分</title>
       <link>https://shenliliaff.github.io/blog/2026-09-28-feifei-li-calls-for-independent-ai-oversight.html</link>
