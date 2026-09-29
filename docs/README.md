@@ -8,4 +8,4 @@ heroImage: /north-star-ai.svg
 heroFullScreen: false
 ---
 
-![AI 独立监管](/covers/2026-09-28-cover.png)
+![AMD 收购 World Labs](/covers/2026-09-29-cover.png)
