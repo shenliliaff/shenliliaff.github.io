@@ -10,6 +10,8 @@ order: -2
 
 2026-09-20 · 人工智能
 
+<img src="/covers/2026-09-20-cover.png" alt="Atlas 让机器学会进入" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+
 九月初，李飞飞创办的 World Labs 发布了一款新模型，叫 Atlas。
 
 在希腊神话里，阿特拉斯是用肩膀扛天的巨人。我不知道取名字的人有没有想到这一层，但这个名字让我愣了一下——因为李飞飞这次要扛的东西，比"让机器看懂一张图"重得多，而且重得有点不讲道理。

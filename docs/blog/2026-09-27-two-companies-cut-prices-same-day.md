@@ -10,6 +10,8 @@ order: -1
 
 2026-09-27 · 人工智能
 
+<img src="/covers/2026-09-27-cover.png" alt="两家公司同一天抢着降价" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+
 9月22日，AI 圈出了件挺少见的事：OpenAI 和 Anthropic，两个死对头，隔了不到一个小时，先后把新模型摆上货架。而且这次抢的不是"谁更强"，是"谁更便宜"。
 
 这年头，降价是个稀罕词。尤其在一个人人都在喊"算力不够用"的行业里。
