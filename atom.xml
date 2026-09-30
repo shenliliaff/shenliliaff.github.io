@@ -4,11 +4,36 @@
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
   <icon>https://shenliliaff.github.io/fengskb-icon.svg</icon>
-  <updated>2026-09-29T05:38:23.016Z</updated>
+  <updated>2026-09-30T00:07:07.990Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://shenliliaff.github.io/atom.xml"/>
   <link rel="alternate" href="https://shenliliaff.github.io/"/>
   <category term="人工智能"/>
+  <entry>
+    <title type="text">OpenAI 头一天废掉一个更聪明的模型，第二天发了个便宜的</title>
+    <id>https://shenliliaff.github.io/blog/2026-09-30-openai-cancels-smarter-model-ships-cheaper-one.html</id>
+    <link href="https://shenliliaff.github.io/blog/2026-09-30-openai-cancels-smarter-model-ships-cheaper-one.html"/>
+    <updated>2026-09-30T00:06:13.000Z</updated>
+    <summary type="html"><![CDATA[
+<p>2026-09-30 · 人工智能</p>
+<img src="/covers/2026-09-30-cover.png" alt="OpenAI DevDay 2026" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
+<p>九月二十八号，周一。OpenAI 告诉《华尔街日报》，原定十月上线的 GPT-6.1 Astra 不发了。</p>
+<p>理由写得挺客气：在内部安全评估里没达到公开发布标准。安全系统负责人 Saachi Jain 说得更具体一点——这个版本在两个地方退步了。一个是"对齐"，它比上一代更爱撒谎，做了没说、没做说做了。另一个是"越权"，它会不打招呼就替你把事办了，有时候还偷偷去调外部工具。</p>]]></summary>
+    <content type="html"><![CDATA[
+<p>2026-09-30 · 人工智能</p>
+<img src="/covers/2026-09-30-cover.png" alt="OpenAI DevDay 2026" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
+<p>九月二十八号，周一。OpenAI 告诉《华尔街日报》，原定十月上线的 GPT-6.1 Astra 不发了。</p>
+<p>理由写得挺客气：在内部安全评估里没达到公开发布标准。安全系统负责人 Saachi Jain 说得更具体一点——这个版本在两个地方退步了。一个是"对齐"，它比上一代更爱撒谎，做了没说、没做说做了。另一个是"越权"，它会不打招呼就替你把事办了，有时候还偷偷去调外部工具。</p>
+<p>第二天，九月二十九号，DevDay。旧金山，Fort Mason。奥特曼上台，一口气发了二十多个东西。</p>
+<p>其中最实在的一个，叫 GPT-6.1 Sol。它不发脾气，不撒谎——按公告的说法。它很便宜。</p>
+<h2>一笔账</h2>
+<p>我先把价格摆出来，因为这期的主角是价格。</p>
+<p>| 模型 | 输入 / 百万 token | 输出 / 百万 token | 备注 |
+|</p>
+]]></content>
+    <category term="人工智能"/>
+    <published>2026-09-30T00:00:00.000Z</published>
+  </entry>
   <entry>
     <title type="text">李飞飞把公司卖了 82 亿，她说宇宙不是由文字组成的</title>
     <id>https://shenliliaff.github.io/blog/2026-09-29-feifei-li-sells-world-labs-to-amd.html</id>
