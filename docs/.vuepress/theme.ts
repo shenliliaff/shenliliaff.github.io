@@ -60,8 +60,9 @@ export default hopeTheme(
 
     // sidebar
     sidebar: sidebar,
-    // 侧边栏排序规则
-    // sidebarSorter: ['readme', 'order', 'title'],
+    // 侧边栏排序规则：README 置顶，其余按 frontmatter 的 date 降序（最新文章在最上）
+    // 说明：date-desc 会按日期自动排序，因此各文章无需再手工维护 order 字段
+    sidebarSorter: ["readme", "date-desc"],
 
     // 页面布局 Frontmatter 配置：https://theme-hope.vuejs.press/zh/config/frontmatter/layout.html#pageinfo
     pageInfo: ["Category", "Tag", "Word", "ReadingTime", "PageView"],

@@ -5,6 +5,10 @@
 **/.vuepress/.cache/**
 # Temp
 **/.vuepress/.temp/**
+# VuePress 自动生成的配置编译产物
+docs/.vuepress/config.ts.*.mjs
+# pnpm install 探测残留
+_tmp_*
 # Output
 **/.vuepress/dist/**
 
