@@ -1,7 +1,13 @@
 import { defineClientConfig } from "vuepress/client";
 import { onMounted, onUnmounted } from "vue";
 
+import HotRanking from "./components/HotRanking.vue";
+
 export default defineClientConfig({
+	// 全局注册自定义组件，Markdown 中可直接写 <HotRanking />
+	enhance({ app }) {
+		app.component("HotRanking", HotRanking);
+	},
 	setup() {
 		const openReadingApp = (event: MouseEvent) => {
 			if (event.defaultPrevented || event.button !== 0 || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;

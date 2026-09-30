@@ -12,6 +12,13 @@ export default sidebar({
       children: "structure",
     },
     {
+      text: "热点榜单",
+      icon: "fa6-solid:fire",
+      prefix: "/hot/",
+      collapsible: true,
+      children: "structure",
+    },
+    {
       text: "博客文章",
       icon: "fa6-solid:feather-pointed",
       prefix: "/blog/",
