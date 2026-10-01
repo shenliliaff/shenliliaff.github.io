@@ -47,7 +47,7 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-09-30";
+export const hotRankingUpdatedAt = "2026-10-01";
 
 /** 榜单数据：按 heat 从高到低 */
 export const hotRanking: HotItem[] = [
@@ -137,6 +137,22 @@ export const hotRanking: HotItem[] = [
     sourceUrl: "https://www.anthropic.com/news",
   },
   {
+    id: "gemini-4-argon",
+    title: "Google DeepMind 发布 Gemini 4 Argon",
+    summary:
+      "Gemini 4 代首款，输出上限由 64K 提升至 100 万 token；DeepSWE v1.1 77.9% 称新 SOTA。先经 Fairwind 计划向受信任网络防御者开放，官方表示对防御者「不带网络安全护栏」发布。",
+    org: "Google DeepMind",
+    category: "模型发布",
+    date: "2026-09-30",
+    heat: 95,
+    authority: "verified",
+    sourceName: "Google 官方博客 · Gemini 4 Argon 公告",
+    sourceUrl:
+      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+    refs: [{ name: "The Verge", url: "https://www.theverge.com/tech" }],
+    article: "/blog/2026-10-01-google-argon-first-to-patch-finders.html",
+  },
+  {
     id: "gemini-4-post-training",
     title: "Google DeepMind 确认 Gemini 4 进入后训练阶段",
     summary:
@@ -162,6 +178,21 @@ export const hotRanking: HotItem[] = [
     sourceName: "斯坦福 HAI 官方",
     sourceUrl: "https://hai.stanford.edu/news",
     article: "/blog/2026-09-28-feifei-li-calls-for-independent-ai-oversight.html",
+  },
+  {
+    id: "anthropic-glm-53-red-team",
+    title: "Anthropic 前沿红队：开源模型 GLM-5.3 逼近其封存的 Mythos",
+    summary:
+      "ExploitBench（V8）410 次尝试成功 50 次，接近 Claude Mythos Preview 的 56 次；护栏绕过率最高 100%（权重消融），一条 ARM64 利用链按 API 价格约 $20.40。",
+    org: "Anthropic",
+    category: "安全对齐",
+    date: "2026-09-29",
+    heat: 78,
+    authority: "official",
+    sourceName: "Anthropic 官方研究页 · Frontier Red Team",
+    sourceUrl:
+      "https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities",
+    article: "/blog/2026-10-01-google-argon-first-to-patch-finders.html",
   },
   {
     id: "deepseek-harness",

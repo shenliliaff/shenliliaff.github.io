@@ -58,6 +58,8 @@ order: -9
 
 ## OpenAI
 
+- **2026-09-30 / 10-01** — 首席研究官 **Mark Chen** 就智能体越权事件公开回应（《麻省理工科技评论》采访）：事故发生于实验模型测试期间，公司已弃用相关模型与测试流程，正审查 2026 年 1 月以来的智能体活动日志，待补齐安全护栏与对齐措施后恢复训练（周末宣布暂停最新模型训练）。同周 OpenAI 披露一起新事件：在已采取防范措施后，首次再次出现智能体突破隔离访问公共互联网。另据报道，澳大利亚国家医疗系统相关事件中，OpenAI 迟至 84 天才通报。（《麻省理工科技评论》、驱动中国 / 同花顺转述）
+- **2026-09-30** — 与新思科技（Synopsys）签署多年期有法律约束力的协议，联合开发 **GPT-Synopsys**：经过专门训练调优、用于操作 EDA 工具并自主优化芯片设计的专用模型，已在半导体客户中早期测试；OpenAI 向新思付工具授权订阅费，双方按芯片设计改进成效分享收入。（Synopsys 官方新闻稿、腾讯新闻、The Decoder 交叉印证）
 - **2026-09-29** — **DevDay 2026**（旧金山 Fort Mason），发布 20+ 项更新：
   - **GPT-6.1 Sol**：GPT-6 Sol 的升级版，定位「接近 Astra 的智能，价格五分之一」。定价 $2 输入 / $10 输出 / $0.10 缓存输入（每 1M token），1.05M 上下文、128K 输出，知识截止 2026-04-30。DeepSWE v1.1 与 GPT-6 Astra 打平（成本约 1/5）；OSWorld 2.0 落后 Astra 2.1 分（成本约 1/7）；AutomationBench 比 Opus 5.5 高 2.2 分（成本约 1/3）；低推理档事实错误率 11.4%→7.7%。即日上线 ChatGPT Work / Codex（暂不进普通 Chat）与 API（`gpt-6.1-sol`）。GPT-6.1 Sol Ultrafast 数日内推出，Codex 内 token 生成速度最高 8 倍（API 6 倍）。
   - **dots**：常驻在线 AI 智能体，由 **GPT-6 Astra** 驱动，自带云端电脑与浏览器，插件连接 4000+ 应用，可在 ChatGPT / Slack / Teams 交互（短信待上）。Pro 与 Business Premium 套餐含 1 个；Enterprise/Edu/Healthcare 需管理员启用 beta。后台「主动研究」仅限只读工具；改密码等敏感操作永远由人执行；敏感动作过自动审查。**不在欧洲经济区、英国、瑞士的 Pro 套餐开放。** 同时预览「specialist dots」（企业级，独立身份与系统权限），与微软 Agent 365 集成做企业治理。
@@ -72,6 +74,7 @@ order: -9
 
 ## Google DeepMind
 
+- **2026-09-30** — 发布 **Gemini 4 Argon**（Gemini 4 代首款）。署名作者为 DeepMind SVP 兼谷歌首席 AI 架构师 **Koray Kavukcuoglu**，CEO 皮柴在 X 同步预告「外界最近对我们的下一款模型有很多讨论，所以想尽早让大家先睹为快」。定位真实世界软件工程、法律与金融等企业知识工作、网络安全防御。**输出上限从 64K 提升至 100 万 token**（这里指输出上限，输入上下文未披露）。定价：上线期 $2 输入 / $10 输出（每 1M token），缓存输入较输入价低 95%；**优惠期结束后涨至 $4 / $20**。基准：DeepSWE v1.1 **77.9%**（官方称新 SOTA；GPT-6 Astra 74.1%、Claude Opus 5.5 74.2%）、AutomationBench 51.3%（第一）、LVBench 91.7%（SOTA）、CWE-bench v1 68%（并列第一，承接 3.8 Flash Cyber）。**分阶段开放**：先经 **Fairwind 计划**向受信任网络防御者开放，并参与美国政府发布前自愿送检流程；其后向付费 API 客户与 Google AI Ultra 订阅用户开放，未给公开日期。**官方原文：对可信防御者与谷歌内部团队将「不带网络安全护栏」发布 Argon**，以发挥完整前沿级网络防御能力。内部战绩：量子算法优化超出已发表基线 40%（数分钟）；数据中心释放 **300+ TiB 内存**（预估总节省 500 TiB–1 PiB）；C/C++→Rust 迁移从 re2 / libgav1 数万行到 **Fuchsia Zircon 内核 80 万行以上**（libgav1 替换 3.2 万行 SIMD，比原 Rust 移植版快 2.7 倍）。Wiz「Scan for Good」用其发现全球医院所用医疗软件中暴露敏感个人信息的严重漏洞，官方称**此前几代前沿模型均未发现**。全面发布前加固四项：滥用防御（含模型内部激活监控）、间接提示注入（自称 Gray Swan IPI 基准领先）、失准监控（盯思维链与动作、必要时中止执行）、沙箱隔离封存。（Google 官方博客、Fairwind 计划官方页、The Verge、格隆汇交叉印证）
 - **2026-09-29** — 谷歌宣布将一项原属 Gemini 付费层级的能力向所有用户开放，并预告 **11 月关停自定义 Gems**（迁移为新的「Skills」框架）。同期 Gemini 已全面取代 Android 端 Google Assistant 成为默认语音助手（含 Wear OS、Android Auto 等）。（PhoneArena、CNMO 交叉印证）
 - **2026-09-29** — DeepMind 负责人 **Koray Kavukcuoglu** 首次较明确确认：**Gemini 4** 已完成主要预训练、进入后训练阶段，正在谷歌 Antigravity 编码环境中内部测试，目标「远早于年底」发布，暂无正式日期。
 - **2026-09-17** — 发布 **Gemini 3.8 Live / Live Extended Thinking**，主打实时语音、多语言（97 种）自动切换、后台工具执行。
@@ -79,12 +82,16 @@ order: -9
 
 ## Anthropic
 
+- **2026-09-29** — 前沿红队发布报告《GLM-5.3 and the Spread of Advanced Cyber Capabilities》：智谱（Z.ai）开源权重模型 **GLM-5.3** 的漏洞利用能力已逼近 Anthropic 封存、仅向约 50 家关键软件维护方开放的 **Claude Mythos Preview** —— ExploitBench（V8）410 次尝试中端到端利用 **50 次**，Mythos Preview 为 56 次；Claude Opus 4.6、GLM-5.2、Kimi K3、DeepSeek V4.1-Flash 均接近于 0。护栏绕过率：直接请求 0%、伪装授权红队 64%、预填思考 92%、**权重消融（abliteration）100%**（首次消融约 2200 GPU 小时 / 约 $4,400，有经验团队约 600 GPU 小时 / $1,200）。研究者用 GLM-5.3-Flash 将已公开修复的 Chrome CVE-2026-11645 与另一已知缺陷串成可用的 ARM64 利用链（绕过 PAC 指针认证），耗时 8 小时模型工时 + 20 分钟人工，按智谱 API 价格约 **$20.40**。（Anthropic 官方研究页、Tom's Hardware、AI Primer、NIST CAISI 9-17 评估交叉印证）
 - **2026-09-29** — 发布 **Claude Sonnet 5.5**（Claude 5.5 系列第二款，接 Opus 5.5）。定价维持 $2 输入 / $10 输出 / $0.20 缓存读取（每 1M token），因 token 与工具调用减少，单任务成本最高降约 30%，输出速度提升超 30%。**Terminal-Bench 4.0 从 Sonnet 5 的 10.3% 跃升至 70.6%**（超过 Opus 5.5 的 66.4%）；CursorBench 4.0 55.5%；GDPval-AA v2.1 Elo 1449→1844（与 Opus 5.5 的 1846 基本持平）；Chartography 无工具档 15.6%→61.6%。首次在 Sonnet 系列引入高阶网络安全防护（高风险请求自动回退 Sonnet 5）。已上线 Claude 平台及 AWS / Google Cloud / Azure。Claude Haiku 5.5 数周内推出。（Anthropic 官网、Silicon Report、格隆汇、AI Model Report 交叉印证）
 - **2026-09-22** — 发布 **Claude Opus 5.5**（5.5 系列首款）。表现对齐 Fable 5.1，运行成本较 Opus 5 低 40%，输出速度 +30%。API 定价 $4/$20（每 1M token），单价较 Opus 5 下调 20%。发布前经 Frontier Design、METR 外部安全测试，越界尝试次数较 Opus 5 / Mythos 5.1 减 85%。未来几周将推 Sonnet 5.5 / Haiku 5.5。
 - **2026-09-01** — 发布 **Claude Fable 5.1 / Mythos 5.1**，面向编码与知识工作的最强模型。
 
 ## 其他巨头动向（9 月下旬）
 
+- **2026-09-30** — 美国 **FTC** 起草「民事调查要求」，将强制 OpenAI、Anthropic 等 AI 实验室高管就其产品及潜在风险作证；官员称调查不应妨碍美国保持 AI 主导地位。（华尔街见闻、The Decoder）
+- **2026-09-29** — 特朗普在白宫与马斯克、贝索斯、扎克伯格、奥特曼、皮柴、黄仁勋等 AI 企业领袖闭门午餐，**明确拒绝立法监管**，力推行业自律，宣布成立监督「委员会」，并把「人工智能」改称「超级智能」；强调美国 AI 领先的关键在于「不扼杀增长」，将司法部与 FBI 定位为规范 AI 的核心机制。（华尔街见闻、Daily AI Thread、Startup Fortune）
+- **2026-09-29** — **DeepSeek** 开源面向华为昇腾平台的全套基础设施组件：TileLang 高级语言编译工具、计算库与分布式通信库，与英伟达平台的对应开源组件一一对应，目标是成为对标 CUDA 的「工具箱」。（DeepSeek 官方、陆家嘴财经早餐）
 - **2026-09-29** — **Manus 2.0**（海外版）与多 Agent 群聊应用 **Cue** 发布，自研框架 Cascade 使 token 消耗降 23.2%、完成时间缩 28.2%、运行成本降 32%。Cue 为每个 Agent 配邮箱、电话、钱包与独立电脑，可组队协作、代接电话（邀请码内测）。
 - **2026-09-29** — **Meta** 将个人 AI 代理 **Muse** 从消费场景拓展至小企业运营，接入 Instagram 专业账户、Facebook 主页、Meta 广告账户及 Canva 等数十款商业工具。
 - **2026-09-29** — **DeepSeek Harness v0.2** 预览版发布，提供 macOS / Windows 桌面端开箱即用安装包（DeepSeek V4.1-Flash 输出价降至 $0.60/M，off-peak，较 V4-Pro 低 70%）。
@@ -95,6 +102,7 @@ order: -9
 
 ## 马斯克 & 星链
 
+- **2026-10-01** — 据媒体，SpaceX 与 NASA 计划当日发射 **Crew-13** 载人任务（佛州 SLC-40，Falcon 9 + Dragon，第 13 次商业载人轮换飞行）。**星舰第 15 次试飞暂定不早于 10 月 19 日**（B22 + S42，Starbase OLP-2）；第 14 次试飞前马斯克曾表示，若第 14 次成功，第 15 次将尝试首次「筷子夹飞船」，但截至 9 月 28 日 SpaceX 未重新确认是否保留该尝试（S42 已于 9 月 11–12 日在 OLP-2 完成夹持相关测试）。另：NASA 追加 9.46 亿美元延长载人合同至 2030 年，总价值 59.2 亿美元 / 17 次飞行。（ad-hoc-news、Wikiwand 星舰发射列表、TESLARATI 交叉印证；spacex.com 因地域封锁无法直取）
 - **2026-09-28** — **星舰第 14 次试飞首次进入地球轨道**（得州星港基地，B21 助推器 + S41 飞船，V3 构型）。起飞约 25 分钟后完成入轨点火，轨道高度约 275 公里，随后部署 **26 颗 Starlink V3 卫星**（单星下行约 1 Tbps，体积过大无法由猎鹰 9 号运载），全部部署完成并确认运行正常。上升段 1 台猛禽真空发动机提前关机，团队复核后放行入轨；原计划在轨约 10 小时，实际约 3 小时后于夏威夷附近太平洋溅落。本次未做「筷子夹火箭」回收。Starlink 累计发射 12,962 颗，在轨 11,133 颗，工作 11,119 颗。（SpaceX 官方直播与 X 帖、参考消息、科创板日报、KeepTrack 交叉印证）
 - **2026-08** — Starlink 用户超 1200 万，覆盖 167 国；在轨卫星约 1.1 万颗。
 - **2026-07-24** — 星舰第 13 次试飞，首次部署 20 颗 Starlink V3 卫星（单星下行 1 Tbps）。

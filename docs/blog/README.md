@@ -39,6 +39,7 @@ article: false
 
 ## 文章
 
+- [Google 把最强的模型先给了补漏洞的人，还替他把护栏拆了](2026-10-01-google-argon-first-to-patch-finders.md)
 - [OpenAI 头一天废掉一个更聪明的模型，第二天发了个便宜的](2026-09-30-openai-cancels-smarter-model-ships-cheaper-one.md)
 - [李飞飞把公司卖了 82 亿，她说宇宙不是由文字组成的](2026-09-29-feifei-li-sells-world-labs-to-amd.md)
 - [李飞飞说，别让造 AI 的人自己给自己打分](2026-09-28-feifei-li-calls-for-independent-ai-oversight.md)
