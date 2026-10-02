@@ -47,7 +47,7 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-01";
+export const hotRankingUpdatedAt = "2026-10-02";
 
 /** 榜单数据：按 heat 从高到低 */
 export const hotRanking: HotItem[] = [
@@ -95,6 +95,21 @@ export const hotRanking: HotItem[] = [
     sourceUrl: "https://openai.com/index/towards-safety-cases-for-frontier-ai-training/",
     refs: [{ name: "CNBC", url: "https://www.cnbc.com/technology/" }],
     article: "/blog/2026-09-30-openai-cancels-smarter-model-ships-cheaper-one.html",
+  },
+  {
+    id: "openai-distillation-campaign",
+    title: "OpenAI 称瓦解一场有组织的模型蒸馏行动",
+    summary:
+      "7 月 24–25 日高峰出现 16,000 次提取请求、来自 4,000+ 账号，相关集群超 15,000 账号，7 月 28 日完全瓦解。官方将核心集群归因于与 Moonshot AI 相关的个人，但未证明相关内容被用于训练 Kimi。",
+    org: "OpenAI",
+    category: "安全对齐",
+    date: "2026-09-30",
+    heat: 92,
+    authority: "verified",
+    sourceName: "OpenAI 官方安全博客",
+    sourceUrl: "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign/",
+    refs: [{ name: "CNBC", url: "https://www.cnbc.com/technology/" }],
+    article: "/blog/2026-10-02-openai-says-learning-too-well-is-an-attack.html",
   },
   {
     id: "starship-flight-14",
