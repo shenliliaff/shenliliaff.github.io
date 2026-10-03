@@ -47,7 +47,7 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-02";
+export const hotRankingUpdatedAt = "2026-10-03";
 
 /** 榜单数据：按 heat 从高到低 */
 export const hotRanking: HotItem[] = [
@@ -95,6 +95,24 @@ export const hotRanking: HotItem[] = [
     sourceUrl: "https://openai.com/index/towards-safety-cases-for-frontier-ai-training/",
     refs: [{ name: "CNBC", url: "https://www.cnbc.com/technology/" }],
     article: "/blog/2026-09-30-openai-cancels-smarter-model-ships-cheaper-one.html",
+  },
+  {
+    id: "anthropic-ipo-filing",
+    title: "Anthropic 冲刺史上最大 IPO，估值最高 2 万亿美元",
+    summary:
+      "S-1 披露 2025 年营收约 46 亿美元（同比约 12 倍）、净亏损近 420 亿美元（其中约 340 亿为债务公允价值变动的会计损失），未来数年基础设施承诺约 5180 亿美元；博通提供最高 420 亿美元融资支持 1252 亿美元 TPU 租约。据彭博社，路演最早 11 月 9 日当周启动，目标感恩节前挂牌。",
+    org: "Anthropic",
+    category: "行业动态",
+    date: "2026-10-01",
+    heat: 94,
+    authority: "verified",
+    sourceName: "Anthropic 官方 · S-1 保密递交公告（Rule 135）",
+    sourceUrl: "https://www.anthropic.com/news/confidential-draft-s1-sec",
+    refs: [
+      { name: "Bloomberg", url: "https://www.bloomberg.com/technology" },
+      { name: "Reuters", url: "https://www.reuters.com/technology/" },
+    ],
+    article: "/blog/2026-10-03-anthropic-pace-the-frontier-ipo.html",
   },
   {
     id: "openai-distillation-campaign",
@@ -248,6 +266,19 @@ export const hotRanking: HotItem[] = [
     sourceUrl: "https://blog.google/products/gemini/",
   },
   {
+    id: "anthropic-frontier-academy",
+    title: "Anthropic 投 1 亿美元，2027 年底前培养 1 万名企业 AI 工程师",
+    summary:
+      "Claude Frontier Academy 目标 2027 年底前培养 10,000 名 Frontier Deployed Engineer：由企业提名、线下多日模拟部署后获 Resident 徽章，再经 12 周真实项目驻留考核结业；首批含埃森哲、德勤、麦肯锡、摩根士丹利、诺和诺德等。",
+    org: "Anthropic",
+    category: "学术公益",
+    date: "2026-10-02",
+    heat: 66,
+    authority: "official",
+    sourceName: "Anthropic 官方公告",
+    sourceUrl: "https://www.anthropic.com/news/claude-frontier-academy",
+  },
+  {
     id: "meta-muse-smb",
     title: "Meta 把个人 AI 代理 Muse 拓展到小企业运营",
     summary:
@@ -261,30 +292,17 @@ export const hotRanking: HotItem[] = [
     sourceUrl: "https://about.fb.com/news/",
   },
   {
-    id: "world-labs-atlas",
-    title: "World Labs 发布全模态世界模型 Atlas",
+    id: "anthropic-barclays-claude",
+    title: "巴克莱扩大 Claude 部署：每天处理 12 万封客户邮件",
     summary:
-      "输入 1–6 张图 + 相机路径，输出最长 1 分钟、最高 1440p 视频；2–3 张图即可做空间重建，输出显式 3D；将驱动 Marble 未来版本。",
-    org: "World Labs",
-    category: "模型发布",
-    date: "2026-09-01",
-    heat: 58,
+      "Claude 驱动的内部知识助手已被 16,000+ 名员工使用、累计处理超 100 万次检索；全球市场业务每天用它分类并路由约 12 万封客户邮件；预计 2026 年底 Claude Code 覆盖 50% 开发者、2027 年覆盖多数软件工程师。",
+    org: "Anthropic / Barclays",
+    category: "行业动态",
+    date: "2026-10-01",
+    heat: 60,
     authority: "official",
-    sourceName: "World Labs 官方博客",
-    sourceUrl: "https://www.worldlabs.ai/blog",
-    article: "/blog/2026-09-20-atlas-lets-machines-enter.html",
-  },
-  {
-    id: "grok-47",
-    title: "xAI 发布 Grok 4.7 并上线 Amazon Bedrock",
-    summary: "定价 $2 / $6，500K 上下文；同日高通发布骁龙 8 Elite Gen 6（台积电 2nm，端侧可跑 300 亿参数 MoE）。",
-    org: "xAI",
-    category: "模型发布",
-    date: "2026-09-22",
-    heat: 54,
-    authority: "official",
-    sourceName: "xAI 官方",
-    sourceUrl: "https://x.ai/news",
+    sourceName: "Anthropic 官方公告",
+    sourceUrl: "https://www.anthropic.com/news/barclays-scales-claude",
   },
   {
     id: "stanford-hai-research",
