@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import {
   hotRanking,
   categoryColors,
@@ -8,10 +8,13 @@ import {
   type SourcePrecision,
 } from "../data/hot-ranking.js";
 
-/** 信源精确度 → 展示文案与提示 */
+/* ==================== 信源精确度文案 ==================== */
+
+/** 信源精确度 → 展示文案 */
 const precisionLabel = (p: SourcePrecision) =>
   p === "exact" ? "直达原文" : p === "section" ? "官方栏目页" : "官方站点";
 
+/** 信源精确度 → 悬浮提示 */
 const precisionHint = (p: SourcePrecision) =>
   p === "exact"
     ? "链接直达该事件的具体官方公告/博文页"
@@ -19,9 +22,11 @@ const precisionHint = (p: SourcePrecision) =>
       ? "链接指向官方栏目/列表页，内容真实，需在列表内定位该条"
       : "链接指向官方站点入口，为该来源的兜底地址";
 
+/* ==================== 排序 ==================== */
+
 /**
- * 榜单排序：事件日期降序（最新在最上）为主，同一天内按热度降序。
- * 说明：榜单以「时间线」形态呈现，热度只用于同日内排序与条形图可视化。
+ * 主排序：事件日期降序（最新在最上），同一天内按热度降序。
+ * 榜单以「时间线」形态呈现，热度只用于同日内排序与条形图可视化。
  */
 const list = computed<HotItem[]>(() =>
   [...hotRanking].sort((a, b) => {
@@ -30,16 +35,134 @@ const list = computed<HotItem[]>(() =>
   }),
 );
 
-/** 条目总数（渲染条目序号用） */
+/* ==================== 按自然周分组（周一起） ==================== */
+
+const pad2 = (n: number) => String(n).padStart(2, "0");
+/** 本地时区的 YYYY-MM-DD，避免 toISOString 的 UTC 偏移 */
+const ymd = (d: Date) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+
+interface WeekGroup {
+  /** 周一的日期，作为分组键 */
+  key: string;
+  /** 该周**有事件的**日期区间，如 09-28 ~ 10-02 */
+  range: string;
+  /** 该自然周的完整起止（周一 ~ 周日），用于提示 */
+  span: string;
+  items: HotItem[];
+}
+
+/** 把榜单切成「一周一组」，数组本身已是日期降序，故最新的周在最前 */
+const weeks = computed<WeekGroup[]>(() => {
+  const buckets = new Map<string, HotItem[]>();
+
+  for (const item of list.value) {
+    const [y, m, d] = item.date.split("-").map(Number);
+    const monday = new Date(y, m - 1, d);
+    monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7)); // 回退到本周一
+    const key = ymd(monday);
+    const bucket = buckets.get(key);
+    if (bucket) bucket.push(item);
+    else buckets.set(key, [item]);
+  }
+
+  return [...buckets.entries()].map(([key, items]) => {
+    const [y, m, d] = key.split("-").map(Number);
+    const sunday = new Date(y, m - 1, d + 6);
+    const first = items[items.length - 1].date; // 该周最早
+    const last = items[0].date; // 该周最新
+    return {
+      key,
+      range: first === last ? first.slice(5) : `${first.slice(5)} ~ ${last.slice(5)}`,
+      span: `${key.slice(5)} ~ ${ymd(sunday).slice(5)}`,
+      items,
+    };
+  });
+});
+
+/* ==================== 分页 ==================== */
+
+const page = ref(0);
+const totalPages = computed(() => weeks.value.length);
+/** 兜底：数据变化时页码不越界 */
+const safePage = computed(() => Math.min(page.value, Math.max(totalPages.value - 1, 0)));
+const currentWeek = computed<WeekGroup | undefined>(() => weeks.value[safePage.value]);
+
+const goPage = (i: number) => {
+  page.value = Math.min(Math.max(i, 0), Math.max(totalPages.value - 1, 0));
+};
+const prevPage = () => goPage(page.value - 1);
+const nextPage = () => goPage(page.value + 1);
+
+/* ==================== 搜索（跨全部记录） ==================== */
+
+const keyword = ref("");
+/** 空格分词，全部命中才算匹配（AND） */
+const terms = computed(() => keyword.value.trim().toLowerCase().split(/\s+/).filter(Boolean));
+const isSearching = computed(() => terms.value.length > 0);
+
+const searchResults = computed<HotItem[]>(() => {
+  if (!isSearching.value) return [];
+  const ts = terms.value;
+  return list.value.filter((item) => {
+    const hay = [
+      item.title,
+      item.summary,
+      item.org,
+      item.category,
+      item.sourceName,
+      ...(item.refs ?? []).map((r) => r.name),
+    ]
+      .join(" ")
+      .toLowerCase();
+    return ts.every((t) => hay.includes(t));
+  });
+});
+
+/** 当前要渲染的条目：搜索态平铺全部命中，浏览态只渲染当前这一周 */
+const visibleItems = computed<HotItem[]>(() =>
+  isSearching.value ? searchResults.value : (currentWeek.value?.items ?? []),
+);
+
+/* ==================== 文本高亮（避免 v-html） ==================== */
+
+const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+const highlight = (text: string): { text: string; hit: boolean }[] => {
+  const ts = terms.value;
+  if (!ts.length) return [{ text, hit: false }];
+  const set = new Set(ts);
+  const re = new RegExp(`(${ts.map(escapeRe).join("|")})`, "gi");
+  return text
+    .split(re)
+    .filter((s) => s !== "")
+    .map((s) => ({ text: s, hit: set.has(s.toLowerCase()) }));
+};
+
+/* ==================== 概览指标 ==================== */
+
 const total = computed(() => list.value.length);
 
-/** 榜内涉及的一手信源机构数 */
+/** 榜内涉及的信源机构数 */
 const sourceCount = computed(() => {
   const set = new Set(
     list.value.flatMap((item) => [item.sourceName, ...(item.refs ?? []).map((r) => r.name)]),
   );
   return set.size;
 });
+
+/** 直达原文的条数 */
+const exactCount = computed(() => list.value.filter((i) => i.precision === "exact").length);
+
+/** 最新事件的日期 */
+const topDate = computed(() => list.value[0]?.date ?? "");
+
+const metrics = computed(() => [
+  { label: "上榜事件", value: String(total.value), unit: "条" },
+  { label: "当周事件", value: String(currentWeek.value?.items.length ?? 0), unit: "条" },
+  { label: "一手信源", value: String(sourceCount.value), unit: "个" },
+  { label: "直达原文", value: `${exactCount.value}/${total.value}`, unit: "" },
+  { label: "最新事件", value: topDate.value.slice(5), unit: "" },
+]);
 
 /** 类别分布，用于概览条形图 */
 const categoryStats = computed(() => {
@@ -55,22 +178,8 @@ const categoryStats = computed(() => {
     .sort((a, b) => b.count - a.count);
 });
 
-/** 榜单最高热度，用于条形图归一化 */
-const maxHeat = computed(() => Math.max(...list.value.map((i) => i.heat)));
-
-/** 信源直达原文的条数（precision === "exact"） */
-const exactCount = computed(() => list.value.filter((i) => i.precision === "exact").length);
-
-/** 最新事件的日期（榜单顶部那条） */
-const topDate = computed(() => list.value[0]?.date ?? "");
-
-/** 概览指标卡 */
-const metrics = computed(() => [
-  { label: "上榜事件", value: String(total.value), unit: "条" },
-  { label: "直达原文", value: `${exactCount.value}/${total.value}`, unit: "" },
-  { label: "一手信源", value: String(sourceCount.value), unit: "个" },
-  { label: "最新事件", value: topDate.value.slice(5), unit: "" },
-]);
+/** 榜单最高热度，用于条形图归一化（全榜统一，跨页可比较） */
+const maxHeat = computed(() => Math.max(...list.value.map((i) => i.heat), 1));
 
 /** 换行安全的日期格式：09-29 */
 const shortDate = (date: string) => date.slice(5);
@@ -105,9 +214,96 @@ const shortDate = (date: string) => date.slice(5);
       </div>
     </div>
 
-    <!-- ===== 热度榜列表 ===== -->
-    <ol class="hot-rank__list">
-      <li v-for="(item, index) in list" :key="item.id" class="hot-rank__item">
+    <!-- ===== 搜索框 ===== -->
+    <div class="hot-rank__toolbar">
+      <div class="hot-rank__search">
+        <svg class="hot-rank__search-icon" viewBox="0 0 16 16" aria-hidden="true">
+          <circle cx="6.8" cy="6.8" r="4.4" fill="none" stroke="currentColor" stroke-width="1.4" />
+          <path
+            d="M10.1 10.1 14 14"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+            stroke-linecap="round"
+          />
+        </svg>
+        <input
+          v-model="keyword"
+          class="hot-rank__search-input"
+          type="search"
+          aria-label="搜索热点"
+          placeholder="搜索热点：机构 / 模型 / 类别，如 Gemini、Anthropic、安全，可用空格组合多个词"
+        />
+        <button
+          v-if="keyword"
+          class="hot-rank__search-clear"
+          type="button"
+          aria-label="清除搜索"
+          @click="keyword = ''"
+        >
+          ×
+        </button>
+      </div>
+      <div class="hot-rank__toolbar-hint">
+        <template v-if="isSearching">跨全部 {{ total }} 条命中 {{ searchResults.length }} 条</template>
+        <template v-else>共 {{ total }} 条 · 按自然周分页，每页一周</template>
+      </div>
+    </div>
+
+    <!-- ===== 分页控件（浏览态） ===== -->
+    <div v-if="!isSearching && totalPages > 1" class="hot-rank__pager">
+      <button
+        class="hot-rank__pager-btn"
+        type="button"
+        :disabled="page === 0"
+        @click="prevPage"
+      >
+        ← 上一周
+      </button>
+      <div class="hot-rank__pager-info">
+        <span class="hot-rank__pager-page">第 {{ safePage + 1 }} / {{ totalPages }} 页</span>
+        <span class="hot-rank__pager-range">
+          {{ currentWeek?.range }} · {{ currentWeek?.items.length }} 条
+        </span>
+      </div>
+      <button
+        class="hot-rank__pager-btn"
+        type="button"
+        :disabled="page >= totalPages - 1"
+        @click="nextPage"
+      >
+        下一周 →
+      </button>
+    </div>
+
+    <!-- ===== 周导航 chip（浏览态） ===== -->
+    <div v-if="!isSearching && totalPages > 1" class="hot-rank__weeks">
+      <button
+        v-for="(w, i) in weeks"
+        :key="w.key"
+        class="hot-rank__week"
+        :class="{ 'is-active': i === safePage }"
+        type="button"
+        :title="`${w.span} · ${w.items.length} 条`"
+        @click="goPage(i)"
+      >
+        {{ w.range }}
+      </button>
+    </div>
+
+    <!-- ===== 搜索结果头（搜索态） ===== -->
+    <div v-if="isSearching" class="hot-rank__search-head">
+      <span>
+        搜索「{{ keyword.trim() }}」，找到 <strong>{{ searchResults.length }}</strong> 条
+      </span>
+      <button class="hot-rank__link-btn" type="button" @click="keyword = ''">
+        清除搜索，回到按周浏览
+      </button>
+    </div>
+
+    <!-- ===== 榜单列表 ===== -->
+    <ol v-if="visibleItems.length" class="hot-rank__list">
+      <li v-for="(item, index) in visibleItems" :key="item.id" class="hot-rank__item">
         <a
           class="hot-rank__item-link"
           :href="item.sourceUrl"
@@ -121,10 +317,18 @@ const shortDate = (date: string) => date.slice(5);
 
             <div class="hot-rank__item-main">
               <div class="hot-rank__item-title-row">
-                <span class="hot-rank__item-title">{{ item.title }}</span>
+                <span class="hot-rank__item-title">
+                  <template v-for="(seg, si) in highlight(item.title)" :key="si">
+                    <mark v-if="seg.hit" class="hot-rank__hit">{{ seg.text }}</mark>
+                    <template v-else>{{ seg.text }}</template>
+                  </template>
+                </span>
                 <span
                   class="hot-rank__tag"
-                  :style="{ color: categoryColors[item.category], borderColor: categoryColors[item.category] }"
+                  :style="{
+                    color: categoryColors[item.category],
+                    borderColor: categoryColors[item.category],
+                  }"
                 >
                   {{ item.category }}
                 </span>
@@ -185,6 +389,28 @@ const shortDate = (date: string) => date.slice(5);
       </li>
     </ol>
 
+    <p v-else class="hot-rank__empty">
+      没有匹配的热点。换个关键词试试——可以搜机构（Anthropic）、模型（Gemini）、类别（安全对齐）。
+    </p>
+
+    <!-- ===== 底部分页（浏览态） ===== -->
+    <div v-if="!isSearching && totalPages > 1" class="hot-rank__pager is-bottom">
+      <button class="hot-rank__pager-btn" type="button" :disabled="page === 0" @click="prevPage">
+        ← 上一周
+      </button>
+      <div class="hot-rank__pager-info">
+        <span class="hot-rank__pager-page">第 {{ safePage + 1 }} / {{ totalPages }} 页</span>
+      </div>
+      <button
+        class="hot-rank__pager-btn"
+        type="button"
+        :disabled="page >= totalPages - 1"
+        @click="nextPage"
+      >
+        下一周 →
+      </button>
+    </div>
+
     <div class="hot-rank__legend">
       <span class="hot-rank__legend-item"><i class="is-exact"></i>直达原文：链接直达具体官方公告页</span>
       <span class="hot-rank__legend-item"><i class="is-section"></i>官方栏目页：内容真实，需在列表内定位</span>
@@ -192,8 +418,8 @@ const shortDate = (date: string) => date.slice(5);
     </div>
 
     <p class="hot-rank__note">
-      排序规则：<strong>按事件日期降序</strong>（最新在最上），同一天内按热度降序。 热度为站内指数（权威等级 ×
-      事件量级 × 跨信源印证数折算），非平台真实播放量，仅用于同日内排序与条形图可视化。
+      排序规则：<strong>按事件日期降序</strong>（最新在最上），同一天内按热度降序；前台<strong>按自然周分页</strong>，每周一页，可用搜索跨全部记录检索。
+      热度为站内指数（权威等级 × 事件量级 × 跨信源印证数折算），非平台真实播放量，仅用于同日内排序与条形图可视化。
       每条均回溯官方一手信源，二手转述不入榜。
     </p>
   </div>
@@ -210,7 +436,7 @@ const shortDate = (date: string) => date.slice(5);
   /* ---------- 指标卡 ---------- */
   &__metrics {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
     gap: 0.75rem;
     margin-bottom: 1.25rem;
   }
@@ -296,6 +522,225 @@ const shortDate = (date: string) => date.slice(5);
     white-space: nowrap;
   }
 
+  /* ---------- 搜索框 ---------- */
+  &__toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__search {
+    position: relative;
+    display: flex;
+    flex: 1 1 22rem;
+    align-items: center;
+    min-width: 0;
+    padding: 0 0.65rem;
+    border: 1px solid var(--hr-border);
+    border-radius: 8px;
+    background: var(--vp-c-bg, #fff);
+    transition: border-color 0.2s;
+
+    &:focus-within {
+      border-color: var(--hr-accent);
+    }
+  }
+
+  &__search-icon {
+    flex: 0 0 auto;
+    width: 1rem;
+    height: 1rem;
+    color: var(--hr-text-soft);
+  }
+
+  &__search-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.86rem;
+
+    &::placeholder {
+      color: var(--hr-text-soft);
+      opacity: 0.85;
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  &__search-clear {
+    flex: 0 0 auto;
+    padding: 0 0.25rem;
+    border: none;
+    background: transparent;
+    color: var(--hr-text-soft);
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--hr-accent);
+    }
+  }
+
+  &__toolbar-hint {
+    flex: 0 0 auto;
+    color: var(--hr-text-soft);
+    font-size: 0.76rem;
+  }
+
+  /* ---------- 分页控件 ---------- */
+  &__pager {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin: 0 0 0.85rem;
+    padding: 0.5rem 0.7rem;
+    border: 1px solid var(--hr-border);
+    border-radius: 10px;
+    background: var(--hr-bg-soft);
+
+    &.is-bottom {
+      margin: 1rem 0 0;
+    }
+  }
+
+  &__pager-btn {
+    flex: 0 0 auto;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--hr-border);
+    border-radius: 6px;
+    background: var(--vp-c-bg, #fff);
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition:
+      border-color 0.2s,
+      color 0.2s;
+
+    &:hover:not(:disabled) {
+      border-color: var(--hr-accent);
+      color: var(--hr-accent);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  &__pager-info {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.15rem 0.7rem;
+    min-width: 0;
+    font-size: 0.78rem;
+    text-align: center;
+  }
+
+  &__pager-page {
+    font-weight: 600;
+  }
+
+  &__pager-range {
+    color: var(--hr-text-soft);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- 周导航 chip ---------- */
+  &__weeks {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  &__week {
+    flex: 0 0 auto;
+    padding: 0.25rem 0.65rem;
+    border: 1px solid var(--hr-border);
+    border-radius: 999px;
+    background: var(--vp-c-bg, #fff);
+    color: var(--hr-text-soft);
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      border-color 0.2s,
+      color 0.2s,
+      background 0.2s;
+
+    &:hover {
+      border-color: var(--hr-accent);
+      color: var(--hr-accent);
+    }
+
+    &.is-active {
+      border-color: var(--hr-accent);
+      background: var(--hr-accent);
+      color: #fff;
+    }
+  }
+
+  /* ---------- 搜索结果头 ---------- */
+  &__search-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem 0.9rem;
+    margin-bottom: 0.9rem;
+    padding: 0.55rem 0.8rem;
+    border-left: 3px solid var(--hr-accent);
+    border-radius: 0 6px 6px 0;
+    background: var(--hr-bg-soft);
+    font-size: 0.82rem;
+
+    strong {
+      color: var(--hr-accent);
+    }
+  }
+
+  &__link-btn {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--hr-accent);
+    font-family: inherit;
+    font-size: 0.78rem;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  /* ---------- 空态 ---------- */
+  &__empty {
+    margin: 1.25rem 0;
+    padding: 1.5rem 1rem;
+    border: 1px dashed var(--hr-border);
+    border-radius: 10px;
+    color: var(--hr-text-soft);
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
   /* ---------- 榜单列表 ---------- */
   &__list {
     list-style: none;
@@ -358,6 +803,13 @@ const shortDate = (date: string) => date.slice(5);
 
   &__item-link:hover &__item-title {
     color: var(--hr-accent);
+  }
+
+  &__hit {
+    padding: 0 0.12em;
+    border-radius: 3px;
+    background: color-mix(in srgb, var(--hr-accent) 26%, transparent);
+    color: inherit;
   }
 
   &__tag {
@@ -592,6 +1044,15 @@ const shortDate = (date: string) => date.slice(5);
 
   .hot-rank__article {
     padding-left: 0;
+  }
+
+  .hot-rank__pager {
+    flex-wrap: wrap;
+  }
+
+  .hot-rank__pager-info {
+    order: -1;
+    flex-basis: 100%;
   }
 }
 </style>
