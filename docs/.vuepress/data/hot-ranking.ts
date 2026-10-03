@@ -12,6 +12,14 @@
 /** 权威等级：official = 官方一手公告；verified = 官方一手 + 权威媒体交叉印证 */
 export type AuthorityLevel = "official" | "verified";
 
+/**
+ * 信源精确度：
+ * - exact    = 直达该事件的具体官方公告/博文页（最佳，点开即见原文）
+ * - section  = 官方域名下的栏目/列表页（内容真实，但需在列表内再找该条）
+ * - homepage = 官方站点首页/入口（最弱，仅作兜底）
+ */
+export type SourcePrecision = "exact" | "section" | "homepage";
+
 /** 事件类别，决定图表配色分组 */
 export type HotCategory =
   | "模型发布"
@@ -37,6 +45,8 @@ export interface HotItem {
   heat: number;
   /** 权威等级 */
   authority: AuthorityLevel;
+  /** 信源精确度：是否直达该事件的具体官方页 */
+  precision: SourcePrecision;
   /** 官方信源名称 */
   sourceName: string;
   /** 官方信源链接 */
@@ -49,7 +59,7 @@ export interface HotItem {
 
 export const hotRankingUpdatedAt = "2026-10-03";
 
-/** 榜单数据：按 heat 从高到低 */
+/** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
   {
     id: "openai-devday-2026",
@@ -61,6 +71,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-29",
     heat: 100,
     authority: "verified",
+    precision: "exact",
     sourceName: "OpenAI 官方 · DevDay 2026 回顾",
     sourceUrl: "https://openai.com/index/devday-2026-recap/",
     refs: [{ name: "Fortune", url: "https://fortune.com/section/tech/" }],
@@ -76,6 +87,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-28",
     heat: 96,
     authority: "verified",
+    precision: "section",
     sourceName: "World Labs 官方博客",
     sourceUrl: "https://www.worldlabs.ai/blog",
     refs: [{ name: "AMD Newsroom", url: "https://www.amd.com/en/newsroom.html" }],
@@ -91,6 +103,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-28",
     heat: 93,
     authority: "verified",
+    precision: "exact",
     sourceName: "OpenAI 官方 · 前沿 AI 训练安全案例研究",
     sourceUrl: "https://openai.com/index/towards-safety-cases-for-frontier-ai-training/",
     refs: [{ name: "CNBC", url: "https://www.cnbc.com/technology/" }],
@@ -98,20 +111,31 @@ export const hotRanking: HotItem[] = [
   },
   {
     id: "anthropic-ipo-filing",
-    title: "Anthropic 冲刺史上最大 IPO，估值最高 2 万亿美元",
+    title: "Anthropic 保密递交 S-1 草案，启动 IPO 进程",
     summary:
-      "S-1 披露 2025 年营收约 46 亿美元（同比约 12 倍）、净亏损近 420 亿美元（其中约 340 亿为债务公允价值变动的会计损失），未来数年基础设施承诺约 5180 亿美元；博通提供最高 420 亿美元融资支持 1252 亿美元 TPU 租约。据彭博社，路演最早 11 月 9 日当周启动，目标感恩节前挂牌。",
+      "Anthropic, PBC 依据《证券法》Rule 135 保密递交 S-1 注册声明草案，在 SEC 审查完成后拥有上市选择权；发行股数与价格尚未确定，是否上市取决于市场状况。",
+    org: "Anthropic",
+    category: "行业动态",
+    date: "2026-06-01",
+    heat: 94,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方公告 · Rule 135",
+    sourceUrl: "https://www.anthropic.com/news/confidential-draft-s1-sec",
+  },
+  {
+    id: "anthropic-ipo-roadshow",
+    title: "彭博社：Anthropic 拟 11 月初启动 IPO 路演，估值最高约 2 万亿美元",
+    summary:
+      "据彭博社报道，Anthropic 最快 11 月 9 日当周启动 IPO 路演，争取感恩节前（11 月 26 日）开始交易，市场估值在 1.8 万亿至 2 万亿美元区间。若成行，将超过 6 月 SpaceX（约 1.77 万亿美元）成为史上最大 IPO。此为媒体报道，非公司官方公告。",
     org: "Anthropic",
     category: "行业动态",
     date: "2026-10-01",
-    heat: 94,
+    heat: 92,
     authority: "verified",
-    sourceName: "Anthropic 官方 · S-1 保密递交公告（Rule 135）",
-    sourceUrl: "https://www.anthropic.com/news/confidential-draft-s1-sec",
-    refs: [
-      { name: "Bloomberg", url: "https://www.bloomberg.com/technology" },
-      { name: "Reuters", url: "https://www.reuters.com/technology/" },
-    ],
+    precision: "section",
+    sourceName: "Bloomberg 报道（非官方公告）",
+    sourceUrl: "https://www.bloomberg.com/technology",
     article: "/blog/2026-10-03-anthropic-pace-the-frontier-ipo.html",
   },
   {
@@ -124,6 +148,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-30",
     heat: 92,
     authority: "verified",
+    precision: "exact",
     sourceName: "OpenAI 官方安全博客",
     sourceUrl: "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign/",
     refs: [{ name: "CNBC", url: "https://www.cnbc.com/technology/" }],
@@ -139,6 +164,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-28",
     heat: 90,
     authority: "official",
+    precision: "section",
     sourceName: "SpaceX 官方发射任务页",
     sourceUrl: "https://www.spacex.com/launches/",
   },
@@ -152,6 +178,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-29",
     heat: 88,
     authority: "official",
+    precision: "exact",
     sourceName: "OpenAI 官方公告",
     sourceUrl: "https://openai.com/index/introducing-gpt-6-1-sol/",
     article: "/blog/2026-09-30-openai-cancels-smarter-model-ships-cheaper-one.html",
@@ -166,6 +193,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-29",
     heat: 86,
     authority: "official",
+    precision: "section",
     sourceName: "Anthropic 官方发布页",
     sourceUrl: "https://www.anthropic.com/news",
   },
@@ -179,6 +207,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-30",
     heat: 95,
     authority: "verified",
+    precision: "exact",
     sourceName: "Google 官方博客 · Gemini 4 Argon 公告",
     sourceUrl:
       "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
@@ -195,6 +224,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-29",
     heat: 84,
     authority: "official",
+    precision: "section",
     sourceName: "Google 官方博客",
     sourceUrl: "https://blog.google/technology/ai/",
   },
@@ -208,6 +238,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-23",
     heat: 80,
     authority: "official",
+    precision: "section",
     sourceName: "斯坦福 HAI 官方",
     sourceUrl: "https://hai.stanford.edu/news",
     article: "/blog/2026-09-28-feifei-li-calls-for-independent-ai-oversight.html",
@@ -222,6 +253,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-29",
     heat: 78,
     authority: "official",
+    precision: "exact",
     sourceName: "Anthropic 官方研究页 · Frontier Red Team",
     sourceUrl:
       "https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities",
@@ -237,6 +269,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-29",
     heat: 74,
     authority: "official",
+    precision: "homepage",
     sourceName: "DeepSeek 官方",
     sourceUrl: "https://www.deepseek.com/",
   },
@@ -249,6 +282,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-29",
     heat: 70,
     authority: "official",
+    precision: "homepage",
     sourceName: "可灵 AI 官方",
     sourceUrl: "https://klingai.kuaishou.com/",
   },
@@ -262,6 +296,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-29",
     heat: 66,
     authority: "official",
+    precision: "section",
     sourceName: "Google 官方博客",
     sourceUrl: "https://blog.google/products/gemini/",
   },
@@ -275,6 +310,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-10-02",
     heat: 66,
     authority: "official",
+    precision: "exact",
     sourceName: "Anthropic 官方公告",
     sourceUrl: "https://www.anthropic.com/news/claude-frontier-academy",
   },
@@ -288,6 +324,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-29",
     heat: 62,
     authority: "official",
+    precision: "section",
     sourceName: "Meta Newsroom",
     sourceUrl: "https://about.fb.com/news/",
   },
@@ -301,6 +338,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-10-01",
     heat: 60,
     authority: "official",
+    precision: "exact",
     sourceName: "Anthropic 官方公告",
     sourceUrl: "https://www.anthropic.com/news/barclays-scales-claude",
   },
@@ -313,6 +351,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-25",
     heat: 48,
     authority: "official",
+    precision: "section",
     sourceName: "斯坦福 HAI 官方",
     sourceUrl: "https://hai.stanford.edu/research",
   },
@@ -326,6 +365,7 @@ export const hotRanking: HotItem[] = [
     date: "2026-09-15",
     heat: 42,
     authority: "official",
+    precision: "homepage",
     sourceName: "AI4ALL 官方",
     sourceUrl: "https://ai-4-all.org/",
   },

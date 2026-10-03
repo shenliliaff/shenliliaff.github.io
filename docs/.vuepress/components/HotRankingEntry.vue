@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { hotRanking, hotRankingUpdatedAt } from "../data/hot-ranking.js";
 
-/** 榜单按热度降序，取榜首用于入口卡片文案 */
-const sorted = [...hotRanking].sort((a, b) => b.heat - a.heat);
-const top = sorted[0];
-const recent = sorted.filter((i) => i.date >= "2026-09-23").length;
+/** 与榜单页保持一致的排序：日期降序，同日按热度 */
+const sorted = [...hotRanking].sort((a, b) =>
+  a.date !== b.date ? (a.date < b.date ? 1 : -1) : b.heat - a.heat,
+);
+
+/** 最新一条，用于入口卡片文案 */
+const latest = sorted[0];
+const latestDate = latest?.date ?? "";
+const latestDateShort = latestDate ? latestDate.slice(5) : "";
 </script>
 
 <template>
@@ -14,7 +19,7 @@ const recent = sorted.filter((i) => i.date >= "2026-09-23").length;
         热点榜单 · {{ hotRanking.length }} 条已核实事件
       </div>
       <div class="hot-rank-entry__desc">
-        榜首：{{ top.title }} · 近一周 {{ recent }} 条 · 更新于 {{ hotRankingUpdatedAt }}
+        最新（{{ latestDateShort }}）：{{ latest?.title }} · 更新于 {{ hotRankingUpdatedAt }}
       </div>
     </div>
     <span class="hot-rank-entry__cta">查看榜单 →</span>
