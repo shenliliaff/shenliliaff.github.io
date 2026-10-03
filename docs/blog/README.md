@@ -39,6 +39,7 @@ article: false
 
 ## 文章
 
+- [他劝大家慢一点，自己递上了史上最大的招股书](2026-10-03-anthropic-pace-the-frontier-ipo.md)
 - [有人学得太像了，OpenAI 说这算攻击](2026-10-02-openai-says-learning-too-well-is-an-attack.md)
 - [Google 把最强的模型先给了补漏洞的人，还替他把护栏拆了](2026-10-01-google-argon-first-to-patch-finders.md)
 - [OpenAI 头一天废掉一个更聪明的模型，第二天发了个便宜的](2026-09-30-openai-cancels-smarter-model-ships-cheaper-one.md)
