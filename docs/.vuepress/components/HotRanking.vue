@@ -2,14 +2,33 @@
 import { computed } from "vue";
 import {
   hotRanking,
-  hotRankingUpdatedAt,
   categoryColors,
   type HotCategory,
   type HotItem,
+  type SourcePrecision,
 } from "../data/hot-ranking.js";
 
-/** 榜单按热度降序排列 */
-const list = computed<HotItem[]>(() => [...hotRanking].sort((a, b) => b.heat - a.heat));
+/** 信源精确度 → 展示文案与提示 */
+const precisionLabel = (p: SourcePrecision) =>
+  p === "exact" ? "直达原文" : p === "section" ? "官方栏目页" : "官方站点";
+
+const precisionHint = (p: SourcePrecision) =>
+  p === "exact"
+    ? "链接直达该事件的具体官方公告/博文页"
+    : p === "section"
+      ? "链接指向官方栏目/列表页，内容真实，需在列表内定位该条"
+      : "链接指向官方站点入口，为该来源的兜底地址";
+
+/**
+ * 榜单排序：事件日期降序（最新在最上）为主，同一天内按热度降序。
+ * 说明：榜单以「时间线」形态呈现，热度只用于同日内排序与条形图可视化。
+ */
+const list = computed<HotItem[]>(() =>
+  [...hotRanking].sort((a, b) => {
+    if (a.date !== b.date) return a.date < b.date ? 1 : -1;
+    return b.heat - a.heat;
+  }),
+);
 
 /** 条目总数（渲染条目序号用） */
 const total = computed(() => list.value.length);
@@ -21,9 +40,6 @@ const sourceCount = computed(() => {
   );
   return set.size;
 });
-
-/** 最新事件日期 */
-const latestDate = computed(() => list.value.map((i) => i.date).sort().at(-1) ?? "");
 
 /** 类别分布，用于概览条形图 */
 const categoryStats = computed(() => {
@@ -42,20 +58,18 @@ const categoryStats = computed(() => {
 /** 榜单最高热度，用于条形图归一化 */
 const maxHeat = computed(() => Math.max(...list.value.map((i) => i.heat)));
 
-/** 近 7 天事件数（相对榜单内最新日期） */
-const recentCount = computed(() => {
-  const base = new Date(latestDate.value).getTime();
-  return list.value.filter(
-    (i) => base - new Date(i.date).getTime() <= 7 * 24 * 3600 * 1000,
-  ).length;
-});
+/** 信源直达原文的条数（precision === "exact"） */
+const exactCount = computed(() => list.value.filter((i) => i.precision === "exact").length);
+
+/** 最新事件的日期（榜单顶部那条） */
+const topDate = computed(() => list.value[0]?.date ?? "");
 
 /** 概览指标卡 */
 const metrics = computed(() => [
   { label: "上榜事件", value: String(total.value), unit: "条" },
-  { label: "近 7 天", value: String(recentCount.value), unit: "条" },
+  { label: "直达原文", value: `${exactCount.value}/${total.value}`, unit: "" },
   { label: "一手信源", value: String(sourceCount.value), unit: "个" },
-  { label: "最近更新", value: hotRankingUpdatedAt.slice(5), unit: "" },
+  { label: "最新事件", value: topDate.value.slice(5), unit: "" },
 ]);
 
 /** 换行安全的日期格式：09-29 */
@@ -152,6 +166,13 @@ const shortDate = (date: string) => date.slice(5);
                   官方一手 · 已交叉印证
                 </span>
                 <span v-else class="hot-rank__verified">官方一手</span>
+                <span
+                  class="hot-rank__precision"
+                  :class="'is-' + item.precision"
+                  :title="precisionHint(item.precision)"
+                >
+                  {{ precisionLabel(item.precision) }}
+                </span>
               </div>
             </div>
           </div>
@@ -164,9 +185,16 @@ const shortDate = (date: string) => date.slice(5);
       </li>
     </ol>
 
+    <div class="hot-rank__legend">
+      <span class="hot-rank__legend-item"><i class="is-exact"></i>直达原文：链接直达具体官方公告页</span>
+      <span class="hot-rank__legend-item"><i class="is-section"></i>官方栏目页：内容真实，需在列表内定位</span>
+      <span class="hot-rank__legend-item"><i class="is-homepage"></i>官方站点：该来源的入口地址</span>
+    </div>
+
     <p class="hot-rank__note">
-      热度为站内指数（权威等级 × 事件量级 × 跨信源印证数折算），非平台真实播放量。每条均回溯官方一手信源，
-      二手转述不入榜。
+      排序规则：<strong>按事件日期降序</strong>（最新在最上），同一天内按热度降序。 热度为站内指数（权威等级 ×
+      事件量级 × 跨信源印证数折算），非平台真实播放量，仅用于同日内排序与条形图可视化。
+      每条均回溯官方一手信源，二手转述不入榜。
     </p>
   </div>
 </template>
@@ -411,6 +439,32 @@ const shortDate = (date: string) => date.slice(5);
     font-size: 0.7rem;
   }
 
+  /* 信源精确度徽标：exact 绿 / section 蓝 / homepage 灰 */
+  &__precision {
+    padding: 0.05rem 0.4rem;
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: 0.7rem;
+
+    &.is-exact {
+      color: #2f855a;
+      border-color: color-mix(in srgb, #3eaf7c 45%, transparent);
+      background: color-mix(in srgb, #3eaf7c 10%, transparent);
+    }
+
+    &.is-section {
+      color: #3b6ea8;
+      border-color: color-mix(in srgb, #5aa9e6 45%, transparent);
+      background: color-mix(in srgb, #5aa9e6 10%, transparent);
+    }
+
+    &.is-homepage {
+      color: var(--hr-text-soft);
+      border-color: var(--hr-border);
+      background: transparent;
+    }
+  }
+
   &__article {
     margin-top: 0.4rem;
     padding-left: 2.8rem;
@@ -435,6 +489,49 @@ const shortDate = (date: string) => date.slice(5);
     color: var(--hr-text-soft);
     font-size: 0.76rem;
     line-height: 1.7;
+
+    strong {
+      color: var(--vp-c-text-1, #1f2328);
+    }
+  }
+
+  /* 信源精确度图例 */
+  &__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.1rem;
+    margin-top: 1rem;
+    color: var(--hr-text-soft);
+    font-size: 0.72rem;
+  }
+
+  &__legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+
+    i {
+      display: inline-block;
+      width: 0.6rem;
+      height: 0.6rem;
+      border: 1px solid;
+      border-radius: 3px;
+
+      &.is-exact {
+        border-color: color-mix(in srgb, #3eaf7c 45%, transparent);
+        background: color-mix(in srgb, #3eaf7c 20%, transparent);
+      }
+
+      &.is-section {
+        border-color: color-mix(in srgb, #5aa9e6 45%, transparent);
+        background: color-mix(in srgb, #5aa9e6 20%, transparent);
+      }
+
+      &.is-homepage {
+        border-color: var(--hr-border);
+        background: transparent;
+      }
+    }
   }
 }
 
