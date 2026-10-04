@@ -6,11 +6,50 @@
     <link>https://shenliliaff.github.io/</link>
     <description>fengsKB 个人知识库</description>
     <language>zh-CN</language>
-    <pubDate>Sat, 03 Oct 2026 14:12:13 GMT</pubDate>
-    <lastBuildDate>Sat, 03 Oct 2026 14:12:13 GMT</lastBuildDate>
+    <pubDate>Sun, 04 Oct 2026 00:14:49 GMT</pubDate>
+    <lastBuildDate>Sun, 04 Oct 2026 00:14:49 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>人工智能</category>
+    <item>
+      <title>他们说这只鸟是自家养的，我翻了下饲料袋</title>
+      <link>https://shenliliaff.github.io/blog/2026-10-04-sovereign-model-ingredient-list.html</link>
+      <guid>https://shenliliaff.github.io/blog/2026-10-04-sovereign-model-ingredient-list.html</guid>
+      <source url="https://shenliliaff.github.io/rss.xml">他们说这只鸟是自家养的，我翻了下饲料袋</source>
+      <description>他们说这只鸟是自家养的，我翻了下饲料袋 2026-10-04 · 人工智能 一只悬停的蜂鸟与它身后的流水线 十月三号，德国统一日。海德堡一家叫 Aleph Alpha 的公司发了个模型，取名 Kolibri。德语里的蜂鸟。 规格不小也不小气：总参数 781 亿，每个 token 只激活 34.6 亿，上下文最长一百万 token，协议 Apache 2...</description>
+      <category>人工智能</category>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>2026-10-04 · 人工智能</p>
+<img src="/covers/2026-10-04-cover.png" alt="一只悬停的蜂鸟与它身后的流水线" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
+<p>十月三号，德国统一日。海德堡一家叫 Aleph Alpha 的公司发了个模型，取名 Kolibri。德语里的蜂鸟。</p>
+<p>规格不小也不小气：总参数 781 亿，每个 token 只激活 34.6 亿，上下文最长一百万 token，协议 Apache 2.0，权重直接挂在 Hugging Face 上，谁都能下。</p>
+<p>通稿里有个词被反复用：主权。</p>
+<p>官方博客的原话是这么写的。他们的人在德国做模型，在德国和芬兰的基础设施上训练，受欧洲和德国法律管辖，"没有外国控制"。从数据整理、预训练、后训练到评估优化，整条流水线都是自己的。</p>
+<p>我读到这句，点了下头。在工业软件这一行，能把自己整条产线落在哪儿说清楚的，本来就不多。</p>
+<p>然后我去翻了它的模型卡。买罐头先看背面，这是我的习惯。</p>
+<h2>我去翻了配料表</h2>
+<p>模型卡自己交底了。训练数据里，英文网页文本的改写用的是 Google 的 Gemma 4，德文文本用的是 Mistral-NeMo，另有 Qwen3-32B 被用来给质量过滤器打标签。</p>
+<p>一只自家养的鸟，饲料袋上产地那一栏，写着两个美国邻居和一个中国邻居的名字。</p>
+<p>这不是丑闻。开放权重模型在数据清洗和后处理阶段借道别人的模型，是行业里公开的常规做法，很多公司连提都不提。Aleph Alpha 把这几行写进了模型卡，这一点反而比大多数同行诚实。我要说的是另一件事——"主权"这个词，被写得比它实际能承担的大了一圈。</p>
+<p>官方还有一组数字更有意思。Kolibri 的德语数据里，最大的单一来源是"改写"：把德文文档重新生成一遍，得到大约一万亿个 token。最后汇成的德语池是 2.4 万亿个唯一 token，其中 80% 标为"自建或自生成"，只有 20% 来自公开数据集。而在整个预训练语料里，德语占到 21.3%，约 4.3 万亿个 token。</p>
+<p>也就是说，这只鸟的大部分德语，是自己写出来的。用什么写的，模型卡上一行小字告诉你：改写那一步用的是 Mistral-NeMo。</p>
+<p>所以"主权"在这里，说的是流水线的所有权。机器在德国，电在德国和芬兰买，出了事适用德国法。它没有说、也不打算说的是：这条流水线吐出来的知识，最初是从哪儿来的。</p>
+<p>这两件事，一件叫制造，一件叫发明。混在一起说，听着都像好话。</p>
+<p>那天晚上，Wharton 的 Ethan Mollick 在 X 上写了一句：欧洲新的"主权模型"，是用 GLM 和 Qwen 生成的数据微调的。他点的是哪两家，和模型卡自述的 Gemma 4、Mistral-NeMo、Qwen3-32B 对不上；但方向一致——反正不是它自己家的。这条推文没有附证据，能查的是模型卡里那几行。所以我更愿意引用能查的那几行。</p>
+<h2>它真正卖的东西</h2>
+<p>还有一层反差，是它自己写在对照表里的。</p>
+<p>Kolibri 最拿得出手的本事，不是跑分，是"会说我也不知道"。官方说它专门做了拒答训练，配一套叫 Merlin-Arthur 的协议：上下文里找不到答案，就不许硬答。数字是，在 AA-Omniscience 这套评测上，它 44% 的题选择拒答，前代 Kolibri Origin 只有 14.8%，翻了三倍。对一个要动手干活的智能体来说，一个不肯吹牛的模型，比多两分数学分值钱。</p>
+<p>可同一张官方表上，Qwen3.6-35B-A3B 的这一项是 56.7%，比它高。数学它领先（AIME 2025，96.9 对 84.6），软件工程它落后（SWE-Bench Verified，66.4 对 73.8）。</p>
+<p>它想摆脱的那几个对手，恰好在它最得意的那一项上，还站在前面。</p>
+<p>那它到底赢在哪。官方给的措辞很精明：帕累托前沿——质量和服务成本之间那条线。翻成人话：不是最好的，但在 34.6 亿激活这个价位上，它是最划算的。78GB 的 FP8 权重，一台机器端得下，数据不用出厂门。</p>
+<p>这才是它手里真正的东西。不是主权，是便宜。</p>
+<p>我不觉得这有什么不好。便宜是个好东西。只是名字起得比事实大了一点。</p>
+<p>蜂鸟的翅膀每秒拍五十下，悬在半空一动不动，看上去像是不靠谁，自己浮着。其实它一直在吃饭。</p>
+<p>Aleph Alpha 也没说它不吃饭。它说的是：厨房是我的，锅是我的，账单也归我。是我自己，把"主权"这个词读大了一圈。</p>
+<p>说明书是摊开的。我只是顺手翻了一下。</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>他劝大家慢一点，自己递上了史上最大的招股书</title>
       <link>https://shenliliaff.github.io/blog/2026-10-03-anthropic-pace-the-frontier-ipo.html</link>
@@ -384,30 +423,6 @@ OpenAI 发了 GPT-6 Sol 和 Luna，价格比起上一代，直接腰斩。</p>
 <p>【收尾 · 35-45 秒】
 所以这周最大的新闻，不是谁破了纪录，而是两家头部，在同一天，把"更便宜"当成了头号卖点。AI 的竞赛，从"谁更强"，悄悄滑到了"谁更便宜、更快、更能铺开"。跑分的时代还没结束，算账的时代，已经来了。</p>
 <p>我是 Feng，我们下期见。</p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Reading Search Sidebar Redirect</title>
-      <link>https://shenliliaff.github.io/superpowers/specs/2026-09-10-reading-search-sidebar-design.html</link>
-      <guid>https://shenliliaff.github.io/superpowers/specs/2026-09-10-reading-search-sidebar-design.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">Reading Search Sidebar Redirect</source>
-      <description>Reading Search Sidebar Redirect Goal Search results for reading notes must open the independent reading site so its reading-notes sidebar is displayed instead of the main site&amp;apos;s...</description>
-      <pubDate>Thu, 10 Sep 2026 07:15:12 GMT</pubDate>
-      <content:encoded><![CDATA[
-<h2>Goal</h2>
-<p>Search results for reading notes must open the independent reading site so its
-reading-notes sidebar is displayed instead of the main site's notes sidebar.</p>
-<h2>Design</h2>
-<p><code>scripts/prepare-reading.mjs</code> will continue to generate <code>/reading-search/</code>
-pages so VuePress can index the reading-note content. Each generated page will
-also redirect the browser to the corresponding Docsify route:</p>
-<p><code>/reading/index.html#/&lt;article-file-name&gt;</code></p>
-<p>The generated page keeps its title and body so the VuePress search index remains
-unchanged. The redirect is client-side, allowing the search result to be
-indexed while sending a visitor to the reading site after they open it.</p>
-<h2>Validation</h2>
-<p>Run <code>pnpm docs:build</code> and inspect a generated reading-search page to verify it
-contains the expected Docsify route. The build must complete successfully.</p>
 ]]></content:encoded>
     </item>
   </channel>
