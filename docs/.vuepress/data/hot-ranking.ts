@@ -57,10 +57,60 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-03";
+export const hotRankingUpdatedAt = "2026-10-04";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "aleph-alpha-kolibri",
+    title: "Aleph Alpha 发布 78B 开源「主权模型」Kolibri",
+    summary:
+      "英德双语 MoE，总参数 781 亿、每 token 激活 34.6 亿，上下文最长 100 万 token，Apache 2.0 权重公开；768 张 B200 训练 21 天、约 24 万亿 token，德语占预训练语料 21.3%。官方称团队在德国建模、在德国与芬兰的基础设施上训练、受欧洲法律管辖且「无外国控制」；模型卡同时披露数据准备借助外部模型（英文改写用 Google Gemma 4、德文改写用 Mistral-NeMo、质量过滤打标用 Qwen3-32B）。",
+    org: "Aleph Alpha",
+    category: "模型发布",
+    date: "2026-10-03",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Aleph Alpha 官方博客",
+    sourceUrl: "https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/",
+    article: "/blog/2026-10-04-sovereign-model-ingredient-list.html",
+  },
+  {
+    id: "apple-full-disk-access-agents",
+    title: "苹果收紧 macOS「完全磁盘访问」权限，点名 AI 智能体风险",
+    summary:
+      "苹果在开发者网站宣布为 Full Disk Access 引入额外控制，用户今后只能在「非常明确的用户操作」下授予该权限，否则应用可读取全部文件、邮件、信息与浏览历史；官方原文称「随着 AI 智能体变得愈发强大和自主，这一访问级别所带来的风险将大幅增加」，具体形态与上线时间未公布。",
+    org: "Apple",
+    category: "安全对齐",
+    date: "2026-10-02",
+    heat: 70,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Apple Developer 官方公告",
+    sourceUrl: "https://developer.apple.com/news/?id=p6zjojqw",
+  },
+  {
+    id: "google-project-suncatcher-mvp",
+    title: "Google 把 TPU 送上天：Project Suncatcher 原型卫星入轨",
+    summary:
+      "与 Planet 合作的原型卫星（内部代号 MVP）搭乘 SpaceX Transporter-18 共乘任务入轨，搭载 4 颗 Trillium 代 TPU 与约 1 kW 太阳能板，在轨运行 Gemma 推理；因真空只能靠辐射散热，每次连续计算约 15 分钟即需停机降温。地面质子束测试中 TPU 承受的总电离剂量超过五年任务预期，配套论文发表于《Joule》。",
+    org: "Google",
+    category: "硬件航天",
+    date: "2026-10-01",
+    heat: 72,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "Google 官方博客 · Research",
+    sourceUrl:
+      "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/",
+    refs: [
+      {
+        name: "NPR",
+        url: "https://www.npr.org/2026/10/01/nx-s1-5983697/project-suncatcher-google-ai-data-center-space",
+      },
+    ],
+  },
   {
     id: "openai-devday-2026",
     title: "OpenAI DevDay 2026：一口气发布 20+ 项更新",
