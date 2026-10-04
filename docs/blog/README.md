@@ -39,6 +39,7 @@ article: false
 
 ## 文章
 
+- [他们说这只鸟是自家养的，我翻了下饲料袋](2026-10-04-sovereign-model-ingredient-list.md)
 - [他劝大家慢一点，自己递上了史上最大的招股书](2026-10-03-anthropic-pace-the-frontier-ipo.md)
 - [有人学得太像了，OpenAI 说这算攻击](2026-10-02-openai-says-learning-too-well-is-an-attack.md)
 - [Google 把最强的模型先给了补漏洞的人，还替他把护栏拆了](2026-10-01-google-argon-first-to-patch-finders.md)
