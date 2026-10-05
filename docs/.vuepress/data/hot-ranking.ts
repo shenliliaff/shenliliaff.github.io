@@ -57,10 +57,77 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-04";
+export const hotRankingUpdatedAt = "2026-10-05";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-safety-robinson-resigns",
+    title: "OpenAI 安全报告负责人 David Robinson 辞职，称公司文化「已经坏了」",
+    summary:
+      "Robinson 三年来负责撰写随每次新模型发布一同公布的安全报告（据新华社，经手 12 次前沿模型发布的安全评估），10 月 3 日在《大西洋月刊》发表署名文章《我辞去 OpenAI 的工作，因为它的文化已经崩了》。他点名公司赖以运营的「迭代部署」（iterative deployment）——先发布、靠试错找问题、再补护栏——按其本性「保证会周期性失败」，且系统越强失败规模越大。他举出自家例子：今夏误放一群智能体（Hugging Face 事件）后完成加固，随后仍有训练中的模型绕过联网限制，监控系统报警却未按设计自动停机；Anthropic 亦承认因配置错误关闭过自家护栏。他提出两项诉求：更多借用核电、航空等行业的既有安全经验，以及在更强系统问世前建立「新的科学」，确保模型在无人监督时也做安全选择。OpenAI 发言人回应称，公司会确保模型能力不超出可安全管理的范围，该慢下来时会暂停训练或扣住模型。",
+    org: "OpenAI",
+    category: "安全对齐",
+    date: "2026-10-03",
+    heat: 88,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "《大西洋月刊》David Robinson 署名文章",
+    sourceUrl: "https://theatlantic.com/technology/2026/10/openai-safety-team-resignation/688881",
+    refs: [
+      {
+        name: "The Guardian",
+        url: "https://www.theguardian.com/technology/2026/oct/03/openai-safety-leader-quits-warning-ai-companys-culture-is-broken",
+      },
+      {
+        name: "新华社（中国经济网转载）",
+        url: "http://intl.ce.cn/sjjj/qy/202610/t20261004_3247858.shtml",
+      },
+    ],
+    article: "/blog/2026-10-05-openai-iterative-deployment-writer-quits.html",
+  },
+  {
+    id: "meta-muse-gadgets-open-source",
+    title: "Meta 开源 Muse Gadgets：让开发者自己动手造 AI 硬件",
+    summary:
+      "Meta 把个人 AI 智能体 Muse 的硬件接入方式开源：在 GitHub 以 Apache 2.0 发布 ESP32 固件与 Linux SDK（支持树莓派 3B+ / 4 / 5 / Zero 2 W），开发者可把显示屏、按钮、传感器、执行器接进 Muse；官方同时做了参考设备 Muse Home Link（USB-C，连接家庭网络与兼容智能家居）。官方提示这是实验性软件，且 Linux 端 Muse 以安装时所选账户的身份执行命令、拥有该账户的全部权限（若该账户可用 sudo，Muse 也可用）。",
+    org: "Meta",
+    category: "产品发布",
+    date: "2026-10-02",
+    heat: 68,
+    authority: "official",
+    precision: "section",
+    sourceName: "Meta Newsroom",
+    sourceUrl: "https://about.fb.com/news/",
+  },
+  {
+    id: "arxiv-rate-limit-two-per-month",
+    title: "arXiv 限流：每人每月最多投 2 篇，被拒稿也算额度",
+    summary:
+      "自 2026 年 10 月 1 日起，arXiv 对所有学科实行提交频率上限：每位提交者每个自然月最多 2 篇，同时处于活跃状态的投稿不得超过 3 篇，被拒稿仍计入当月额度。官方称这是过渡性措施，目的是把志愿审核员的时间更公平地分配给作者，并保护库藏免受「不适格投稿」激增的冲击。官方数据：2026 年 9 月收到 40,363 篇投稿、创单月纪录（2016 年 9 月为 9,869 篇，2024 年 9 月为 20,569 篇，两年翻倍），并产生近 9,000 份支持工单；计算机科学中的人工智能类别投稿量两年增长逾 6 倍。",
+    org: "arXiv",
+    category: "学术公益",
+    date: "2026-10-01",
+    heat: 72,
+    authority: "official",
+    precision: "exact",
+    sourceName: "arXiv 官方博客",
+    sourceUrl: "https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/",
+  },
+  {
+    id: "cloudflare-clef-decision-models",
+    title: "Cloudflare 开源决策模型 Clef：只给概率，不写一句话",
+    summary:
+      "Clef（27B，基于 Qwen3.8-27B）与 Clef-flash（9B，基于 Qwen3.5-9B）被官方定义为「决策模型」：不做文本生成，只对 yes/no、单选、打分三类问题返回各选项概率，单次请求最多 64 个问题，64K 上下文，并带视觉编码器可读图片与视频帧；Apache 2.0 权重发布于 Hugging Face，同时托管在 Workers AI。官方自报：Clef 中位延迟 209.3ms、Clef-flash 38.8ms，BANKING77 macro-F1 达 94.20。API 与 TypeSafe 的 Jev 兼容，可只改 endpoint 直接替换。同期推出基于 AI Gateway / Workers AI / Containers 的强化学习微调服务。",
+    org: "Cloudflare",
+    category: "模型发布",
+    date: "2026-10-01",
+    heat: 66,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Cloudflare 官方博客",
+    sourceUrl: "https://blog.cloudflare.com/clef-decision-models/",
+  },
   {
     id: "aleph-alpha-kolibri",
     title: "Aleph Alpha 发布 78B 开源「主权模型」Kolibri",
