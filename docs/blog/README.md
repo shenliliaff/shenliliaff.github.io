@@ -39,6 +39,7 @@ article: false
 
 ## 文章
 
+- [他们给 AI 写的字盖了章，顺便注明这章不证明任何事](2026-10-06-openai-textgrain-watermark-disclaimer.md)
 - [公司管这叫"迭代部署"，写安全报告的人说，这个词保证出事](2026-10-05-openai-iterative-deployment-writer-quits.md)
 - [他们说这只鸟是自家养的，我翻了下饲料袋](2026-10-04-sovereign-model-ingredient-list.md)
 - [他劝大家慢一点，自己递上了史上最大的招股书](2026-10-03-anthropic-pace-the-frontier-ipo.md)
