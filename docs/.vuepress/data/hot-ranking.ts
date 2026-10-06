@@ -57,10 +57,83 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-05";
+export const hotRankingUpdatedAt = "2026-10-06";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-textgrain-eu-watermark",
+    title: "OpenAI 上线隐形文本水印 textGrain：换掉 25% 的词就查不出",
+    summary:
+      "为满足欧盟《人工智能法案》第 50 条（2026-08-02 起适用，违规最高 1500 万欧元或全球年营收 3%），OpenAI 发布文本溯源方案 textGrain：不插隐藏字符、不加元数据，只调整模型选词，靠统计规律让持密钥者检出。官方自报检测率（目标假阳性率 1%）：200 token 段落约 80%、400 token 约 95%（心理学类），数学类显著更低；400 token 段落中替换 10% 的词为同义词，检出率由 92% 降至 66%，替换 25% 则降至 17%。全球 API 客户即日起可选开启（默认关闭），欧盟境内 ChatGPT 与 Codex 全部套餐未来几周自动加不可见水印，初期不设为全球默认；检测器不向公众开放，仅限经批准的研究人员与专家组织。官方明确列出五条边界：水印不衡量人类贡献、不确立所有权或责任、不识别用户、不验证准确性，且未检出亦不能证明系人类撰写。",
+    org: "OpenAI",
+    category: "安全对齐",
+    date: "2026-10-05",
+    heat: 84,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方公告 · 欧盟文本溯源",
+    sourceUrl: "https://openai.com/index/eu-text-provenance/",
+    refs: [
+      {
+        name: "TechCrunch",
+        url: "https://techstartups.com/2026/10/05/chatgpt-text-is-getting-an-invisible-watermark-in-europe-to-comply-with-the-eu-ai-act-heres-how-it-works/",
+      },
+    ],
+    article: "/blog/2026-10-06-openai-textgrain-watermark-disclaimer.html",
+  },
+  {
+    id: "reflection-ai-beam",
+    title: "Reflection AI 发布 501B 开放权重模型 Beam，主打推理效率",
+    summary:
+      "稀疏 MoE，总参数 5010 亿、每 token 激活 230 亿，预训练 23.8 万亿 token，上下文 100 万 token；高算力 RL 用 10,500 张 Nvidia GB300 训练 4 周、产生 1 亿+ 次 rollout。官方自报 SWE-Bench Verified 80.9、Terminal-Bench v2.1 80.1、AIME 2026 97.8，称编码与智能体任务上「与 GLM-5.2 相当、逼近 Qwen 3.8-Max」，并承认原始能力仍落后 Kimi K3；主打点是比西方同类开放模型省 3–4 倍推理算力。当前为候补名单预览，权重与模型卡将于本月内以 Apache 2.0 发布，第三方独立评测尚未出现。",
+    org: "Reflection AI",
+    category: "模型发布",
+    date: "2026-10-05",
+    heat: 78,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Reflection 官方博客 · Introducing Beam",
+    sourceUrl: "https://reflection.ai/blog/introducing-beam",
+  },
+  {
+    id: "openai-chatgpt-visual-ads",
+    title: "OpenAI 把广告放进图像生成：ChatGPT 首个视觉广告格式",
+    summary:
+      "初期在 ChatGPT 的图像生成环节测试图片广告，展示产品灵感、使用场景或体验；广告明确标注、与用户正在生成的图片相互独立、不影响回答，本月晚些时候在美国启动、首批邀请部分广告主。同步扩张衡量工具与生态（Hightouch / Tealium / LiveRamp 接入，AppsFlyer、Triple Whale、Adjust 等归因伙伴，DoubleVerify 与 Integral Ad Science 品牌适配试点）。官方称 ChatGPT 每周触达 12 亿人；DV Rockerbox 称 WeightWatchers 在此渠道的归因 CPA 比其付费搜索综合基准低 15.3%。",
+    org: "OpenAI",
+    category: "产品发布",
+    date: "2026-10-05",
+    heat: 74,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方公告 · ChatGPT Ads",
+    sourceUrl: "https://openai.com/index/new-chatgpt-ads-format-and-measurement/",
+  },
+  {
+    id: "anthropic-india-bedrock-inference",
+    title: "Claude 在印度落地境内推理，数据不出境",
+    summary:
+      "通过 Amazon Bedrock 的印度端点，Claude Opus 5 / Sonnet 5 / Haiku 4.5 的请求由印度境内服务器处理，向受监管机构提供数据驻留保证，并附审计轨迹与访问控制。私有预览参与方含 Reliance、CRED；TCS 正向 5 万名员工推广 Claude，Infosys 设 Anthropic 卓越中心，NPCI 用 Claude 构建智能体平台 AiNxt。印度为 Claude.ai 第二大市场，软件开发占该国工作相关任务的 45.2%。",
+    org: "Anthropic",
+    category: "行业动态",
+    date: "2026-10-05",
+    heat: 68,
+    authority: "verified",
+    precision: "section",
+    sourceName: "Anthropic 官方新闻页（官方声明的媒体报道）",
+    sourceUrl: "https://www.anthropic.com/news",
+    refs: [
+      {
+        name: "Business Standard",
+        url: "https://www.business-standard.com/technology/artificial-intelligence/anthropic-claude-india-inference-amazon-bedrock-data-residency-126100500356_1.html",
+      },
+      {
+        name: "CNBC TV18",
+        url: "https://www.cnbctv18.com/technology/anthropic-begins-local-inference-for-ai-models-to-process-data-in-india-20004942.htm",
+      },
+    ],
+  },
   {
     id: "openai-safety-robinson-resigns",
     title: "OpenAI 安全报告负责人 David Robinson 辞职，称公司文化「已经坏了」",
