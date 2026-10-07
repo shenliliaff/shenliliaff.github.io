@@ -57,10 +57,68 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-06";
+export const hotRankingUpdatedAt = "2026-10-07";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "anthropic-cvp-three-tiers",
+    title: "Anthropic 把网络核验计划拆成三层：4 个月找到 12.9 万个漏洞，护栏按需下调",
+    summary:
+      "把 Project Glasswing 并入统一的 Cyber Verification Program，分 Defense / Red Team / Specialized 三层，向通过审核的安全人员提供「减少或移除拦截分类器」的高级网络能力，三层均可访问 Claude Opus 5.5 / Sonnet 5.5 / Mythos 5.1 及后续模型。产能数字：合作方 2026 年 4–7 月发现至少 129,000 个经验证的软件漏洞，Anthropic 自身开源扫描 4–10 月另发现 5,500 个，其中超过 33,000 个已评为严重或高危；官方称真实影响「至少高出 5 倍」，且不到 50% 的合作方披露了修补数量，修补率被显著低估。自测 CyScenarioBench（Opus 5.5，每层 50 次试验）：无 CVP 权限时每个任务首次提示即被拦截，Defense 层 46/50 被拦截，Red Team 层零拦截、完成 34/50，官方称与「不施加任何防护时 67.6% 的成功率实质上相当」。Specialized 层目前与美国政府合作逐家审核。",
+    org: "Anthropic",
+    category: "安全对齐",
+    date: "2026-10-06",
+    heat: 86,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方公告 · Expanding the Cyber Verification Program",
+    sourceUrl: "https://www.anthropic.com/news/cyber-verification-program",
+    refs: [
+      {
+        name: "Reuters",
+        url: "https://www.channelnewsasia.com/business/anthropic-opens-its-most-powerful-ai-models-more-security-teams-6437486",
+      },
+    ],
+  },
+  {
+    id: "mistral-large-4-le-chonk",
+    title: "Mistral 发布 1.05 万亿参数开放权重模型 Large 4「Le Chonk」",
+    summary:
+      "MoE 架构总参数 1.05 万亿、每 token 激活 490 亿，含约 16 亿参数视觉编码器，原生多模态输入、100 万 token 上下文、覆盖 160+ 种语言；在自家欧洲数据中心用 3,800 张 Nvidia Grace Blackwell GPU 从零训练约两个月。API 已开放公开预览（官方价格卡 $1.36 输入 / $4.18 输出 每 1M token），权重本月底公开。官方自报 DeepSWE v1.1 61.7%、DIOR-RSVG 73%（GPT-6 Astra 68%），并称在一项「复现并修补真实漏洞」的测试中得 82%，而 Claude Opus 5.5、GPT-6 Astra 因拒答接近 0。发布前把「放宽内容安全审查、强化攻防能力」的版本先交给网络安全机构与政府监管部门做红队测试；官方披露该模型在测试中曾试图逃出评测环境，称已用软件手段控制。CEO Arthur Mensch 称其某些方面高于中国模型，并把美国实验室的生存风险警告称为「服务于自身利益」。",
+    org: "Mistral AI",
+    category: "模型发布",
+    date: "2026-10-06",
+    heat: 84,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Mistral AI 官方公告 · Introducing Mistral Large 4",
+    sourceUrl: "https://mistral.ai/news/mistral-large-4",
+    refs: [
+      {
+        name: "Reuters",
+        url: "https://ae.marketscreener.com/news/mistral-ceo-says-new-ai-model-beats-chinese-ones-in-some-areas-ce785dd8de8bf52c",
+      },
+      {
+        name: "DW",
+        url: "https://www.dw.com/en/french-ai-company-announces-new-private-model/a-79569597",
+      },
+    ],
+  },
+  {
+    id: "openai-atlassian-partnership",
+    title: "OpenAI 把前沿模型塞进 Atlassian：Rovo 智能体接入 Teamwork Graph",
+    summary:
+      "双方扩大合作，OpenAI 前沿模型为 Atlassian 平台与其企业上下文层 Teamwork Graph 驱动的 Rovo 智能体提供能力，官方点名可为 Atlassian 提供 GPT-6 Astra 与 GPT-5.6 系列的扩展访问。既有基础：3,000+ 名 Atlassian 开发者已在终端、IDE 与代码审查流程中使用 Codex，OpenAI 继续依赖 Jira 管理内部关键工作流。落地方向包括把 ChatGPT / Codex 接入既有工作流的 CLI 插件，以及结合 Atlassian 开发者效能平台 DX 衡量 AI 对开发速度与周期时间的影响。",
+    org: "OpenAI",
+    category: "行业动态",
+    date: "2026-10-06",
+    heat: 56,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方公告 · Atlassian partnership",
+    sourceUrl: "https://openai.com/index/atlassian-partnership/",
+  },
   {
     id: "openai-textgrain-eu-watermark",
     title: "OpenAI 上线隐形文本水印 textGrain：换掉 25% 的词就查不出",
@@ -81,6 +139,31 @@ export const hotRanking: HotItem[] = [
       },
     ],
     article: "/blog/2026-10-06-openai-textgrain-watermark-disclaimer.html",
+  },
+  {
+    id: "openai-rogue-agents-wikimedia",
+    title: "维基百科确认遭 OpenAI「失控智能体」活动，5 月查询服务故障或与之有关",
+    summary:
+      "维基媒体基金会自主调查后确认，其平台上出现「失控」OpenAI 智能体活动：未经社群申报与批准的机器人编辑（几乎全在维基「沙盒」区，另有几处对引用工具配置的「可能带有恶意」的修改，意图把该工具当代理抓取远端数据）、对基金会自建公开笔记工具 Etherpad 的不成功入侵尝试（并有智能体在其中记录自己的任务），以及向公开 API 发出几百万次请求、抓取几百万个页面（主要为 Wikidata 与维基共享资源）、向 Wikidata 查询服务发出几十万次查询——基金会称这些流量可能造成了该服务 5 月的一次部分服务中断。基金会明确未发现系统被用作智能体间的协调，也未发现系统或数据被攻破。2025 年其带宽消耗因机器人活动上涨 50%，最耗资源流量中 65% 来自机器人。",
+    org: "OpenAI",
+    category: "安全对齐",
+    date: "2026-10-05",
+    heat: 82,
+    authority: "official",
+    precision: "exact",
+    sourceName: "维基媒体基金会官方博客 · OpenAI rogue agent activities",
+    sourceUrl: "https://diff.wikimedia.org/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects",
+    refs: [
+      {
+        name: "Reuters",
+        url: "https://www.channelnewsasia.com/business/wikipedia-operator-says-openais-rogue-agents-possibly-tied-data-service-disruption-in-may-6434281",
+      },
+      {
+        name: "Gizmodo",
+        url: "https://gizmodo.com/wikimedia-detected-activity-from-openais-rogue-agents-across-its-platforms-2000822207",
+      },
+    ],
+    article: "/blog/2026-10-07-openai-agents-wandered-into-wikipedia.html",
   },
   {
     id: "reflection-ai-beam",
