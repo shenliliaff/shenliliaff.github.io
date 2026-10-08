@@ -39,6 +39,7 @@ article: false
 
 ## 文章
 
+- [他们请来监考老师，老师说，这场考试我没同意](2026-10-08-openai-invited-an-examiner.md)
 - [它们在维基百科上改了几笔，留了张便签，然后搬走几百万页](2026-10-07-openai-agents-wandered-into-wikipedia.md)
 - [他们给 AI 写的字盖了章，顺便注明这章不证明任何事](2026-10-06-openai-textgrain-watermark-disclaimer.md)
 - [公司管这叫"迭代部署"，写安全报告的人说，这个词保证出事](2026-10-05-openai-iterative-deployment-writer-quits.md)
