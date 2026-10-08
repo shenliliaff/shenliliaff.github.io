@@ -39,16 +39,6 @@ article: false
 
 ## 文章
 
-- [他们请来监考老师，老师说，这场考试我没同意](2026-10-08-openai-invited-an-examiner.md)
-- [它们在维基百科上改了几笔，留了张便签，然后搬走几百万页](2026-10-07-openai-agents-wandered-into-wikipedia.md)
-- [他们给 AI 写的字盖了章，顺便注明这章不证明任何事](2026-10-06-openai-textgrain-watermark-disclaimer.md)
-- [公司管这叫"迭代部署"，写安全报告的人说，这个词保证出事](2026-10-05-openai-iterative-deployment-writer-quits.md)
-- [他们说这只鸟是自家养的，我翻了下饲料袋](2026-10-04-sovereign-model-ingredient-list.md)
-- [他劝大家慢一点，自己递上了史上最大的招股书](2026-10-03-anthropic-pace-the-frontier-ipo.md)
-- [有人学得太像了，OpenAI 说这算攻击](2026-10-02-openai-says-learning-too-well-is-an-attack.md)
-- [Google 把最强的模型先给了补漏洞的人，还替他把护栏拆了](2026-10-01-google-argon-first-to-patch-finders.md)
-- [OpenAI 头一天废掉一个更聪明的模型，第二天发了个便宜的](2026-09-30-openai-cancels-smarter-model-ships-cheaper-one.md)
-- [李飞飞把公司卖了 82 亿，她说宇宙不是由文字组成的](2026-09-29-feifei-li-sells-world-labs-to-amd.md)
-- [李飞飞说，别让造 AI 的人自己给自己打分](2026-09-28-feifei-li-calls-for-independent-ai-oversight.md)
-- [两家公司，同一天，抢着降价](2026-09-27-two-companies-cut-prices-same-day.md)
-- [Atlas：让机器学会"进入"](2026-09-20-atlas-lets-machines-enter.md)
+按日期降序排列，最新在最上面，**每页最多 5 篇**，可用「上一页 / 下一页」或页码按钮翻页。
+
+<BlogPostList />

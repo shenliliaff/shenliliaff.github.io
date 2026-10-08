@@ -35,63 +35,66 @@ const list = computed<HotItem[]>(() =>
   }),
 );
 
-/* ==================== 按自然周分组（周一起） ==================== */
+/* ==================== 分页（每页最多 5 条） ==================== */
 
-const pad2 = (n: number) => String(n).padStart(2, "0");
-/** 本地时区的 YYYY-MM-DD，避免 toISOString 的 UTC 偏移 */
-const ymd = (d: Date) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
-
-interface WeekGroup {
-  /** 周一的日期，作为分组键 */
-  key: string;
-  /** 该周**有事件的**日期区间，如 09-28 ~ 10-02 */
-  range: string;
-  /** 该自然周的完整起止（周一 ~ 周日），用于提示 */
-  span: string;
-  items: HotItem[];
-}
-
-/** 把榜单切成「一周一组」，数组本身已是日期降序，故最新的周在最前 */
-const weeks = computed<WeekGroup[]>(() => {
-  const buckets = new Map<string, HotItem[]>();
-
-  for (const item of list.value) {
-    const [y, m, d] = item.date.split("-").map(Number);
-    const monday = new Date(y, m - 1, d);
-    monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7)); // 回退到本周一
-    const key = ymd(monday);
-    const bucket = buckets.get(key);
-    if (bucket) bucket.push(item);
-    else buckets.set(key, [item]);
-  }
-
-  return [...buckets.entries()].map(([key, items]) => {
-    const [y, m, d] = key.split("-").map(Number);
-    const sunday = new Date(y, m - 1, d + 6);
-    const first = items[items.length - 1].date; // 该周最早
-    const last = items[0].date; // 该周最新
-    return {
-      key,
-      range: first === last ? first.slice(5) : `${first.slice(5)} ~ ${last.slice(5)}`,
-      span: `${key.slice(5)} ~ ${ymd(sunday).slice(5)}`,
-      items,
-    };
-  });
-});
-
-/* ==================== 分页 ==================== */
+/** 每页条数上限 */
+const PAGE_SIZE = 5;
 
 const page = ref(0);
-const totalPages = computed(() => weeks.value.length);
+const totalPages = computed(() => Math.max(Math.ceil(list.value.length / PAGE_SIZE), 1));
 /** 兜底：数据变化时页码不越界 */
-const safePage = computed(() => Math.min(page.value, Math.max(totalPages.value - 1, 0)));
-const currentWeek = computed<WeekGroup | undefined>(() => weeks.value[safePage.value]);
+const safePage = computed(() => Math.min(page.value, totalPages.value - 1));
+
+/** 当前页的条目（数组已是日期降序，直接切片即可） */
+const pageItems = computed<HotItem[]>(() => {
+  const start = safePage.value * PAGE_SIZE;
+  return list.value.slice(start, start + PAGE_SIZE);
+});
+
+/** 当前页首位条目的全局序号（列表编号跨页连续） */
+const pageStartIndex = computed(() => safePage.value * PAGE_SIZE);
+
+/** 当前页覆盖的事件日期区间，如 10-06 ~ 10-02 */
+const pageRange = computed(() => {
+  const items = pageItems.value;
+  if (!items.length) return "";
+  const newest = items[0].date.slice(5);
+  const oldest = items[items.length - 1].date.slice(5);
+  return newest === oldest ? newest : `${newest} ~ ${oldest}`;
+});
 
 const goPage = (i: number) => {
-  page.value = Math.min(Math.max(i, 0), Math.max(totalPages.value - 1, 0));
+  page.value = Math.min(Math.max(i, 0), totalPages.value - 1);
 };
 const prevPage = () => goPage(page.value - 1);
 const nextPage = () => goPage(page.value + 1);
+
+/**
+ * 页码按钮序列：页数少时全部铺开，页数多时只保留首尾页与当前页左右一页，
+ * 中间用 "gap" 占位渲染成省略号，避免页码按钮无限制增长。
+ */
+const pageTokens = computed<(number | "gap")[]>(() => {
+  const last = totalPages.value - 1;
+  if (totalPages.value <= 7) return Array.from({ length: totalPages.value }, (_, i) => i);
+
+  const keep = new Set<number>([
+    0,
+    last,
+    safePage.value - 1,
+    safePage.value,
+    safePage.value + 1,
+  ]);
+  const pages = [...keep].filter((i) => i >= 0 && i <= last).sort((a, b) => a - b);
+
+  const tokens: (number | "gap")[] = [];
+  let prev = -1;
+  for (const p of pages) {
+    if (prev !== -1 && p - prev > 1) tokens.push("gap");
+    tokens.push(p);
+    prev = p;
+  }
+  return tokens;
+});
 
 /* ==================== 搜索（跨全部记录） ==================== */
 
@@ -118,9 +121,9 @@ const searchResults = computed<HotItem[]>(() => {
   });
 });
 
-/** 当前要渲染的条目：搜索态平铺全部命中，浏览态只渲染当前这一周 */
+/** 当前要渲染的条目：搜索态平铺全部命中（搜索不受分页约束），浏览态只渲染当前页 */
 const visibleItems = computed<HotItem[]>(() =>
-  isSearching.value ? searchResults.value : (currentWeek.value?.items ?? []),
+  isSearching.value ? searchResults.value : pageItems.value,
 );
 
 /* ==================== 文本高亮（避免 v-html） ==================== */
@@ -158,7 +161,7 @@ const topDate = computed(() => list.value[0]?.date ?? "");
 
 const metrics = computed(() => [
   { label: "上榜事件", value: String(total.value), unit: "条" },
-  { label: "当周事件", value: String(currentWeek.value?.items.length ?? 0), unit: "条" },
+  { label: "本页事件", value: String(pageItems.value.length), unit: "条" },
   { label: "一手信源", value: String(sourceCount.value), unit: "个" },
   { label: "直达原文", value: `${exactCount.value}/${total.value}`, unit: "" },
   { label: "最新事件", value: topDate.value.slice(5), unit: "" },
@@ -183,6 +186,9 @@ const maxHeat = computed(() => Math.max(...list.value.map((i) => i.heat), 1));
 
 /** 换行安全的日期格式：09-29 */
 const shortDate = (date: string) => date.slice(5);
+
+/** 列表序号：浏览态跨页连续编号（1、2、3…），搜索态从 1 重新编号 */
+const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value + i + 1);
 </script>
 
 <template>
@@ -246,50 +252,51 @@ const shortDate = (date: string) => date.slice(5);
       </div>
       <div class="hot-rank__toolbar-hint">
         <template v-if="isSearching">跨全部 {{ total }} 条命中 {{ searchResults.length }} 条</template>
-        <template v-else>共 {{ total }} 条 · 按自然周分页，每页一周</template>
+        <template v-else>共 {{ total }} 条 · 每页最多 {{ PAGE_SIZE }} 条</template>
       </div>
     </div>
 
-    <!-- ===== 分页控件（浏览态） ===== -->
+    <!-- ===== 分页控件（浏览态，顶部） ===== -->
     <div v-if="!isSearching && totalPages > 1" class="hot-rank__pager">
       <button
         class="hot-rank__pager-btn"
         type="button"
-        :disabled="page === 0"
+        :disabled="safePage === 0"
         @click="prevPage"
       >
-        ← 上一周
+        ← 上一页
       </button>
       <div class="hot-rank__pager-info">
         <span class="hot-rank__pager-page">第 {{ safePage + 1 }} / {{ totalPages }} 页</span>
-        <span class="hot-rank__pager-range">
-          {{ currentWeek?.range }} · {{ currentWeek?.items.length }} 条
-        </span>
+        <span class="hot-rank__pager-range">{{ pageRange }} · {{ pageItems.length }} 条</span>
       </div>
       <button
         class="hot-rank__pager-btn"
         type="button"
-        :disabled="page >= totalPages - 1"
+        :disabled="safePage >= totalPages - 1"
         @click="nextPage"
       >
-        下一周 →
+        下一页 →
       </button>
     </div>
 
-    <!-- ===== 周导航 chip（浏览态） ===== -->
-    <div v-if="!isSearching && totalPages > 1" class="hot-rank__weeks">
-      <button
-        v-for="(w, i) in weeks"
-        :key="w.key"
-        class="hot-rank__week"
-        :class="{ 'is-active': i === safePage }"
-        type="button"
-        :title="`${w.span} · ${w.items.length} 条`"
-        @click="goPage(i)"
-      >
-        {{ w.range }}
-      </button>
-    </div>
+    <!-- ===== 页码按钮（浏览态，可直接跳页） ===== -->
+    <nav v-if="!isSearching && totalPages > 1" class="hot-rank__pages" aria-label="榜单分页">
+      <template v-for="(t, i) in pageTokens" :key="`${t}-${i}`">
+        <span v-if="t === 'gap'" class="hot-rank__pages-gap">…</span>
+        <button
+          v-else
+          class="hot-rank__page-num"
+          :class="{ 'is-active': t === safePage }"
+          type="button"
+          :aria-current="t === safePage ? 'page' : undefined"
+          :aria-label="`第 ${t + 1} 页`"
+          @click="goPage(t)"
+        >
+          {{ t + 1 }}
+        </button>
+      </template>
+    </nav>
 
     <!-- ===== 搜索结果头（搜索态） ===== -->
     <div v-if="isSearching" class="hot-rank__search-head">
@@ -311,8 +318,8 @@ const shortDate = (date: string) => date.slice(5);
           rel="noopener noreferrer"
         >
           <div class="hot-rank__item-head">
-            <span class="hot-rank__index" :class="{ 'is-top': index < 3 }">
-              {{ String(index + 1).padStart(2, "0") }}
+            <span class="hot-rank__index" :class="{ 'is-top': rowNo(index) <= 3 }">
+              {{ String(rowNo(index)).padStart(2, "0") }}
             </span>
 
             <div class="hot-rank__item-main">
@@ -395,8 +402,8 @@ const shortDate = (date: string) => date.slice(5);
 
     <!-- ===== 底部分页（浏览态） ===== -->
     <div v-if="!isSearching && totalPages > 1" class="hot-rank__pager is-bottom">
-      <button class="hot-rank__pager-btn" type="button" :disabled="page === 0" @click="prevPage">
-        ← 上一周
+      <button class="hot-rank__pager-btn" type="button" :disabled="safePage === 0" @click="prevPage">
+        ← 上一页
       </button>
       <div class="hot-rank__pager-info">
         <span class="hot-rank__pager-page">第 {{ safePage + 1 }} / {{ totalPages }} 页</span>
@@ -404,12 +411,28 @@ const shortDate = (date: string) => date.slice(5);
       <button
         class="hot-rank__pager-btn"
         type="button"
-        :disabled="page >= totalPages - 1"
+        :disabled="safePage >= totalPages - 1"
         @click="nextPage"
       >
-        下一周 →
+        下一页 →
       </button>
     </div>
+
+    <nav v-if="!isSearching && totalPages > 1" class="hot-rank__pages is-bottom" aria-label="榜单分页">
+      <template v-for="(t, i) in pageTokens" :key="`bottom-${t}-${i}`">
+        <span v-if="t === 'gap'" class="hot-rank__pages-gap">…</span>
+        <button
+          v-else
+          class="hot-rank__page-num"
+          :class="{ 'is-active': t === safePage }"
+          type="button"
+          :aria-label="`第 ${t + 1} 页`"
+          @click="goPage(t)"
+        >
+          {{ t + 1 }}
+        </button>
+      </template>
+    </nav>
 
     <div class="hot-rank__legend">
       <span class="hot-rank__legend-item"><i class="is-exact"></i>直达原文：链接直达具体官方公告页</span>
@@ -418,7 +441,7 @@ const shortDate = (date: string) => date.slice(5);
     </div>
 
     <p class="hot-rank__note">
-      排序规则：<strong>按事件日期降序</strong>（最新在最上），同一天内按热度降序；前台<strong>按自然周分页</strong>，每周一页，可用搜索跨全部记录检索。
+      排序规则：<strong>按事件日期降序</strong>（最新在最上），同一天内按热度降序；前台<strong>每页最多 5 条</strong>分页，可用「上一页 / 下一页」或页码按钮跳转，搜索可跨全部记录检索。
       热度为站内指数（权威等级 × 事件量级 × 跨信源印证数折算），非平台真实播放量，仅用于同日内排序与条形图可视化。
       每条均回溯官方一手信源，二手转述不入榜。
     </p>
@@ -661,27 +684,30 @@ const shortDate = (date: string) => date.slice(5);
     font-variant-numeric: tabular-nums;
   }
 
-  /* ---------- 周导航 chip ---------- */
-  &__weeks {
+  /* ---------- 页码按钮 ---------- */
+  &__pages {
     display: flex;
-    gap: 0.4rem;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
     margin-bottom: 1.1rem;
-    padding-bottom: 0.5rem;
-    overflow-x: auto;
-    scrollbar-width: thin;
+
+    &.is-bottom {
+      margin: 0.85rem 0 0;
+    }
   }
 
-  &__week {
-    flex: 0 0 auto;
-    padding: 0.25rem 0.65rem;
+  &__page-num {
+    min-width: 2rem;
+    padding: 0.25rem 0.5rem;
     border: 1px solid var(--hr-border);
-    border-radius: 999px;
+    border-radius: 6px;
     background: var(--vp-c-bg, #fff);
-    color: var(--hr-text-soft);
+    color: inherit;
     font-family: inherit;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     font-variant-numeric: tabular-nums;
-    white-space: nowrap;
+    line-height: 1.6;
     cursor: pointer;
     transition:
       border-color 0.2s,
@@ -698,6 +724,12 @@ const shortDate = (date: string) => date.slice(5);
       background: var(--hr-accent);
       color: #fff;
     }
+  }
+
+  &__pages-gap {
+    padding: 0 0.15rem;
+    color: var(--hr-text-soft);
+    font-size: 0.78rem;
   }
 
   /* ---------- 搜索结果头 ---------- */

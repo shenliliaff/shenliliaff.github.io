@@ -1,14 +1,16 @@
 import { defineClientConfig } from "vuepress/client";
 import { onMounted, onUnmounted } from "vue";
 
+import BlogPostList from "./components/BlogPostList.vue";
 import HotRanking from "./components/HotRanking.vue";
 import HotRankingEntry from "./components/HotRankingEntry.vue";
 
 export default defineClientConfig({
-	// 全局注册自定义组件，Markdown 中可直接写 <HotRanking /> / <HotRankingEntry />
+	// 全局注册自定义组件，Markdown 中可直接写 <HotRanking /> / <HotRankingEntry /> / <BlogPostList />
 	enhance({ app }) {
 		app.component("HotRanking", HotRanking);
 		app.component("HotRankingEntry", HotRankingEntry);
+		app.component("BlogPostList", BlogPostList);
 	},
 	setup() {
 		const openReadingApp = (event: MouseEvent) => {
