@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "docs:prepare-reading": "node scripts/prepare-reading.mjs",
-    "predocs:dev": "pnpm run docs:prepare-reading",
+    "docs:prepare-blog": "node scripts/prepare-blog.mjs",
+    "predocs:dev": "pnpm run docs:prepare-reading && pnpm run docs:prepare-blog",
     "docs:dev": "vuepress-vite dev docs --clean-cache",
-    "predocs:build": "pnpm run docs:prepare-reading",
+    "predocs:build": "pnpm run docs:prepare-reading && pnpm run docs:prepare-blog",
     "docs:build": "vuepress-vite build docs --clean-cache",
     "docs:clean-dev": "vuepress-vite dev docs --clean-cache",
     "docs:update-package": "pnpm dlx vp-update",
