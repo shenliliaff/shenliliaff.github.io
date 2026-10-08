@@ -57,10 +57,73 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-07";
+export const hotRankingUpdatedAt = "2026-10-08";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-gpt6-intelligent-ui",
+    title: "GPT-6 带 Intelligent UI 推给全部 12 亿用户：模型自己决定画图还是写字",
+    summary:
+      "Plus / Pro / Business / Enterprise 自 10-07 起由 GPT-6 Sol 驱动，Free 与 Go 自 10-08 起换到 GPT-6 Luna，只作用于 ChatGPT 的 Chat 标签页，Work 与 Codex 不变。新能力 Intelligent UI 让模型按问题自行组合文本、图形、按钮、表单、图表与可交互小组件，实现上是一套原生可流式组件库加编译器，界面随生成逐步呈现。GPT-6 可边思考边作答：官方内部评测称 GPT-6 Extra High 开始作答的时间与 GPT-5.6 Medium 相当、总得分高于 GPT-5.6 Extra High；需联网搜索时 GPT-6 Instant 平均提前 44% 开始作答。安全侧沿用 Astra 部分进展，多轮自适应越狱攻击的抵抗力提升。",
+    org: "OpenAI",
+    category: "产品发布",
+    date: "2026-10-07",
+    heat: 80,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方公告 · GPT-6 and Intelligent UI for everyone",
+    sourceUrl: "https://openai.com/index/gpt-6-for-everyone/",
+    refs: [
+      {
+        name: "The Verge",
+        url: "https://www.theverge.com/ai-artificial-intelligence/1007276/openai-chatgpt-intelligent-ui-gpt-6",
+      },
+    ],
+  },
+  {
+    id: "anthropic-haiku-5-5",
+    title: "Anthropic 发布 Claude Haiku 5.5：10 万 token 以内降价九成",
+    summary:
+      "官方称其为迄今最快的模型，平均运行成本较 Haiku 4.5 降约 75%。提示词不超过 10 万 token 的请求，输入 $0.10 / 输出 $0.50（每 1M token，较前代降 90%）；超过 10 万 token 为 $0.50 / $2.50（降 50%）；缓存读取 $0.01 / $0.05。首次在 Haiku 系列引入可调推理强度，定位编程、电脑操作与知识工作等高频任务，也可作为 Opus 5.5 / Sonnet 5.5 的子智能体。同批把 Sonnet 5.5 缓存读取价格减半至 $0.10（官方称多数智能体任务成本再降约 20%），并向 Max 与 Team 订阅用户发放月度 API 额度（$100 / $200 / Team 上限 $500）。网络防护比 Haiku 4.5 更严、比 Sonnet 5.5 略松，仍拦截渗透测试等技术。",
+    org: "Anthropic",
+    category: "模型发布",
+    date: "2026-10-07",
+    heat: 72,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方公告 · Introducing Claude Haiku 5.5",
+    sourceUrl: "https://anthropic.com/claude-haiku-5-5",
+  },
+  {
+    id: "openai-722-math-manuscripts",
+    title: "OpenAI 一次放出 722 篇数学手稿：只给 10 份推理摘要，不给模型名和提示词",
+    summary:
+      "仓库 openai/math（10-06 initial commit）收录 722 篇手稿、归入 372 个结果家族，跨数论、代数几何、复杂性理论与数学物理；模型被投喂约 4,000 道开放问题，平均每个结果消耗约等于 ChatGPT Pro 思考三小时的算力。公开了 10 份推理摘要、算力估算，以及 162 篇手稿主结论的 Lean 形式化，并自认「未形式化的结果有一部分可能存在问题」；但未公开模型名称（仅称一款内部前沿模型）、未公开任何提示词，也未采用不受实验室控制的学术仓储。普林斯顿高等研究院下的独立顾问组 AGMAI 曾在 9 月 29 日的建议中原文写明「我们不认可这种做法，我们要求他们停止在专有模型上测试高等数学问题」，并在同日的第二份声明中称「AGMAI 的顾问角色不应被解读为……对 OpenAI 获取这些结果的过程的认可」。帝国理工 Kevin Buzzard 按其本行数论抽查 30 篇：7 篇看起来不错，仅 1 篇做了 Lean 形式化。",
+    org: "OpenAI",
+    category: "学术公益",
+    date: "2026-10-06",
+    heat: 85,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方公告 · Sharing AI progress in mathematics",
+    sourceUrl: "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+    article: "/blog/2026-10-08-openai-invited-an-examiner.html",
+  },
+  {
+    id: "google-nano-banana-2-1",
+    title: "Google 发布 Nano Banana 2.1：成图价格砍半，多项盲测超过 Pro 版",
+    summary:
+      "基于 Gemini 3.6 Flash 的图像生成与编辑模型，属 Gemini 3 系列；输入上下文最长 100 万 token，输出图像最高 4K、文本 64K，支持多图融合与 1K/2K/4K 输出，缓解超宽超长比例的拼接瑕疵。盲测人评转 Elo：文生图整体偏好 1050（前代 Nano Banana 2 为 990、Nano Banana Pro 935），多角色一致性 1106（前代 978），信息图设计 1048（前代 961）。API 单张成图较前代减半：标准方案 1K $0.0336 / 2K $0.0504 / 4K $0.0756，批处理再折半。已接入 Gemini 应用、Google 搜索 AI 模式、AI Studio、Gemini API 与 Google Ads、Flow、Stitch、Gemini Enterprise；旧版 Nano Banana 2 将于 2026-10-29 停用。",
+    org: "Google DeepMind",
+    category: "模型发布",
+    date: "2026-10-06",
+    heat: 66,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google DeepMind 官方模型卡 · Nano Banana 2.1",
+    sourceUrl: "https://deepmind.google/models/model-cards/nano-banana-2-1",
+  },
   {
     id: "anthropic-cvp-three-tiers",
     title: "Anthropic 把网络核验计划拆成三层：4 个月找到 12.9 万个漏洞，护栏按需下调",
