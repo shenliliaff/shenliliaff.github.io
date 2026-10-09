@@ -13,6 +13,16 @@ export interface BlogPost {
 /** 全部文章，按日期降序（最新在最前） */
 export const blogPosts: BlogPost[] = [
   {
+    title: "微软给智能体画了个圈，并在旁边注明：这个圈先别当真",
+    date: "2026-10-09",
+    url: "/blog/2026-10-09-microsoft-fence-not-yet-a-boundary.html",
+  },
+  {
+    title: "新同事第一天上班，领到了工牌、邮箱，和一张超额就停手的卡",
+    date: "2026-10-09",
+    url: "/blog/2026-10-09-google-issues-badges-to-agents.html",
+  },
+  {
     title: "他们请来监考老师，老师说，这场考试我没同意",
     date: "2026-10-08",
     url: "/blog/2026-10-08-openai-invited-an-examiner.html",
