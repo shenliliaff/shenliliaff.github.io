@@ -57,10 +57,116 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-08";
+export const hotRankingUpdatedAt = "2026-10-09";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "google-gemini-universal-agent",
+    title: "Google 发布通用工作智能体：有企业邮箱、独立身份，还能调度 Anthropic 的 Claude",
+    summary:
+      "在 Gemini at Work 2026 上发布 Gemini agent，定位「单一、通用的工作智能体」——给目标不给指令，在 Gmail / Drive / Docs / Slides / Sheets / Chat / Calendar 内联工作，也可经 Microsoft 365、Slack、命令行与网页 / iOS / Android / Windows / Mac 访问，并可作为无界面智能体运行。它跑在云上，一个记忆与个性化图谱跨设备共享，关掉笔记本后任务继续跑几小时到几天；可就地生成一批临时子智能体并行或串行协作。coworker agent 类型拥有自己的 @agents.company.com 企业邮箱、日历、云盘与通讯录条目，配经密码学认证的身份，只获得团队主动提供的上下文，动作全进审计日志。多模型编排按任务挑模型（Gemini Flash / Argon 等），当前亦支持 Anthropic 的 Claude，配 Smart Routing 与项目级支出上限，触顶自动停工。治理侧：Agent Sandbox 独立网络边界、Agent Gateway 执行策略、管理员批准的细粒度权限。规模口径：近 500 家谷歌云客户各自处理超 1 万亿 token，近 80% 谷歌云客户在用其 AI 产品，近 90% 的《财富》100 强使用 Gemini Enterprise，2024 年以来每 token 价格下降 98%。",
+    org: "Google Cloud",
+    category: "产品发布",
+    date: "2026-10-08",
+    heat: 88,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google Cloud 官方博客 · Welcome to Gemini at Work 2026: Introducing the Gemini agent",
+    sourceUrl: "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026/",
+    article: "/blog/2026-10-09-google-issues-badges-to-agents.html",
+  },
+  {
+    id: "anthropic-claude-dashboards-motion",
+    title: "Claude 上线实时看板与动画短片：从纯文本助手扩到数据与视频",
+    summary:
+      "发布两个 beta 能力：Claude Dashboards（付费计划 beta）接入 BigQuery、Databricks、Snowflake、Amazon Redshift、ClickHouse 等数据平台或 Salesforce 等 CRM，用自然语言问数并生成会随数据自动刷新的看板，点任一数字可看到背后查询，也可推送到 Amplitude、Grafana、Hex、Mixpanel、Omni、Perplexity、PostHog、Sigma 继续深挖（Looker、Tableau、monday.com 在路上）；Claude Motion（Team 与 Enterprise beta）把提示词变成可编辑动画并导出 MP4，官方强调它写代码来驱动文字、图表、形状与图片的动效，不使用视频生成模型，因此没有生成的画面与 AI 生成的人物。同时 Docs、Slides、Design 三个工具结束 beta，向包括免费版在内的全部计划开放（官方称已在 Claude 里生成超 4,500 万份文档、幻灯片与设计）；Artifacts 支持 CMEK，管理端可选组织可用的模板。",
+    org: "Anthropic",
+    category: "产品发布",
+    date: "2026-10-08",
+    heat: 70,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方公告 · Build live dashboards and animate explainers with Claude",
+    sourceUrl: "https://claude.com/resources/articles/dashboards-and-motion",
+    refs: [
+      {
+        name: "Reuters",
+        url: "https://www.channelnewsasia.com/business/anthropic-launches-dashboard-animation-tools-claude-6444391",
+      },
+    ],
+  },
+  {
+    id: "anthropic-genesis-mission-commitment",
+    title: "Anthropic 三年投 1.5 亿美元进美国能源部 Genesis Mission",
+    summary:
+      "承诺三年投入 1.5 亿美元，让 Claude 进入参与 Genesis Mission 的 15 个以上联邦机构，包括 NASA、美国国立卫生研究院（NIH）与国家科学基金会（NSF）：为数百个 Genesis 研究项目提供 Claude、Claude Code 与 API 额度，聚焦聚变能源与量子计算等优先方向，并提供培训、上手与技术支持。公告在华盛顿白宫科技政策办公室主办的 Science: A New Golden Age 峰会上发布。渊源：2025 年 12 月首次宣布与美国能源部合作，此后已把 Claude 带给各国立实验室的科学家；今年早前推出面向研究者的 Claude Science 工作台，并向学术科学家开放 10,000 个免费与折扣席位。",
+    org: "Anthropic",
+    category: "行业动态",
+    date: "2026-10-08",
+    heat: 68,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方公告 · Building on our commitment to American scientific discovery",
+    sourceUrl: "https://www.anthropic.com/news/genesis-mission-commitment",
+  },
+  {
+    id: "microsoft-mxc-agent-containment",
+    title: "微软给智能体立规矩：MXC 正式可用，官方写明「智能体不能充当自己的安全权威」",
+    summary:
+      "Microsoft Execution Containers（MXC）在 Windows 11 正式可用，是一层策略驱动的执行边界，用来限制模型生成代码、插件、工具、智能体框架乃至整个智能体能碰的资源。官方立论是「智能体不能充当自己的安全权威」，边界必须由开发者或组织定义、并由独立于智能体的机制强制执行。开发者用一份 JSON 描述容器类型、进程、文件系统、网络与界面五块，四种容器后端：进程容器（Windows 11 / macOS / Linux，分别用 AppContainer / Seatbelt / Bubblewrap）、会话容器（仅 Windows 11，跑在另一个 Windows 账户与独立会话，桌面、剪贴板、界面与输入均隔开）、WSL 容器（仅 Windows 11）、MicroVM（Windows 11 与 Linux，实验性、硬件级隔离）；Windows 365 支持亦已正式可用。已支持 MXC 的智能体含 OpenAI Codex、GitHub Copilot、OpenClaw、Replit、LM Studio、NVIDIA OpenShell、Unsloth AI，排队中的有 Anthropic Claude Code、Box、Egnyte、Heidi Health、Nous Research Hermes Agent、Manus、Perplexity、Raycast、Simular，Meta 的 Muse 将以原生 Windows 应用接入。官方同时说明，开源仓库里当前由 SDK 生成的策略「有些地方过于宽松」、任何配置「都还不应被当作安全边界」，且 Windows 上的对外网络过滤尚未完整。",
+    org: "Microsoft",
+    category: "安全对齐",
+    date: "2026-10-07",
+    heat: 82,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Windows 开发者博客 · Microsoft Execution Containers: Policy-driven containment for AI agents",
+    sourceUrl: "https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents/",
+    article: "/blog/2026-10-09-microsoft-fence-not-yet-a-boundary.html",
+  },
+  {
+    id: "biohub-virtual-biology-1-8b",
+    title: "Biohub 虚拟生物学计划扩容到 18 亿美元：Google DeepMind、Meta 与美国政府同台",
+    summary:
+      "扎克伯格与普莉希拉·陈创办的非营利科研机构 Biohub，联合美国能源部（DOE）、美国国立卫生研究院（NIH）与新出资方，把「虚拟生物学计划」的投入扩至约 18 亿美元（资金、数据、算力与新型测量技术的合计口径）。分工：Google DeepMind、Isomorphic Labs 与 Meta 合计投入 3 亿美元；DOE 五年内投入超 5 亿美元（依托百亿亿次超算、X 射线与中子散射、冷冻电镜与断层扫描，以及国家实验室体系的自动化实验室）；NIH 协调此前超 5 亿美元联邦投入形成的既有数据集与存储库；Biohub 自身在 2026 年 4 月启动时已承诺 5 亿美元（4 亿用于冷冻电子断层扫描、大规模显微成像与生物工程工具，1 亿资助外部研究）。目标是为预测细胞行为的 AI 模型建数据底座——现有细胞数据集含数亿个细胞的观测，Biohub 科学负责人 Alex Rives 称准确模型可能需要数十亿乃至数万亿细胞量级；首批大规模数据集预计约一年内落地，可用的预测模型预计五年内成形。数据最终全部公开，商业出资方享有一定期限的优先使用窗口，政府资助数据不设同类限制。NVIDIA 提供算力与技术支持；参与机构含 Broad Institute、Allen Institute、Human Cell Atlas、Human Protein Atlas、Wellcome Sanger Institute 等。",
+    org: "Biohub（Meta / Google DeepMind / 美国政府）",
+    category: "行业动态",
+    date: "2026-10-07",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Biohub 官方新闻稿 · AI-ready biological data: $1.8 billion global commitment",
+    sourceUrl: "https://biohub.org/news/virtual-biology-initiative-expansion/",
+  },
+  {
+    id: "openai-math-repo-errata",
+    title: "722 篇数学手稿公开两天，OpenAI 发出第一份勘误单：撤回 3 篇，起因是一个正负号",
+    summary:
+      "openai/math 仓库发布首份勘误日志：撤回 3 篇手稿、修订 14 篇、并为 13 篇更新对被修订论文的引用，另新增 6 项 Lean 形式化与 5 项支持性补充，手稿总数从 722 篇降为 719 篇。撤回的三篇全部属第 032 号成果族——「分割阿贝尔八重体上 Weil 类的代数性」在一处关键论证中把符号记成 1、按其自身约定应为 -1，导致本应相互抵消归零的计数变成非零，而论文依赖的经典定理前提正是该计数为零；另两篇（K3 曲面的 Kuga–Satake 对应、K3 曲面乘积的有理霍奇猜想）借用了这套构造，被一并撤回。该族名称随之改为「CM 阿贝尔簇的有理霍奇猜想」，核心结论保留。形式化率：官方称主结果已有 300 / 719 ≈ 42% 完成 Lean 形式化。撤回说明中强调撤回的是证明、不代表数学命题本身有误，原稿仍可通过归档链接查看。「变更留痕」的公开日志在 AI 研究里仍属罕见。",
+    org: "OpenAI",
+    category: "学术公益",
+    date: "2026-10-07",
+    heat: 74,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 数学仓库勘误日志 · openai/math history.md",
+    sourceUrl: "https://github.com/openai/math/blob/main/history.md",
+  },
+  {
+    id: "google-synthid-detector-public",
+    title: "Google 把 SynthID 检测器开放给所有人：1800 亿张图、24 万年音频的底账",
+    summary:
+      "SynthID Detector 从仅面向媒体专业人士的早期版本，扩展为面向所有人开放、全球英文可用，可上传图片、视频或音频检查是否带 SynthID 隐形水印，覆盖 Google 及合作伙伴 OpenAI、NVIDIA、Kakao（Apple 即将加入）所生成或编辑的内容。官方口径：自 2023 年推出以来已为超过 1800 亿张图片与视频、以及 24 万年时长的音频加上水印；搜索、Gemini 应用与 Chrome 内置的核验能力如今每天处理超 100 万次请求。局限亦写明：它不是通用 AI 检测器，未检出不能证明内容出自人类，水印也可能被剥离，结果只说明「由受支持的工具生成或编辑过」。公示须以 Google / OpenAI / Apple 账号登录，每用户每日约有 10 次检查额度，Google 工程师称限额是为防止有人借检测结果研发去水印工具。",
+    org: "Google DeepMind",
+    category: "安全对齐",
+    date: "2026-10-07",
+    heat: 72,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google 官方博客 · We're making it easier to identify AI-generated content globally",
+    sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/",
+  },
   {
     id: "openai-gpt6-intelligent-ui",
     title: "GPT-6 带 Intelligent UI 推给全部 12 亿用户：模型自己决定画图还是写字",
