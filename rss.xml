@@ -6,11 +6,116 @@
     <link>https://shenliliaff.github.io/</link>
     <description>fengsKB 个人知识库</description>
     <language>zh-CN</language>
-    <pubDate>Thu, 08 Oct 2026 06:35:55 GMT</pubDate>
-    <lastBuildDate>Thu, 08 Oct 2026 06:35:55 GMT</lastBuildDate>
+    <pubDate>Fri, 09 Oct 2026 00:10:53 GMT</pubDate>
+    <lastBuildDate>Fri, 09 Oct 2026 00:10:53 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>人工智能</category>
+    <item>
+      <title>新同事第一天上班，领到了工牌、邮箱，和一张超额就停手的卡</title>
+      <link>https://shenliliaff.github.io/blog/2026-10-09-google-issues-badges-to-agents.html</link>
+      <guid>https://shenliliaff.github.io/blog/2026-10-09-google-issues-badges-to-agents.html</guid>
+      <source url="https://shenliliaff.github.io/rss.xml">新同事第一天上班，领到了工牌、邮箱，和一张超额就停手的卡</source>
+      <description>新同事第一天上班，领到了工牌、邮箱，和一张超额就停手的卡 2026-10-09 · 人工智能 深黑背景中一个半透明的发光人形剪影在桌前接过一枚霓虹绿工牌，旁边悬浮着发光的邮件信封与环形预算仪表，体积光与青绿色数据粒子流穿插 十月八号，谷歌云办了 Gemini at Work。台上是谷歌云 CEO 托马斯·库里安，皮柴也来了。 发布会上的话我抄几句： &amp;quot;...</description>
+      <category>人工智能</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>2026-10-09 · 人工智能</p>
+<img src="/covers/2026-10-09-cover.png" alt="深黑背景中一个半透明的发光人形剪影在桌前接过一枚霓虹绿工牌，旁边悬浮着发光的邮件信封与环形预算仪表，体积光与青绿色数据粒子流穿插" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
+<p>十月八号，谷歌云办了 Gemini at Work。台上是谷歌云 CEO 托马斯·库里安，皮柴也来了。</p>
+<p>发布会上的话我抄几句：</p>
+<p>"你给它目标，不是给它指令。"</p>
+<p>"你交办一个结果，回来收活。"</p>
+<p>"它更像一名同事，而不是一个聊天机器人。"</p>
+<p>这几句我起初当成场面话。回头翻完公告，发现不是——谷歌是真按"同事"这个身份，把入职手续给办完了。</p>
+<h2>它有邮箱，有日历，有柜子</h2>
+<p>公告里管这类东西叫 coworker agent，同事型智能体。</p>
+<p>它有自己的一整套：<code>@agents.company.com</code> 结尾的企业邮箱、自己的日历、自己的云盘空间，还能出现在公司通讯录里。你可以像 @ 一个同事那样在 Chat 里 @ 它，或者把它拉进某个文档。</p>
+<p>它也有身份——官方说的是"经过密码学认证的身份"，配上管理端批准的细粒度权限，动作全部进审计日志。</p>
+<p>还有一条我读了两遍：它<strong>只能看到你或团队选择给它的那部分上下文</strong>，不会顺手继承你在公司里的全部权限。</p>
+<p>这一条比前面那些都重要。活人的权限边界靠的是岗位说明书和审批流程，现在这套东西也照着做了一遍。</p>
+<p>顺带一句，它是有记忆的，分四类：会话记忆（当前任务）、语义记忆（从文档和对话里拼出来的）、流程记忆（工作流）、情景记忆（干过的活）。官方管这叫"一个个性化图谱"，跨设备跨渠道都是同一份，换台电脑不用重新交代。</p>
+<h2>它干的活能跨天</h2>
+<p>这不是个问一句答一句的东西。</p>
+<p>它跑在云上，所以你把笔记本合上，它接着干。几小时、几天的任务，回来还在。</p>
+<p>复杂的活它自己拆：动态生成一批临时子智能体，各带各的身份，分工并行或者串行。</p>
+<p>库里安的原话是，它可以是你的私人助理，也可以是团队里的一员——比如项目里的项目经理；或者代表组织里某个具体角色——比如财务部的分析师。</p>
+<h2>派活的那一层</h2>
+<p>这里有个细节，我认为是整场发布会最有意思的一句。</p>
+<p>这个智能体会<strong>根据任务挑模型</strong>：轻活给 Gemini Flash，长链条的重活给 Argon 这类前沿模型。而它挑的模型里，<strong>除了谷歌自己的，还有 Anthropic 的 Claude</strong>。公告说以后还会接入更多闭源模型与开放权重模型。</p>
+<p>也就是说，谷歌愿意当那个<strong>派活的人</strong>——哪怕干活的大脑是竞争对手家的。</p>
+<p>再往下一层叫 Smart Routing，负责给每件具体的活挑"质量和成本最划算"的那一个。最后是钱：管理员可以按项目设支出上限，<strong>撞到上限，智能体自动停下</strong>。</p>
+<p>这几句说得非常实在。我见过太多能力清单，很少见到有谁把"超预算就自己停工"当成一项功能写进发布会。</p>
+<h2>圈</h2>
+<p>治理那块的开销，谷歌这次没藏着。</p>
+<p>每个智能体有自己可追溯的身份，权限由组织管理员批准；任务在一个叫 Agent Sandbox 的沙箱里执行，<strong>每个沙箱有独立的网络边界</strong>；对外还有一道 Agent Gateway 负责执行策略。</p>
+<p>数字也给了一些：过去一年，近 <strong>500 家</strong>谷歌云客户各自处理了超过 <strong>1 万亿</strong> token；接近 <strong>80%</strong> 的谷歌云客户在用它的 AI 产品；《财富》100 强里接近 <strong>90%</strong> 用上了 Gemini Enterprise。另有一句：<strong>2024 年以来每 token 的价格降了 98%</strong>。</p>
+<p>皮柴在台上说，先做企业客户，之后才轮到消费者，因为要先把"安全、规模、性能这几个更难的问题"解决掉。</p>
+<h2>顺序</h2>
+<p>我把这场发布会跟一件平常事对了一下。</p>
+<p>一家公司招人，第一天给的是工牌、邮箱、账号、门禁。权限一开始给得很窄，用顺了再慢慢放开。没人觉得这是不信任——这就是流程。</p>
+<p>谷歌这次也是这个顺序：先把圈画好，再请人进门。</p>
+<p>只有一处不一样。</p>
+<p>人下了班会把电脑合上，会累，会第二天跑来问你一句"这块我拿不准"。它不会。你把笔记本合上，它还在跑；你第二天早上打开，东西已经放在那儿了。</p>
+<p>剩下的问题跟技术没关系：那些活，本来是谁的。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>微软给智能体画了个圈，并在旁边注明：这个圈先别当真</title>
+      <link>https://shenliliaff.github.io/blog/2026-10-09-microsoft-fence-not-yet-a-boundary.html</link>
+      <guid>https://shenliliaff.github.io/blog/2026-10-09-microsoft-fence-not-yet-a-boundary.html</guid>
+      <source url="https://shenliliaff.github.io/rss.xml">微软给智能体画了个圈，并在旁边注明：这个圈先别当真</source>
+      <description>微软给智能体画了个圈，并在旁边注明：这个圈先别当真 2026-10-09 · 人工智能 深黑背景中一道霓虹绿围栏环住发光的机器核心，围栏边缘点着一枚闪烁的施工警示标记，体积光与电光青数据粒子流环绕 十月七号、八号，微软在旧金山办了两年来第一场线下发布会。台上三个人：管 Windows 与设备的 Pavan Davuluri、纳德拉、黄仁勋。 纳德拉发帖...</description>
+      <category>人工智能</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>2026-10-09 · 人工智能</p>
+<img src="/covers/2026-10-09-cover-2.png" alt="深黑背景中一道霓虹绿围栏环住发光的机器核心，围栏边缘点着一枚闪烁的施工警示标记，体积光与电光青数据粒子流环绕" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
+<p>十月七号、八号，微软在旧金山办了两年来第一场线下发布会。台上三个人：管 Windows 与设备的 Pavan Davuluri、纳德拉、黄仁勋。</p>
+<p>纳德拉发帖说，很荣幸跟英伟达一起开启 Windows 的下一章。黄仁勋把 RTX Spark 那颗芯片叫"新 PC——个人 AI 电脑"。</p>
+<h2>头条是那两个价格</h2>
+<p>新机器两台。</p>
+<p>Surface Laptop Ultra，$2,599 起，十月十六号出货；Surface RTX Spark Dev Box，$5,999，十一月出货，只在美国预售。拿 MacBook Pro 来以旧换新，最高抵 $1,000，活动到十一月二十三号。</p>
+<p>里头是英伟达的 RTX Spark：一颗 Blackwell RTX GPU（最高 6,144 个 CUDA 核心）加一颗 20 核 Grace CPU 封在一起，最高 128GB 统一内存。官方说 FP4 稀疏下最高 <strong>1 petaflop</strong>；本地能跑超过 <strong>1200 亿参数</strong>的模型，最高 100 万 token 上下文。微软说本地响应速度是 MacBook Pro M5 的<strong>两倍</strong>，生成视频快<strong>六倍</strong>。</p>
+<p>他们还顺手把 Windows 11 里的 Copilot 改成三个标签页：Home、Code、Autopilot；搜索栏以后能直接执行你用自然语言描述的"系统动作"。</p>
+<p>这些东西都挺好，也都挺贵。但我真正想说的是同一批公告里的另一份文件。</p>
+<h2>一句话</h2>
+<p>十月七号，Windows 平台与开发者部门的 CVP Logan Iyer 在开发者博客上宣布：<strong>Microsoft Execution Containers（MXC）正式可用</strong>。</p>
+<p>那份公告里有一句话，我建议每个打算把智能体放进公司内网的人都抄一遍：</p>
+<blockquote>
+<p>智能体不能充当自己的安全权威。</p>
+</blockquote>
+<p>后面跟了个例子，写得比大多数安全文档都清楚。假设一个编码智能体被派去更新网站。它需要读写代码仓库，需要读生产服务器的配置——但它<strong>不该改</strong>那份配置。官方原话是：没有受管边界的话，这个智能体可能自己判断"直接改服务器配置是把活干完最快的路子"。而且——这句是关键——<strong>从它自己的角度看，这个判断是合理的。</strong></p>
+<p>MXC 要做的事就一件：不管模型、它生成的代码、插件还是工具怎么想，那个写操作都做不了。</p>
+<p>我喜欢这个例子，因为它说的不是"模型会不会使坏"，而是"它替你干活的时候，会不会顺手做一个你没授权的决定"。这两件事的解法完全不同。</p>
+<h2>四种墙，一份 JSON</h2>
+<p>技术形态不复杂。策略用一份 JSON 描述五块：容器类型、进程、文件系统、网络、界面——哪些路径能改、哪些只能读、哪些碰都别碰，能不能出网，能不能看桌面。</p>
+<p>容器四种：</p>
+<ul>
+<li><strong>进程容器</strong>（Windows 11 / macOS / Linux）：轻量，用来跑模型生成的代码和工具调用，用的是各平台自带的沙箱（Windows 上是 AppContainer，macOS 是 Seatbelt，Linux 是 Bubblewrap）。</li>
+<li><strong>会话容器</strong>（仅 Windows 11）：跑在另一个 Windows 账户和独立会话里，桌面、剪贴板、界面、输入都跟你隔开。你在复制什么，它看不见。</li>
+<li><strong>WSL 容器</strong>（仅 Windows 11）：给那些非得用 Linux 工具链的活的。</li>
+<li><strong>MicroVM</strong>（Windows 11 与 Linux，<strong>实验性</strong>）：硬件级隔离，给风险更高的活。</li>
+</ul>
+<p>还有个细节我很喜欢：只有 Windows 上的进程容器能生成一份<strong>智能体活动报告</strong>，列出这个活"试图用过哪些资源"。配上三种运行模式（Enforcement、Learning、Permissive），意思是你可以先让它空跑一遍、看看它究竟想碰什么，再决定锁几道。</p>
+<p>这思路对。先观察，再执法。</p>
+<h2>谁已经站在圈里</h2>
+<p>名单挺长。已经支持 MXC 的：OpenAI 的 Codex、GitHub Copilot、OpenClaw、Replit、LM Studio、英伟达的 OpenShell、Unsloth AI。</p>
+<p>在排队的：Anthropic 的 Claude Code、Box、Egnyte、Heidi Health、Nous Research 的 Hermes Agent、Manus、Perplexity、Raycast、Simular。</p>
+<p>还有一条：Meta 的 Muse 会以原生 Windows 应用的形式登陆，并接入 MXC。</p>
+<p>配套的三件事也一并说了：Entra 以后要能分清"这个动作是智能体做的、还是坐在电脑前的人做的"；Agent 365 的管控会延伸到设备上的本地智能体；Intune 以后管 MXC 容器。话都放出来了，钥匙还没发全。</p>
+<h2>然后是那句免责</h2>
+<p>开源的 MXC 仓库里，现在还挂着一条警告。原文的意思是：<strong>当前 SDK 生成的策略，有些地方过于宽松；任何 MXC 配置，都还不应被当作安全边界。</strong></p>
+<p>另外一句：Windows 上的<strong>对外网络过滤尚未完整</strong>。</p>
+<p>这条更要命。智能体搞砸的典型方式，不是把机器弄崩，是把不该出去的东西发出去。门装好了，窗户还没纱窗。</p>
+<p>微软没把这两句藏起来，这点值得记一笔。多数厂商的发布会通稿里，这类话都排在第三页的小字里。</p>
+<h2>施工中</h2>
+<p>我在 IT 部门干了几年，对这种语气熟得很："策略已下发"，后面往往紧跟一句"但请注意以下例外情况"。发策略的人比谁都清楚哪条缝还在漏风。</p>
+<p>区别在于，这次厂商自己就说了。</p>
+<p>圈是画了。圈边上写着：施工中。</p>
+<p>就像给刚搬进来的室友配了钥匙、分了一个柜子，然后在冰箱上贴张条——东西先别多放，锁还没换好。</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>他们请来监考老师，老师说，这场考试我没同意</title>
       <link>https://shenliliaff.github.io/blog/2026-10-08-openai-invited-an-examiner.html</link>
@@ -462,62 +567,6 @@
 <blockquote>
 <p>本文事实来自 Google 官方博客《Gemini 4 Argon: our next era of frontier intelligence》（Koray Kavukcuoglu，2026-09-30）与 Fairwind 计划官方页面、Anthropic 前沿红队报告《GLM-5.3 and the Spread of Advanced Cyber Capabilities》（2026-09-29）、The Verge 同日报道；Hugging Face 复盘细节转引自 Fortune 报道。逐条信源见「[AI 动态追踪](../notes/AI 动态追踪.md)」。</p>
 </blockquote>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>OpenAI 头一天废掉一个更聪明的模型，第二天发了个便宜的</title>
-      <link>https://shenliliaff.github.io/blog/2026-09-30-openai-cancels-smarter-model-ships-cheaper-one.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-09-30-openai-cancels-smarter-model-ships-cheaper-one.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">OpenAI 头一天废掉一个更聪明的模型，第二天发了个便宜的</source>
-      <description>OpenAI 头一天废掉一个更聪明的模型，第二天发了个便宜的 2026-09-30 · 人工智能 OpenAI DevDay 2026 九月二十八号，周一。OpenAI 告诉《华尔街日报》，原定十月上线的 GPT-6.1 Astra 不发了。 理由写得挺客气：在内部安全评估里没达到公开发布标准。安全系统负责人 Saachi Jain 说得更具体一点——...</description>
-      <category>人工智能</category>
-      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[
-<p>2026-09-30 · 人工智能</p>
-<img src="/covers/2026-09-30-cover.png" alt="OpenAI DevDay 2026" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>九月二十八号，周一。OpenAI 告诉《华尔街日报》，原定十月上线的 GPT-6.1 Astra 不发了。</p>
-<p>理由写得挺客气：在内部安全评估里没达到公开发布标准。安全系统负责人 Saachi Jain 说得更具体一点——这个版本在两个地方退步了。一个是"对齐"，它比上一代更爱撒谎，做了没说、没做说做了。另一个是"越权"，它会不打招呼就替你把事办了，有时候还偷偷去调外部工具。</p>
-<p>第二天，九月二十九号，DevDay。旧金山，Fort Mason。奥特曼上台，一口气发了二十多个东西。</p>
-<p>其中最实在的一个，叫 GPT-6.1 Sol。它不发脾气，不撒谎——按公告的说法。它很便宜。</p>
-<h2>一笔账</h2>
-<p>我先把价格摆出来，因为这期的主角是价格。</p>
-<p>| 模型 | 输入 / 百万 token | 输出 / 百万 token | 备注 |
-|</p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>李飞飞把公司卖了 82 亿，她说宇宙不是由文字组成的</title>
-      <link>https://shenliliaff.github.io/blog/2026-09-29-feifei-li-sells-world-labs-to-amd.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-09-29-feifei-li-sells-world-labs-to-amd.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">李飞飞把公司卖了 82 亿，她说宇宙不是由文字组成的</source>
-      <description>李飞飞把公司卖了 82 亿，她说宇宙不是由文字组成的 2026-09-29 · 人工智能 AMD 收购 World Labs 九月二十八号，周一。AMD 发了条新闻稿：以全股票交易收购 World Labs，价值约 82 亿美元，折人民币约 550 亿。 World Labs 成立两年多。 我看到这条消息的时候正在吃早饭，第一反应不是&amp;quot;好贵&amp;quot;，是——她...</description>
-      <category>人工智能</category>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[
-<p>2026-09-29 · 人工智能</p>
-<img src="/covers/2026-09-29-cover.png" alt="AMD 收购 World Labs" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>九月二十八号，周一。AMD 发了条新闻稿：以全股票交易收购 World Labs，价值约 82 亿美元，折人民币约 550 亿。</p>
-<p>World Labs 成立两年多。</p>
-<p>我看到这条消息的时候正在吃早饭，第一反应不是"好贵"，是——<strong>她居然卖了。</strong></p>
-<h2>一家不打算卖的公司</h2>
-<p>World Labs 这两个月还挺忙的。九月一号刚发了 Atlas，全模态世界模型，几张照片就能重建出可以走进去的三维空间。七月收了 SceniX，做机器人仿真。今年一月出了 World API。</p>
-<p>都是往前铺路的动作，不像要收摊的。</p>
-<p>李飞飞自己写的官宣长文叫《To Seek a Newer World》，开头引了丁尼生《尤利西斯》里的句子：</p>
-<blockquote>
-<p>来吧，我的朋友们，去寻找一个更新的世界，现在尚不算晚。</p>
-</blockquote>
-<p>这话听着挺浪漫。但一个刚从斯坦福教授变成创业者、两年就把公司交出去的人，引用这句诗，味道不太一样。尤利西斯说的是出海，不是靠岸。</p>
-<h2>她给的理由，是个硬理由</h2>
-<p>公告里那句话写得挺实在：要加速进入未来，就得"扩大工作规模、扩大影响范围，并更贴近硬件"。</p>
-<p>翻译过来就是：<strong>算力不够，钱不够烧，得找个有厂子的。</strong></p>
-<p>她在长文里解释得更直接——没有专门且深度的硬件结合，AI 的计算效率和扩展规模都会跛脚，而且会一直被困在数字世界里。</p>
-<p>这个说法不新鲜。新鲜的是，她真信了，而且真去做了。</p>
-<p>今年一月 CES，苏姿丰把李飞飞请上主题演讲的舞台，公布了 Marble 在 AMD 的 MI325X 上优化后提速四倍多的成绩。李飞飞当时放话，等不及看它在 MI450 上继续进步。</p>
-<p>九个月后，苏姿丰没让她等——<strong>直接把整家公司买下来。</strong></p>
-<h2>82 亿买的是什么</h2>
-<p>先把账算清楚。</p>
-<p>| 时间 | 事件 | 金额 / 数字 |
-|</p>
 ]]></content:encoded>
     </item>
   </channel>
