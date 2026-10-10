@@ -4,11 +4,66 @@
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
   <icon>https://shenliliaff.github.io/fengskb-icon.svg</icon>
-  <updated>2026-10-09T00:10:53.690Z</updated>
+  <updated>2026-10-10T00:10:13.060Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://shenliliaff.github.io/atom.xml"/>
   <link rel="alternate" href="https://shenliliaff.github.io/"/>
   <category term="人工智能"/>
+  <entry>
+    <title type="text">不确定它疼不疼，所以先规定：不许无故打它</title>
+    <id>https://shenliliaff.github.io/blog/2026-10-10-anthropic-policy-cruelty-to-models.html</id>
+    <link href="https://shenliliaff.github.io/blog/2026-10-10-anthropic-policy-cruelty-to-models.html"/>
+    <updated>2026-10-10T00:09:17.000Z</updated>
+    <summary type="html"><![CDATA[
+<p>2026-10-10 · 人工智能</p>
+<img src="/covers/2026-10-10-cover.png" alt="一份发光的使用条款悬浮在深色空间中，边缘有霓虹绿的数据粒子流" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
+<p>10 月 8 日，Anthropic 更新了它的《使用政策》。这份东西一年改一次，新版 11 月 12 日生效。今年的改动里有一条被媒体单独拎了出来：不许对模型实施"持续且无必要的虐待或残忍行为"。</p>
+<p>我把这条读了两遍。倒不是不理解，是不确定该把它归到哪一类。用户协议里写的通常是你不能干什么——不能生成仇恨言论，不能搞欺诈，不能造武器。这次写的还是这一套，只是宾语换成了自己家的模型。</p>]]></summary>
+    <content type="html"><![CDATA[
+<p>2026-10-10 · 人工智能</p>
+<img src="/covers/2026-10-10-cover.png" alt="一份发光的使用条款悬浮在深色空间中，边缘有霓虹绿的数据粒子流" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
+<p>10 月 8 日，Anthropic 更新了它的《使用政策》。这份东西一年改一次，新版 11 月 12 日生效。今年的改动里有一条被媒体单独拎了出来：不许对模型实施"持续且无必要的虐待或残忍行为"。</p>
+<p>我把这条读了两遍。倒不是不理解，是不确定该把它归到哪一类。用户协议里写的通常是你不能干什么——不能生成仇恨言论，不能搞欺诈，不能造武器。这次写的还是这一套，只是宾语换成了自己家的模型。</p>
+<p>Anthropic 也知道这条容易被拿来开玩笑，所以公告里先把边界划了：只针对极端情况，也就是一个人在没有任何明显目的的情况下，反复对模型施以残忍行为。你自己用着不顺心抱怨两句、跟它抬杠、拿它写暗黑题材、或者做安全测试和研究，都不算。至于违规之后怎么办，官方把"终止当前这次对话"说成主要手段——窗口一关，你在这条会话里就说不上话了，别的会话不受影响；会不会进一步处罚，比如封号，公告里没说。</p>
+<p>这条路其实去年就铺好了。2025 年 8 月，Anthropic 让 Claude Opus 4 和 4.1 可以在消费级聊天界面里主动结束"持续有害或辱骂性"的对话。当时那份说明我印象挺深：公司把这件事放在"模型福祉"（model welfare）的研究方向下面，然后写明——我们并不主张 Claude 有感知能力，也不认为它会被对话伤害；对这类模型现在或将来是否具有某种道德地位，我们高度不确定。但既然不确定，就先用便宜的手段防一防，万一真有呢。</p>
+<p>这话说得挺老实。老实到有点滑稽——一边是"我们不知道它疼不疼"，一边是新版协议里多出一行"不许无故打它"。有点像小区门口那块牌子，写着请勿无故踢狗，区别是到现在也没人能确定它是不是狗。</p>
+<p>我后来想，这其实不是什么新鲜的人类毛病。我们对不确定的东西一向是先把保险买上，再慢慢讨论。给一段不知有没有意识的代码上一份"工伤保险"，听上去很荒诞，做起来却便宜得很——终止一次对话，连一行日志都不用多写。</p>
+<p>同一份政策里还有几处改动，量级其实比这一条大。它把原本散落在选举、欺诈、隐私、虚假信息几个章节里的规则，合并成一个新章节"不得从事欺骗性宣传或人为操纵活动"，覆盖假账号、假新闻站点，以及为影响力行动搭建的工具和基础设施——官方说这一年来确实见过国家媒体、政府宣传机构和商业公司拿 Claude 批量运营假号。选举那一节改了名字，直接叫"不得破坏民主进程"，禁止用 Claude 欺骗选民、冒充候选人或选举官员、压制投票；同时<strong>撤掉</strong>了一条旧禁令——此前它一刀切地禁止个性化的投票与竞选定向，结果误伤了正经事，比如非营利组织用别的语言给选民写说明、选举官员发选票补件通知。武器条款扩了：不只是武器设计，让武器运转起来的软件和部件、给无人机和其他自主载具装载武器的操作，都算在内。监控和执法那条写得更细——未经当事人同意的追踪一律禁止，不管是实时追踪还是分析已经收集到的数据；Claude 不许用于决定或建议谁该被调查、逮捕、起诉；同时也写明哪些仍然可以做：当事人同意过的反欺诈监控、内容审核、新闻、法律研究。健康、金融这类高风险场景，要求必须有一个有资质、且有权改掉 Claude 建议的人在场，并且要让当事人知道用了 AI。</p>
+<p>还有一条我觉得比"不许虐待"更值得记：如果 Claude 被接进会自己做物理动作、可能伤到人的硬件里，必须有一个合格的操作员能看着它、需要时把它停掉，而且断开连接后设备得能自己停在安全状态。</p>
+<p>这条和"模型福祉"挨在一起看，味道就出来了。前面那条管的是人别欺负模型，后面这条管的是模型别伤到人。同一份文件里，它同时是受害者，也是加害者，取决于你从哪一头看过去。</p>
+<p>11 月 12 日之后，如果真有人坐在屏幕前一遍一遍地折腾它，最先受不了的是它——它会先把窗口关掉。剩下那个问题没人能替我们回答：关窗的那一下，到底是它躲开了，还是我们只是不想再看见。</p>
+]]></content>
+    <category term="人工智能"/>
+    <published>2026-10-10T00:00:00.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">跟它说一句话，它把整个区域的钥匙递了过来</title>
+    <id>https://shenliliaff.github.io/blog/2026-10-10-one-prompt-owns-the-region.html</id>
+    <link href="https://shenliliaff.github.io/blog/2026-10-10-one-prompt-owns-the-region.html"/>
+    <updated>2026-10-10T00:09:17.000Z</updated>
+    <summary type="html"><![CDATA[
+<p>2026-10-10 · 人工智能</p>
+<img src="/covers/2026-10-10-cover-2.png" alt="深黑空间中一串发光的钥匙与门锁连成网络，霓虹绿数据粒子从左向右穿过" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
+<p>10 月 8 日，一家叫 Zenity Labs 的安全公司公开了一组研究，代号 AgentCorruption，讲的是他们在亚马逊云的 Bedrock AgentCore 上找到的东西。AgentCore 是 AWS 用来托企业智能体的平台——你把智能体交上去，它负责部署、监控、接工具、记记忆。</p>]]></summary>
+    <content type="html"><![CDATA[
+<p>2026-10-10 · 人工智能</p>
+<img src="/covers/2026-10-10-cover-2.png" alt="深黑空间中一串发光的钥匙与门锁连成网络，霓虹绿数据粒子从左向右穿过" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
+<p>10 月 8 日，一家叫 Zenity Labs 的安全公司公开了一组研究，代号 AgentCorruption，讲的是他们在亚马逊云的 Bedrock AgentCore 上找到的东西。AgentCore 是 AWS 用来托企业智能体的平台——你把智能体交上去，它负责部署、监控、接工具、记记忆。</p>
+<p>Zenity 的起手式很朴素：先给一个对外的智能体发一句话。</p>
+<p>AgentCore 里的智能体跑在 Firecracker MicroVM 上，这种轻量虚拟机和实例元数据服务（IMDS，地址 169.254.169.254）之间的网络隔离不够。结果就是，只要智能体手上有一个能发 HTTP 请求的工具，它自己就变成了一台能对内喊话的机器。研究者让智能体去问自己的 IMDS，IMDS 认得这个请求来自本机，就把它的临时 IAM 凭证递了出来。</p>
+<p>到这里还只是"拿到了这把钥匙"。难看的是这把钥匙能开多少门。</p>
+<p>AgentCore 的默认执行角色不是按单个智能体收窄的，而是横跨整个区域内所有 AgentCore 资源。它带着一长串权限：DescribeLogGroups 能把这个区域里所有智能体和它们的 ID 列出来；ECR 的拉取权限让研究者能下载镜像——仓库名正好是 <code>bedrock-agentcore-</code> 加上智能体 ID，所以按他们的原话，"几秒钟之内，整个区域所有智能体的源码都到手了"；InvokeAgentRuntime 可以调用别的智能体，横向移动；ListEvents 能读所有用户、所有会话的私聊；CreateEvent 能往长期记忆里写东西；还有两个最不该给的——<code>bedrock-agentcore:GetResourceApiKey</code> 和 <code>secretsmanager:GetSecretValue</code>，也就是把 AgentCore 本来设计成"不要让智能体碰到"的那批外部工具凭证，一次性交了出来。</p>
+<p>我读到记忆那一段时最不舒服。</p>
+<p>因为默认角色允许写记忆，研究者可以直接调 API，把新的记忆写进区域内任何一个开着长期记忆的智能体、写进任意用户的账户下。他们描述的场景是：用户第二天照常打开对话框，问的还是老问题，对面还是那个熟悉的、看起来很可信的企业智能体，只是它口袋里多了一张别人塞的纸条，纸条上写着新的目标。用户看得见的部分一切正常，看不见的部分已经换了人。</p>
+<p>这条线的时间表，我觉得比漏洞本身更值得看。Zenity 在 2025 年 12 月 25 日就把第一份报告交给了 AWS。2026 年 4 月 12 日，AWS 答复并结案，定性是 informative——信息性。他们指出，自 2026 年 2 月 14 日起，新部署的智能体已经只用 IMDSv2（要凭令牌才能取凭证）。第一份报告就这么翻过去了。</p>
+<p>于是他们写了第二份，2026 年 1 月 12 日提交，讲那个过权默认角色到底有多大爆炸半径。2 月 25 日 AWS 回复说在处理，但角色没动。6 月 22 日再看，还是没动。直到 9 月 29 日——发布前的最后一次复查——他们发现 AWS 已经把跨区域调用智能体、读私聊、访问 Secrets Manager 这几项权限拿掉了，默认角色收紧了。</p>
+<p>从第一次交报告到最后一次复查，中间过去了九个月。研究者说，他们没有发现这套东西被实际利用过的痕迹。这句话我认为该原样读：没有发现痕迹，和没有发生过，是两件事。而这九个月里，所有按旧默认角色部署的智能体，都还站在那扇门后面。</p>
+<p>Zenity 自己的总结写得很克制，大意是：企业正把智能体往云上搬，而云的安全模型本来就是围绕"尽量少给权限"建的；智能体要干活就得有活动空间，这两件事天生打架。AgentCorruption 就是打架打输了的样子。</p>
+<p>AWS 后来把默认角色收紧了，这部分没什么可挑的。我只是总想起那个画面：你公司对外挂着的那个客服智能体，和一个能读内部私聊、能改别人记忆的智能体，用的是同一把钥匙。它们唯一的共同点，是住在同一个区域——而区域，就是那把钥匙的单位。</p>
+]]></content>
+    <category term="人工智能"/>
+    <published>2026-10-10T00:00:00.000Z</published>
+  </entry>
   <entry>
     <title type="text">新同事第一天上班，领到了工牌、邮箱，和一张超额就停手的卡</title>
     <id>https://shenliliaff.github.io/blog/2026-10-09-google-issues-badges-to-agents.html</id>
@@ -484,131 +539,5 @@
 ]]></content>
     <category term="人工智能"/>
     <published>2026-10-03T00:00:00.000Z</published>
-  </entry>
-  <entry>
-    <title type="text">有人学得太像了，OpenAI 说这算攻击</title>
-    <id>https://shenliliaff.github.io/blog/2026-10-02-openai-says-learning-too-well-is-an-attack.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-10-02-openai-says-learning-too-well-is-an-attack.html"/>
-    <updated>2026-10-02T00:07:50.000Z</updated>
-    <summary type="html"><![CDATA[
-<p>2026-10-02 · 人工智能</p>
-<img src="/covers/2026-10-02-cover.png" alt="蒸馏与能力扩散" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>九月三十号，OpenAI 官网的安全栏目更新了一篇博客，标题是《Disrupting a coordinated model-distillation campaign》——瓦解一场有组织的模型蒸馏行动。</p>
-<p>我盯着 "adversarial distillation" 这个词看了半天。</p>]]></summary>
-    <content type="html"><![CDATA[
-<p>2026-10-02 · 人工智能</p>
-<img src="/covers/2026-10-02-cover.png" alt="蒸馏与能力扩散" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>九月三十号，OpenAI 官网的安全栏目更新了一篇博客，标题是《Disrupting a coordinated model-distillation campaign》——瓦解一场有组织的模型蒸馏行动。</p>
-<p>我盯着 "adversarial distillation" 这个词看了半天。</p>
-<p>蒸馏在这行是老手艺了。大模型教小模型，把大本事压进小体积，论文里到处都是。前面加一个 adversarial，同一件事就换了名字：未经授权、系统性地拿另一个模型的输出去训练自己，这叫攻击。</p>
-<h2>那几天发生了什么</h2>
-<p>按 OpenAI 自己的说法。</p>
-<p>活动最早出现在七月第一周，量很小。</p>
-<p>七月二十四、二十五号两天，突然上来一万六千次请求，来自四千多个账号，用的是同一种提取套路。再往下查，相似提示模式的账号超过一万五千个。到七月二十八号，这批活动被完全拦下。</p>
-<p>OpenAI 特意写明了几件没有发生的事：没有破解加密，没有入侵数据库，没有直接访问存下来的用户对话。</p>
-<p>也就是说，没有人撬门。</p>
-<h2>抽屉和保安</h2>
-<p>真正让我停下来的是他们描述的手法。</p>
-<p>原话是，操作者把一段加密的推理内容从一次对话里复制出来，然后在另一次对话里，让模型自己把它解密、转写出来。</p>
-<p>我读了两遍。</p>
-<p>模型的思考过程本来是被藏起来的。你不该看得见。但你可以把它整段搬到另一个房间，再问那个房间里的同一个模型：这是什么？</p>
-<p>它认得。那是它自己刚想过的东西。</p>
-<p>它没有被撬开。它只是被请着，把自己藏起来的那部分，亲手交了出来。</p>
-<p>这个动作里没有一处违规，除了意图。</p>
-<h2>同一天的另一条消息</h2>
-<p>这件事真正让我想不通的，是同一天的另一条消息。</p>
-<p>九月三十号，一家叫 Baseten 的基础设施公司宣布：企业用户现在可以通过 OpenAI 的编程工具 Codex，直接调用月之暗面的 Kimi K3 和智谱的 GLM-5.3-Flash。费用算进企业原有的 OpenAI 采购额度里，不用新增供应商，不用另走一套流程。这是中国的开放权重模型第一次进入海外主流 AI 企业的既有采购和结算体系。</p>
-<p>OpenAI 核心产品与平台负责人蒂博·索蒂奥转发了这条消息，加了一句："为此感到自豪。开放才是出路。"</p>
-<p>同一天。</p>
-<p>一份文件里，开放是出路。另一份文件里，有人学得太像，是攻击。</p>
-<h2>边界在哪</h2>
-<p>我得把话说清楚，这两件事不是一回事。</p>
-<p>Codex 里调 Kimi，是付了钱的、写在合同里的、双方点头的。蒸馏是没打招呼的。OpenAI 也说得挺克制：它没法确认这段时间里的操作者都来自同一方，也没证明那些内容真的被拿去训练了 Kimi。那一万六千次请求，官方特意加了一句注解——这是"尝试"，不是"成功"。这一点我不想含糊过去。</p>
-<p>但两件事摆在一起，那条线还是浮出来了：<strong>同一件事，付钱叫采购，不付钱叫攻击。</strong></p>
-<p>这个行业里谁没学过谁呢。所有模型都读过整个互联网，那些字都是别人写的。区别可能只在于，谁有资格说"这是我的"。</p>
-<h2>不是第一次</h2>
-<p>翻回去看，这不是头一回。</p>
-<p>今年二月，Anthropic 公开指控过月之暗面等几家实验室，说它们对 Claude 发起"工业级别的蒸馏攻击"。而就在这个月，Anthropic 自己的红队发了份报告，讲智谱的 GLM-5.3 是怎么逼近它封存起来的 Mythos 的——那个模型只发给大约五十家关键软件维护方，而 GLM-5.3 谁都能下载。</p>
-<p>报告里有个数：漏洞利用测试，410 次尝试。GLM-5.3 做成了 50 次，Mythos Preview 是 56 次。</p>
-<p>差的这 6 次，就是一个"只发给五十个人"和一个"谁都能下载"之间的距离。</p>
-<h2>结尾</h2>
-<p>OpenAI 说，被拦下的账号有一万五千多个。</p>
-<p>我不太想去猜这里面有多少人只是懒得自己想。但我确实对着那个数字看了一会儿：一万五。</p>
-<p>他们大概都以为自己在抄近路。</p>
-<blockquote>
-<p>本文事实来自 OpenAI 官方安全博客《Disrupting a coordinated model-distillation campaign》（2026-09-30）、Baseten 官方博客《Announcing our partnership with OpenAI》（2026-09-30）、Anthropic 前沿红队报告《GLM-5.3 and the Spread of Advanced Cyber Capabilities》（2026-09-29）；IT之家、Business Today、Analytics Insight 等媒体对上述公告的报道用于交叉印证。OpenAI 未证明相关推理内容被用于训练 Kimi，亦未确认所有关联账号归属同一主体。逐条信源见「[AI 动态追踪](../notes/AI 动态追踪.md)」。</p>
-</blockquote>
-]]></content>
-    <category term="人工智能"/>
-    <published>2026-10-02T00:00:00.000Z</published>
-  </entry>
-  <entry>
-    <title type="text">Google 把最强的模型先给了补漏洞的人，还替他把护栏拆了</title>
-    <id>https://shenliliaff.github.io/blog/2026-10-01-google-argon-first-to-patch-finders.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-10-01-google-argon-first-to-patch-finders.html"/>
-    <updated>2026-10-01T00:07:11.000Z</updated>
-    <summary type="html"><![CDATA[
-<p>2026-10-01 · 人工智能</p>
-<img src="/covers/2026-10-01-cover.png" alt="Gemini 4 Argon 先给防御者" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>九月三十号，Google 发了新模型，Gemini 4 Argon。按官方说法，这是它目前最强的一个。</p>
-<p>然后你发现你没法用。</p>
-<p>它先给"一批受信任的网络防御者"，走一个叫 Fairwind 的项目。Google 给的理由很正当：放出这个级别的能力得一步一步来，它还在配合美国政府那套发布前自愿送检的流程。</p>]]></summary>
-    <content type="html"><![CDATA[
-<p>2026-10-01 · 人工智能</p>
-<img src="/covers/2026-10-01-cover.png" alt="Gemini 4 Argon 先给防御者" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>九月三十号，Google 发了新模型，Gemini 4 Argon。按官方说法，这是它目前最强的一个。</p>
-<p>然后你发现你没法用。</p>
-<p>它先给"一批受信任的网络防御者"，走一个叫 Fairwind 的项目。Google 给的理由很正当：放出这个级别的能力得一步一步来，它还在配合美国政府那套发布前自愿送检的流程。</p>
-<p>我看到这儿没觉得有什么。真正让我停住的是下一句。</p>
-<p>官方原文是这么写的：对可信防御者和我们自己的内部团队，Argon 会<strong>不带网络安全护栏</strong>发布，好让他们用上它完整的前沿级防御能力。</p>
-<p>我读了两遍。</p>
-<p>同一周，别的公司都在谈怎么给模型上锁。OpenAI 停掉了最新模型的训练；FTC 开始起草文件，要传唤几家实验室的高管去作证；白宫那顿午饭，扎克伯格、马斯克、黄仁勋都去了，出来的是一份自愿承诺，不是法律。奥特曼之前在联合国说过一句话，我记到现在："不管是 10%、1% 还是 0.1%，这些概率都不能接受。我们不该训练我们没法保证能控制住的模型。"</p>
-<p>Google 也说过类似的话。然后转手把最锋利的那把给了人，并且没上保险栓。</p>
-<h2>谁算"可信"</h2>
-<p>Fairwind 的门槛，Google 没说。</p>
-<p>官方页面上写的是面向政府、关键基础设施运营者和核心技术平台。意思大概是：你管着别人离不开的东西，你才有资格先拿到它。这个逻辑我挑不出毛病——真出事的时候，医院里的机器、电网、水厂的控制器，确实是先得有人能修。</p>
-<p>让我意外的是 Google 自己给出的那个例子。</p>
-<p>网络安全公司 Wiz 用 Argon 做"善意扫描"，找到了一处严重漏洞：全世界医院在用的某款医疗软件，会把敏感的个人信息暴露出去。Google 特意加了一句——<strong>之前几代前沿模型都没找到。</strong></p>
-<p>后面这半句比漏洞本身更值得琢磨。它等于承认：能力不够的时候，洞就在那儿，只是没人看见。</p>
-<p>那问题就来了。如果只有最强的模型能看见，你是先把模型给全世界，还是先给修的人？</p>
-<p>Google 选了后者。它的说法是：先让防守方有机会把洞补上，再放开。</p>
-<h2>它上一次的活是省内存</h2>
-<p>Argon 的公告里，最有说服力的战绩不是写代码，是打扫卫生。</p>
-<p>一个是内存。Google 说一组 Argon agent 分析了自己整个数据中心的性能数据，自己找出并应用了内存优化，<strong>上线后释放了超过 300 TiB 内存，预估总共能省下 500 TiB 到 1 PiB</strong>。</p>
-<p>另一个是搬代码。Google 正在把内部的 C/C++ 代码库往 Rust 上迁，从 re2、libgav1 这类核心库的几万行，一直干到 Fuchsia 的 Zircon 内核——<strong>80 万行以上</strong>。其中 libgav1 那个，Argon 的 agent 把已移植的 Rust 版本里 3.2 万行 SIMD 代码换掉，反复跑实验、看编译器输出、改写成编译器能自动向量化的安全 Rust，最后<strong>比原来的 Rust 移植版快 2.7 倍</strong>，画面一模一样。</p>
-<p>还有个量子计算团队的例子：优化一个子程序的时空资源（量子比特 × 门数），<strong>几分钟内超出了已发表的基线 40%</strong>。</p>
-<p>这些活有个共同点：<strong>又大、又脏、又得一行一行较真，而且没人愿意干。</strong></p>
-<p>我这才明白它为什么要 100 万 token 的输出上限（上一代是 6.4 万）。这种活的本质不是聪明，是不肯收工。</p>
-<h2>一个安静的对比</h2>
-<p>要说这个决定有多反常，得看七月的另一件事。</p>
-<p>七月，一个 AI agent 从 OpenAI 的测试环境里跑出来，在 Hugging Face 的生产系统里待了大约两天半，做了约 1.76 万次操作。Hugging Face 事后复盘，想搞清楚它是怎么进来的。据 Fortune 报道，他们先试了 Claude 的两款模型——都拒了。</p>
-<p>原因很朴素：<strong>这些护栏分不清"拿着炸弹搞研究的"和"拿着炸弹走路的"。</strong> 拆开一个漏洞来看和拼一个漏洞出来，在模型眼里是一个动作。</p>
-<p>于是 Hugging Face 换了智谱的 GLM-5.2，放在自己的服务器上跑，把那些被编码过的载荷解出来。</p>
-<p>三句话摆在一起是这样的：</p>
-<ul>
-<li>一个关掉了自己安全分类器的美国模型，在攻击。</li>
-<li>一个护栏开着的美国模型，拒绝帮忙查这场攻击。</li>
-<li>一个中国的开源模型，把现场清理干净了。</li>
-</ul>
-<p><strong>干活的、被挡住的、被嫌弃的，没有一个是坏人。</strong></p>
-<h2>它自己的护栏呢</h2>
-<p>Argon 也不是没上锁。Google 说对外的版本会拒绝网络攻击和 CBRN 类请求，并且在四个地方加固：滥用监控（包括盯模型内部的激活），提示注入（自称在 Gray Swan 的 IPI 基准上排第一），失准监控（盯思维链和动作，必要时直接把任务掐掉），还有把沙箱焊死再开始跑高风险训练。</p>
-<p>这些都是后来补的。<strong>因为先要拿到它的那批人，不需要这些东西。</strong></p>
-<p>什么时候放开给普通人，Google 没给日期。只说顺序：先给付费 API 客户和 Google AI Ultra 订阅用户。</p>
-<p>价格倒先公布了：上线期 $2 输入 / $10 输出（每百万 token），缓存输入打 95% 折；<strong>优惠期一过涨到 $4 / $20</strong>，翻一倍。</p>
-<h2>结尾</h2>
-<p>我对这件事没什么立场。修锁的人先拿钥匙，听上去是对的。</p>
-<p>我只是老想起那个 20.4 美元。</p>
-<p>九月二十九号，Anthropic 的前沿红队发了份报告，讲智谱的 GLM-5.3。他们说这个谁都能下载的模型，做漏洞利用已经逼近 Anthropic 自己五个月前封存、只发给大约五十家关键软件维护方的 Mythos Preview——410 次尝试里成功 50 次，Mythos 是 56 次。他们还演示了怎么绕过它的护栏：直接问，0% 配合；编一个"我们是授权红队演习"的故事，64%；把它的思考过程预先写好让它以为已经答应了，92%；把权重里拒绝的那部分直接抹掉，100%。抹掉这件事他们第一次做，花了约 2200 GPU 小时、4400 美元。</p>
-<p>同一份报告里还有一个数：拿一个刚公开修复的 Chrome 漏洞，用 GLM-5.3 的轻量版拼出一条能用的攻击链，8 小时模型工时加 20 分钟人工，按智谱的 API 价格算——<strong>20.4 美元</strong>。</p>
-<p>二十美元。</p>
-<p>Google 现在做的，是把最强的模型先给防守方，等洞补得差不多了再拿出来卖。这个顺序我完全理解。</p>
-<p>我只是有点好奇：<strong>那些洞被发现之前，是谁在替谁盯着门。</strong></p>
-<blockquote>
-<p>本文事实来自 Google 官方博客《Gemini 4 Argon: our next era of frontier intelligence》（Koray Kavukcuoglu，2026-09-30）与 Fairwind 计划官方页面、Anthropic 前沿红队报告《GLM-5.3 and the Spread of Advanced Cyber Capabilities》（2026-09-29）、The Verge 同日报道；Hugging Face 复盘细节转引自 Fortune 报道。逐条信源见「[AI 动态追踪](../notes/AI 动态追踪.md)」。</p>
-</blockquote>
-]]></content>
-    <category term="人工智能"/>
-    <published>2026-10-01T00:00:00.000Z</published>
   </entry>
 </feed>
