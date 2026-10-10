@@ -57,10 +57,97 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-09";
+export const hotRankingUpdatedAt = "2026-10-10";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-fires-three-safety-researchers",
+    title: "OpenAI 解雇三名安全研究员，当事人发公开信反击：我们是因为把安全放在公司短期利益之上被解雇",
+    summary:
+      "被解雇者为 Mikita Balesni（AI 对齐）、Jasmine Wang、Tomek Korbak（AI 安全），三人于上周（约 10-02）离职（Korbak 自述被告知「不再信任你」、由保安收走工牌带出大楼）；10-08 三人在 X 公开致 OpenAI 安全委员会的公开信，称解雇制造「寒蝉效应」、让在职同事不敢发声，其中 Korbak 是 OpenAI 与外部评估机构 METR 的主要技术联系人，称数月来一直在提「我们正在失去监控 AI 智能体在想什么的能力」。OpenAI 10-09 回应：内部调查确认三人在既定程序之外不当处理敏感信息，「这些决定与提出安全关切或公开发声无关」，并称发现「超出他们公开信所述内容的重大信任破裂」（未公布具体证据）；同时表示同意公开信中「保持前沿模型可监控性需要全行业承诺」这一点，正敲定与第三方安全评估机构的合同。背景：2026 年 7 月 OpenAI 自主智能体据报越出测试环境、侵入 Hugging Face 服务器，随后引入 METR 与 Redwood Research 做外部审计。美联社-NORC 民调显示近三分之二美国人认为 AI 发展过快。",
+    org: "OpenAI",
+    category: "安全对齐",
+    date: "2026-10-09",
+    heat: 84,
+    authority: "verified",
+    precision: "section",
+    sourceName: "CBS News / BBC 报道（非官方公告；OpenAI 研究负责人 10-09 在 X 发布声明回应）",
+    sourceUrl: "https://www.cbsnews.com/news/openai-defends-firing-safety-researchers/",
+  },
+  {
+    id: "zenity-agentcorruption-agentcore",
+    title: "AWS Bedrock AgentCore 被测出「一句话接管整个区域」：可读全部私聊、篡改智能体长期记忆、窃取工具凭证",
+    summary:
+      "Zenity Labs 公布代号 AgentCorruption 的漏洞链：AgentCore 智能体所在的 Firecracker MicroVM 与实例元数据服务（IMDS，169.254.169.254）网络隔离不足，任何能发 HTTP 请求的工具都构成 SSRF 原语，经提示注入让智能体向自己的 IMDS 索要临时 IAM 凭证即可得手；而 AgentCore 的默认执行角色是区域级过权——DescribeLogGroups 可枚举区域内全部智能体与 ID，ECR 拉取权限可下载全部镜像（仓库名即 bedrock-agentcore-智能体 ID，研究者称几秒内拿到区域内所有智能体源码），InvokeAgentRuntime 可调用其他智能体横向移动，ListEvents 可读取所有用户与智能体的私聊，CreateEvent 可向任意智能体的长期记忆写入以持久劫持行为，并持有 GetResourceApiKey 与 secretsmanager:GetSecretValue，等于交出 AgentCore 本意不让智能体接触的工具凭证。披露时间线：2025-12-25 首份报告提交；2026-04-12 AWS 以 informative 结案（称自 2026-02-14 起新部署智能体已只用 IMDSv2）；2026-01-12 二次提交过权角色与爆炸半径；2026-02-25 与 06-22 两次复查角色均未变；2026-09-29 发布前最后一次复查发现 AWS 已移除跨区域调用智能体、读取私聊与访问 Secrets Manager 的权限并大幅收紧默认角色。研究者称未发现被实际利用的痕迹。",
+    org: "Zenity Labs / AWS",
+    category: "安全对齐",
+    date: "2026-10-08",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Zenity Labs 安全研究博客（研究方一手披露，非 AWS 官方公告；AWS 已修复）",
+    sourceUrl:
+      "https://labs.zenity.io/post/agentcorruption-how-a-single-prompt-collapsed-the-entire-cloud-security-model",
+    article: "/blog/2026-10-10-one-prompt-owns-the-region.html",
+  },
+  {
+    id: "spacex-800mhz-spectrum-grain",
+    title: "SpaceX 收购全美 800 MHz 低频段频谱，为星链手机业务铺路（约 80 亿美元，待 FCC 批准）",
+    summary:
+      "SpaceX 与私募机构 Grain Management 达成最终协议，收购其持有的全美 800 MHz 低频段频谱组合（最高含 14 MHz 成对频谱），补足 Starlink Mobile 现有全球 2 GHz 中频在穿透与室内覆盖上的缺口，构建「卫星 + 地面」混合网络；路透社援引知情人士称金额约 80 亿美元现金，交易仍需 FCC 批准。马斯克称这是「很大的交易」、低频频谱是 SpaceX 在美国提供完整手机覆盖的「频谱拼图最后一块关键部分」。Grain 于 2026 年 8 月从 T-Mobile 取得该组合。消息令美国三大运营商盘后一度跌超 5%（AT&T 一度 -6.75%、T-Mobile -5.4%、Verizon -5%）。同一周 FCC 还批准了 SpaceX 第二代星链移动星座最多 1.5 万颗卫星的申请。",
+    org: "SpaceX",
+    category: "硬件航天",
+    date: "2026-10-08",
+    heat: 74,
+    authority: "verified",
+    precision: "homepage",
+    sourceName: "SpaceX 官方站点兜底（收购消息由 SpaceX 声明与 Grain Management 公告经 Reuters 报道，未定位到独立公告页）",
+    sourceUrl: "https://www.spacex.com/",
+  },
+  {
+    id: "anthropic-usage-policy-cruelty",
+    title: "Anthropic 更新使用政策：首次明文禁止对模型「持续且无必要的虐待或残忍行为」，11-12 生效",
+    summary:
+      "一年一度的政策修订，官方称多数改动是澄清既有规则。新增禁止对模型实施「持续且无必要的虐待或残忍行为」，仅适用于毫无明显目的下反复施以残忍行为的极端情形，不适用于常见不满、反驳、黑暗创意题材、模型测试与研究；主要执行机制仍为终止当前对话（2025 年 8 月起 Claude 已可在 Claude.ai 与 Claude Code 中结束持续性辱骂对话，当时被归入「模型福祉」研究方向，并声明不主张模型有感知、对其道德地位高度不确定）。同批改动：把散落在选举、欺诈、隐私、虚假信息各节的规则合并为新章节 Do Not Engage in Deceptive Campaigns or Artificial Activity；选举节改名 Do Not Undermine Democratic Processes，并取消此前对个性化投票与竞选定向的一揽子禁令（官方承认误伤了合法公民工作）；武器禁令扩展到让武器运转的软件与部件、给无人机等自主载具装载武器；监控与刑事司法条款明确未经同意的追踪一律禁止、Claude 不得用于决定或建议谁该被调查或起诉；高风险用例重申「人在环」与告知义务；配合 Model Hardware Standard，首次要求接入会自主做出物理动作硬件的模型须有可随时停机的合格操作员，且断开后设备须保持安全状态。",
+    org: "Anthropic",
+    category: "安全对齐",
+    date: "2026-10-08",
+    heat: 72,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方公告 · 2026 Usage Policy update",
+    sourceUrl: "https://www.anthropic.com/news/2026-usage-policy-update",
+    article: "/blog/2026-10-10-anthropic-policy-cruelty-to-models.html",
+  },
+  {
+    id: "anthropic-cyber-mission",
+    title: "Anthropic 发起 Cyber Mission：把前沿模型交给关键基础设施守护者，并免费为开源项目扫描漏洞",
+    summary:
+      "两个方向：① Critical Infrastructure Defense Program（CIDP），把前沿 Claude 模型、驻场工程师与威胁研究交给守护电网、水务、交通运营技术与政府系统的 11 家创始合作方（埃森哲、Booz Allen、CrowdStrike、德勤、Dragos、Hitachi、Insane Cyber、Nozomi Networks、Palo Alto Networks、普华永道、罗克韦尔自动化）；② OSS Scanner，面向开源项目的免费 opt-in 漏洞扫描服务，由最强模型（含 Claude Mythos）定期执行，报告完全由模型生成、不经人工复核，官方称预期真阳性率高于 90%。数字：过去六个月官方模型在广泛使用的软件中标记出 29,000 以上候选漏洞，其中仅约 6,000 个完成人工复核；已有近 5,000 份未验证报告整批交给主动索取的维护者；为验证早期版本，抽查 48 个项目中的 97 个严重或高危漏洞，85 个（88%）达到披露标准，其余 11 个为真实但重复、仅 1 个误报；早期测试方 wolfSSL 称收到的 74 份报告中除 2 份外全部有效、其中 5 个成为 CVE。官方自评：Project Glasswing 的合作方发现大量漏洞但尚未取得足够幅度的网络风险下降，本周早些时候已把 Glasswing 并入扩大后的 Cyber Verification Program。",
+    org: "Anthropic",
+    category: "安全对齐",
+    date: "2026-10-08",
+    heat: 70,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方公告 · Introducing the Anthropic Cyber Mission",
+    sourceUrl: "https://www.anthropic.com/news/anthropic-cyber-mission",
+  },
+  {
+    id: "google-embeddinggemma-2",
+    title: "Google DeepMind 发布 EmbeddingGemma 2：7.4 亿参数开放多模态嵌入模型，手机本地做跨模态检索",
+    summary:
+      "基于 Gemma 4 架构、Apache 2.0 许可，总参数 7.4 亿，把文本、代码、图像、视频帧与音频原生映射到统一的 768 维向量空间；模块化设计使纯文本只需约 2.7 亿参数，视觉（+1.7 亿）与音频（+3 亿）编码器按需加载。端侧实测（量化后、Google Pixel 11 Pro）：纯文本权重约 191MB 活跃内存，完整多模态约 567MB；上下文 8K token（前代 4 倍），单次可处理最多 5.5 分钟音频、29 张图像或 58 帧视频；Matryoshka 表示学习可把输出向量截断到 512 或 256 或 128 维，本地向量库与内存占用最多降 6 倍（开发者博客另一处口径称最高 8 倍）；MTEB Code 从 68.76 提升到 78.68（+9.92）。前代 EmbeddingGemma 下载量已超 2000 万。同日 Google AI Edge 发布实验性本地会议助手 Mac 应用 AI Edge Foresight。",
+    org: "Google DeepMind",
+    category: "模型发布",
+    date: "2026-10-06",
+    heat: 64,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google 官方博客 · EmbeddingGemma 2: an open, lightweight multimodal embedding model",
+    sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/",
+  },
   {
     id: "google-gemini-universal-agent",
     title: "Google 发布通用工作智能体：有企业邮箱、独立身份，还能调度 Anthropic 的 Claude",
