@@ -57,10 +57,83 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-11";
+export const hotRankingUpdatedAt = "2026-10-12";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "amazon-decart-acquisition-talks",
+    title: "据《华尔街日报》报道，亚马逊正洽谈以约 70 亿美元收购 AI 初创公司 Decart（Anthropic 9 月曾以约 60 亿美元探价后放弃）",
+    summary:
+      "《华尔街日报》10-11 援引知情人士报道，亚马逊正洽谈收购 AI 初创公司 Decart，交易估值可能约 70 亿美元；若谈判不破裂、也没有其他竞购者，交易可能很快达成。Decart 与亚马逊均未回应置评，路透社表示无法立即核实。Decart 成立于 2023 年，由三位以色列工程师创立（Dean Leitersdorf、Orian Leitersdorf 兄弟与 Moshe Shalev），总部旧金山，产品含实时视频编辑模型 Lucy（英伟达投资）与生成仿真环境、用于机器人与自动驾驶训练测试的世界模型 Oasis，另有让开发者更容易在不同 AI 芯片之间切换的软件——据凤凰科技，这正是亚马逊看中的能力，AWS 曾在 2025 年与该公司会面后向其提供 Trainium3 芯片的早期使用权。估值线：5 月一轮（Radical Ventures 领投、英伟达新进）融资 3 亿美元，当时估值近 40 亿美元（PitchBook 口径）；据彭博社，Anthropic 曾在 8 月以约 60 亿美元探价、9 月做尽职调查后放弃收购。Decart 累计风险投资超 4 亿美元（红杉、Benchmark、Radical 等）。此前亚马逊的大型收购包括 2022 年 65 亿美元收购米高梅，以及今年早前宣布的约 110 亿美元收购 Globalstar。",
+    org: "亚马逊 / Decart",
+    category: "行业动态",
+    date: "2026-10-11",
+    heat: 66,
+    authority: "verified",
+    precision: "homepage",
+    sourceName: "《华尔街日报》报道（非官方公告，双方均未确认）+ 亚马逊官方站点兜底",
+    sourceUrl: "https://www.amazon.com/",
+  },
+  {
+    id: "typesafe-ai-series-a-7-5b",
+    title: "TypeSafe AI 完成约 8.7 亿美元 A 轮、投后估值 75 亿美元：主力模型 Jev 不做文本生成，只把「校准过的决策」直接交给代码",
+    summary:
+      "10-09，TypeSafe AI 宣布完成约 8.7 亿美元 A 轮融资，投后估值 75 亿美元，由 a16z 领投，红杉资本与种子轮投资方 DCVC 参投，a16z 合伙人 Martin Casado 进入董事会。公司 2024 年成立，9 月 15 日才出隐身模式并宣布 4,000 万美元种子轮（DCVC 领投，投后约 2 亿美元）——不到一个月估值从约 2 亿跃至 75 亿。产品 Jev 自称 System One 模型：不生成文本、不做对话，直接输出带类型的「校准过的决策」（概率值），面向软件而非人，支持 yes/no、多选、评分等固定选项，官方称延迟低于 100 毫秒。创始团队：CEO Diogo Almeida（前 OpenAI 研究员，参与 InstructGPT、ChatGPT、GPT-4）、CTO Erik Gafni、COO Sasha Sheng（前 Meta 研究工程师）。领投方 a16z 的官方口径：Jev 上线 3 天生成 1 万亿 token，为「我们见过增长最快的模型」；成本约为前沿模型的 1/100 到 1/500，分类任务上快 100 倍且准确率相当；约 25% 的《财富》500 强已接入（TypeSafe 自己说约三分之一，两者不一致）；并造了一个词「Jev-ons 悖论」——把智能便宜到随处可调，它就会被到处调用。独立口径：评测机构 Vals AI 于 10-06 发布对 Jev 的独立评测。这是本轮「不聊天的模型」这条线上的最大一笔钱。",
+    org: "TypeSafe AI",
+    category: "行业动态",
+    date: "2026-10-09",
+    heat: 78,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Andreessen Horowitz 官方投资公告（本轮领投方，2026-10-09）",
+    sourceUrl: "https://a16z.com/announcement/investing-in-typesafe-ai/",
+    article: "/blog/2026-10-12-model-that-doesnt-chat.html",
+  },
+  {
+    id: "anthropic-dynamic-workflows-1000-agents",
+    title: "Anthropic 为 Claude 管理智能体上线「动态工作流」公测：单次运行最多 1,000 个智能体、64 线程并发",
+    summary:
+      "10-09，Anthropic 在官方平台版本说明中宣布 Claude 管理智能体（Claude Managed Agents）上线动态工作流（dynamic workflows）公测。官方定义：「工作流是一个程序，它分阶段运行许多智能体，并把结果合并起来」；由智能体自己写这个程序，服务器在后台以「工作流运行」的形式执行。开启方式：把智能体的 multiagent 字段设为 {\"type\": \"multiagent_20261001\", \"workflows\": {\"type\": \"enabled\"}}，需 managed-agents-2026-04-01 beta 头，并在系统提示里告诉它何时该起一次运行；过程通过会话事件流上的 workflow_run.* 事件跟踪。量的口径：单次运行同时最多 64 个线程（官方称 API 不作保证）、一次运行生命周期内最多起 1,000 个智能体（超限以 thread_limit_error 结束）、默认运行寿命 24 小时、单个会话最多 10 个并行运行；只有会话主线程的智能体能启动运行，运行内部不能嵌套；主智能体无法给运行中的线程追加消息。子智能体分两类：inline worker（由工作流写其系统提示，用主智能体的模型与工具子集）与 predefined worker（已保存的智能体，可带自己的模型、系统提示、工具与技能，每个列表最多 20 个）。官方演示基准：在 116,000 行代码、埋 70 个 bug 的库里，单智能体每次检出 14–27 个，动态工作流三次运行稳定检出 66 个。官方同时提醒：工作流「可能用掉大量 token」，建议先从范围明确的小任务开始；价格侧称「一次运行本身没有价格」，按各模型 token 价计费。注意：Claude Code 早在 5 月 28 日已有该能力且已 GA，区别是脚本跑在用户本机、可查看与改写；Managed Agents 版本跑在 Anthropic 服务器上，由智能体决定何时启动。",
+    org: "Anthropic",
+    category: "产品发布",
+    date: "2026-10-09",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方平台版本说明（2026-10-09 条目）",
+    sourceUrl: "https://platform.claude.com/docs/en/release-notes/overview",
+    article: "/blog/2026-10-12-thousand-agents-tenth-one.html",
+  },
+  {
+    id: "microsoft-decision-1",
+    title: "微软发布决策专用模型 Microsoft-Decision-1：不生成文本、只对固定选项返回校准概率，定价每百万输入 0.042 美元、输出免费",
+    summary:
+      "10-09，微软发布并上架决策打分模型 Microsoft-Decision-1（Microsoft Foundry 与 OpenRouter）。它不生成文本，只对一组固定选项返回校准过的概率分，支持 yes/no、多选、量表评分，以及按评分标准给 AI 回复与智能体动作打分；用途为模型路由、分类、优先级排序、验证、工作流控制与智能体护栏。底座是阿里开源的 Qwen3.5-9B，微软做后训练，并称今后会迁移到自家 MAI 与 OpenAI 的模型上；单次前向打分，上下文 32K。定价：每百万输入 token 0.042 美元，输出免费（据第三方整理，TypeSafe 给 Jev 的报价也是同一数字，同一天）。官方数字：36 项基准、近 15 万道题（全部对训练不可见）上准确率最高；P50 延迟约为 GPT-6 Sol 的 1/35、第二名 H2O-Lightning-4B v1.1 的 1/2.5；八种扰动下决策翻转率平均 1.3%，「选项描述被改写」与「选项被倒序」两种情况零翻转；安全侧在 5,250 条请求、11 项基准上测了有害内容、越狱与提示注入。内部用例：Xbox 研究团队把一万多条玩家反馈归入固定主题，质量与 GPT-6 Sol 相当、快 14 倍以上、成本约为其 1/200；Copilot 团队用于评测回复质量；值班工程师用于知识检索路由；Microsoft Discovery 用它给实验方案打分驱动自适应重规划，官方称一致性比大模型打分高 46 倍。官方自陈边界：不做文本生成、开放式问答、对话、翻译与摘要，不解释理由，且「不应被当作涉及信贷、就业、住房、保险、教育、医疗、法律权利等高影响领域对人的决策的唯一自动化决策者」。同批背景：Cloudflare 10-01 已开源决策模型 Clef / Clef-flash，AWS 同日发 Strands Decider 2B，OpenAI 10-06 上线 Decisions API；微软公告底部有一行编辑注，说明该文在原稿基础上补上了 Jev 在准确率与校准上的基准，其横向比较所用榜单名为 JevBench。",
+    org: "微软",
+    category: "模型发布",
+    date: "2026-10-09",
+    heat: 74,
+    authority: "official",
+    precision: "exact",
+    sourceName: "微软官方博客（Command Line）与 Azure AI 模型目录页",
+    sourceUrl: "https://commandline.microsoft.com/microsoft-decision-1-model-foundry/",
+  },
+  {
+    id: "vals-ai-agent-teams-token-waste",
+    title: "Vals AI 评测：多智能体团队贵 1.8–5.1 倍，四个对照只有一个统计显著；Opus 5.5 拿全场最高的那次比它最省的跑法贵约 30 倍，只多 1.6 分",
+    summary:
+      "Vals AI 官方博客于 10-09 发布评测《Do Agent Teams Pay Off? A Case Study on Vibe Code Bench》（The Decoder 10-11 报道）。方法：GPT-6 Sol 与 Claude Opus 5.5 各自以「单智能体」与「团队」两种形态、在中等与最高两档推理强度下跑 Vibe Code Bench（从产品说明建出可运行的完整 Web 应用，Docker Compose 部署后由浏览器智能体点进去按通过率打分）；每种配置各 50 个应用，提示、沙箱与评分器相同；团队模式下主智能体最多同时开 5 个子智能体。结果：团队比单打贵 1.8 到 5.1 倍，四个对照里只有一个统计显著——GPT-6 Sol 中等推理档 77.6% → 84.9%（+7.3 分，p=0.005，成本 1.22 → 3.07 美元/应用）；其余三个从 −0.3 分到 +3.4 分，不显著。最能说明问题的对照：Opus 5.5 最高推理档团队拿到全场最高 93.2%，但每个应用 122 美元、中位 174.1 分钟；而它中等推理档单打是 91.5% / 4.08 美元 / 20.3 分钟——分差 1.6 个百分点，不显著，最贵那次约为最省那次的 30 倍。多出的开销主要来自缓存输入（每个子智能体都要重读自己的上下文），Opus 最高推理档的子智能体每个应用中位读取 2.24 亿缓存 token；Opus 的团队是排队的（主智能体先写 CONTRACT.md，再分波派 builder、功能智能体与测试），要等最慢的一个，运行时间最长到单打的 2.3 倍。两个佐证：① Anthropic 自家 Claude Opus 5.5 系统卡里的多智能体数据（同一任务 1 / 10 / 30 / 100 个智能体）——知识库 0.53 / 0.70 / 0.71 / 0.74，Lean 定理证明 0.39 / 0.66 / 0.66 / 0.68，第十个之后基本走平；Fable 5.1 在知识库任务上从 30 加到 100 反而略降。② OpenAI 研究员 Noam Brown 在 Dwarkesh 播客称多智能体主要买速度不买质量，4 个智能体快一倍也贵一倍；OpenAI 开发者 Eric Provencher 把协调开销称为「协调税」。公平的补充：团队唯一显著取胜那次，价值来自验收——Sol 中等档涨 20 分以上的 9 个应用里，单打版本「声称测试通过、实际跳过功能」，组队后主智能体在 50 次里有 46 次亲自用浏览器点过部署好的应用。评测方自陈的限制：每种配置只跑一次；两个模型跑在不同 harness 上，跨模型比较会掺入 harness 差异。",
+    org: "Vals AI",
+    category: "学术公益",
+    date: "2026-10-09",
+    heat: 72,
+    authority: "official",
+    precision: "section",
+    sourceName: "Vals AI 官方博客（2026-10-09 条目《Do Agent Teams Pay Off?》，列表页）",
+    sourceUrl: "https://vals.ai/blogs",
+    article: "/blog/2026-10-12-thousand-agents-tenth-one.html",
+  },
   {
     id: "nvidia-reflection-ai-talks",
     title: "英伟达洽谈收购或追加投资 Reflection AI，拟以「人才兼并」绕开反垄断审查",
