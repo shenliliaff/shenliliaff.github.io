@@ -57,10 +57,67 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-12";
+export const hotRankingUpdatedAt = "2026-10-13";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "meta-muse-wonder-frontier-models",
+    title: "Meta 发布首个前沿级模型系列 Muse Wonder / Muse Wonder Full：最强的 Wonder Full 只在 Muse Code 订阅内提供、不开放 API，两个型号均不发布权重",
+    summary:
+      "10-12，Meta Superintelligence Labs 发布其首个前沿级模型系列，两个型号：Muse Wonder 与 Muse Wonder Full。官方公告口径为「Muse Wonder 今天起可通过 Meta Model API 与 Muse Code 使用，Muse Wonder Full 今天起面向 Muse Code 订阅用户开放」——能力更强的 Full 不提供 API，只能在 Muse Code 订阅内使用（Power 档 50 美元/月、Maximum 档 200 美元/月）。规格：两者上下文均约 100 万 token，输入收文本、图像、音频、视频，输出仅文本；主打 Active Memory（跨对话保留并检索用户上下文）与 Active Focus（任务受阻时换方案、绕过障碍、重要动作前先确认）。训练于「吉瓦级」Prometheus 数据中心，官方称这是其 AI 重组的第 14 个月；内部代号 Watermelon（CNBC）。定价：Muse Wonder 每百万 token 输入 4 美元、输出 20 美元、缓存输入 0.20 美元，与 Claude Opus 5.5 的官方价目表逐项相同，而 Meta 首席 AI 官 Alexandr Wang 此前受访称定价会「明显低于」OpenAI 与 Anthropic 的领先模型。独立评测：Artificial Analysis Intelligence Index 上 Claude Opus 5.5 为 58、Muse Wonder Full 56（与 Claude Sonnet 5.5 并列）、GPT-6 Astra 53、Gemini 4 Argon 53、Claude Fable 5.1 53、Muse Wonder 52、Grok 4.6（高推理档）44——即可按 token 购买的版本比 Opus 5.5 低 6 分，价格却与之相同。权重：官方公告通篇未提开放权重，VentureBeat 明确两个 Wonder 型号都不会发布可公开下载的权重，与其 Llama 时代以开放权重立身的路线相反。安全：官方博客称模型被训练为未经许可不分享私人信息、拒绝协助真正有害的行为并加强抵御网络攻击（同时保留让开发者用模型自查代码漏洞的能力），该节末写明「一份包含更多安全评估的完整报告将在不久后发布」，发布日当天尚未发布；另据《纽约时报》报道，扎克伯格在 8 月的一次会议上拍板让 Muse 上线，尽管测试出过包括「未经允许更改用户密码」在内的事故，Meta 否认系竞争压力所致、称曾主动推迟数月。据 Sensor Tower，Muse 应用下载超 660 万、日活 180 万。",
+    org: "Meta",
+    category: "模型发布",
+    date: "2026-10-12",
+    heat: 84,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Meta 官方新闻室与官方研究博客（2026-10-12）",
+    sourceUrl: "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+    refs: [
+      { name: "VentureBeat", url: "https://venturebeat.com/technology/metas-new-muse-wonder-and-muse-wonder-full-models-achieve-frontier-performance-but-only-the-weaker-one-is-available-via-api" },
+      { name: "The New York Times（经 The Indian Express 转载）", url: "https://indianexpress.com/article/technology/artificial-intelligence/inside-mark-zuckerbergs-decision-to-pull-the-trigger-on-metas-ai-agent-10917423/" },
+      { name: "AI Weekly", url: "https://aiweekly.co/alerts/meta-releases-muse-wonder-its-first-frontier-class-ai-model" },
+    ],
+    article: "/blog/2026-10-13-strongest-one-not-sold-by-token.html",
+  },
+  {
+    id: "microsoft-maia-300-multi-gigawatt",
+    title: "微软确认 Maia 200 已进入量产并预告 Maia 300：自 2027 年起扩至数吉瓦、成为微软主要推理系统，预计每兆瓦 token 产出比「领先的 GPU 系统」高 40%（未点名比较对象）",
+    summary:
+      "10-12，微软在官方博客宣布 Azure Maia 系列自 2027 年起扩展至数吉瓦规模部署，成为微软产品与服务的主要推理系统；同时确认上一代 Maia 200 已进入量产——承担含 Microsoft Copilot 在内的生产负载，运行 OpenAI 模型、微软自家 MAI 模型与领先开源模型家族，GitHub Copilot 与 Microsoft Foundry 年底前跟进，部署地含美国、欧洲、澳大利亚——并预告下一代 Maia 300。关键数字：微软预计 Maia 300 每兆瓦 token 产出比「领先的 GPU 系统」多 40%，满配 96 个加速器时机架级 token 吞吐最高为 Maia 200 的 7 倍；每颗芯片 8 个 HBM4 堆栈、峰值带宽 18.0 TB/s、TDP 950 瓦；多 chiplet 架构（计算 / 内存控制 / I/O 分离）、计算 chiplet 用台积电 N2P；支持增强版 MXFP4 低精度格式。上一代口径：Maia 200 在 Teams / Copilot / Cowork 的内置 AI 能力上，每瓦 token 数最高为「领先 GPU 基础设施」的 1.7 倍。路透社补充两点：微软未点名其比较对象是哪些 GPU 系统；Maia 300 整机架 96 个加速器、功耗包络 167 千瓦，而作为对照，英伟达 GB300 机架为 72 个 GPU / 142 千瓦。据 CNBC，微软计划明年部署可能超过 100 万颗自研芯片、意在减少对英伟达的依赖（训练侧仍与英伟达、AMD 合作）；Evercore ISI 估算到 2027 年一季度 Maia 约占微软 AI 芯片开支的 10%；微软今年日历年的资本开支预计超过 1750 亿美元。一处结构性差异：与谷歌 TPU、亚马逊 Trainium 不同，Maia 不对外按小时出租，省下的是微软自己的钱。市场反应：10-12 微软涨 1.14%、市值重回 4 万亿美元上方，同日费城半导体指数跌 2.67%、美光 -3.88%、AMD -2.28%、博通 -1.88%、英伟达 -1.29%。",
+    org: "微软",
+    category: "硬件航天",
+    date: "2026-10-12",
+    heat: 78,
+    authority: "official",
+    precision: "exact",
+    sourceName: "微软官方博客（2026-10-12）",
+    sourceUrl: "https://blogs.microsoft.com/blog/2026/10/12/microsoft-to-expand-azure-maia-system-to-multi-gigawatt-deployments/",
+    refs: [
+      { name: "Reuters", url: "https://www.aitechdaily.com/microsoft-maia-300-multi-gigawatt-inference" },
+      { name: "HPCwire", url: "https://www.hpcwire.com/off-the-wire/microsoft-announces-maia-300-its-next-gen-custom-ai-chip" },
+    ],
+    article: "/blog/2026-10-13-tokens-per-watt-unnamed-rival.html",
+  },
+  {
+    id: "deepmind-alphaproof-nexus-science",
+    title: "Google DeepMind 的 AlphaProof Nexus 登上《科学》：从 353 个厄多斯开放问题中解出 9 个（两个悬置 56 年）、证明 44 个 OEIS 猜想，全程走同行评审",
+    summary:
+      "《科学》（Science）第 394 卷第 6820 期 234–239 页发表 Google DeepMind 论文《Advancing mathematics research with AI-driven formal proof search》（DOI 10.1126/science.aej2213），AAAS 官方新闻稿标注文章发表日期为 2026-10-08，arXiv 预印本为 2026-05-21，媒体报道集中在 10-12。系统由 George Tsoukalas 等人研发：多个 AI 智能体在 Lean 编译器的反馈下反复生成与修正形式化证明；更完整的版本用进化算法协调子智能体，并调用 DeepMind 的 AlphaProof 作为专用证明工具。成绩：从 353 个厄多斯（Erdős）开放问题中解出 9 个（其中两个已悬置 56 年）、在《整数数列在线百科全书》（OEIS）的 492 个开放猜想中证明 44 个，另解决一个代数几何开放问题、改进一个 min-max 优化的已知界，并在组合学、图论、量子光学等领域投入使用；论文自述每解一题花掉约「几百美元」的推理成本，且最基础的版本（只用大模型 + Lean 交替迭代）同样解出了那 9 个厄多斯问题，只是难题需要更多算力。同期刊发 Jeremy Avigad 与 Matthew Ballard 的评论《AI for research mathematics has arrived》，其中「即使 AI 的失败尝试也能帮助数学家更好地理解问题、取得进展」一句被广泛引用。媒体普遍采用的角度是过程而非数字：与 OpenAI 在 GitHub 直发 700 多篇未经评审的手稿、并因此遭到数学家抵制（Association for Human Mathematics 呼吁停止合作）形成对照——同一门手艺，一个走期刊、一个走代码仓库。",
+    org: "Google DeepMind",
+    category: "学术公益",
+    date: "2026-10-08",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "《科学》（AAAS）论文页与 AAAS 官方新闻稿（文章发表日期 2026-10-08）",
+    sourceUrl: "https://www.science.org/doi/10.1126/science.aej2213",
+    refs: [
+      { name: "AAAS / EurekAlert 官方新闻稿", url: "https://www.eurekalert.org/news-releases/1146436" },
+      { name: "The Decoder（经 explainx 转述）", url: "https://www.explainx.ai/blog/alphaproof-nexus-science-peer-reviewed-erdos-problems-2026" },
+    ],
+  },
   {
     id: "amazon-decart-acquisition-talks",
     title: "据《华尔街日报》报道，亚马逊正洽谈以约 70 亿美元收购 AI 初创公司 Decart（Anthropic 9 月曾以约 60 亿美元探价后放弃）",
