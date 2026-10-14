@@ -57,10 +57,50 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-13";
+export const hotRankingUpdatedAt = "2026-10-14";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "gemini-4-argon-global-launch",
+    title: "Google 把 Gemini 4 Argon 面向全球公开发售：上线价限时五折至 11 月 30 日、到期翻倍，免费用户仍只有 Flash-Lite；官方称其在自己 18 项对比表中拿下 14 项第一",
+    summary:
+      "10-13，Google DeepMind 发布《Gemini 4 Argon: Built to solve your hardest problems》（署名 Koray Kavukcuoglu），把 9-30 只面向 Fairwind 计划内经审查的网络安全防御者开放的 Gemini 4 Argon 全面放开——距首发 13 天。开放范围：开发者与企业经 AI Studio 与 Gemini 平台 API；Google AI Ultra 订阅者在 Google Antigravity（AI Studio 内亦仅限 Ultra）；AI Ultra 与 Pro 订阅者在 Gemini 应用与搜索的 AI Mode——免费用户仍只有 Flash-Lite，Google 称会保留 Gemini 3.1 Pro 一段时间。价格：上线价每百万 token 输入 2 美元 / 输出 10 美元、缓存输入 0.1 美元，该上线价有效期至 2026-11-30，此后涨至 4 / 20。Google 自报：自家对比表 18 项中 14 项第一、网络安全项与 GPT-6 打平、5 项落后；Vals Index 第一；DeepSWE v1.1 77.9%；AutomationBench 51.3%（领先次席约 9 分）；ERQA 具身推理 87%；Gray Swan 提示注入在 15 次自适应尝试下攻击成功率降至 0.7%；API 支持 100 万 token 统一输入输出上限。独立口径：Artificial Analysis 智能指数高推理档 53，与 GPT-6 Astra 并列，低 Claude Opus 5.5 与 Sonnet 5.5 五分。产品侧：Antigravity 的智能体编码界面进入 macOS 版 Gemini 应用；主聊天窗口新增「聊天 / 任务」开关；可连外部应用增至 40 多个（点名 Instacart、OpenTable、Adobe、Shopify）。自用战绩：Antigravity 中的 Argon 使智能体代码提交量增超 35%、回滚减近三分之一；Chrome 团队借其把约 600 万行遗留浏览器功能目录从 4000 万行代码库中分离；Google 开源 ADK 长会话内存准备时间降 40%；Gemma 4 E2B 在 A100 上经 vLLM 端到端提速 2.85 倍。视频→仿真→真机：官方称在一次内部测试中，Argon 观看人类玩 cornhole 的原始视频后绘制空间坐标、推算全身关节运动并自主编写仿真代码，代码转移到 Apptronik 的 Apollo 人形机器人后真机连进七球；该实验无外部人员运行或核验，跟进报道指出机器人是经多轮「按落点调整」后才连上，七球不代表首次即中。同期公益口径：向 10,000 名科学家免费提供 6 个月 Antigravity 最高层级。",
+    org: "Google DeepMind",
+    category: "模型发布",
+    date: "2026-10-13",
+    heat: 86,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google 官方博客与 Google 开发者博客（2026-10-13）",
+    sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+    refs: [
+      { name: "Mashable", url: "https://mashable.com/tech/google-launches-gemini-4-argon" },
+      { name: "Business Insider", url: "https://www.businessinsider.com/google-gemini-4-argon-ai-model-public-release-cost-2026-10" },
+      { name: "Google 开发者博客《Gemini 4 Argon for Robotics》", url: "https://developers.googleblog.com/gemini-4-argon-for-robotics/" },
+    ],
+    article: "/blog/2026-10-14-first-on-its-own-chart.html",
+  },
+  {
+    id: "openai-hidden-recording-device",
+    title: "OpenAI 披露办公室内发现隐藏录音设备、称用自家模型协助定位到当事人；一名 35 岁沙特籍工程师被控用电子设备截取口头通讯",
+    summary:
+      "10-13，OpenAI 新闻室在 X 上披露：在其一间办公室内发现一个精巧的录音设备，公司「用自己的模型去理解这个设备、以及它是从哪儿来的」，识别出一名特定员工在几天前放置，随后移交 FBI，并称目前没有迹象表明此人接触或外带过模型权重、源代码或客户数据，该员工已被解雇。据多家媒体看到的刑事起诉书：被告为 35 岁沙特籍、2025 年 7 月入职的工程师（在产品团队工作）；设备于 9 月 30 日在高管会议室被发现，用卫生纸裹着、插在电视机背面 USB 口上，内容加密，公司判断为 9 月 28 日前后装设；该会议室常用于涉及保密技术研究、产品开发、业务战略、政府往来与商业关系的会议。9 月 24–30 日，一个与其配偶关联、且与其本人账号共享标识的聊天机器人账号提交过关于制作、安装、藏匿与远程访问录音设备的提问，含「怎么写一个持续录音器」「怎么给 SD 卡加密」。10 月 5 日公司另一处发现无人看管的包，内有其钱包、证件与第二个录音设备；同日他进入该会议室并试图查看电视后侧。监控录像显示其此前多次出现在该房间附近，尽管并无进入或使用权限；他还用一款「生产力工具」查询过办公楼地址、会议室规格、员工日程与管理层常用会面地点。10 月 9 日被捕、10 月 13 日首次出庭，被控使用或试图使用电子设备截取口头通讯，最高 5 年监禁加 25 万美元罚款、3 年监督释放；10 月 19 日羁押听证。FBI 局长 Kash Patel 称目标是「关于公司超级智能技术的敏感通讯」。两点留白：「模型参与侦破」目前只有 OpenAI 自己的说法，公司未说明用的是哪个模型、方法为何，也未说明徽章记录与监控录像是否本可得出同一结论；OpenAI 也未说明该设备共录音多长时间、是否已有内容外流。",
+    org: "OpenAI",
+    category: "行业动态",
+    date: "2026-10-13",
+    heat: 78,
+    authority: "verified",
+    precision: "section",
+    sourceName: "OpenAI 新闻室官方账号声明（2026-10-13，官方无独立公告页，退至官方栏目）+ 美国司法部起诉书经媒体转述",
+    sourceUrl: "https://x.com/OpenAINewsroom",
+    refs: [
+      { name: "Engadget", url: "https://www.engadget.com/2286084/openai-says-it-found-a-sophisticated-recording-device-hidden-in-its-offices/" },
+      { name: "Al Bawaba", url: "https://www.albawaba.net/news/saudi-openai-engineer-arrested-over-1638985" },
+      { name: "ZeroHedge", url: "https://www.zerohedge.com/ai/openai-says-employee-planted-sophisticated-recording-device-office-fbi-makes-arrest" },
+    ],
+    article: "/blog/2026-10-14-asked-the-bot-how-to-hide-it.html",
+  },
   {
     id: "meta-muse-wonder-frontier-models",
     title: "Meta 发布首个前沿级模型系列 Muse Wonder / Muse Wonder Full：最强的 Wonder Full 只在 Muse Code 订阅内提供、不开放 API，两个型号均不发布权重",
@@ -99,6 +139,24 @@ export const hotRanking: HotItem[] = [
       { name: "HPCwire", url: "https://www.hpcwire.com/off-the-wire/microsoft-announces-maia-300-its-next-gen-custom-ai-chip" },
     ],
     article: "/blog/2026-10-13-tokens-per-watt-unnamed-rival.html",
+  },
+  {
+    id: "anthropic-distillation-defenses",
+    title: "Anthropic 发布反蒸馏防御：称蒸馏方提取的 Claude 推理 token 量下降约 90–99%、已封禁数万个账号；自 9 月 24 日起对已被拦截的请求恢复计费",
+    summary:
+      "10-12，Anthropic 发布研究帖《Strengthening our defenses against distillation attacks》，称其新防御把蒸馏方在其平台上提取的推理 token 量压低约 90–99%（官方口径为「持续比此前低 10 到 100 倍」，某些日子低到测不出），并已封禁数万个账号、通常在活动开始后 2 小时内。三层手段：① 控制推理的去向——Claude Fable 5.1 与 Opus 5.5 引入 preserved thinking，2026 年 8 月 31 日及之后创建的 API 账号无法编辑 Claude 先前的上下文（该手法此前被用于在会话 / 模型 / 账号之间搬运受保护的推理块）；Claude Sonnet 5.5 的推理记录只对发起该请求的组织可见。② 两阶段分类器（沿用其「宪法分类器」思路），官方称其健壮程度大致与阻止模型协助制造生物武器的那类防护相当，误报率低于 0.1%，现运行于 Sonnet 5.5、Opus 5 与 5.5、Fable 5 与 5.1。③ 自 9 月 24 日起，在被拦截且误报率低于 0.1% 的领域（含蒸馏）对已被拦下的请求恢复计费。值不值得偷的量化：用 Claude Opus 4.8 的完整推理记录去训练一个预训练 Claude，SWE-bench Verified 得 80.4%；只用摘要版推理则降到 71.8%。代价：官方承认损失了可观营收、拒掉数万亿 token 的付费流量，且未能达成年初「加固而不影响正当用户」的目标——部分开发者需改造集成、分类器偶尔误拦正常请求而该请求照常计费，官方未说明受影响的正当用户数量与申诉流程。官方自陈「尚不知这些收益能维持多久」，「还没有遇到过一次高度精密且持续的绕过尝试」；同帖点名两家中国模型厂商，官方同时说明这些是其指控、帖中不含被点名方的回应。所有数字均为官方自有平台数据、无独立审计。",
+    org: "Anthropic",
+    category: "安全对齐",
+    date: "2026-10-12",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方研究页（2026-10-12）",
+    sourceUrl: "https://www.anthropic.com/research/distillation-defenses",
+    refs: [
+      { name: "explainx", url: "https://explainx.ai/blog/anthropic-distillation-defenses-preserved-thinking-classifier-90-99-percent-2026" },
+      { name: "Pivot News", url: "https://pivotnews.ai/five/anthropic-cuts-reasoning-data-harvested-by-claude" },
+    ],
   },
   {
     id: "deepmind-alphaproof-nexus-science",
