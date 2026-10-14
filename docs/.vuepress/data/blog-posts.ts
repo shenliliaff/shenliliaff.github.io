@@ -13,6 +13,16 @@ export interface BlogPost {
 /** 全部文章，按日期降序（最新在最前） */
 export const blogPosts: BlogPost[] = [
   {
+    title: "它在自己的表格上排第一，在别人的表格上排第五",
+    date: "2026-10-14",
+    url: "/blog/2026-10-14-first-on-its-own-chart.html",
+  },
+  {
+    title: "他问机器人怎么把录音笔藏起来，公司用机器人认出了他",
+    date: "2026-10-14",
+    url: "/blog/2026-10-14-asked-the-bot-how-to-hide-it.html",
+  },
+  {
     title: "它说每瓦多出四成，只是没说跟谁比",
     date: "2026-10-13",
     url: "/blog/2026-10-13-tokens-per-watt-unnamed-rival.html",
