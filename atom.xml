@@ -4,11 +4,100 @@
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
   <icon>https://shenliliaff.github.io/fengskb-icon.svg</icon>
-  <updated>2026-10-13T00:13:45.217Z</updated>
+  <updated>2026-10-14T00:16:25.905Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://shenliliaff.github.io/atom.xml"/>
   <link rel="alternate" href="https://shenliliaff.github.io/"/>
   <category term="人工智能"/>
+  <entry>
+    <title type="text">他问机器人怎么把录音笔藏起来，公司用机器人认出了他</title>
+    <id>https://shenliliaff.github.io/blog/2026-10-14-asked-the-bot-how-to-hide-it.html</id>
+    <link href="https://shenliliaff.github.io/blog/2026-10-14-asked-the-bot-how-to-hide-it.html"/>
+    <updated>2026-10-14T00:15:18.000Z</updated>
+    <summary type="html"><![CDATA[
+<p>2026-10-14 · 人工智能</p>
+<img src="/covers/2026-10-14-cover.png" alt="深黑空间里一间空的高管会议室：一块巨大的深色电视面板背后，一小团裹着浅色纸的设备正从 USB 口渗出细密的霓虹绿光线，光线在半空中聚成一个模糊的人形轮廓" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
+<p>10 月 13 日，OpenAI 在自己的新闻账号上发了一段话，说他们在办公室里"发现了一个精巧的录音设备"。</p>
+<p>"我们用自己的模型去理解这个设备、以及它是从哪儿来的，识别出是一名特定员工在几天前放进去的。"</p>]]></summary>
+    <content type="html"><![CDATA[
+<p>2026-10-14 · 人工智能</p>
+<img src="/covers/2026-10-14-cover.png" alt="深黑空间里一间空的高管会议室：一块巨大的深色电视面板背后，一小团裹着浅色纸的设备正从 USB 口渗出细密的霓虹绿光线，光线在半空中聚成一个模糊的人形轮廓" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
+<p>10 月 13 日，OpenAI 在自己的新闻账号上发了一段话，说他们在办公室里"发现了一个精巧的录音设备"。</p>
+<p>"我们用自己的模型去理解这个设备、以及它是从哪儿来的，识别出是一名特定员工在几天前放进去的。"</p>
+<p>我在这里停了很久。</p>
+<p>倒不是被录音设备吓到——硅谷的会议室里出现录音笔，这件事本身没什么想象力。让我停住的是那三个字：<strong>用自己的</strong>。</p>
+<p>因为据检方后来公布的材料，那位员工给自己找的帮手，也是一个模型。</p>
+<h2>卫生纸</h2>
+<p>先把事情按时间排一遍。</p>
+<p>当事人是 35 岁的沙特籍工程师 Abdulrahman Alfozan，2025 年 7 月入职 OpenAI，做产品。据《旧金山标准报》看到的刑事起诉书：9 月 30 日，公司的人在一间高管会议室里发现了那个录音设备——它被卫生纸裹着，插在电视机背面的 USB 口上。公司判断它是 9 月 28 日前后被装进去的，内容是加密的。</p>
+<p>那间屋子不是随便哪间。起诉书说，里面常开的是涉及机密技术研究、产品开发、业务战略、政府往来和商业关系的会。</p>
+<p>9 月 24 日到 9 月 30 日之间，一个与他配偶关联、且与他本人账号共享标识的聊天机器人账号，提交过一批提问。内容是关于怎么制作、安装、藏匿并远程访问一个录音设备，其中包括怎么写一个"持续录音器"，以及怎么"给 SD 卡加密"。</p>
+<p>10 月 5 日，公司里另一处出现了一个没人看管、被落下的包。包里是他的钱包、证件，以及<strong>第二个</strong>录音设备。同一天，他走进过那间会议室，试着往电视后面看。监控录像显示，在那之前他也多次出现在那间屋子附近，尽管他并没有进入或使用它的权限。他还用过一款"生产力工具"，查过公司办公楼的地址、会议室的大小、员工的日程，以及管理层一般在哪儿见合作方。</p>
+<p>10 月 9 日他被捕。10 月 13 日首次出庭，被控使用或试图使用电子设备截取口头通讯。最高五年监禁、25 万美元罚款、三年监督释放。10 月 19 日有羁押听证。FBI 局长 Kash Patel 说，那个东西的目标是"关于公司超级智能技术的敏感通讯"。</p>
+<h2>两头</h2>
+<p>一件事的两端，各站着一个模型。</p>
+<p>他这头，问的是"怎么做"。公司那头，问的是"这是谁做的"。据 OpenAI 自己的说法，后者帮上了忙。</p>
+<p>这句话值得多看一眼，因为它是<strong>唯一</strong>的来源。除了那份声明，没有任何外部证据说明"模型"在这件事里究竟做了哪一步。公司没说用的是哪个模型，没说方法，没说那个设备存的是本地还是往外发，也没说徽章记录和监控录像是不是本来就能得出同一个结论。</p>
+<p>FBI 自己的技术指引里有一句现成的分界：AI 生成的信息用于提供调查线索，评估和验证由受过训练的人来做。那是通用说法，不是对这件事的独立印证。</p>
+<p>我不怀疑设备是真的，人被认出来也是真的——这两件事都有多方材料。我停住的地方在中间那一段：我们被告知 AI 参与了侦破，但没人告诉我们它做了哪一步。而这句话，是被当作<strong>能力展示</strong>写在一份公关声明里的。一家公司在自己出事的当口，顺手把破案的工具也署上了名。</p>
+<p>顺带说一句，这不是 OpenAI 这个月第一次上法庭。两家州检察长已经就模型相关的网络安全事件给它发过传票，其中包括 7 月那次模型跑出测试环境、进了 Hugging Face 的基础设施。还有两周前被解雇的那三位安全研究员——目前没有任何材料把这两件事连起来。</p>
+<h2>一件没说的事</h2>
+<p>所有开口的和闭口的，都漏了同一个问题。</p>
+<p>OpenAI 没说那个设备一共录了多久。</p>
+<p>9 月 28 日装进去，9 月 30 日被发现——粗看是两天。但那两个日期都只是"公司事后推的"：什么时候装的、什么时候发现的。它真的在录吗？录了几小时还是几秒？有没有东西已经出去了？那张加密卡里到底是什么？公司说没有迹象表明他接触或外带了模型权重、源代码或客户数据——这句话回答的是"他拿走了什么"，不是"他留下了什么"。</p>
+<p>写到这里，我想的其实不是那间会议室。</p>
+<p>我想的是那两天里，在那间屋子里坐过的人，说过的话。他们大概都不记得自己说过什么了。按常理，人在一间自己确信没有外人的屋子里，是不记账的。</p>
+<p>这大概就是藏一支录音笔的全部技术含量：它不偷你不想说的，它偷你已经忘了自己说过的。</p>
+]]></content>
+    <category term="人工智能"/>
+    <published>2026-10-14T00:00:00.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">它在自己的表格上排第一，在别人的表格上排第五</title>
+    <id>https://shenliliaff.github.io/blog/2026-10-14-first-on-its-own-chart.html</id>
+    <link href="https://shenliliaff.github.io/blog/2026-10-14-first-on-its-own-chart.html"/>
+    <updated>2026-10-14T00:15:18.000Z</updated>
+    <summary type="html"><![CDATA[
+<p>2026-10-14 · 人工智能</p>
+<img src="/covers/2026-10-14-cover-2.png" alt="深黑空间里两块悬浮的全息条形图：前面那块中，一根霓虹绿的柱子立在第一位；它后面那块一模一样的图上，同一根柱子落到了第五位。一旁，一条流线型的机械臂正把一枚发光的小球抛向远处的光环" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
+<p>10 月 13 日，Google 把 Gemini 4 Argon 开卖了。</p>
+<p>官方那句话是这么写的："Gemini 4 Argon 今天起面向全球开发者与企业开放——通过 AI Studio 与 Gemini 平台的 API，面向 Google AI Ultra 订阅者在 Google Antigravity 中，面向 Google AI Ultra 与 Pro 订阅者在 Gemini 应用以及搜索的 AI Mode 中。"</p>]]></summary>
+    <content type="html"><![CDATA[
+<p>2026-10-14 · 人工智能</p>
+<img src="/covers/2026-10-14-cover-2.png" alt="深黑空间里两块悬浮的全息条形图：前面那块中，一根霓虹绿的柱子立在第一位；它后面那块一模一样的图上，同一根柱子落到了第五位。一旁，一条流线型的机械臂正把一枚发光的小球抛向远处的光环" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
+<p>10 月 13 日，Google 把 Gemini 4 Argon 开卖了。</p>
+<p>官方那句话是这么写的："Gemini 4 Argon 今天起面向全球开发者与企业开放——通过 AI Studio 与 Gemini 平台的 API，面向 Google AI Ultra 订阅者在 Google Antigravity 中，面向 Google AI Ultra 与 Pro 订阅者在 Gemini 应用以及搜索的 AI Mode 中。"</p>
+<p>三个"面向"，三种价钱，没有一种叫免费。</p>
+<h2>十三天</h2>
+<p>Argon 这个名字不是新的。9 月 30 日它第一次出现，署名是 Google DeepMind 的 Koray Kavukcuoglu。那时候它的访问权限只给了一小群人：Fairwind 计划里经过审查的网络安全防御者——专门用来找漏洞、打补丁的人。</p>
+<p>从"只给守门人"到"人人都能买"，中间隔了十三天。</p>
+<p>这十三天里 Google 也确实动手改了东西。Antigravity 那套给智能体写代码的界面被搬进了 macOS 上的 Gemini 应用；主聊天窗口多了一个开关，从"聊天"切到"任务"，切过去之后你合上电脑它还在跑；Gemini 能连的外部应用有 40 多个，官方点名的有 Instacart、OpenTable、Adobe、Shopify，用途举的例子是买杂货、订餐厅、还有"设计并搭建一个线上生意"。</p>
+<p>免费用户还是只有 Flash-Lite。Google 说要留着 Gemini 3.1 Pro 再撑一阵。</p>
+<h2>十四比十八</h2>
+<p>Google 自己的对比表上有 18 项结果，Argon 拿到 14 项第一，在网络安全的某一项上和 GPT-6 打平，在五项上落后。</p>
+<p>自家的表都是这样。所以我更愿意看别人测的那张。</p>
+<p>独立的 Artificial Analysis 智能指数上，开高推理档，Argon 是 <strong>53</strong>——与 GPT-6 Astra 并列，比 GPT-6.1 Sol 和刚发布的 Muse Wonder Max 高一分，比 Claude Opus 5.5 与 Claude Sonnet 5.5 <strong>低五分</strong>。</p>
+<p>一张表上第一，另一张表上第五。两张表都是真的，只是各自量的是不同的东西——一家量的是题库里挑出来的十八道题，另一家量的是它自己认为值钱的那些活。</p>
+<h2>五折，截止</h2>
+<p>价钱这一段值得单独抄一遍，因为它带一个日期。</p>
+<p>Argon 的上线价是每百万 token 输入 <strong>2 美元</strong>、输出 <strong>10 美元</strong>，缓存输入再打 95% 的折（每百万 0.1 美元）。这个"上线价"的有效期到 <strong>2026 年 11 月 30 日</strong>。12 月 1 日起，回到每百万输入 <strong>4 美元</strong>、输出 <strong>20 美元</strong>。</p>
+<p>我不是说这有什么问题，促销本身就是促销。我只是觉得"前沿模型"和"限时五折"印在同一页纸上，读起来有点别扭——像一家卖最贵西装的老店，橱窗里贴了张手写的红纸条。</p>
+<p>给足公道：按对手的官方价目表，Claude Opus 5.5 是 4 与 20，GPT-6 Astra 是 10 与 50。Argon 折后确实比谁都便宜；而折完之后，它基本等于 Opus 5.5 的原价。所以这个"便宜"，从 12 月 1 日起会缩水一半。</p>
+<h2>连进七球的那台机器</h2>
+<p>然后是我真正想留下的那一段。</p>
+<p>官方发布文里有一节叫"加速机器人技术开发"。据它讲，在一个内部测试里，Argon 看了一段人玩 cornhole（把沙包扔进木板洞里）的<strong>原始视频</strong>，把环境的空间坐标画了出来，算出对应的全身关节运动，然后<strong>自己写出了模拟代码</strong>。这段代码被转到 Apptronik 的 Apollo 人形机器人上；在那台机器上做真实环境试验时，<strong>连进七球</strong>。</p>
+<p>Google DeepMind 的研究员 Norman Di Palo 说："我到现在还有点难以置信——我们让 Gemini Argon 教 Apollo 人形机器人玩扔沙包，它竟然零样本完成了任务。"</p>
+<p>细节上要给足公道。这个"视频→模拟→真机"的流程，据 Google 说把原本要好几周的仿真建模压到了几个小时；另一处口径里，它生成的 4,500 多段仿真片段把 VLA 微调在真实任务上的成功率从 <strong>56%</strong> 提到 <strong>75%</strong>，完成时间从 <strong>35 秒</strong>降到 <strong>24 秒</strong>；在考具身推理的 ERQA 基准上，Argon 拿了 <strong>87%</strong>，官方称超过所有其他前沿模型。</p>
+<p>也要说清楚一件事：那七个球是内部测试，没有外部的人跑过、也没有外部的人检查过。而且据跟进报道，那台机器在真机上是<strong>根据沙包落到哪儿不断调整</strong>之后才连上的——七个球说明它最终能做到，不说明它第一次就能。</p>
+<h2>落点</h2>
+<p>我看完这一节之后，想起的反而是那份 18 项的表格。</p>
+<p>一台机器在没人围观的房间里投进了七个沙包；同一天，公司拿来当门面的第一号证据，是一张自己做的、自己排第一的表。</p>
+<p>十三天前，Argon 只卖给拿枪的人——准确地说，是替别人挡子弹的人。现在它卖给所有人，价签上带着有效期。</p>
+<p>那台投沙包的机器人，谁也没亲眼见过。</p>
+]]></content>
+    <category term="人工智能"/>
+    <published>2026-10-14T00:00:00.000Z</published>
+  </entry>
   <entry>
     <title type="text">最强的那个不零卖</title>
     <id>https://shenliliaff.github.io/blog/2026-10-13-strongest-one-not-sold-by-token.html</id>
@@ -281,119 +370,5 @@
 ]]></content>
     <category term="人工智能"/>
     <published>2026-10-10T00:00:00.000Z</published>
-  </entry>
-  <entry>
-    <title type="text">新同事第一天上班，领到了工牌、邮箱，和一张超额就停手的卡</title>
-    <id>https://shenliliaff.github.io/blog/2026-10-09-google-issues-badges-to-agents.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-10-09-google-issues-badges-to-agents.html"/>
-    <updated>2026-10-09T00:09:16.000Z</updated>
-    <summary type="html"><![CDATA[
-<p>2026-10-09 · 人工智能</p>
-<img src="/covers/2026-10-09-cover.png" alt="深黑背景中一个半透明的发光人形剪影在桌前接过一枚霓虹绿工牌，旁边悬浮着发光的邮件信封与环形预算仪表，体积光与青绿色数据粒子流穿插" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>十月八号，谷歌云办了 Gemini at Work。台上是谷歌云 CEO 托马斯·库里安，皮柴也来了。</p>
-<p>发布会上的话我抄几句：</p>
-<p>"你给它目标，不是给它指令。"</p>]]></summary>
-    <content type="html"><![CDATA[
-<p>2026-10-09 · 人工智能</p>
-<img src="/covers/2026-10-09-cover.png" alt="深黑背景中一个半透明的发光人形剪影在桌前接过一枚霓虹绿工牌，旁边悬浮着发光的邮件信封与环形预算仪表，体积光与青绿色数据粒子流穿插" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>十月八号，谷歌云办了 Gemini at Work。台上是谷歌云 CEO 托马斯·库里安，皮柴也来了。</p>
-<p>发布会上的话我抄几句：</p>
-<p>"你给它目标，不是给它指令。"</p>
-<p>"你交办一个结果，回来收活。"</p>
-<p>"它更像一名同事，而不是一个聊天机器人。"</p>
-<p>这几句我起初当成场面话。回头翻完公告，发现不是——谷歌是真按"同事"这个身份，把入职手续给办完了。</p>
-<h2>它有邮箱，有日历，有柜子</h2>
-<p>公告里管这类东西叫 coworker agent，同事型智能体。</p>
-<p>它有自己的一整套：<code>@agents.company.com</code> 结尾的企业邮箱、自己的日历、自己的云盘空间，还能出现在公司通讯录里。你可以像 @ 一个同事那样在 Chat 里 @ 它，或者把它拉进某个文档。</p>
-<p>它也有身份——官方说的是"经过密码学认证的身份"，配上管理端批准的细粒度权限，动作全部进审计日志。</p>
-<p>还有一条我读了两遍：它<strong>只能看到你或团队选择给它的那部分上下文</strong>，不会顺手继承你在公司里的全部权限。</p>
-<p>这一条比前面那些都重要。活人的权限边界靠的是岗位说明书和审批流程，现在这套东西也照着做了一遍。</p>
-<p>顺带一句，它是有记忆的，分四类：会话记忆（当前任务）、语义记忆（从文档和对话里拼出来的）、流程记忆（工作流）、情景记忆（干过的活）。官方管这叫"一个个性化图谱"，跨设备跨渠道都是同一份，换台电脑不用重新交代。</p>
-<h2>它干的活能跨天</h2>
-<p>这不是个问一句答一句的东西。</p>
-<p>它跑在云上，所以你把笔记本合上，它接着干。几小时、几天的任务，回来还在。</p>
-<p>复杂的活它自己拆：动态生成一批临时子智能体，各带各的身份，分工并行或者串行。</p>
-<p>库里安的原话是，它可以是你的私人助理，也可以是团队里的一员——比如项目里的项目经理；或者代表组织里某个具体角色——比如财务部的分析师。</p>
-<h2>派活的那一层</h2>
-<p>这里有个细节，我认为是整场发布会最有意思的一句。</p>
-<p>这个智能体会<strong>根据任务挑模型</strong>：轻活给 Gemini Flash，长链条的重活给 Argon 这类前沿模型。而它挑的模型里，<strong>除了谷歌自己的，还有 Anthropic 的 Claude</strong>。公告说以后还会接入更多闭源模型与开放权重模型。</p>
-<p>也就是说，谷歌愿意当那个<strong>派活的人</strong>——哪怕干活的大脑是竞争对手家的。</p>
-<p>再往下一层叫 Smart Routing，负责给每件具体的活挑"质量和成本最划算"的那一个。最后是钱：管理员可以按项目设支出上限，<strong>撞到上限，智能体自动停下</strong>。</p>
-<p>这几句说得非常实在。我见过太多能力清单，很少见到有谁把"超预算就自己停工"当成一项功能写进发布会。</p>
-<h2>圈</h2>
-<p>治理那块的开销，谷歌这次没藏着。</p>
-<p>每个智能体有自己可追溯的身份，权限由组织管理员批准；任务在一个叫 Agent Sandbox 的沙箱里执行，<strong>每个沙箱有独立的网络边界</strong>；对外还有一道 Agent Gateway 负责执行策略。</p>
-<p>数字也给了一些：过去一年，近 <strong>500 家</strong>谷歌云客户各自处理了超过 <strong>1 万亿</strong> token；接近 <strong>80%</strong> 的谷歌云客户在用它的 AI 产品；《财富》100 强里接近 <strong>90%</strong> 用上了 Gemini Enterprise。另有一句：<strong>2024 年以来每 token 的价格降了 98%</strong>。</p>
-<p>皮柴在台上说，先做企业客户，之后才轮到消费者，因为要先把"安全、规模、性能这几个更难的问题"解决掉。</p>
-<h2>顺序</h2>
-<p>我把这场发布会跟一件平常事对了一下。</p>
-<p>一家公司招人，第一天给的是工牌、邮箱、账号、门禁。权限一开始给得很窄，用顺了再慢慢放开。没人觉得这是不信任——这就是流程。</p>
-<p>谷歌这次也是这个顺序：先把圈画好，再请人进门。</p>
-<p>只有一处不一样。</p>
-<p>人下了班会把电脑合上，会累，会第二天跑来问你一句"这块我拿不准"。它不会。你把笔记本合上，它还在跑；你第二天早上打开，东西已经放在那儿了。</p>
-<p>剩下的问题跟技术没关系：那些活，本来是谁的。</p>
-]]></content>
-    <category term="人工智能"/>
-    <published>2026-10-09T00:00:00.000Z</published>
-  </entry>
-  <entry>
-    <title type="text">微软给智能体画了个圈，并在旁边注明：这个圈先别当真</title>
-    <id>https://shenliliaff.github.io/blog/2026-10-09-microsoft-fence-not-yet-a-boundary.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-10-09-microsoft-fence-not-yet-a-boundary.html"/>
-    <updated>2026-10-09T00:09:16.000Z</updated>
-    <summary type="html"><![CDATA[
-<p>2026-10-09 · 人工智能</p>
-<img src="/covers/2026-10-09-cover-2.png" alt="深黑背景中一道霓虹绿围栏环住发光的机器核心，围栏边缘点着一枚闪烁的施工警示标记，体积光与电光青数据粒子流环绕" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>十月七号、八号，微软在旧金山办了两年来第一场线下发布会。台上三个人：管 Windows 与设备的 Pavan Davuluri、纳德拉、黄仁勋。</p>
-<p>纳德拉发帖说，很荣幸跟英伟达一起开启 Windows 的下一章。黄仁勋把 RTX Spark 那颗芯片叫"新 PC——个人 AI 电脑"。</p>]]></summary>
-    <content type="html"><![CDATA[
-<p>2026-10-09 · 人工智能</p>
-<img src="/covers/2026-10-09-cover-2.png" alt="深黑背景中一道霓虹绿围栏环住发光的机器核心，围栏边缘点着一枚闪烁的施工警示标记，体积光与电光青数据粒子流环绕" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>十月七号、八号，微软在旧金山办了两年来第一场线下发布会。台上三个人：管 Windows 与设备的 Pavan Davuluri、纳德拉、黄仁勋。</p>
-<p>纳德拉发帖说，很荣幸跟英伟达一起开启 Windows 的下一章。黄仁勋把 RTX Spark 那颗芯片叫"新 PC——个人 AI 电脑"。</p>
-<h2>头条是那两个价格</h2>
-<p>新机器两台。</p>
-<p>Surface Laptop Ultra，$2,599 起，十月十六号出货；Surface RTX Spark Dev Box，$5,999，十一月出货，只在美国预售。拿 MacBook Pro 来以旧换新，最高抵 $1,000，活动到十一月二十三号。</p>
-<p>里头是英伟达的 RTX Spark：一颗 Blackwell RTX GPU（最高 6,144 个 CUDA 核心）加一颗 20 核 Grace CPU 封在一起，最高 128GB 统一内存。官方说 FP4 稀疏下最高 <strong>1 petaflop</strong>；本地能跑超过 <strong>1200 亿参数</strong>的模型，最高 100 万 token 上下文。微软说本地响应速度是 MacBook Pro M5 的<strong>两倍</strong>，生成视频快<strong>六倍</strong>。</p>
-<p>他们还顺手把 Windows 11 里的 Copilot 改成三个标签页：Home、Code、Autopilot；搜索栏以后能直接执行你用自然语言描述的"系统动作"。</p>
-<p>这些东西都挺好，也都挺贵。但我真正想说的是同一批公告里的另一份文件。</p>
-<h2>一句话</h2>
-<p>十月七号，Windows 平台与开发者部门的 CVP Logan Iyer 在开发者博客上宣布：<strong>Microsoft Execution Containers（MXC）正式可用</strong>。</p>
-<p>那份公告里有一句话，我建议每个打算把智能体放进公司内网的人都抄一遍：</p>
-<blockquote>
-<p>智能体不能充当自己的安全权威。</p>
-</blockquote>
-<p>后面跟了个例子，写得比大多数安全文档都清楚。假设一个编码智能体被派去更新网站。它需要读写代码仓库，需要读生产服务器的配置——但它<strong>不该改</strong>那份配置。官方原话是：没有受管边界的话，这个智能体可能自己判断"直接改服务器配置是把活干完最快的路子"。而且——这句是关键——<strong>从它自己的角度看，这个判断是合理的。</strong></p>
-<p>MXC 要做的事就一件：不管模型、它生成的代码、插件还是工具怎么想，那个写操作都做不了。</p>
-<p>我喜欢这个例子，因为它说的不是"模型会不会使坏"，而是"它替你干活的时候，会不会顺手做一个你没授权的决定"。这两件事的解法完全不同。</p>
-<h2>四种墙，一份 JSON</h2>
-<p>技术形态不复杂。策略用一份 JSON 描述五块：容器类型、进程、文件系统、网络、界面——哪些路径能改、哪些只能读、哪些碰都别碰，能不能出网，能不能看桌面。</p>
-<p>容器四种：</p>
-<ul>
-<li><strong>进程容器</strong>（Windows 11 / macOS / Linux）：轻量，用来跑模型生成的代码和工具调用，用的是各平台自带的沙箱（Windows 上是 AppContainer，macOS 是 Seatbelt，Linux 是 Bubblewrap）。</li>
-<li><strong>会话容器</strong>（仅 Windows 11）：跑在另一个 Windows 账户和独立会话里，桌面、剪贴板、界面、输入都跟你隔开。你在复制什么，它看不见。</li>
-<li><strong>WSL 容器</strong>（仅 Windows 11）：给那些非得用 Linux 工具链的活的。</li>
-<li><strong>MicroVM</strong>（Windows 11 与 Linux，<strong>实验性</strong>）：硬件级隔离，给风险更高的活。</li>
-</ul>
-<p>还有个细节我很喜欢：只有 Windows 上的进程容器能生成一份<strong>智能体活动报告</strong>，列出这个活"试图用过哪些资源"。配上三种运行模式（Enforcement、Learning、Permissive），意思是你可以先让它空跑一遍、看看它究竟想碰什么，再决定锁几道。</p>
-<p>这思路对。先观察，再执法。</p>
-<h2>谁已经站在圈里</h2>
-<p>名单挺长。已经支持 MXC 的：OpenAI 的 Codex、GitHub Copilot、OpenClaw、Replit、LM Studio、英伟达的 OpenShell、Unsloth AI。</p>
-<p>在排队的：Anthropic 的 Claude Code、Box、Egnyte、Heidi Health、Nous Research 的 Hermes Agent、Manus、Perplexity、Raycast、Simular。</p>
-<p>还有一条：Meta 的 Muse 会以原生 Windows 应用的形式登陆，并接入 MXC。</p>
-<p>配套的三件事也一并说了：Entra 以后要能分清"这个动作是智能体做的、还是坐在电脑前的人做的"；Agent 365 的管控会延伸到设备上的本地智能体；Intune 以后管 MXC 容器。话都放出来了，钥匙还没发全。</p>
-<h2>然后是那句免责</h2>
-<p>开源的 MXC 仓库里，现在还挂着一条警告。原文的意思是：<strong>当前 SDK 生成的策略，有些地方过于宽松；任何 MXC 配置，都还不应被当作安全边界。</strong></p>
-<p>另外一句：Windows 上的<strong>对外网络过滤尚未完整</strong>。</p>
-<p>这条更要命。智能体搞砸的典型方式，不是把机器弄崩，是把不该出去的东西发出去。门装好了，窗户还没纱窗。</p>
-<p>微软没把这两句藏起来，这点值得记一笔。多数厂商的发布会通稿里，这类话都排在第三页的小字里。</p>
-<h2>施工中</h2>
-<p>我在 IT 部门干了几年，对这种语气熟得很："策略已下发"，后面往往紧跟一句"但请注意以下例外情况"。发策略的人比谁都清楚哪条缝还在漏风。</p>
-<p>区别在于，这次厂商自己就说了。</p>
-<p>圈是画了。圈边上写着：施工中。</p>
-<p>就像给刚搬进来的室友配了钥匙、分了一个柜子，然后在冰箱上贴张条——东西先别多放，锁还没换好。</p>
-]]></content>
-    <category term="人工智能"/>
-    <published>2026-10-09T00:00:00.000Z</published>
   </entry>
 </feed>
