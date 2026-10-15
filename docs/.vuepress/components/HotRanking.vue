@@ -340,7 +340,19 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
                   {{ item.category }}
                 </span>
               </div>
-              <p class="hot-rank__item-summary">{{ item.summary }}</p>
+              <ul v-if="item.keyPoints && item.keyPoints.length" class="hot-rank__keypoints">
+                <li v-for="(kp, ki) in item.keyPoints.slice(0, 5)" :key="ki">
+                  <template v-for="(seg, si) in highlight(kp)" :key="si">
+                    <mark v-if="seg.hit" class="hot-rank__hit">{{ seg.text }}</mark>
+                    <template v-else>{{ seg.text }}</template>
+                  </template>
+                </li>
+              </ul>
+              <details v-if="item.keyPoints && item.keyPoints.length" class="hot-rank__details">
+                <summary>完整摘要</summary>
+                <p class="hot-rank__item-summary">{{ item.summary }}</p>
+              </details>
+              <p v-else class="hot-rank__item-summary">{{ item.summary }}</p>
 
               <!-- 热度条 -->
               <div class="hot-rank__heat">
@@ -858,6 +870,37 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
     color: var(--vp-c-text-2, #4b5563);
     font-size: 0.86rem;
     line-height: 1.65;
+  }
+
+  &__keypoints {
+    margin: 0.35rem 0 0.55rem;
+    padding-left: 1.2rem;
+    color: var(--vp-c-text-2, #4b5563);
+    font-size: 0.86rem;
+    line-height: 1.7;
+
+    li {
+      margin: 0.15rem 0;
+    }
+  }
+
+  &__details {
+    margin: 0.2rem 0 0.55rem;
+
+    summary {
+      cursor: pointer;
+      color: var(--vp-c-text-3, #6b7280);
+      font-size: 0.78rem;
+      user-select: none;
+
+      &:hover {
+        color: var(--vp-c-text-2, #4b5563);
+      }
+    }
+
+    p {
+      margin: 0.35rem 0 0;
+    }
   }
 
   &__heat {

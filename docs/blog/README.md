@@ -17,6 +17,8 @@ article: false
 | 关注方向 | 说明 | 官方信源 |
 | --- | --- | --- |
 | 前沿实验室 | 模型与产品发布、价格与能力变化 | OpenAI · Google DeepMind · Anthropic |
+| 个人智能体 | Meta Muse、ChatGPT Work、Claude Cowork、Gemini Spark、Copilot——智能体正在从「回答问题」走向「替你干活」 | about.fb.com · openai.com · anthropic.com · blog.google · microsoft.com |
+| 国产大模型 | DeepSeek、智谱 GLM、月之暗面 Kimi、通义千问、混元、MiniMax 的发布、开源与出海 | deepseek.com · zhipuai.cn · moonshot.cn |
 | 李飞飞 & World Labs | 空间智能、世界模型（Atlas / Spark / Marble） | worldlabs.ai + 李飞飞 Substack |
 | AI4ALL | 李飞飞共同发起的 AI 教育公益 | ai-4-all.org |
 | 马斯克 & 星链 | 星舰试飞、Starlink 组网进展 | spacex.com + 官方 X |
