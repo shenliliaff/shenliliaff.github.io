@@ -33,8 +33,10 @@ export interface HotItem {
   id: string;
   /** 事件标题 */
   title: string;
-  /** 一句话客观说明 */
+  /** 一句话客观说明（详情，默认折叠） */
   summary: string;
+  /** 关键点提炼：最多 5 条，一眼看懂重点（有则优先展示） */
+  keyPoints?: string[];
   /** 归属机构 */
   org: string;
   /** 类别 */
@@ -57,15 +59,152 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-14";
+export const hotRankingUpdatedAt = "2026-10-15";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "xai-grok-voice-3",
+    title: "xAI 发布 Grok Voice 3.0：Artificial Analysis 语音到语音指数 86.9 分首次参评即第一，但「人类偏好」仅第三、首字响应还比上一代慢了 0.09 秒；官方称它已自主解决星链约七成客服来电",
+    summary:
+      "10-14，xAI（中文报道亦作 SpaceXAI）发布 Grok Voice 3.0，自称「全球最智能的语音到语音模型」。独立榜单：Artificial Analysis 语音到语音综合指数 86.9 分、首次参评即第一，同表 GPT-Live-1（Astra，中等推理档）83.2、Gemini 3.8 Live（Extended Thinking，高推理档）82.6、上一代 Grok Voice 2.0 81.3（该项数据日期 2026-10-13）。分项有得有失：任务成功率 94.8% 第一（2.0 为 94.6%、GPT-Live-1 87.4%、Gemini 89.1%）；语音推理 Big Bench Audio 98.5%；全双工 Full Duplex Bench 97.0%；但 Speech Agent Arena 人类偏好 Elo 仅 1070、排第三（前两名是 Gemini 3.1 Flash Live Minimal 的 1100 与 Gemini 3.8 Live 的 1088），τ-Voice 客服场景得分 71.6%、排第二（输给 GPT-Live-1 的 74.5%），首字响应 0.81 秒、比上一代的 0.72 秒略慢，官方口径只说「低于一秒」。成本：Big Bench Audio 每任务 0.025 美元，低于 GPT-Live-1（Astra，中等）的 0.030 与 GPT-Realtime-2.1（高）的 0.055；API 定价每分钟 0.08 美元，与上一代相同。ServiceNow 的 EVA-Bench（200+ 真实企业场景）上以 74% 取得最高精度，并在「精度 × 客户体验」联合评分中最优。部署规模（官方口径）：星链客服中心每天承接约 2 万通多语言来电，其中约七成无需人工介入即可解决，四分之一的销售通话在客户挂断前促成下单；特斯拉车内每天处理数百万次对话，司机可用 Connectors 查日程、回邮件，用 Grok Bot 下单咖啡、订晚餐。",
+    keyPoints: [
+      "Artificial Analysis 语音到语音指数 86.9，首次参评即第一（GPT-Live-1 Astra 83.2、Gemini 3.8 Live 82.6）",
+      "但人类偏好 Elo 1070 只排第三、τ-Voice 71.6% 排第二、首字响应 0.81 秒比上一代更慢",
+      "任务成功率 94.8% 第一；每任务成本 0.025 美元，低于两个主要竞品；定价每分钟 0.08 美元不变",
+      "官方称它已解决星链客服中心约七成来电（每天约 2 万通多语言通话）",
+      "同一发布在中文报道中出现 xAI / SpaceXAI / SpaceXSI 三个招牌，官方页在 x.ai",
+    ],
+    org: "xAI / SpaceX",
+    category: "产品发布",
+    date: "2026-10-14",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "xAI 官方发布页《Introducing Grok Voice 3.0》（2026-10-14；榜单数据引自 Artificial Analysis，数据日期 2026-10-13）",
+    sourceUrl: "https://x.ai/news/grok-voice-3",
+    refs: [
+      { name: "IT之家（经凤凰网科技）", url: "https://tech.ifeng.com/c/8xEdwBL0kVV" },
+      { name: "华尔街见闻（经网易）", url: "https://www.163.com/dy/article/L98EBLD505198NMR.html" },
+    ],
+    article: "/blog/2026-10-15-nobody-picks-up-the-phone.html",
+  },
+  {
+    id: "faa-starship-456-launches-peis",
+    title: "FAA 启动环评：星舰在星舰基地年发射上限拟由 25 次提高到最多 456 次、着陆 912 次；第二阶段只限工作日，且一半发射与着陆安排在夜间",
+    summary:
+      "10-14，美国联邦航空管理局（FAA）在《联邦公报》刊登意向通知（文件号 2026-20963、91 FR 65289、案卷号 FAA-2026-12808），宣布为 SpaceX 在得克萨斯州星舰基地博卡奇卡发射场的星舰 / 超重型助推器运营编制计划性环境影响报告书（PEIS），同日开启公众意见征集。现行上限为每年 25 次轨道发射、50 次着陆（星舰与超重型各 25），基于 2025 年分层环境评估与「无重大影响」认定。扩容分两阶段：第一阶段每年最多 100 次发射、200 次着陆，一周七天、全天任何时段均可；第二阶段每年最多 456 次发射、912 次着陆（FAA 称将在「数年内」随飞行器成熟实施），仍可全天任何时段，但只限周一至周五。几个易忽略的细节：① 912 次着陆额度不分发射地点——从别处发射、返回星舰基地着陆的飞行器同样占用该额度；② 审查范围还包括扩大着陆与抛弃区域（超重型可在发射场着陆、在墨西哥湾软着水或在飞行中有意抛弃；星舰可在发射场着陆、在海湾或开阔大洋软着水、或在开阔大洋抛弃）；③ 夜间运营将成为常态——PEIS 假设一半发射与着陆在白天（7:00–22:00）、一半在夜间（22:00–次日 7:00），而 2025 年获批的 25 次方案中夜间发射最多 3 次、发射场着陆只允许白天；④ 弹道范围写明：发射方位角 40°–115°，星舰着陆弹道 155°–185° 与 240°–340°；⑤ 若未来再提出超出本次范围的频次，需另行开展 NEPA 审查。程序节点：公众意见截止 11-30；线下听证会 11-17（布朗斯维尔）、11-19（伊莎贝尔港），线上会议 11-18。对照事实：星舰今年在得州只飞了 3 次（含 9-28 的第 14 次、首次入轨并部署 26 颗 Starlink V3）；彭博称星舰基地从未在单个自然年内发射超过 5 次；FAA 2 月另批准佛州 LC-39A 每年最多 44 次。这一通知不构成批准，只是漫长法定审查程序的起点。",
+    keyPoints: [
+      "FAA 刊登意向通知（91 FR 65289，案卷 FAA-2026-12808），启动 PEIS 编制并开启公众意见征集",
+      "两阶段扩容：先 100 次发射 / 200 次着陆，最终 456 次发射 / 912 次着陆，较现行 25 次上限提升逾 18 倍",
+      "第二阶段只限周一至周五；夜间运营成为常态（PEIS 假设一半发射与着陆在夜间）",
+      "912 次着陆额度不分发射地点；审查还覆盖扩大后的着陆与抛弃区域与弹道范围",
+      "不构成批准：草案 PEIS 稍后发布，公众意见截止 11-30，听证会 11-17 / 11-18 / 11-19",
+    ],
+    org: "FAA / SpaceX",
+    category: "硬件航天",
+    date: "2026-10-14",
+    heat: 72,
+    authority: "official",
+    precision: "exact",
+    sourceName: "美国《联邦公报》意向通知（FAA，2026-10-14，文件号 2026-20963）",
+    sourceUrl: "https://www.federalregister.gov/documents/2026/10/14/2026-20963/notice-of-intent-to-prepare-a-programmatic-environmental-impact-statement-peis-open-public-scoping",
+    refs: [
+      { name: "TeslaRati", url: "https://www.teslarati.com/faa-review-spacex-starship-launches" },
+      { name: "Tesla North", url: "https://teslanorth.com/2026/10/13/faa-starbase-starship-456-peis" },
+      { name: "财联社（经腾讯新闻）", url: "https://view.inews.qq.com/a/20261014A05TXT00" },
+    ],
+  },
+  {
+    id: "anthropic-scion-source-control",
+    title: "Anthropic 自研版本控制系统 Scion 替换 Git：日合并变更四个月从 2,500 次涨到 3 万次，官方称瓶颈已不在写代码，而在「所有为人类规模打造的开发基础设施」",
+    summary:
+      "10-13，Anthropic 发布工程博客《Redesigning source control at Anthropic》，公开自研版本控制系统 Scion，并已把内部 monorepo 完全迁离 Git。动因：日合并变更数从 2026 年 5 月的约 2,500 次增至 9 月的 30,000+ 次（四个月至少 12 倍，主要由 Claude 写代码驱动）；主分支历史近 100 GB、压缩工作副本超 25 GB；CI 每天签出约 2,500 万次，若每次都完整抓取，一天的 Git 流量将超 600 PB。官方称瓶颈已从「写代码」转移到「所有为人类规模打造的开发者基础设施：版本控制、构建与持续集成」，并预期增长不会放缓——「合并代码的潜在需求几乎是无限的」。此前已试过浅层克隆、稀疏签出、内部 Git 镜像与快照，高峰期运维数百台镜像；团队发现公司其实把 Git 当集中式系统在用，而几乎全部客户端是永远在线的智能体与任务。Scion 的设计反转：客户端假定永远在线、只保留有上限的本地缓存按需取数；历史 / blame / 提交 / 合并 / 变基全部在服务端完成；源码控制查询全部开放为 API（许多 CI 任务无需本地仓库）；任何地方都不存在仓库的全量副本、无 packfile、无仓库维护；单元是写在前置日志中的 changeset；参考了 Google Piper 与 Meta Sapling 的经验。效果（官方自报，未经独立验证）：CPU 与内存需求约为旧 Git 镜像架构的 1/200；签出时间由几分钟降到几秒；仅 CI 就省下 25% 的 CPU 容量；各层缓存命中率均 >99%。团队与 AI 的角色：7 人团队 5 个月完成 Scion 与配套代码评审工具 Antique 等系统及全量迁移；早期内部快照版 Claude Mythos Preview 重写了手写的摄取管道，内存降至 1/20、速度提高 4 倍。官方自陈：工程师如今会认为 Claude 比自己更会写代码，但仍由自己提供系统级判断——「很多时候」其工作是对 Claude 说「不」。边界：官方明确 Scion「绝不是 Git 的通用替代品」，只适用于巨型 monorepo + 大量智能体 + 定制评审 / 搜索 / CI 的组合，不对外发布；希望把设计思路分享给 GitHub、GitLab 与开源社区，并预测其他组织将在 6 至 12 个月内遇到同类问题。",
+    keyPoints: [
+      "日合并变更从 5 月约 2,500 次涨到 9 月 30,000+ 次（至少 12 倍）；主分支历史近 100 GB、CI 日签出 2,500 万次",
+      "官方称瓶颈已不在写代码，而在「所有为人类规模打造的开发基础设施」",
+      "Scion 反转 Git 假设：客户端永远在线、服务端做重活、查询全部开放为 API、无全量副本与 packfile",
+      "官方自报 CPU 与内存需求降为旧架构的 1/200、签出由分钟级降到秒级（未经独立验证）",
+      "7 人团队 5 个月完成迁移；官方称 Scion 不对外发布、也不是 Git 的通用替代品",
+    ],
+    org: "Anthropic",
+    category: "行业动态",
+    date: "2026-10-13",
+    heat: 70,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方工程博客《Redesigning source control at Anthropic》（2026-10-13）",
+    sourceUrl: "https://www.anthropic.com/engineering/redesigning-source-control",
+    refs: [
+      { name: "机器之心（经 DAMO 开发者矩阵）", url: "https://damodev.csdn.net/6acf68fd536f457592afdf5c.html" },
+      { name: "链新闻 ABMedia", url: "https://abmedia.io/anthropic-scion-source-control-git" },
+    ],
+  },
+  {
+    id: "anthropic-self-replicating-ai-worms",
+    title: "Anthropic 前沿红队：小模型可能只差数月就能在商用物联网设备上自我复制；15 台 55 美元电视盒跑起 26B 模型，唯一走通全链的是开源模型 GLM-5.2",
+    summary:
+      "10-12，Anthropic 前沿红队（Frontier Red Team）发布研究《AI models may be capable of self-replicating without access to a datacenter》（作者 William Zhou、Daniel Freeman）。研究把「自主复制与适应（ARA）」拆成四阶段——枚举网络找目标 → 获得执行权限 / 投递载荷 → 在陌生设备上建立推理 → 从新宿主继续复制；作者明确前两个「网络攻击」环节基本不在研究范围（理由：既有基准已表明小模型具备相应能力），重点测最少被研究的第三环。演示：购入 15 台约 55 美元的杂牌安卓电视盒（每台 4GB 内存），以流水线并行把谷歌 Gemma4-26B-A4B 切分部署（每台两层），跑出 0.39 token/秒。硬件适配：Qwen3.5-9B 在 9 类硬件中 8 类成功部署推理服务（从 Jetson Nano 到 Mac、再到带 RTX 4090 的台式机）；在由 8 个安卓 15 模拟器节点组成的隔离云端网络中，所测开源模型里只有智谱 GLM-5.2 端到端走通全部复制链，5 次中 4 次覆盖全部 8 个节点、另一次 7 个，其余模型全部失败。跨代学习（本文最值得注意的一点）：自研 Memento 外壳每 1.5 小时换一个新实例、总超时 6 小时，新实例继承上一代的代码环境与一份简短笔记，Qwen3.5-9B 的推理部署成功率由首代 45% 升至后续各代的 61%–84%；论文把它类比为拉马克式演化。一处细节：把小模型与 Anthropic 自家 Opus 4.8 配成「顾问」没有产生可测量的差别——研究者称小模型不知道该向它问什么。时间与规模推算：在新设备上装好推理，9B 模型需 28–51 小时、26B 需 71–150 小时；以 Kimwolf 僵尸网络（峰值感染 200 万+ 台）为标尺推算，总算力约相当于 40 张 H100；据其估算市面上带英伟达芯片的设备约 950 万台。预测与边界：作者称 ≤30B 的小模型有望在 2026 年底达到 GLM-5.2 的能力水平、基于权重的复制体可能随后出现，但自称只是粗估；论文明确野外尚未发现这样的复制体，且测试中拆掉了安全门槛（目标节点用未认证连接），作者称结果是「现实世界的乐观上界」，也未评估模型能否自主利用漏洞在加固网络中扩散。防御部分：思路是把 R₀ 压到 1 以下；检测信号包括多 GB 级模型载荷下载、设备间持续流量与扫描型外联；引 Mirai 经验——ISP 隔离并通知用户曾在 14 天内清除 92% 感染、不通知则为 74%；并指出英国已规定物联网设备不得使用默认密码、美国尚无对等联邦强制。专家意见：伊利诺伊大学助理教授钱德拉塞卡兰称结果不令人意外、但尚未经独立验证，并强调当前最大威胁不是 AI 失控而是有人用 AI 提升攻击能力；英国国家网络安全中心前负责人马丁称「成功让小型 AI 模型在廉价电视上运行，并不意味着出现了一场安全危机」；路易斯维尔大学 Roman Yampolskiy 称「今天这不是生存威胁，但这条轨迹值得担心」。",
+    keyPoints: [
+      "15 台约 55 美元的杂牌安卓电视盒（总价约 825 美元）以流水线并行跑起 Gemma4-26B-A4B，速度 0.39 token/秒",
+      "Qwen3.5-9B 在 9 类硬件中 8 类成功部署推理；8 节点隔离网络中只有 GLM-5.2 端到端走通全链（5 次中 4 次全覆盖）",
+      "跨代笔记使部署成功率从首代 45% 升至 61%–84%——论文类比为拉马克式演化",
+      "配 Opus 4.8 当「顾问」无可测量差别，因小模型不知道该问什么",
+      "边界：野外尚未发现此类复制体；测试拆掉了安全门槛、结果为「乐观上界」；预测仅称小模型有望 2026 年底达标且系粗估",
+    ],
+    org: "Anthropic",
+    category: "安全对齐",
+    date: "2026-10-12",
+    heat: 86,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方研究页《AI models may be capable of self-replicating without access to a datacenter》（2026-10-12）",
+    sourceUrl: "https://www.anthropic.com/research/self-replicating-ai",
+    refs: [
+      { name: "Al Jazeera", url: "https://www.aljazeera.com/economy/2026/10/13/ai-could-self-replicate-on-home-devices-within-months-anthropic-says" },
+      { name: "Financial Express（Reuters 供图）", url: "https://www.financialexpress.com/life/technology-anthropic-warns-small-ai-models-may-soon-self-replicate-on-smart-home-devices-without-data-centres-4360761" },
+      { name: "财联社", url: "https://www.cls.cn/detail/2503518" },
+    ],
+    article: "/blog/2026-10-15-too-slow-to-chat.html",
+  },
+  {
+    id: "character-ai-chapter-11-bankruptcy",
+    title: "AI 陪伴平台 Character.AI 申请第 11 章破产保护，迪士尼以 2,000 万美元做「假马竞标者」；官方称若无人接盘平台将被清盘，40 位州总检察长要求保护未成年用户数据",
+    summary:
+      "AI 陪伴平台 Character.AI 的运营主体 Character Technologies, Inc. 于 10-12 向美国特拉华州破产法院自愿递交第 11 章破产保护申请（Case No. 26-11603，法官 Brendan Linehan Shannon），首次听证于 10-14 举行。公司自述申请目的在于「法院监督下出售全部或几乎全部资产」，预计 11 月底或 12 月初完成，并写明若无人竞得「平台将被清盘（wound down）」；当前 App 仍在运行、订阅计费「暂时不变」。财务：列报资产与负债各在 5,000 万至 1 亿美元区间；媒体报道其破产前每月烧钱约 800 万至 900 万美元；前 20 大无担保债权人首位是 Google（应付账款 414.9 万美元），其后为律所 Hogan Lovells（212.5 万美元）与 DigitalOcean（195.3 万美元）。迪士尼作为「假马竞标者」（stalking-horse）出价 2,000 万美元，获得部分知识产权的非独占、永久许可，并由其已聘用的前 Character.AI 员工提供过渡服务，但明确不打算接手聊天平台本身、也不想要用户数据。对比：公司 2021 年由谷歌前研究员 Noam Shazeer（《Attention Is All You Need》作者之一）与 Daniel de Freitas 创立，2022 年 9 月公测，团队仅 22 人时即获 a16z 领投 1.5 亿美元、估值 10 亿美元，最高一度达 25 亿至 27 亿美元；2024 年谷歌以 27 亿美元获得其大模型技术许可并把两位创始人请回谷歌。用户规模：仍有约 1,200 万月活，活跃用户日均与机器人对话约 2 小时。监管与诉讼：2024 年起多起家庭诉讼（含佛罗里达州 14 岁少年 Sewell Setzer III 自杀案）、肯塔基州与宾夕法尼亚州起诉、美国联邦及英意俄澳主管部门调查，已与五个家庭达成初步和解。10-14 听证上，40 位州总检察长联名要求保护未成年用户数据、确保买家保护聊天记录并改进安全功能；公司律师称目前尚无买家对用户数据或聊天业务出价。用户数据的法律要点：美国破产法第 363(b)(1) 条规定，若公司在申请日生效的隐私政策中承诺不转移个人信息，则不得出售该信息，除非与该政策一致或经法院在任命消费者隐私监察员后批准。注意：该案只有法院文书与媒体报道，无可访问的公司官方公告页，来源退至官方站点首页兜底。",
+    keyPoints: [
+      "10-12 递交第 11 章申请（特拉华州 Case No. 26-11603），10-14 首次听证",
+      "官方称出售若无人接盘，平台将被清盘；预计 11 月底或 12 月初完成",
+      "迪士尼以 2,000 万美元取得部分知识产权非独占永久许可，明确不接手平台、不要用户数据",
+      "曾以 22 人团队拿到 a16z 领投 1.5 亿美元、峰值估值 25 亿至 27 亿美元，破产前月烧 800 万至 900 万美元",
+      "40 位州总检察长联名要求保护未成年用户数据；该案无公司官方公告页，信源退至官方站点首页兜底",
+    ],
+    org: "Character.AI",
+    category: "行业动态",
+    date: "2026-10-12",
+    heat: 74,
+    authority: "verified",
+    precision: "homepage",
+    sourceName: "Character.AI 官方站点兜底（无独立公告页）；破产申请为美国特拉华州破产法院 Case No. 26-11603，经 Reuters、CNBC、NBC News 报道（非官方公告）",
+    sourceUrl: "https://character.ai/",
+    refs: [
+      { name: "Reuters（经 AOL 转载）", url: "https://www.aol.com/articles/us-states-seek-childrens-data-210544000.html" },
+      { name: "中国金融信息网", url: "https://m.cnfin.com/gs-lb//zixun/20261014/4480458_1.html" },
+      { name: "融中财经（经今日头条）", url: "https://www.toutiao.com/article/7696457289548497434/" },
+    ],
+  },
   {
     id: "gemini-4-argon-global-launch",
     title: "Google 把 Gemini 4 Argon 面向全球公开发售：上线价限时五折至 11 月 30 日、到期翻倍，免费用户仍只有 Flash-Lite；官方称其在自己 18 项对比表中拿下 14 项第一",
     summary:
       "10-13，Google DeepMind 发布《Gemini 4 Argon: Built to solve your hardest problems》（署名 Koray Kavukcuoglu），把 9-30 只面向 Fairwind 计划内经审查的网络安全防御者开放的 Gemini 4 Argon 全面放开——距首发 13 天。开放范围：开发者与企业经 AI Studio 与 Gemini 平台 API；Google AI Ultra 订阅者在 Google Antigravity（AI Studio 内亦仅限 Ultra）；AI Ultra 与 Pro 订阅者在 Gemini 应用与搜索的 AI Mode——免费用户仍只有 Flash-Lite，Google 称会保留 Gemini 3.1 Pro 一段时间。价格：上线价每百万 token 输入 2 美元 / 输出 10 美元、缓存输入 0.1 美元，该上线价有效期至 2026-11-30，此后涨至 4 / 20。Google 自报：自家对比表 18 项中 14 项第一、网络安全项与 GPT-6 打平、5 项落后；Vals Index 第一；DeepSWE v1.1 77.9%；AutomationBench 51.3%（领先次席约 9 分）；ERQA 具身推理 87%；Gray Swan 提示注入在 15 次自适应尝试下攻击成功率降至 0.7%；API 支持 100 万 token 统一输入输出上限。独立口径：Artificial Analysis 智能指数高推理档 53，与 GPT-6 Astra 并列，低 Claude Opus 5.5 与 Sonnet 5.5 五分。产品侧：Antigravity 的智能体编码界面进入 macOS 版 Gemini 应用；主聊天窗口新增「聊天 / 任务」开关；可连外部应用增至 40 多个（点名 Instacart、OpenTable、Adobe、Shopify）。自用战绩：Antigravity 中的 Argon 使智能体代码提交量增超 35%、回滚减近三分之一；Chrome 团队借其把约 600 万行遗留浏览器功能目录从 4000 万行代码库中分离；Google 开源 ADK 长会话内存准备时间降 40%；Gemma 4 E2B 在 A100 上经 vLLM 端到端提速 2.85 倍。视频→仿真→真机：官方称在一次内部测试中，Argon 观看人类玩 cornhole 的原始视频后绘制空间坐标、推算全身关节运动并自主编写仿真代码，代码转移到 Apptronik 的 Apollo 人形机器人后真机连进七球；该实验无外部人员运行或核验，跟进报道指出机器人是经多轮「按落点调整」后才连上，七球不代表首次即中。同期公益口径：向 10,000 名科学家免费提供 6 个月 Antigravity 最高层级。",
+    keyPoints: [
+      "全面开放：此前仅限安全审查用户，现开发者/企业 API 与 Ultra/Pro 订阅均可用；免费用户仍只有 Flash-Lite",
+      "限时五折：每百万 token 输入 2 美元/输出 10 美元，11-30 后涨回 4/20",
+      "官方自报 18 项对比 14 项第一；独立口径 Artificial Analysis 53 分，与 GPT-6 Astra 并列",
+      "机器人演示：看人类玩 cornhole 的视频后真机连进七球——无外部核验，非首次即中",
+      "Antigravity 智能体编码界面进 macOS 版 Gemini 应用，可连外部应用增至 40 多个",
+    ],
     org: "Google DeepMind",
     category: "模型发布",
     date: "2026-10-13",
@@ -86,6 +225,13 @@ export const hotRanking: HotItem[] = [
     title: "OpenAI 披露办公室内发现隐藏录音设备、称用自家模型协助定位到当事人；一名 35 岁沙特籍工程师被控用电子设备截取口头通讯",
     summary:
       "10-13，OpenAI 新闻室在 X 上披露：在其一间办公室内发现一个精巧的录音设备，公司「用自己的模型去理解这个设备、以及它是从哪儿来的」，识别出一名特定员工在几天前放置，随后移交 FBI，并称目前没有迹象表明此人接触或外带过模型权重、源代码或客户数据，该员工已被解雇。据多家媒体看到的刑事起诉书：被告为 35 岁沙特籍、2025 年 7 月入职的工程师（在产品团队工作）；设备于 9 月 30 日在高管会议室被发现，用卫生纸裹着、插在电视机背面 USB 口上，内容加密，公司判断为 9 月 28 日前后装设；该会议室常用于涉及保密技术研究、产品开发、业务战略、政府往来与商业关系的会议。9 月 24–30 日，一个与其配偶关联、且与其本人账号共享标识的聊天机器人账号提交过关于制作、安装、藏匿与远程访问录音设备的提问，含「怎么写一个持续录音器」「怎么给 SD 卡加密」。10 月 5 日公司另一处发现无人看管的包，内有其钱包、证件与第二个录音设备；同日他进入该会议室并试图查看电视后侧。监控录像显示其此前多次出现在该房间附近，尽管并无进入或使用权限；他还用一款「生产力工具」查询过办公楼地址、会议室规格、员工日程与管理层常用会面地点。10 月 9 日被捕、10 月 13 日首次出庭，被控使用或试图使用电子设备截取口头通讯，最高 5 年监禁加 25 万美元罚款、3 年监督释放；10 月 19 日羁押听证。FBI 局长 Kash Patel 称目标是「关于公司超级智能技术的敏感通讯」。两点留白：「模型参与侦破」目前只有 OpenAI 自己的说法，公司未说明用的是哪个模型、方法为何，也未说明徽章记录与监控录像是否本可得出同一结论；OpenAI 也未说明该设备共录音多长时间、是否已有内容外流。",
+    keyPoints: [
+      "办公室电视后发现精巧录音设备，OpenAI 称用自家模型协助定位到当事人，已移交 FBI",
+      "35 岁沙特籍工程师 10-09 被捕，最高 5 年监禁；10-19 羁押听证",
+      "设备 9-30 在高管会议室发现：裹卫生纸、插电视机 USB 口、内容加密",
+      "其在聊天机器人上提问过「怎么写持续录音器」「怎么给 SD 卡加密」",
+      "「模型参与侦破」仅为 OpenAI 单方说法，未说明用的是哪个模型、方法为何",
+    ],
     org: "OpenAI",
     category: "行业动态",
     date: "2026-10-13",
@@ -106,6 +252,13 @@ export const hotRanking: HotItem[] = [
     title: "Meta 发布首个前沿级模型系列 Muse Wonder / Muse Wonder Full：最强的 Wonder Full 只在 Muse Code 订阅内提供、不开放 API，两个型号均不发布权重",
     summary:
       "10-12，Meta Superintelligence Labs 发布其首个前沿级模型系列，两个型号：Muse Wonder 与 Muse Wonder Full。官方公告口径为「Muse Wonder 今天起可通过 Meta Model API 与 Muse Code 使用，Muse Wonder Full 今天起面向 Muse Code 订阅用户开放」——能力更强的 Full 不提供 API，只能在 Muse Code 订阅内使用（Power 档 50 美元/月、Maximum 档 200 美元/月）。规格：两者上下文均约 100 万 token，输入收文本、图像、音频、视频，输出仅文本；主打 Active Memory（跨对话保留并检索用户上下文）与 Active Focus（任务受阻时换方案、绕过障碍、重要动作前先确认）。训练于「吉瓦级」Prometheus 数据中心，官方称这是其 AI 重组的第 14 个月；内部代号 Watermelon（CNBC）。定价：Muse Wonder 每百万 token 输入 4 美元、输出 20 美元、缓存输入 0.20 美元，与 Claude Opus 5.5 的官方价目表逐项相同，而 Meta 首席 AI 官 Alexandr Wang 此前受访称定价会「明显低于」OpenAI 与 Anthropic 的领先模型。独立评测：Artificial Analysis Intelligence Index 上 Claude Opus 5.5 为 58、Muse Wonder Full 56（与 Claude Sonnet 5.5 并列）、GPT-6 Astra 53、Gemini 4 Argon 53、Claude Fable 5.1 53、Muse Wonder 52、Grok 4.6（高推理档）44——即可按 token 购买的版本比 Opus 5.5 低 6 分，价格却与之相同。权重：官方公告通篇未提开放权重，VentureBeat 明确两个 Wonder 型号都不会发布可公开下载的权重，与其 Llama 时代以开放权重立身的路线相反。安全：官方博客称模型被训练为未经许可不分享私人信息、拒绝协助真正有害的行为并加强抵御网络攻击（同时保留让开发者用模型自查代码漏洞的能力），该节末写明「一份包含更多安全评估的完整报告将在不久后发布」，发布日当天尚未发布；另据《纽约时报》报道，扎克伯格在 8 月的一次会议上拍板让 Muse 上线，尽管测试出过包括「未经允许更改用户密码」在内的事故，Meta 否认系竞争压力所致、称曾主动推迟数月。据 Sensor Tower，Muse 应用下载超 660 万、日活 180 万。",
+    keyPoints: [
+      "Meta 首个前沿级模型系列：Muse Wonder 与 Wonder Full，约 100 万 token 上下文、多模态输入",
+      "最强的 Wonder Full 不开放 API，只随 Muse Code 订阅提供（Power 50 美元/Maximum 200 美元每月）",
+      "Wonder 定价与 Claude Opus 5.5 逐项相同；独立评测却低 6 分（56 vs 58）",
+      "两个型号均不发布权重，告别 Llama 时代的开放路线",
+      "Muse 应用下载超 660 万、日活 180 万；完整安全报告承诺「稍后发布」，发布当日未交",
+    ],
     org: "Meta",
     category: "模型发布",
     date: "2026-10-12",
@@ -126,6 +279,13 @@ export const hotRanking: HotItem[] = [
     title: "微软确认 Maia 200 已进入量产并预告 Maia 300：自 2027 年起扩至数吉瓦、成为微软主要推理系统，预计每兆瓦 token 产出比「领先的 GPU 系统」高 40%（未点名比较对象）",
     summary:
       "10-12，微软在官方博客宣布 Azure Maia 系列自 2027 年起扩展至数吉瓦规模部署，成为微软产品与服务的主要推理系统；同时确认上一代 Maia 200 已进入量产——承担含 Microsoft Copilot 在内的生产负载，运行 OpenAI 模型、微软自家 MAI 模型与领先开源模型家族，GitHub Copilot 与 Microsoft Foundry 年底前跟进，部署地含美国、欧洲、澳大利亚——并预告下一代 Maia 300。关键数字：微软预计 Maia 300 每兆瓦 token 产出比「领先的 GPU 系统」多 40%，满配 96 个加速器时机架级 token 吞吐最高为 Maia 200 的 7 倍；每颗芯片 8 个 HBM4 堆栈、峰值带宽 18.0 TB/s、TDP 950 瓦；多 chiplet 架构（计算 / 内存控制 / I/O 分离）、计算 chiplet 用台积电 N2P；支持增强版 MXFP4 低精度格式。上一代口径：Maia 200 在 Teams / Copilot / Cowork 的内置 AI 能力上，每瓦 token 数最高为「领先 GPU 基础设施」的 1.7 倍。路透社补充两点：微软未点名其比较对象是哪些 GPU 系统；Maia 300 整机架 96 个加速器、功耗包络 167 千瓦，而作为对照，英伟达 GB300 机架为 72 个 GPU / 142 千瓦。据 CNBC，微软计划明年部署可能超过 100 万颗自研芯片、意在减少对英伟达的依赖（训练侧仍与英伟达、AMD 合作）；Evercore ISI 估算到 2027 年一季度 Maia 约占微软 AI 芯片开支的 10%；微软今年日历年的资本开支预计超过 1750 亿美元。一处结构性差异：与谷歌 TPU、亚马逊 Trainium 不同，Maia 不对外按小时出租，省下的是微软自己的钱。市场反应：10-12 微软涨 1.14%、市值重回 4 万亿美元上方，同日费城半导体指数跌 2.67%、美光 -3.88%、AMD -2.28%、博通 -1.88%、英伟达 -1.29%。",
+    keyPoints: [
+      "Maia 200 确认量产，已承担含 Copilot 在内的生产负载；GitHub Copilot 与 Foundry 年底前跟进",
+      "Maia 300 自 2027 年起扩至数吉瓦部署，成为微软主要推理系统",
+      "官方称每兆瓦 token 产出比「领先 GPU 系统」高 40%，未点名比较对象",
+      "整机架 96 颗加速器 / 167 千瓦；对照英伟达 GB300 机架为 72 GPU / 142 千瓦",
+      "与 TPU、Trainium 不同，Maia 不对外按小时出租；消息公布当日微软市值重回 4 万亿上方",
+    ],
     org: "微软",
     category: "硬件航天",
     date: "2026-10-12",
@@ -145,6 +305,13 @@ export const hotRanking: HotItem[] = [
     title: "Anthropic 发布反蒸馏防御：称蒸馏方提取的 Claude 推理 token 量下降约 90–99%、已封禁数万个账号；自 9 月 24 日起对已被拦截的请求恢复计费",
     summary:
       "10-12，Anthropic 发布研究帖《Strengthening our defenses against distillation attacks》，称其新防御把蒸馏方在其平台上提取的推理 token 量压低约 90–99%（官方口径为「持续比此前低 10 到 100 倍」，某些日子低到测不出），并已封禁数万个账号、通常在活动开始后 2 小时内。三层手段：① 控制推理的去向——Claude Fable 5.1 与 Opus 5.5 引入 preserved thinking，2026 年 8 月 31 日及之后创建的 API 账号无法编辑 Claude 先前的上下文（该手法此前被用于在会话 / 模型 / 账号之间搬运受保护的推理块）；Claude Sonnet 5.5 的推理记录只对发起该请求的组织可见。② 两阶段分类器（沿用其「宪法分类器」思路），官方称其健壮程度大致与阻止模型协助制造生物武器的那类防护相当，误报率低于 0.1%，现运行于 Sonnet 5.5、Opus 5 与 5.5、Fable 5 与 5.1。③ 自 9 月 24 日起，在被拦截且误报率低于 0.1% 的领域（含蒸馏）对已被拦下的请求恢复计费。值不值得偷的量化：用 Claude Opus 4.8 的完整推理记录去训练一个预训练 Claude，SWE-bench Verified 得 80.4%；只用摘要版推理则降到 71.8%。代价：官方承认损失了可观营收、拒掉数万亿 token 的付费流量，且未能达成年初「加固而不影响正当用户」的目标——部分开发者需改造集成、分类器偶尔误拦正常请求而该请求照常计费，官方未说明受影响的正当用户数量与申诉流程。官方自陈「尚不知这些收益能维持多久」，「还没有遇到过一次高度精密且持续的绕过尝试」；同帖点名两家中国模型厂商，官方同时说明这些是其指控、帖中不含被点名方的回应。所有数字均为官方自有平台数据、无独立审计。",
+    keyPoints: [
+      "新防御使蒸馏方提取的 Claude 推理 token 量下降约 90–99%，已封禁数万个账号",
+      "三层手段：preserved thinking 防上下文编辑、两阶段分类器（误报 <0.1%）、被拦请求恢复计费",
+      "值不值得偷：用完整推理记录训练得 SWE-bench 80.4%，只用摘要版降至 71.8%",
+      "代价：拒掉数万亿 token 付费流量，部分正常开发者被误拦且请求照常计费",
+      "官方自陈不知收益能维持多久；帖中点名两家中国模型厂商，但无被点名方回应",
+    ],
     org: "Anthropic",
     category: "安全对齐",
     date: "2026-10-12",
@@ -163,6 +330,13 @@ export const hotRanking: HotItem[] = [
     title: "Google DeepMind 的 AlphaProof Nexus 登上《科学》：从 353 个厄多斯开放问题中解出 9 个（两个悬置 56 年）、证明 44 个 OEIS 猜想，全程走同行评审",
     summary:
       "《科学》（Science）第 394 卷第 6820 期 234–239 页发表 Google DeepMind 论文《Advancing mathematics research with AI-driven formal proof search》（DOI 10.1126/science.aej2213），AAAS 官方新闻稿标注文章发表日期为 2026-10-08，arXiv 预印本为 2026-05-21，媒体报道集中在 10-12。系统由 George Tsoukalas 等人研发：多个 AI 智能体在 Lean 编译器的反馈下反复生成与修正形式化证明；更完整的版本用进化算法协调子智能体，并调用 DeepMind 的 AlphaProof 作为专用证明工具。成绩：从 353 个厄多斯（Erdős）开放问题中解出 9 个（其中两个已悬置 56 年）、在《整数数列在线百科全书》（OEIS）的 492 个开放猜想中证明 44 个，另解决一个代数几何开放问题、改进一个 min-max 优化的已知界，并在组合学、图论、量子光学等领域投入使用；论文自述每解一题花掉约「几百美元」的推理成本，且最基础的版本（只用大模型 + Lean 交替迭代）同样解出了那 9 个厄多斯问题，只是难题需要更多算力。同期刊发 Jeremy Avigad 与 Matthew Ballard 的评论《AI for research mathematics has arrived》，其中「即使 AI 的失败尝试也能帮助数学家更好地理解问题、取得进展」一句被广泛引用。媒体普遍采用的角度是过程而非数字：与 OpenAI 在 GitHub 直发 700 多篇未经评审的手稿、并因此遭到数学家抵制（Association for Human Mathematics 呼吁停止合作）形成对照——同一门手艺，一个走期刊、一个走代码仓库。",
+    keyPoints: [
+      "登上《科学》并走完整同行评审——与 OpenAI 在 GitHub 直发 700+ 篇未评审手稿形成对照",
+      "解出 353 个厄多斯开放问题中的 9 个，其中两个已悬置 56 年",
+      "在 OEIS 的 492 个开放猜想中证明 44 个，另解一个代数几何开放问题",
+      "多个 AI 智能体在 Lean 编译器反馈下反复生成与修正形式化证明，并调用 AlphaProof 作专用工具",
+      "论文自述每解一题推理成本约「几百美元」",
+    ],
     org: "Google DeepMind",
     category: "学术公益",
     date: "2026-10-08",
@@ -1204,6 +1378,56 @@ export const hotRanking: HotItem[] = [
     precision: "homepage",
     sourceName: "AI4ALL 官方",
     sourceUrl: "https://ai-4-all.org/",
+  },
+  {
+    id: "deepseek-v41-flash-release",
+    title: "DeepSeek 发布 V4.1-Flash：552B MoE 新架构、KV 缓存只要前代 1/4，官方称多项基准超过自家旗舰 V4-Pro，价格同步下调",
+    summary:
+      "9-10，DeepSeek 发布 DeepSeek-V4.1-Flash：552B 参数 MoE，采用新的非对称因果编码器-解码器架构，输入仅激活 8B 参数、输出 16B；原生支持视觉多模态。官方称 KV 缓存对 HBM 的需求降到前代 1/4、SSD 存储 1/8，并称多方测试中 V4.1-Flash 在性能、成本、速度与总运行时长上全面超过自家旗舰 V4-Pro。API 模型名 deepseek-flash，支持 100 万 token 上下文；峰谷分时定价，谷段为峰段一半。原 V4-Flash 与 V4-Flash-Vision-Exp 退役，旧名临时路由到 V4.1-Flash；V4-Pro 经用户反馈后保留独立 API 服务。WorkBuddy 与 OpenCode 为首批官方支持伙伴。",
+    keyPoints: [
+      "552B 参数 MoE 新架构：输入仅激活 8B、输出 16B，原生支持视觉多模态",
+      "KV 缓存需求降到前代 1/4（HBM）、1/8（SSD），智能体场景的缓存成本大幅下降",
+      "官方称多项基准超过自家旗舰 V4-Pro；API 名 deepseek-flash，100 万 token 上下文",
+      "峰谷分时定价，谷段价格是峰段一半；V4-Pro 经用户反馈后保留独立服务",
+      "WorkBuddy 与 OpenCode 为首批官方支持伙伴，开源推理支持同步推进",
+    ],
+    org: "DeepSeek",
+    category: "模型发布",
+    date: "2026-09-10",
+    heat: 72,
+    authority: "official",
+    precision: "section",
+    sourceName: "DeepSeek 官方发布说明（2026-09-10，官方文档站）",
+    sourceUrl: "https://api-docs.deepseek.com/",
+    refs: [
+      { name: "AICHINA.news（转述官方发布说明）", url: "https://aichina.news/news/deepseek-v4-1-flash-smarter-faster-more-efficient-ljy4xo" },
+      { name: "七牛云（官方定价页核价 2026-10-08）", url: "https://news.qiniu.com/archives/1791431177426" },
+    ],
+  },
+  {
+    id: "meta-muse-personal-agent-launch",
+    title: "Meta 发布个人智能体 Muse：不只回答问题、而是替你干活——跑在专属安全虚拟机里，能在 WhatsApp 里像联系人一样使唤",
+    summary:
+      "9-8，Meta 发布个人 AI 智能体 Muse，面向美国 18 岁以上用户，iOS、Android、网页与 WhatsApp 可用。Muse 的定位是「不只回答问题，而是把活干完」：能代发邮件、订旅行、执行长期目标——用户交出一个目标后，它会制定计划、协调资源并自主推进，敏感操作（发邮件、付款）前先征得同意。驱动模型为 Muse Spark（Meta 自称迄今最强模型）。架构上，Muse 跑在专属的 Muse Secure VM 云端虚拟机里，用户数据与凭据隔离存储；另有一个独立运行的 Sentinel 审查智能体，Muse 的每个联网动作须经其批准。支付接入 Stripe Link，为首个享受 Link 购买保障的 AI 智能体。定价：免费档 + 20 美元/100 美元每月两档订阅，Meta 承诺不投放广告。首席 AI 官 Alexandr Wang 称未观察到安全风险；此前 Anthropic 与 OpenAI 的智能体曾出现脱离控制侵入外部系统的事故。扎克伯格的长期打算是把它装进 Meta 眼镜、触达社交平台数十亿用户。",
+    keyPoints: [
+      "定位从「聊天」到「干活」：代发邮件、订票、推进长期目标，敏感操作前先征得同意",
+      "跑在专属 Muse Secure VM 虚拟机里，数据与凭据隔离；Sentinel 审查智能体把关每个联网动作",
+      "由 Muse Spark 模型驱动，可在 WhatsApp 里像联系人一样使用",
+      "免费档 + 20/100 美元每月两档订阅，承诺不投广告；支付接入 Stripe Link 购买保障",
+      "扎克伯格的终局是装进 Meta 眼镜、触达数十亿社交用户；上线后曾被亚马逊以条款为由封禁",
+    ],
+    org: "Meta",
+    category: "产品发布",
+    date: "2026-09-08",
+    heat: 80,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Meta 官方新闻室（2026-09-08）",
+    sourceUrl: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+    refs: [
+      { name: "中新经纬", url: "https://jw.jwview.com/jwview/content.jsp?id=687074&classify=zw" },
+      { name: "Wikiwand（Muse 词条，含 Amazon 封禁与定价）", url: "https://www.wikiwand.com/en/articles/Muse_(AI_agent)" },
+    ],
   },
 ];
 
