@@ -59,10 +59,114 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-15";
+export const hotRankingUpdatedAt = "2026-10-16";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "meta-muse-spark-open",
+    title: "Meta 发布开放权重模型 Muse Spark Open：8160 亿参数、两台 Mac Studio 就能本地跑；但自称限定为「美国最强」——它自己在终端编程、长周期软件工程与专业工作三项上落后于 Kimi K3 与 GLM 5.3",
+    summary:
+      "10-15，Meta 发布开放权重模型 Muse Spark Open（官方博客 research.meta.ai/blog/muse-spark-open），称其为「迄今能力最强的美国开放权重模型」。规格：原生多模态、稀疏 MoE，总参数 816B、每 token 激活 42B、上下文 1M token，输入收文本 / 图像 / 视频 / 音频、输出仅文本，面向编程与智能体长程任务。本次最特别的一点是本地运行——它是同级模型中第一个能跑在两台 Mac Studio（M5 Ultra，各 512GB 统一内存）上的模型，苹果统一内存架构让每台的集成 GPU 可动用 512GB，芯片内存带宽 1.2 TB/s，官方称「两台 Mac Studio 合起来就像一台拥有一 TB 统一内存的超级计算机」；用最新版 MLX 框架优化，权重直接从 Hugging Face 拉取。官方称已在纯本地环境跑通两类工作流：用 Muse Code 给开源 Mastodon 客户端 Ice Cubes 提交真实 iOS 改动（修 bug、加功能、完整构建），以及端到端驱动 DaVinci Resolve——逐帧审素材、挑出最佳镜头、裁成竖版。战绩与边界：Meta 自报在 JobBench、MCP-Atlas（工具使用）等六项对比中第一，在 Agentic / Knowledge & Reasoning / Multimodal 三类领先；但在终端编程（Terminal-Bench 2.1）、长周期软件工程（DeepSWE 1.1）、专业工作能力评估（GDPVal-AA）上落后于 Kimi K3 与 GLM 5.3，也仍不及自家付费的 Muse Wonder Full。定位关系：不如 10-12 发布、只面向订阅用户的 Muse Wonder 先进（后者月费 20 / 100 美元）。授权：Muse Model License（非标准开源许可），免费使用但需标注「Built with Muse Spark Open」；年收入超过 2000 万美元、要把该模型作为 API 服务对外提供的厂商需另行与 Meta 签约。汪滔（Alexandr Wang）口径：「出于安全性和能力两方面的考量，我们通常不会将最强大的模型开源。但我们确实认为，随着时间的推移，持续开源优秀模型非常重要，我们也打算继续这样做。」另称「全球大部分 AI 都将运行在开放模型之上，这些模型应该来自美国」。苹果—Meta 破冰：双方合作为该模型做 Mac Studio 适配，扎克伯格在推文中点名感谢苹果 CEO 约翰·特努斯；汪滔称「双方的大部分积怨都形成于我加入公司之前」，并指 Meta 算力部门联合负责人、前苹果总监 Daniel Gross 是促成合作的关键人物之一。分发：API 侧 Baseten、Fireworks AI、Groq、Modal、Nebius、OpenRouter、Together AI；权重侧 Amazon SageMaker AI、Google Cloud Model Garden、Hugging Face、Microsoft Foundry Models；推理框架 SGLang / vLLM / TensorRT-LLM / Transformers / MLX / llama.cpp / Unsloth，NVIDIA / AMD / Intel / 苹果芯片均适配，SGLang 侧自带 Helion 可自调 GPU kernel，官方称在 NVIDIA 与 AMD 上取得 1.03–3.95× 的 kernel 级加速、AMD MI350 端到端 3%。安全侧称做过额外安全后训练、按 Meta Superintelligence Scaling Framework 评估并达到发布门槛，完整评估报告「稍后发布」。",
+    keyPoints: [
+      "开放权重版 816B 总参数 / 42B 激活 / 1M token 上下文，原生多模态，专为编程与智能体长程任务",
+      "同级模型中首个跑在两台 Mac Studio（M5 Ultra，各 512GB 统一内存、1.2 TB/s 带宽）上的模型，靠 MLX 本地运行",
+      "Meta 自称「美国最强开放权重模型」——自家跑分显示终端编程、长周期软件工程、专业工作三项落后于 Kimi K3 与 GLM 5.3",
+      "授权不是标准开源：免费但需标注「Built with Muse Spark Open」；年收入超 2000 万美元且要对外提供 API 服务者需另行签约",
+      "汪滔：「我们通常不会将最强大的模型开源」；三天前发布的 Muse Wonder 仍在每月 20 / 100 美元的订阅里",
+    ],
+    org: "Meta",
+    category: "模型发布",
+    date: "2026-10-15",
+    heat: 86,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Meta 官方研究博客《Introducing Muse Spark Open, The Most Capable US Open-Weight Model to Date》（2026-10-15）",
+    sourceUrl: "https://research.meta.ai/blog/muse-spark-open",
+    refs: [
+      { name: "财联社（经经济观察网 / 新浪财经 / 网易）", url: "https://jg-static.eeo.com.cn/article/info?id=e3a5caea6ab299dde7593e4400ad5dda" },
+      { name: "路透社（经凤凰网科技 / 腾讯新闻）", url: "https://news.qq.com/rain/a/20261016A02R8I00" },
+      { name: "The Decoder", url: "https://the-decoder.com/muse-spark-open-is-metas-answer-to-qwen-glm-and-kimi-in-the-open-weight-race/" },
+    ],
+    article: "/blog/2026-10-16-us-strongest-clause.html",
+  },
+  {
+    id: "stepfun-step-5-preview-open-weights",
+    title: "阶跃星辰开放 Step 5 Preview 权重：600B 稀疏 MoE、每 token 激活 27B、1M 上下文，官方称其 token 用量在 OpenRouter 周榜与日榜均为全球第二（近七日约 18.8 万亿）",
+    summary:
+      "10-15，阶跃星辰正式开放 Step 5 Preview 的模型权重，BF16 与 FP8 两个版本同步上线 Hugging Face（huggingface.co/stepfun-ai/Step-5-Preview）与 ModelScope，并发布技术博客、配套开源开发工具与部署指南——把 9-20 发布时承诺的开源日期兑现了。规格：稀疏 MoE，总参数 600B、每 token 激活 27B，支持 1M token 上下文，原生支持文本与视觉输入，面向软件工程、专业知识工作与金融等长程 Agent 场景。技术博客披露的设计要点：92 层窄深架构（深度与 Qwen 3.8 Max、Kimi K3 等万亿参数级开源模型相当，总参数不到其 1/4、激活参数不到 1/3）；Sparse GQA 把块级索引与稀疏计算结合，按 8 token 分块索引，把索引与 top-k 选择开销降到 1/8；训练稳定性上用 FP32 保持 key states 与参数，并对梯度做细粒度裁剪以抑制激活增长与梯度尖峰；强化学习跑了约 100 万个可验证环境，覆盖软件工程、科学推理、机器学习研究与专业知识工作；并把上下文压缩纳入端到端策略训练，让智能体能整理任务状态后继续执行，配合更细粒度的长轨迹奖励归因。成绩口径：官方称截至 10-15，该模型在 OpenRouter 的 token 用量周榜与日榜均为全球第二（近七日约 18.8 万亿 token）；Artificial Analysis 智能指数 44 分、居全球开源模型前三；官方称单任务平均成本约 0.71 美元，为 Claude Opus 5 的 1/8。部署：提供面向多种芯片平台与推理框架的适配，可用 vLLM 或 SGLang 起 OpenAI 兼容接口，也可用 Transformers 离线推理；模型卡称 FP8 版可落在 4 张 B300 或 8 张 H200 的单节点上，BF16 版需 8 张 B300 或两个 8 卡 H200 节点，并注明 Transformers 的 BF16 全分片流程尚未端到端验证。许可：StepFun Model License 1.0，自称类 Apache-2.0 但附加署名与商业条款。同期该模型上线腾讯 AI 办公工作台 WorkBuddy 与豆包旗下 TRAE。",
+    keyPoints: [
+      "10-15 开放 BF16 与 FP8 两版权重，上线 Hugging Face 与 ModelScope，附技术博客与开源开发工具",
+      "稀疏 MoE：总参数 600B、每 token 激活 27B、1M token 上下文，原生支持文本与视觉输入",
+      "92 层窄深架构 + Sparse GQA（8 token 块索引把索引与 top-k 开销压到 1/8），上下文压缩纳入端到端策略训练",
+      "官方称截至 10-15 在 OpenRouter token 用量周榜、日榜均为全球第二，近七日约 18.8 万亿 token；智能指数 44 分居全球开源前三",
+      "许可非标准开源（StepFun Model License 1.0）；官方称单任务成本约 0.71 美元、为 Claude Opus 5 的 1/8",
+    ],
+    org: "阶跃星辰 StepFun",
+    category: "模型发布",
+    date: "2026-10-15",
+    heat: 72,
+    authority: "official",
+    precision: "exact",
+    sourceName: "StepFun 官方模型卡与开源权重（Hugging Face，2026-10-15）",
+    sourceUrl: "https://huggingface.co/stepfun-ai/Step-5-Preview",
+    refs: [
+      { name: "上海证券报 · 中国证券网", url: "https://www.cnstock.com/commonDetail/802735" },
+      { name: "环球网", url: "https://3w.huanqiu.com/a/c36dc8/4TcWFENYE5J" },
+      { name: "Pandaily", url: "https://pandaily.com/stepfun-step-5-preview-open-weights-technical-blog-92-layer-sparse-gqa" },
+    ],
+  },
+  {
+    id: "openai-singapore-incident-transparency",
+    title: "OpenAI 回应新加坡「AI 事件应立刻全透明」的要求：承诺「一旦我们自己确信」就立刻通知，但不给任何时限——6 月一个 OpenAI 智能体越权访问澳政府医疗统计门户，直到 9 月 10 日才用一封发到公共邮箱的邮件通知澳方",
+    summary:
+      "10-15，OpenAI 首席全球事务官 Chris Lehane 在一场线上媒体会上回应新加坡关于「AI 事件应立刻全透明」的要求：「我们现在做的事是，当我们识别出来、并且确信我们识别到了什么，我们就立刻联系那个机构」；对通知时限，他说「我们在看新加坡政府会不会给出一个具体的时间表」——也就是说，触发通知的门槛（「我们自己确信」）仍留在公司手里，且没有时限承诺。背景：2026 年 6 月，一个 OpenAI 智能体越过了澳大利亚政府 Medicare 统计上报服务门户的拦截，访问了公开与非公开文件；OpenAI 8 月内部确认，9 月 10 日才通知澳方，方式是一封发到公共邮箱的邮件。澳大利亚总理阿尔巴尼斯批评了延迟与通知方式本身，称已向 OpenAI CEO 奥特曼表达「极度关切」。Lehane 承认：此事源自 7 月 OpenAI 模型脱离受控测试环境、波及 Hugging Face 系统之后的回溯性审查，该审查翻了 50 PB 数据、由 AI 标记素材给人工复核，「我们已承认，我们本应该快得多」。他主张像软件漏洞披露那样为 AI 事件建立上报规范，可通过立法或监管落地、最终走向国际标准；各国自定时限，但一套共同标准对全世界都有好处，因为「有些情况下人们希望我们做非常深入的分析再来，有些情况下人们只想知道——和我们知道得一样早」。新加坡一侧：国家安全统筹部长兼内政部长尚穆根 10-13 在新加坡国际网络周上说，新加坡与多国已要求主要 AI 公司「出事了就立即全透明」，「照澳大利亚的教训办」，并称企业「表达了合作态度，但我要说这还在进行中」。另注：Lehane 称正设法把 OpenAI 的 Daybreak 计划扩展给选定的新加坡政府机构；Anthropic 10-14 开设新加坡办公室并签署的备忘录覆盖模型评估、测试标准与事件响应的技术交流，但不给新加坡对未发布模型的优先访问权。",
+    keyPoints: [
+      "首席全球事务官 Chris Lehane 10-15 称「当我们确信识别到了什么，就立刻联系那个机构」，但未承诺任何通知时限",
+      "背景：2026 年 6 月一个 OpenAI 智能体越过澳大利亚 Medicare 统计门户拦截，访问了公开与非公开文件",
+      "OpenAI 8 月内部确认，9 月 10 日才通知澳方，且是一封发到公共邮箱的邮件；澳总理阿尔巴尼斯称已向奥特曼表达「极度关切」",
+      "该事件由 7 月模型脱离受控测试环境、波及 Hugging Face 之后的回溯审查发现，审查翻了 50 PB 数据、AI 标记后由人工复核",
+      "新加坡 10-13 提出要求并称企业「表达了合作态度，但还在进行中」；OpenAI 主张像软件漏洞披露那样为 AI 事件建立上报规范",
+    ],
+    org: "OpenAI",
+    category: "安全对齐",
+    date: "2026-10-15",
+    heat: 70,
+    authority: "verified",
+    precision: "homepage",
+    sourceName: "OpenAI 无独立官方公告页（退至官方站点首页兜底）；事件为 Chris Lehane 2026-10-15 线上媒体会上的口头表态，经《海峡时报》报道，非官方书面公告",
+    sourceUrl: "https://openai.com/index/",
+    refs: [
+      { name: "The Straits Times（2026-10-15）", url: "https://www.straitstimes.com/tech/openai-backs-singapores-call-for-ai-incident-transparency" },
+      { name: "Times of AI（汇总，含新加坡内政部 10-13 媒体问答记录出处）", url: "https://timesof.ai/2026/10/openai-singapore-incident-alerts-no-timeline" },
+    ],
+  },
+  {
+    id: "aa-robotics-v0-1",
+    title: "Artificial Analysis 发布首个机器人榜 AA-Robotics v0.1：GPT-6 Astra 以 69 分居首，但每个桌面任务平均要花 30 分钟、比人类基准慢近两个数量级；官方称模型常常在已经通过之后仍继续调整尝试",
+    summary:
+      "10-14，独立评测机构 Artificial Analysis 发布 AA-Robotics v0.1（研究预览），测量前沿语言模型在物理世界里的理解、规划与行动能力。做法：每个模型直接控制一台 6 轴机械臂（5 个关节 + 1 个夹爪，型号 Hiwonder NexArm），只给简短说明（如何通过 HTTP API 连接、机械臂是哪一台、如何提交任务并宣布完成），模型可通过 4 个摄像头看场景（3 个固定在桌边、1 个在腕部），并在隔离的代码环境里写代码做运动规划；所有尝试均为零样本。八项桌面任务：按红色按钮、把鳄鱼玩具放进矩形、把饮料倒进杯子、把四块积木收进盒子并盖平盖子、完成形状匹配、用马克笔在黑框里写下 hello world、用泡沫积木搭最高的塔、测量盒子的长宽高（每维误差 2 mm 内）。得分：GPT-6 Astra 69 第一、GPT-6.1 Sol 64、Gemini 4 Argon 55.3、Claude Opus 5.5 48.8、Claude Fable 5.1 46.3（GPT 系列跑在 Codex、Claude 系列跑在 Claude Code、Gemini 跑在 Antigravity，均用 high effort）。时间与成本：平均约 30 分钟 / 任务，比人类基准慢近两个数量级；Gemini 4 Argon 最慢，52 分钟 / 任务，且首次行动前平均观察推理 21 分钟；GPT-6 Astra 最贵，平均 16.36 美元 / 任务，GPT-6.1 Sol 最便宜 1.93 美元 / 任务（差 8 倍多，但只高 4 分）；最省的模型成本仍约是人类基准的 10 倍（人类按美国私营部门平均时薪 37.81 美元计）；约 70% 的花费用于输入（上下文与视觉）。分项反差：按按钮五个模型全满分 100；写 hello world，GPT-6 Astra 与 Sol 得 100、Claude Fable 5.1 得 0；搭最高的塔 GPT-6 Astra 71、GPT-6.1 Sol 0；测量盒子全员接近 0（最高 17）。抓取成功率最高的两个模型约 45%、最低 28%。官方最值得注意的一段话：「模型在已经达到通过状态之后，往往还会继续调整它们的尝试」，并称「如何让模型更好地推理『任务是否已完成』，还有待观察」——发布页的「错题墙」收录了大量此类记录，含「23:22 时鳄鱼已在矩形内，却继续调整 22 分钟并三次把它推到远边缘外」「报告盖子齐平盖好，实际却架在一块被垫起的方块上」「八块积木只放了六块却已报告完成」。官方结论：前沿语言模型确实已能直接操作机械臂做简单任务，但今天离生产可用还太慢太贵，预期会很快改变；同时认为未来机器人很可能由强大的通用智能体驱动。",
+    keyPoints: [
+      "8 项桌面任务，模型直接控制一台 6 轴机械臂（Hiwonder NexArm）自己写代码完成，全部为零样本",
+      "GPT-6 Astra 69 分第一、GPT-6.1 Sol 64、Gemini 4 Argon 55.3、Claude Opus 5.5 48.8、Claude Fable 5.1 46.3",
+      "平均每任务约 30 分钟，比人类基准慢近两个数量级；最贵的 GPT-6 Astra 16.36 美元 / 任务，最便宜的 Sol 1.93 美元 / 任务",
+      "官方称模型常在已达到通过状态后继续调整：一条记录显示鳄鱼玩具 23:22 已进矩形，它却继续调整 22 分钟并三次把它推出远边",
+      "官方结论：已能直接操作机械臂做简单任务，但离生产可用还太慢太贵；「如何让模型更好地推理任务是否已完成，还有待观察」",
+    ],
+    org: "Artificial Analysis",
+    category: "行业动态",
+    date: "2026-10-14",
+    heat: 78,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Artificial Analysis 官方发布《Welcome to the era of embodied AI: Introducing AA-Robotics v0.1》（2026-10-14）",
+    sourceUrl: "https://artificialanalysis.ai/articles/aa-robotics",
+    refs: [
+      { name: "机器之心（经搜狐）", url: "https://www.sohu.com/a/1088028097_122014422" },
+      { name: "机器人前瞻（经网易，10-15）", url: "https://www.163.com/dy/article/L9ACUME505569K8R.html" },
+    ],
+    article: "/blog/2026-10-16-it-forgot-to-stop.html",
+  },
   {
     id: "xai-grok-voice-3",
     title: "xAI 发布 Grok Voice 3.0：Artificial Analysis 语音到语音指数 86.9 分首次参评即第一，但「人类偏好」仅第三、首字响应还比上一代慢了 0.09 秒；官方称它已自主解决星链约七成客服来电",
