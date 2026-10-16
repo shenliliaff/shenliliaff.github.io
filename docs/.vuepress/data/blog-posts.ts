@@ -13,6 +13,16 @@ export interface BlogPost {
 /** 全部文章，按日期降序（最新在最前） */
 export const blogPosts: BlogPost[] = [
   {
+    title: "「美国最强」这四个字，是它自己加的",
+    date: "2026-10-16",
+    url: "/blog/2026-10-16-us-strongest-clause.html",
+  },
+  {
+    title: "它把活干完了，却不知道",
+    date: "2026-10-16",
+    url: "/blog/2026-10-16-it-forgot-to-stop.html",
+  },
+  {
     title: "它慢到没人愿意跟它聊天，而这正好帮了它",
     date: "2026-10-15",
     url: "/blog/2026-10-15-too-slow-to-chat.html",
