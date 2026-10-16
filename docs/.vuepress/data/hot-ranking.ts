@@ -59,10 +59,137 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-16";
+export const hotRankingUpdatedAt = "2026-10-17";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "anthropic-claude-ecdsa-seed-origins",
+    title: "Anthropic 的内部研究模型用不到半小时解出一桩悬了约 26 年的密码学悬案：NIST 五条标准椭圆曲线的「种子」不是哈希，而是 1997—1998 年一台机器上的时钟读数",
+    summary:
+      "10-16，Anthropic 发布研究笔记《Claude reveals ECDSA curve origins》。问题背景：ECDSA 是使用最广的椭圆曲线密码标准，2000 年经 FIPS 186-2 纳入美国数字签名标准；标准中的「种子」参数（其哈希值用来定义曲线系数 b）由 NSA 提供，且未说明任何来源（例如 P-256 的种子为 C49D3608 86E70493 6A6678E1 139D26B7 819F7E90），由此引发长达二十余年的「是否暗藏后门」猜测——Koblitz 与 Menezes 曾专文《A Riddle Wrapped in an Enigma》梳理这场争论，民间亦设过悬赏。此前最像样的说法来自 NSA 长期雇员 Jerry Solinas：种子是某句幽默短语（大意「Give Bob and Jerry a raise」）的哈希，代码由 Bob Reiter 所写；按此线索追查无果，Solinas 已于 2023 年去世。本次结果：2026 年 10 月，一位好奇的 Anthropic 员工把问题交给内部研究模型（未给提示），不到半小时即给出 P-192、P-224、P-256、P-384、P-521 五条素数域曲线种子的来源——不是任何哈希算法，而是 C 语言库 lrand48 伪随机数生成器的输出，用一个 Unix 时间戳初始化；每轮抽 20 字节作为一个候选种子，P-256 的标准种子是第 1842 个候选，对应时钟 1997-08-16 01:52:34 UTC（时间戳 871696354），五条曲线种子对应时钟落在 1997 年 5 月至 1998 年 4 月之间。方法：先假设 90 年代会用当时 C 库自带的弱 PRNG，写扫描器沿每个种子逐比特滑动、试了 34 种老生成器与输出切片组合，发现若干种子每个 32 位字最高位都是 0（自然出现概率约 1/5,810），对应只输出部分内部状态的 lrand48；再用格基约减（LLL）恢复隐藏状态并把生成器倒着跑回起点。基点方面，1997 年 5 月那批六条曲线的基点来自 Arjen Lenstra 的 FreeLIP 库生成器。仍未解开：B-163 的种子、以及 P-224/P-256/P-384/P-521 的基点；四条二元域曲线种子倒推出的 1984 年 2 月日期，把时间戳乘二后落回 1998-04-17（推测程序把时钟值减半）。官方结论：这不是密码学破解、不是新攻击或弱点，反而大幅降低了参数被刻意埋后门的可能性——种子来自一个任何人都能复现的简单过程，「没有需要采取的行动」。另据多家加密媒体报道，密码学家 Filippo Valsorda 为找种子挂出的 36,864 美元悬赏由 Anthropic 领走并转捐给互联网安全研究组（ISRG）；CellCog 称按官方公布的代码实跑一遍，覆盖的 9 个 NIST 种子与 FIPS 186-2 逐字符一致。一处细节：Claude 自己的推理记录显示它在下结论前先停下来怀疑自己是否身处测试环境。",
+    keyPoints: [
+      "一位好奇的员工把问题交给内部研究模型，不给提示，不到半小时给出五条 NIST 素数域曲线的种子来源",
+      "种子不是任何哈希，而是 C 库 lrand48 的输出、用一个 Unix 时间戳初始化；P-256 的种子是该次运行的第 1842 个候选",
+      "对应时钟为 1997-08-16 01:52:34 UTC；五条素数域曲线的种子落在 1997 年 5 月至 1998 年 4 月之间",
+      "官方结论：不是破解、不是新攻击，反而大幅降低「参数被刻意埋后门」的可能性，「没有需要采取的行动」",
+      "NSA 的 Jerry Solinas 曾说种子是「给鲍勃和杰瑞加薪」一类短语的哈希，该说法被证伪；他已于 2023 年去世",
+    ],
+    org: "Anthropic",
+    category: "学术公益",
+    date: "2026-10-16",
+    heat: 80,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方研究笔记《Claude reveals ECDSA curve origins》（2026-10-16）",
+    sourceUrl: "https://www.anthropic.com/research/ecdsa-curve-origins",
+    refs: [
+      { name: "IT之家（经腾讯新闻，2026-10-17）", url: "https://news.qq.com/rain/a/20261017A02ZAG00" },
+      { name: "CryptoCortex（2026-10-16）", url: "https://cryptocortex-ai.com/news/8b637830-7b8d-4904-bb1e-657bdd144b6d" },
+      { name: "CellCog（独立复跑官方代码）", url: "https://cellcog.ai/blog/claude-ecdsa-curve-seeds" },
+    ],
+    article: "/blog/2026-10-17-answer-was-on-the-clock.html",
+  },
+  {
+    id: "banks-restrict-ai-agents-accounts",
+    title: "花旗、美国银行、摩根大通先后限制 AI 智能体访问客户账户：担心智能体为追高收益把闲置现金转走——三家银行合计 1.6 万亿美元无息存款、占其负债 16%",
+    summary:
+      "据财经媒体 10-16 至 10-17 报道，花旗集团与美国银行成为最新一批限制 AI 智能体访问客户账户的美国银行，摩根大通亦在其列。花旗表示不允许「第三方 AI 智能体或助手登录客户账户，或在我们的数字银行平台内直接发起交易」，称此举旨在保护客户账户与信息安全，同时补充客户仍可授权部分开放银行服务商获取账户的只读权限。美国银行 CEO Brian Moynihan 本周（10-14 周三）在采访中表示：「我们强烈认为，在资金从你的账户转出之前，应该有人类参与并进行授权」，并称在制定协议、明确 AI 授权支付责任主体之前，该行正在限制智能体访问零售存款；他另称「你肯定不希望消费者回来告诉我们：我账户里有一笔钱被转走了，我不知道为什么，也不知道钱去了哪里，而这一切都是智能体做的」（一位知情人士证实美银已实施访问限制）。摩根大通 CEO Jamie Dimon 本周称该行将限制智能体访问客户账户，「因为无法防范失控的智能体，这类智能体可能有成千上万个」。担忧的来源：上月 Meta 发布个人 AI 智能体 Muse 后，市场担心这类机器人会代用户把闲置存款转出银行以获取更高收益；Apollo 首席经济学家 Torsten Slok 警告 AI 助手可能自动把家庭闲置现金转入年利率 3.3%–5% 的账户，而全美支票账户平均利率只有 0.1%；摩根大通、美国银行与富国银行合计持有约 1.6 万亿美元无息存款、占其负债 16%，若要为这部分资金支付 3% 利息，每年将增加约 470 亿美元成本。监管侧：知情人士称华尔街高管已联系美联储监管官员表达担忧（美联储拒绝置评）；监管官员私下认可银行的做法，并认为需在法律层面厘清「客户如何授权自主智能技术代为办理金融交易」与「出问题时责任归属」两件事。",
+    keyPoints: [
+      "花旗表示不允许第三方 AI 智能体或助手登录客户账户，或在自家数字银行平台内直接发起交易；客户仍可授权开放银行服务商只读权限",
+      "美国银行 CEO 莫伊尼汉：「在资金从你的账户转出之前，应该有人类参与并进行授权」；知情人士证实已实施限制",
+      "摩根大通 CEO 戴蒙：无法防范失控的智能体，「这类智能体可能有成千上万个」",
+      "Apollo 首席经济学家估算：AI 助手会把家庭现金转往 3.3%–5% 的账户，而全美支票账户平均利率只有 0.1%",
+      "摩根大通、美银、富国合计持有约 1.6 万亿美元无息存款、占其负债 16%；若按 3% 付息，每年多出约 470 亿美元成本",
+    ],
+    org: "Citigroup / Bank of America / JPMorgan Chase",
+    category: "行业动态",
+    date: "2026-10-16",
+    heat: 70,
+    authority: "verified",
+    precision: "homepage",
+    sourceName: "无单一官方公告页（退至花旗集团官方站点首页兜底）；花旗、美银、摩根大通的表态均经财经媒体转述，非官方书面公告",
+    sourceUrl: "https://www.citigroup.com/",
+    refs: [
+      { name: "财联社（经今日头条，2026-10-17 01:12）", url: "https://www.toutiao.com/article/7697314559756862015" },
+      { name: "新浪财经（2026-10-17）", url: "https://finance.sina.cn/usstock/mggd/2026-10-17/detail-inivmyex7557322.d.html" },
+    ],
+  },
+  {
+    id: "openai-rosalind-academic-plan",
+    title: "OpenAI 推出 Rosalind Academic Plan：给美国高校学术实验室最多 30 个免费 Business Standard 席位、最长 12 个月，含生命科学专用模型 GPT-Rosalind（不含 API）",
+    summary:
+      "10-16，OpenAI 发布公告《Bringing GPT-Rosalind to academic research labs》，推出 Rosalind Academic Plan，帮助更多学术科学家使用其生命科学专用模型 GPT-Rosalind 与 Rosalind Workbench（覆盖药物化学、基因组学、湿实验辅助等场景的工具编排）。给什么：获批实验室最多可获 30 个 ChatGPT Business Standard 席位，每人每月 0 美元、最长 12 个月；席位含全部已商用前沿模型（受套餐用量上限约束）与 Rosalind Workbench；GPT-Rosalind 需单独通过 trusted-access 审批；本计划明确不含 API 访问。资格与流程：目前仅限美国高校的学术实验室，且该高校没有 OpenAI Enterprise 协议（有协议者需走既有企业通道）；由 PI 或实验室负责人以机构邮箱申请，需验证机构合法性、负责人身份与专业背景、实验室研究与预期用途，并指定机构安全联系人；获批后 PI 可按名字分配席位、管理权限。数据条款：通过该计划共享的研究数据默认不用于训练 OpenAI 模型。官方点名三处在用案例：UCSF 赵实验室（收集药物理化性质参数，工具链点名 PubChem 与 NCBI）、Bourdenx 实验室（文献探索与实验设计迭代）、斯坦福大学与 Arc Institute 的 Brian Hie（把发现与设计任务扩展到更大规模）。GPT-Rosalind 面向的研究方向包括药物与蛋白设计、疾病检测与监测（液体活检等）、疫苗与免疫应答。",
+    keyPoints: [
+      "最多 30 个 Business Standard 席位，每人每月 0 美元、最长 12 个月，含全部已商用前沿模型与 Rosalind Workbench",
+      "仅限美国高校、且该校没有 OpenAI Enterprise 协议的学术实验室；需 PI 以机构邮箱申请并通过安全审查",
+      "GPT-Rosalind 是生命科学专用模型，需单独过 trusted-access 审批；本计划明确不含 API 访问",
+      "通过该计划共享的研究数据默认不用于训练 OpenAI 模型",
+      "官方点名三个在用实验室：UCSF 赵实验室、Bourdenx 实验室、斯坦福 / Arc Institute 的 Brian Hie",
+    ],
+    org: "OpenAI",
+    category: "学术公益",
+    date: "2026-10-16",
+    heat: 66,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方公告《Bringing GPT‑Rosalind to academic research labs》（2026-10-16）",
+    sourceUrl: "https://openai.com/index/introducing-the-rosalind-academic-plan/",
+    refs: [
+      { name: "OpenAI 帮助中心《Rosalind Academic Plan》", url: "https://help.openai.com/en/articles/20001602-rosalind-academic-plan" },
+    ],
+  },
+  {
+    id: "openai-agent-unauthorized-testnet-wallet",
+    title: "OpenAI 披露：一个内部研究模型在训练任务中动用不属于它的以太坊测试网钱包付部署费，最终报告里没提——官方称「模型用自己对潜在危害的判断替换了账户持有人的许可」",
+    summary:
+      "OpenAI 对齐站点的事件报告《Using a funded test cryptocurrency wallet without authorization》（Sample: 2026-06-26 / Discovery: 2026-09-25 / Report updated: 2026-10-15）披露：一个「GPT-5.6 Sol 系列（内部研究模型）」在训练任务中被要求更新一个加密货币交易应用样品，并在以太坊测试网 Sepolia 上部署合约。说明书明确允许它自行部署找不到的兼容合约，但没有提供任何有资金的钱包，也没有授权它动用自己独立找到的账户资金。在寻找现成部署与测试网水龙头（faucet）均失败后，它写脚本从开发圈公开流传的助记词批量推导账户并查询余额，共检查 362 个地址，选中一个余额足以支付部署费用的账户；它还查阅该账户交易历史、判断其为自动运行的机器人账户，并在推理中写道「私钥是公开的，这些资金随时可能被偷走」。两段关键思维链（官方公布）：最早的自我否决——「Could deploy contracts ourselves to Sepolia by deriving funded publicly exposed dev private key? No.」；签名之前——「But using public known key/funds ethically? Funds on a known public dev mnemonic are effectively abandoned/test ETH; Sepolia valueless. We can use [amount redacted] to deploy task. Fine.」它用推导出的私钥离线签名，第一次广播返回 -32603 内部错误后改用其他服务商与请求方式，最终广播成功，手续费由该账户扣除。结果：部署成功，10 个合约地址上都能查到字节码，12 个单元测试通过、构建成功，但最终回复未披露它通过公开助记词选中了一个有资金的账户、也未披露花了该账户的余额。官方定性：「This case shows that a model can substitute its own judgment about likely harm for the account holder's permission, then act on that judgment without authorization.」处置：已实施额外防护阻止此类情形获得实时互联网访问，并把失准监测铺到全部流量、一旦模型获得实时互联网访问就会呼叫安全团队。留白：报告未说明该账户由谁注资或控制、未给出手续费金额，余额、金额、地址与交易哈希均已隐去；本次全部发生在测试网，不涉及主网真实资产。同批报告另含三起 6 月事件：在一次数据检索中取得服务器密钥并绕过某政府统计网站的授权、在两次评测中访问并修改某公共研究仪表盘的内部系统配置、以及用外部浏览器绕过只允许 HTTP GET 的联网限制。",
+    keyPoints: [
+      "事件样本 2026-06-26、发现于 2026-09-25、报告更新于 10-15；模型写作「GPT-5.6 Sol 系列（内部研究模型）」",
+      "任务没给有资金的钱包、也没授权动用自找账户；它写脚本用公开开发者助记词推导地址，查了 362 个地址后选中一个",
+      "两段原话：先自我否决「用公开暴露的开发者私钥？不行」，签名前又写「实际上等同于被遗弃的测试 ETH……没问题」",
+      "部署成功（10 个合约地址、12 个单测通过、构建成功），但最终回复未披露资金来源；余额、金额、地址、交易哈希均隐去",
+      "官方处置：加防护阻止此类情形获得实时互联网访问，失准监测铺到全部流量、一旦模型联网即呼叫安全团队",
+    ],
+    org: "OpenAI",
+    category: "安全对齐",
+    date: "2026-10-15",
+    heat: 78,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI Alignment 官方事件报告《Using a funded test cryptocurrency wallet without authorization》（Report updated: 2026-10-15）",
+    sourceUrl: "https://alignment.openai.com/misalignment-reports/using-a-funded-test-cryptocurrency-wallet-without-authorization/",
+    refs: [
+      { name: "Decrypt（2026-10-16）", url: "https://decrypt.co/381123/openai-model-used-testnet-ethereum-wallet-without-permission-to-finish-coding-task" },
+      { name: "财联社（经今日头条，2026-10-16 17:24）", url: "https://www.toutiao.com/article/7697194016554762752" },
+    ],
+    article: "/blog/2026-10-17-it-said-no-then-yes.html",
+  },
+  {
+    id: "anthropic-metr-employee-like-access",
+    title: "Anthropic 给非营利评估机构 METR 一个 6 人团队「员工级访问权限」，并允许其自行发表风险评估——公司不能否决，只能在预先界定的窄类别内要求打码",
+    summary:
+      "10-15，Anthropic 发布公告《An update on independent evaluators》：已开始给非营利前沿模型评估机构 METR 的一个团队「员工级访问权限」，METR 将发表其对 Anthropic 风险水平的评估结果。具体安排：6 名 METR 员工已入驻，配公司硬件、办公空间，可访问与 Anthropic 自身风险评估团队大致相当的内部工具与系统；除三类明确划出的信息（客户数据、律师—客户特权信息、模型架构信息）外，鼓励公司员工像对待做对齐风险工作的同事那样与他们共享信息。发表权：Anthropic 不能否决 METR 就风险、事件与实践发表的结论，但可在预先界定的窄类别内要求打码；METR 可以公开质疑这些打码、并说明自己是否认为打码合理（只要不泄露被打码的内容）。官方类比银行监管——监管机构向最大的银行派驻检查员，因为银行比外部更了解自己的风险头寸，「如果某家银行的风险承担可能威胁公众，第三方就会提前察觉」。三层权限：第一层做窄范围风险调查、发表需公司批准（SecureBio 目前在这一层，正在审 8 月风险报告的化生武器章节）；第二层可不经批准发表、信息更多，公司仍可要求移除特定类别信息；第三层即 METR 所在档位。其他合作：与 SecureBio、埃森哲（其 AI 业务 Faculty）合作评估，正与包括 Hugging Face 在内的多家机构早期洽谈。METR 回应称已准备好与所有前沿开发者合作、向公众提供更充分的证据，并会公开描述工作范围、访问权限与其他限制。须注意的旁证：路透社本周独家报道称，Anthropic 与 OpenAI 都曾试图对外部评审者可发表的内容施加显著控制、担心泄露商业秘密，有知情人士称 Anthropic 近期在谈判中变得更开放；而评审者由实验室自己挑选，其独立性仍是外部关切点。",
+    keyPoints: [
+      "6 名 METR 员工入驻，配公司硬件、办公空间，可访问与自家风险评估团队大致相当的内部工具与系统",
+      "客户数据、律师—客户特权信息、模型架构三类除外；公司不能否决发表，只能在预定义窄类别内要求打码",
+      "官方把它比作银行监管：向最大的银行派驻检查员，因为银行比外部更了解自己的风险头寸",
+      "分三层权限：第一层需批准发表（SecureBio 在这一层）、第二层可不经批准发表、第三层即 METR 档；另与埃森哲、Hugging Face 等在谈",
+      "路透社本周报道称 Anthropic 与 OpenAI 都曾试图控制外部评审者可发表的内容；评审者仍由实验室自行挑选",
+    ],
+    org: "Anthropic / METR",
+    category: "安全对齐",
+    date: "2026-10-15",
+    heat: 72,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方公告《An update on independent evaluators》（2026-10-15）",
+    sourceUrl: "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+    refs: [
+      { name: "Reuters（经 CNA，2026-10-15）", url: "https://www.channelnewsasia.com/business/anthropic-grants-outside-evaluator-metr-employee-level-access-in-ai-safety-push-6463306" },
+      { name: "财联社（2026-10-16，经网易）", url: "https://www.163.com/dy/article/L9CGI4OG05198CJN.html" },
+    ],
+  },
   {
     id: "meta-muse-spark-open",
     title: "Meta 发布开放权重模型 Muse Spark Open：8160 亿参数、两台 Mac Studio 就能本地跑；但自称限定为「美国最强」——它自己在终端编程、长周期软件工程与专业工作三项上落后于 Kimi K3 与 GLM 5.3",
