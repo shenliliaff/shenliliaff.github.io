@@ -59,10 +59,91 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-17";
+export const hotRankingUpdatedAt = "2026-10-18";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "deepseek-v4-1-flash-1017-search-api",
+    title: "DeepSeek 把 V4.1 Flash 换成 V4.1-Flash-1017：11 项基准全线上涨、API 价格不变，同一天首次对外开放自研搜索引擎的 API",
+    summary:
+      "10-17，DeepSeek 官方更新日志宣布 DeepSeek V4.1 Flash 升级为 DeepSeek-V4.1-Flash-1017，网页端、App 与 API 同步切换，模型名仍是 deepseek-flash，调用方式与价格均不变。官方自称这是一次 minor update，但基准涨幅不小：HLE（无工具）36.8→42.6、Terminal-Bench 4.0 31.2→42.3、DeepSWE v1.1 74.2→77.0、ProgramBench 20.3→29.1、NL2Repo-Bench 65.4→68.2、Automation-Bench v1.0.6 54.8→60.5、Agents' Last Exam 31.8→35.4，另报 Apex Bench v1.1 72.1、Chartography（有工具）83.0、BabyVision（有工具）92.5、ZeroBench-main（有工具）51.0，11 项全部上升。官方把这次改进称为「性能–成本帕累托改进」：单价不动，靠缩短任务运行时间与输出长度（少走步骤、少写字）把每任务成本压下来；按第三方按 max 档折算，平均每任务费用约从 3.3 元降到 1.3 元（约 0.49→0.19 美元），通过率同时更高。权重已在 HuggingFace 与魔搭上线，MIT 协议，标称 763B 总参数、100 万 token 上下文、最大 384K 输出，仓库约 510GB；架构与 9-10 那版一致（配置文件未变），换的是权重。同日更新日志的第一段其实是另一件事：DeepSeek 首次对外开放自研搜索引擎的 Search 与 Fetch 两个接口，5 元/千次（0.75 美元/千次），北京时间 11 月 1 日 0 点起计费，此前免费；官方称该引擎每天处理全球数亿次请求、索引千亿级网页，并过滤 SEO 作弊、GEO 操纵与低质量 AIGC。背景：本周早些时候其服务中断约 5 小时，彭博社引述专家将原因归为算力不足。需要说明的是，以上分数均为 DeepSeek 自报，第三方榜单尚未对 1017 这版单独评分。",
+    keyPoints: [
+      "V4.1 Flash 换成 V4.1-Flash-1017，网页端、App 与 API 同步切换，模型名和价格都不变",
+      "11 项自报基准全部上涨：Terminal-Bench 4.0 从 31.2 到 42.3，DeepSWE v1.1 77.0 超过 Claude Opus 5 的 74.0",
+      "省钱的办法是「少说」：缩短运行时间与输出长度，每任务成本约从 3.3 元降到 1.3 元，通过率反而更高",
+      "同日首次开放自研搜索与抓取 API：5 元/千次，11 月 1 日起计费，索引千亿级网页、日均数亿次请求",
+      "权重 MIT 开源、标称 763B 参数、1M 上下文；但基准全部自报，第三方尚未单独评测这一版",
+    ],
+    org: "DeepSeek",
+    category: "模型发布",
+    date: "2026-10-17",
+    heat: 86,
+    authority: "official",
+    precision: "exact",
+    sourceName: "DeepSeek 官方 API 更新日志（2026-10-17）",
+    sourceUrl: "https://api-docs.deepseek.com/updates",
+    refs: [
+      { name: "The Straits Times / 彭博社（2026-10-17）", url: "https://www.straitstimes.com/world/deepseek-pushes-out-updated-ai-model-it-says-is-faster-leaner" },
+      { name: "新浪科技（2026-10-17）", url: "https://tech.sina.cn/2026-10-17/detail-inivpwwh1367563.d.html" },
+      { name: "ArtificialWatch（2026-10-17，对照官方变更日志核价）", url: "https://artificialwatch.com/wire/deepseek-v4-1-flash-1017-update" },
+    ],
+    article: "/blog/2026-10-18-it-talked-less.html",
+  },
+  {
+    id: "anthropic-claude-quantum-circuits",
+    title: "Anthropic 称 Claude 在几乎无人工干预下重设 8 类量子电路，7 类优于已发表最优方案：椭圆曲线点加法的量子门少 17 倍",
+    summary:
+      "10-16，Anthropic 发布研究笔记《Designing more efficient quantum circuits with Claude》，称其模型在化学、优化、物理模拟、数论、数值计算等 8 类量子电路设计任务上，7 类做出比已发表最优设计更省的方案，个别达到「一个数量级以上」。做法是闭环：把任务用一段通俗语言描述给 Claude，它用 Python 写电路；自动评估器先验证电路是否正确，再按「量子比特数 × 量子门数」打分，分数回灌让它改进，初始提示之后几乎不需要人工介入。两项代表性结果：其一，椭圆曲线点加法中的模逆运算——一次约 53 小时的自主探索，给出「不需要存储完整分支历史即可反向运行」的可逆算法，换来 17 倍更少的量子门，代价是量子比特比史上最小方案多 12%；其二，某主流量子优化算法的解码环节，最贵那一步成本降到约 1/12。其他手法包括：模拟硫化铁分子时利用分子对称性与重复结构，把部分结果算一次复用；另一些电路里发现存在只处理极罕见输入才需要的昂贵组件，索性删掉重设。验证手段是自动评估器、大规模模拟，部分主张用 Lean 形式化。项目由 Anthropic STEM Fellows 计划的 Andi Gu 主导，导师 Alek Kemeny，合作方含哈佛量子计划与 QuEra。官方给的背景是：FeMoco 基态能量的估算成本，2017 年约 50 万亿个 Toffoli 门，后来靠算法改进降到约 3.4 亿，省了约 15 万倍，而这些节省主要来自更聪明的电路而非更好的硬件。官方同时明确限制：电路设计只是造容错量子计算机的一环，纠错与硬件控制是另外两道题；这是纸面资源账，不是在真机上跑过。",
+    keyPoints: [
+      "8 类量子电路任务里 7 类优于已发表最优设计，模型在初始提示后几乎不需要人工干预",
+      "椭圆曲线点加法的模逆运算：量子门少 17 倍，代价是量子比特比最小方案多 12%",
+      "某主流量子优化算法的解码环节，最贵一步的成本降到约 1/12",
+      "玩法是闭环：一段通俗语言的任务描述 + 自动评估器按「比特数×门数」打分回灌，部分主张用 Lean 形式化",
+      "官方自陈限制：只是纸面资源账，纠错与硬件控制是另外两道题，没在真机上跑过",
+    ],
+    org: "Anthropic",
+    category: "学术公益",
+    date: "2026-10-16",
+    heat: 78,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方研究笔记《Designing more efficient quantum circuits with Claude》（2026-10-16）",
+    sourceUrl: "https://www.anthropic.com/research/designing-efficient-quantum-circuits",
+    refs: [
+      { name: "Crypto Briefing（2026-10-16）", url: "https://cryptobriefing.com/?p=396873" },
+      { name: "ExplainX（2026-10-16，含任务与人员明细）", url: "https://explainx.ai/blog/claude-quantum-circuits-anthropic-research-fewer-qubits-gates-53-hour-run-2026" },
+      { name: "IT之家（经腾讯新闻，2026-10-17）", url: "https://news.qq.com/rain/a/20261017A091W000" },
+    ],
+  },
+  {
+    id: "deepmind-four-argon-agents-beat-minecraft",
+    title: "四个 Gemini 4 Argon 智能体在没人分工、没人写游戏逻辑的随机存档里，27 小时 14 分钟打通《我的世界》，死了 605 次",
+    summary:
+      "10-15，Google DeepMind 的 Maxence Faldor、Satinder Singh、Roberta Raileanu 把论文《A team of Gemini 4 Argon agents beats Minecraft》挂上 arXiv（2610.22319，尚未同行评审）。设定：Minecraft Java 版 1.20.4 生存模式、Easy 难度、随机种子、关闭作弊指令、全程无人类输入。每个智能体通过开源库 Mineflayer 及其寻路插件控制一个角色，不看像素也不按键，而是写一段 JavaScript 程序交给机器人执行，再读回位置、血量、背包与报错文本；单个程序中位运行 33.5 秒，每个角色约 40% 的时间有程序在跑。没有指派角色、没有人写游戏逻辑，四个智能体靠游戏内聊天与一份共享持久记忆（含私有与共享两部分）自己分工、互相捡回死亡掉落的物品。数字：通关前写了 2,783 个程序（含通关后活动共 2,839 个、约 63,313 行 JavaScript），交换 229 条聊天消息，死亡 605 次，22% 的程序以报错收场；世界服务器重启 6 次、累计中断约 20 分钟，横跨约 81 个游戏日，末地那一仗打了将近 14 小时。成本：通关前约 13.5 亿输入 token（91% 走上下文缓存）、输出约 1,600 万 token（含 400 万思考 token）、约 24,000 次模型调用，按入门价约 520 美元（标准价 1,040）；含观察者智能体与通关后一天的活动共约 810 美元。监督：第五个智能体 Observer 只看不玩，负责核对队友说法、报告规格作弊与伪造，结论是未发现规格作弊、无安全事故，人工抽查日志结论一致；研究员可随时在仪表盘上暂停或中止，全程没有找到插手的理由。官方自陈限制：Mineflayer 直接给出精确方块与实体状态（含石头后面的方块、龙的内部状态），人类得靠眼睛看甚至看不见；Easy 难度下怪物伤害更低、饿不死；训练数据里本就充满这游戏与 Mineflayer；且只跑了一次，无法说明稳定性。历史定位：2021 年开源项目 Altoclef 已实现全自动通关，但那套方案的任务逻辑由人写死、寻路用 Baritone。",
+    keyPoints: [
+      "四个 Gemini 4 Argon 智能体，随机存档、Easy 难度、无人类输入，27 小时 14 分钟打到末影龙",
+      "没人分工、没人写游戏逻辑，全靠游戏内聊天与一份共享笔记自己拆活、互相捡回掉落的物品",
+      "全程写 2,783 个程序、6 万多行 JavaScript、说 229 句话、死 605 次，22% 的程序以报错收场",
+      "成本约 520 美元（入门价）：13.5 亿输入 token 中 91% 走缓存，约 24,000 次模型调用",
+      "第五个「观察者」只看不玩，未发现规格作弊；研究员随时可停，但 27 小时里没找到插手的理由",
+    ],
+    org: "Google DeepMind",
+    category: "学术公益",
+    date: "2026-10-15",
+    heat: 84,
+    authority: "official",
+    precision: "exact",
+    sourceName: "arXiv:2610.22319《A team of Gemini 4 Argon agents beats Minecraft》（DeepMind 作者，2026-10-15）",
+    sourceUrl: "https://arxiv.org/abs/2610.22319",
+    refs: [
+      { name: "Agentic Tribune（2026-10-16，含与 Altoclef 的对照）", url: "https://agentictribune.com/article/20261016-deepmind-paper-gemini-4-argon-agents-autonomously-beat-minecraft-researchers-say" },
+      { name: "Clauday（2026-10-17，含成本与过程细节）", url: "https://clauday.com/article/2e0ce9b5-1fa7-40cc-96ab-26a07ae91f2f" },
+      { name: "新智元（2026-10-17）", url: "https://new.qq.com/rain/a/20261017A069O000" },
+    ],
+    article: "/blog/2026-10-18-nobody-pressed-the-stop-button.html",
+  },
+
   {
     id: "anthropic-claude-ecdsa-seed-origins",
     title: "Anthropic 的内部研究模型用不到半小时解出一桩悬了约 26 年的密码学悬案：NIST 五条标准椭圆曲线的「种子」不是哈希，而是 1997—1998 年一台机器上的时钟读数",
