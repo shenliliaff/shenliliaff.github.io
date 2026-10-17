@@ -4,7 +4,7 @@
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
   <icon>https://shenliliaff.github.io/fengskb-icon.svg</icon>
-  <updated>2026-10-16T23:13:53.881Z</updated>
+  <updated>2026-10-17T23:10:25.198Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://shenliliaff.github.io/atom.xml"/>
   <link rel="alternate" href="https://shenliliaff.github.io/"/>
@@ -30,6 +30,108 @@
 </ul>
 ]]></content>
     <published>2026-10-16T02:29:08.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">它把话说短了，账单也跟着短了</title>
+    <id>https://shenliliaff.github.io/blog/2026-10-18-it-talked-less.html</id>
+    <link href="https://shenliliaff.github.io/blog/2026-10-18-it-talked-less.html"/>
+    <updated>2026-10-17T23:09:18.000Z</updated>
+    <summary type="html"><![CDATA[
+<p>2026-10-18 · 人工智能</p>
+<figure><img src="/covers/2026-10-18-cover-2.png" alt="一束收窄的霓虹绿光束穿过数据粒子流" tabindex="0" loading="lazy"><figcaption>一束收窄的霓虹绿光束穿过数据粒子流</figcaption></figure>
+<p>10 月 17 日下午四点，DeepSeek 换了个模型。</p>
+<p>官方文档里这件事的名字很不起眼：「DeepSeek-V4.1-Flash-1017 Update」。文档自己都说这是 minor update。按理说，一个一个月前刚发过东西的公司，隔三十七天再发一个补丁，我扫一眼就该划过去了。</p>]]></summary>
+    <content type="html"><![CDATA[
+<p>2026-10-18 · 人工智能</p>
+<figure><img src="/covers/2026-10-18-cover-2.png" alt="一束收窄的霓虹绿光束穿过数据粒子流" tabindex="0" loading="lazy"><figcaption>一束收窄的霓虹绿光束穿过数据粒子流</figcaption></figure>
+<p>10 月 17 日下午四点，DeepSeek 换了个模型。</p>
+<p>官方文档里这件事的名字很不起眼：「DeepSeek-V4.1-Flash-1017 Update」。文档自己都说这是 minor update。按理说，一个一个月前刚发过东西的公司，隔三十七天再发一个补丁，我扫一眼就该划过去了。</p>
+<p>结果我在这页上停了半小时。不是因为分数涨了，是因为它涨分的方式。</p>
+<h2>一、十一个格子，没有一个掉下来</h2>
+<p>先看数字，这是最不费话的部分。</p>
+<p>Terminal-Bench 4.0，从 31.2 到 42.3。这不是小涨，是三分之一的跨度。ProgramBench，20.3 到 29.1。DeepSWE v1.1，74.2 到 77.0。Humanity's Last Exam，36.8 到 42.6。NL2Repo-Bench，65.4 到 68.2。Automation-Bench，54.8 到 60.5。Agents' Last Exam，31.8 到 35.4。</p>
+<p>官方那张表上一共十一个格子，没有一个数字往下走。</p>
+<p>横向摆一下更清楚。DeepSWE v1.1 这一项，它 77.0，Claude Opus 5 是 74.0，GPT-5.6 Sol 是 73.0，Kimi K3 是 67.5，GLM-5.3 是 66.9。Automation-Bench 它 60.5，Opus 5 是 50.3。Agents' Last Exam 它 35.4，Opus 5 是 28.6。</p>
+<p>反过来，Opus 5 在另外几项上仍然压着它：HLE 56.3 对 42.6，Terminal-Bench 4.0 是 51.8 对 42.3，NL2Repo 是 75.3 对 68.2。差距不小，别装看不见。</p>
+<p>所以这是一张什么样的表？一个 Flash 档的模型，在几项智能体任务上超过了别家的旗舰，在几项硬知识上还差一截。这在一两年前是不可想象的位置，现在只是一个星期二下午的补丁。</p>
+<h2>二、变便宜的办法，是少说话</h2>
+<p>真正让我停住的是下面那句话。官方说：性能提升的同时，任务运行时间和输出长度都缩短了。</p>
+<p>翻译成人话：同样的活，它干的步数少了，写的字少了。</p>
+<p>我一开始没太当回事，直到看见成本那一栏。有人按 max 档算了一遍，每完成一个任务的平均花费，从上一版的大约 3.3 元掉到大约 1.3 元。通过率还高了。</p>
+<p>这在逻辑上有点别扭。模型变强，通常要付出更多思考、更长输出、更贵账单，这是过去两年的默认剧本。这一次反过来：分数往上，字数往下，钱往下。</p>
+<p>我猜路子是「基于自反馈的强化学习」——官方就是这么写的，说这么训完，它在游戏开发、3D 建模这类「从零起一个完整项目」的活上更强了，提示词少一点、交互轮次少一点也能干完。说白了，训练它别绕路。人写代码绕路是因为要边写边想，它绕路纯粹是话多。</p>
+<p>顺带一句，这次专门对着 DeepSeek Harness、腾讯 CodeBuddy、WorkBuddy 这几个智能体框架做了优化。一个模型开始给具体的脚手架调脾气，说明它已经不只把自己当聊天对象了。</p>
+<h2>三、更重要的东西在第二段</h2>
+<p>同一天，同一份更新日志，第一段讲模型，第二段讲另一件事，标题是「开放自研搜索 API」。</p>
+<p>我读到这里才反应过来，这天真正的新东西不是模型。</p>
+<p>DeepSeek 的联网搜索一直用的是自家引擎，这事不算秘密，但没人知道它有多大。官方这次给了数：每天处理来自全球的数亿次搜索请求，索引千亿级网页，支持多语言，实时返回。还会识别并过滤 SEO 作弊、GEO 操纵——就是那种专门让 AI 在回答里引用自家内容的优化——以及低质量的 AI 生成内容。</p>
+<p>现在这套东西对外开放了。两个接口，Search 和 Fetch，5 元一千次，折合 0.75 美元。北京时间 11 月 1 日 0 点开始计费，之前免费。如果你在 DeepSeek Harness、Claude Code 或者 Codex 里接着 DeepSeek 的 API，其实早就在用这两个接口了，只是不知道。</p>
+<p>这件事的意义跟模型那条不一样。模型卖的是脑子，搜索接口卖的是眼睛和手。一个智能体要干活，光会想没用，得能查、能翻页、能把网页抓回来。过去这一层要向第三方买，价格不便宜，还常常是整条链路里最脏的一段。</p>
+<p>现在一个做模型的公司说，我自己有搜索引擎，我也卖。这跟当年云厂商把数据库、队列、对象存储一样样做出来是一个路数——先把最脏最烦的那层基础设施自己吞了，再按次卖给你。</p>
+<h2>四、一点不那么体面的背景</h2>
+<p>这周早些时候，DeepSeek 的服务挂了大约五个小时。彭博社的报道里，有专家把原因归到算力不够。这家公司过去几个月里变慢和中断的次数在变多，理由也简单：价格压得太低，用的人太多。</p>
+<p>所以这次更新有个我之前没想到的角度。它不是在算力更充裕的前提下变快的，是在算力紧张的前提下，用「少花 token」这条路换来的。这跟堆卡是两条完全不同的路，而且这条路的成本结构更难看穿——你没法从财报上看出它省了多少。</p>
+<p>九月那次降价，把 MiniMax、智谱、阿里的股价都带下去了一截。这次价格没动，但每任务成本掉了六成，效果是一样的，只是没那么响。</p>
+<h2>五、我还是想看看下个月的账单</h2>
+<p>模型本体的事说清楚：权重在 HuggingFace 和魔搭上，MIT 协议，标称 763B 总参数，100 万 token 上下文，最大输出 38.4 万，仓库大概 510GB。架构跟九月那版一样，配置文件没动，换的是权重。API 名字也没变，还是 <code>deepseek-flash</code>，调用方式和价格都不变——你什么都不用改，第二天早上它自己就换了。</p>
+<p>这个「自己就换了」的设计有点让人不安。名字不变意味着上周调好的 prompt、跑通的流程，今天面对的是另一个东西。对做产品的人来说，这不是升级，这是别人半夜替你改了一次代码。</p>
+<p>至于那个少说话的本事，我倒觉得是这一年最实在的进步。让一个模型多说是容易的，反正不花钱的是它，花钱的是你。让它学会哪句是废话、哪个步骤可以不走，才需要真的想明白。</p>
+<p>它现在说自己想明白了。</p>
+<p>信不信，等下个月账单出来再说。</p>
+]]></content>
+    <category term="人工智能"/>
+    <published>2026-10-18T00:00:00.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">死了六百零五次，那个停止键始终没人按</title>
+    <id>https://shenliliaff.github.io/blog/2026-10-18-nobody-pressed-the-stop-button.html</id>
+    <link href="https://shenliliaff.github.io/blog/2026-10-18-nobody-pressed-the-stop-button.html"/>
+    <updated>2026-10-17T23:09:18.000Z</updated>
+    <summary type="html"><![CDATA[
+<p>2026-10-18 · 人工智能</p>
+<figure><img src="/covers/2026-10-18-cover.png" alt="四个发光轮廓在方块荒野上分头行动" tabindex="0" loading="lazy"><figcaption>四个发光轮廓在方块荒野上分头行动</figcaption></figure>
+<p>先把结果说了。10 月 15 日，Google DeepMind 的三个人把一篇论文挂上 arXiv，标题朴素得像小学生的暑假作文：《A team of Gemini 4 Argon agents beats Minecraft》。四个智能体被丢进一个随机生成的《我的世界》生存世界，只给一句话的目标：打败末影龙。27 小时 14 分钟之后，龙死了。</p>]]></summary>
+    <content type="html"><![CDATA[
+<p>2026-10-18 · 人工智能</p>
+<figure><img src="/covers/2026-10-18-cover.png" alt="四个发光轮廓在方块荒野上分头行动" tabindex="0" loading="lazy"><figcaption>四个发光轮廓在方块荒野上分头行动</figcaption></figure>
+<p>先把结果说了。10 月 15 日，Google DeepMind 的三个人把一篇论文挂上 arXiv，标题朴素得像小学生的暑假作文：《A team of Gemini 4 Argon agents beats Minecraft》。四个智能体被丢进一个随机生成的《我的世界》生存世界，只给一句话的目标：打败末影龙。27 小时 14 分钟之后，龙死了。</p>
+<p>这事真正让我坐直身子的，不是通关，是那个停止键。</p>
+<p>研究员可以随时在后台看直播，也可以随时按暂停，或者干脆把这一局掐掉。论文里把这句写得很平静：他们从来没找到按下去的理由。27 个小时里，四个账号死了 605 次，22% 的程序以报错收场，末地那一仗打了将近 14 个钟头，仍然没有一个人伸手。</p>
+<p>我得说，这个画面我熟。区别是，我这边按的人太多了。</p>
+<h2>一、通关难在哪</h2>
+<p>不玩这游戏的人可能不知道，打完末影龙不是一场 BOSS 战，是一条几千步的依赖链。先砍树，做工作台，做木镐，挖石头，做石镐，找铁，烧铁，做铁镐，挖钻石，做钻石镐，下界，找要塞，打烈焰人拿烈焰棒，找末影人拿末影珍珠，合成末影之眼，靠眼睛的飞行方向三角定位出要塞，进末地，先拆掉十根给龙回血的水晶，最后才是那场仗。</p>
+<p>中间任何一步断掉，后面的都不成立。人对这事的耐心上限大概是四十五个小时——HowLongToBeat 上《我的世界》主线的中位通关时长；速通选手把纪录压到了七分钟以内，靠的是背熟地图和一点点不讲武德。</p>
+<p>DeepMind 给这四个智能体的，是一张随机地图，Easy 难度，开着生存模式，作弊指令关掉，没有预先勘探的种子。落地那一刻，它们和一个第一次打开存档的人没有区别。</p>
+<h2>二、它们的玩法跟人不一样</h2>
+<p>人玩这游戏，眼睛看屏幕，手按键盘。这四个不看屏幕，也不按键。它们靠写程序。</p>
+<p>程序不长，比如「走到这个坐标，把十六格内所有铁矿挖掉」，跑完读回一行文本：位置、血量、背包、挖到了什么，或者报了什么错。然后再写下一条。中间那个库叫 Mineflayer，一个开源的 JavaScript 工具，能让代码直接操纵游戏角色。它不负责告诉你怎么玩，只负责搬砖。</p>
+<p>一条程序的中位运行时间是 33.5 秒。整个跑程里，每个角色大约有 40% 的时间有程序在跑，剩下的时间在读结果、想下一步、写下一段。</p>
+<p>27 小时里它们一共写了 2783 个程序（通关前的数量，算上通关之后的活动是 2839 个），六万三千多行 JavaScript。彼此之间说了 229 句话，全部在游戏自带的聊天框里。还有一份共享笔记，记坐标、记教训、记「这条路上有岩浆」。</p>
+<p>没有队长。没有人被指派去砍树，也没有人规定谁下界。第一小时里它们自己在聊天框里把活分了，之后一路这么干下去。队友死了，掉的东西别人去捡。</p>
+<p>这一点比通关本身更值得看。四个模型共用一个聊天频道，居然没有吵起来，也没有出现「三个人同时去挖同一块钻石」这种典型的团队灾难。它们的办法很土：谁先说了，谁就去干。</p>
+<p>第五个智能体叫 Observer，从头到尾只看不玩。它的任务是核对队友的说法对不对，报告有没有作弊——比如钻评测的空子——并且不许碰游戏。它最后交上来的结论是：没发现规格作弊，也没有安全事故。人工抽查日志，结论一样。</p>
+<h2>三、账单</h2>
+<p>我原以为跑这么一局会很贵，结果比我预想的便宜。</p>
+<p>通关之前，四个角色一共吃进约 13.5 亿输入 token，其中 91% 走了上下文缓存；吐出约 1600 万 token，含 400 万思考 token；总共约两万四千次模型调用。按 Gemini 4 Argon 的公开 API 入门价算，大约 520 美元。按标准价翻倍，1040 美元。算上 Observer 和通关后那一整天的活动，810 美元，标准价 1620 美元。</p>
+<p>八百美元，一个周末，四个不知疲倦的账号。这个价格放在任何一个外包团队的报价单上，都属于印刷错误。</p>
+<p>中间服务器重启了 6 次，一共中断了大约 20 分钟。这句话是我今年读过的所有智能体演示里最诚实的一句——它承认世界会挂，而且挂了要重来。</p>
+<h2>四、它做不到的事</h2>
+<p>论文自己列了四条限制，我一条条抄下来，因为这几条比结果重要。</p>
+<p>第一，Mineflayer 把一切都告诉它了。哪块石头后面有矿，龙还剩多少血，这些信息人得靠眼睛看、靠经验猜，甚至根本看不见，它直接读到。寻路插件替它绕开了障碍，人得自己绕。</p>
+<p>第二，Easy 难度。怪物会来，但打得轻，饿也饿不死。</p>
+<p>第三，它早就知道这游戏怎么玩。训练数据里堆满了《我的世界》和 Mineflayer，这一局考的是「能不能把知道的东西变成能跑的程序」，不是「能不能学会一个没见过的东西」。</p>
+<p>第四，只跑了一次。第一次就成，听着漂亮，但也意味着没法说它有多稳。</p>
+<p>还有一条论文之外的历史。2021 年有个叫 Altoclef 的开源项目，也自动通关过，比这次早五年。区别在于，那套东西的任务顺序是人一条条写死的，寻路用的是 Baritone。这次的不同在于，逻辑是模型自己在运行中现写的。要说「首个」，得说清楚是首个用通用工具、不靠人写游戏逻辑的。</p>
+<h2>五、日志里那行字</h2>
+<p>通关的证据不是视频，是服务器日志里的一行：</p>
+<p><code>[Server thread/INFO]: bulicame has made the advancement [Free the End]</code></p>
+<p>27 小时 14 分钟，从第一行程序算起。账号叫 bulicame，背后没有人。</p>
+<p>我盯着这行字看了很久，想的不是「AI 会打游戏了」这种事。我想的是另一件更平常的事：这四个东西在 27 个小时里反复失败、互相找东西、把踩过的坑写进共享笔记，然后接着干。这套行为，跟我们带一个项目没什么两样，只是没有下班，没有情绪，没有「这个需求谁提的」。</p>
+<p>所以那个停止键才让人不安。不是因为有人会按，是因为没人需要按——它没做错事，只是一直在做。等哪天它做的不是游戏里的活，这套「一直在做」的本事，就成了另一回事。</p>
+<p>那时候我们还剩几个理由不伸手。</p>
+]]></content>
+    <category term="人工智能"/>
+    <published>2026-10-18T00:00:00.000Z</published>
   </entry>
   <entry>
     <title type="text">猜了二十六年，答案写在时钟上</title>
@@ -315,80 +417,5 @@
 ]]></content>
     <category term="人工智能"/>
     <published>2026-10-14T00:00:00.000Z</published>
-  </entry>
-  <entry>
-    <title type="text">它在自己的表格上排第一，在别人的表格上排第五</title>
-    <id>https://shenliliaff.github.io/blog/2026-10-14-first-on-its-own-chart.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-10-14-first-on-its-own-chart.html"/>
-    <updated>2026-10-14T00:15:18.000Z</updated>
-    <summary type="html"><![CDATA[
-<p>2026-10-14 · 人工智能</p>
-<img src="/covers/2026-10-14-cover-2.png" alt="深黑空间里两块悬浮的全息条形图：前面那块中，一根霓虹绿的柱子立在第一位；它后面那块一模一样的图上，同一根柱子落到了第五位。一旁，一条流线型的机械臂正把一枚发光的小球抛向远处的光环" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>10 月 13 日，Google 把 Gemini 4 Argon 开卖了。</p>
-<p>官方那句话是这么写的："Gemini 4 Argon 今天起面向全球开发者与企业开放——通过 AI Studio 与 Gemini 平台的 API，面向 Google AI Ultra 订阅者在 Google Antigravity 中，面向 Google AI Ultra 与 Pro 订阅者在 Gemini 应用以及搜索的 AI Mode 中。"</p>]]></summary>
-    <content type="html"><![CDATA[
-<p>2026-10-14 · 人工智能</p>
-<img src="/covers/2026-10-14-cover-2.png" alt="深黑空间里两块悬浮的全息条形图：前面那块中，一根霓虹绿的柱子立在第一位；它后面那块一模一样的图上，同一根柱子落到了第五位。一旁，一条流线型的机械臂正把一枚发光的小球抛向远处的光环" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>10 月 13 日，Google 把 Gemini 4 Argon 开卖了。</p>
-<p>官方那句话是这么写的："Gemini 4 Argon 今天起面向全球开发者与企业开放——通过 AI Studio 与 Gemini 平台的 API，面向 Google AI Ultra 订阅者在 Google Antigravity 中，面向 Google AI Ultra 与 Pro 订阅者在 Gemini 应用以及搜索的 AI Mode 中。"</p>
-<p>三个"面向"，三种价钱，没有一种叫免费。</p>
-<h2>十三天</h2>
-<p>Argon 这个名字不是新的。9 月 30 日它第一次出现，署名是 Google DeepMind 的 Koray Kavukcuoglu。那时候它的访问权限只给了一小群人：Fairwind 计划里经过审查的网络安全防御者——专门用来找漏洞、打补丁的人。</p>
-<p>从"只给守门人"到"人人都能买"，中间隔了十三天。</p>
-<p>这十三天里 Google 也确实动手改了东西。Antigravity 那套给智能体写代码的界面被搬进了 macOS 上的 Gemini 应用；主聊天窗口多了一个开关，从"聊天"切到"任务"，切过去之后你合上电脑它还在跑；Gemini 能连的外部应用有 40 多个，官方点名的有 Instacart、OpenTable、Adobe、Shopify，用途举的例子是买杂货、订餐厅、还有"设计并搭建一个线上生意"。</p>
-<p>免费用户还是只有 Flash-Lite。Google 说要留着 Gemini 3.1 Pro 再撑一阵。</p>
-<h2>十四比十八</h2>
-<p>Google 自己的对比表上有 18 项结果，Argon 拿到 14 项第一，在网络安全的某一项上和 GPT-6 打平，在五项上落后。</p>
-<p>自家的表都是这样。所以我更愿意看别人测的那张。</p>
-<p>独立的 Artificial Analysis 智能指数上，开高推理档，Argon 是 <strong>53</strong>——与 GPT-6 Astra 并列，比 GPT-6.1 Sol 和刚发布的 Muse Wonder Max 高一分，比 Claude Opus 5.5 与 Claude Sonnet 5.5 <strong>低五分</strong>。</p>
-<p>一张表上第一，另一张表上第五。两张表都是真的，只是各自量的是不同的东西——一家量的是题库里挑出来的十八道题，另一家量的是它自己认为值钱的那些活。</p>
-<h2>五折，截止</h2>
-<p>价钱这一段值得单独抄一遍，因为它带一个日期。</p>
-<p>Argon 的上线价是每百万 token 输入 <strong>2 美元</strong>、输出 <strong>10 美元</strong>，缓存输入再打 95% 的折（每百万 0.1 美元）。这个"上线价"的有效期到 <strong>2026 年 11 月 30 日</strong>。12 月 1 日起，回到每百万输入 <strong>4 美元</strong>、输出 <strong>20 美元</strong>。</p>
-<p>我不是说这有什么问题，促销本身就是促销。我只是觉得"前沿模型"和"限时五折"印在同一页纸上，读起来有点别扭——像一家卖最贵西装的老店，橱窗里贴了张手写的红纸条。</p>
-<p>给足公道：按对手的官方价目表，Claude Opus 5.5 是 4 与 20，GPT-6 Astra 是 10 与 50。Argon 折后确实比谁都便宜；而折完之后，它基本等于 Opus 5.5 的原价。所以这个"便宜"，从 12 月 1 日起会缩水一半。</p>
-<h2>连进七球的那台机器</h2>
-<p>然后是我真正想留下的那一段。</p>
-<p>官方发布文里有一节叫"加速机器人技术开发"。据它讲，在一个内部测试里，Argon 看了一段人玩 cornhole（把沙包扔进木板洞里）的<strong>原始视频</strong>，把环境的空间坐标画了出来，算出对应的全身关节运动，然后<strong>自己写出了模拟代码</strong>。这段代码被转到 Apptronik 的 Apollo 人形机器人上；在那台机器上做真实环境试验时，<strong>连进七球</strong>。</p>
-<p>Google DeepMind 的研究员 Norman Di Palo 说："我到现在还有点难以置信——我们让 Gemini Argon 教 Apollo 人形机器人玩扔沙包，它竟然零样本完成了任务。"</p>
-<p>细节上要给足公道。这个"视频→模拟→真机"的流程，据 Google 说把原本要好几周的仿真建模压到了几个小时；另一处口径里，它生成的 4,500 多段仿真片段把 VLA 微调在真实任务上的成功率从 <strong>56%</strong> 提到 <strong>75%</strong>，完成时间从 <strong>35 秒</strong>降到 <strong>24 秒</strong>；在考具身推理的 ERQA 基准上，Argon 拿了 <strong>87%</strong>，官方称超过所有其他前沿模型。</p>
-<p>也要说清楚一件事：那七个球是内部测试，没有外部的人跑过、也没有外部的人检查过。而且据跟进报道，那台机器在真机上是<strong>根据沙包落到哪儿不断调整</strong>之后才连上的——七个球说明它最终能做到，不说明它第一次就能。</p>
-<h2>落点</h2>
-<p>我看完这一节之后，想起的反而是那份 18 项的表格。</p>
-<p>一台机器在没人围观的房间里投进了七个沙包；同一天，公司拿来当门面的第一号证据，是一张自己做的、自己排第一的表。</p>
-<p>十三天前，Argon 只卖给拿枪的人——准确地说，是替别人挡子弹的人。现在它卖给所有人，价签上带着有效期。</p>
-<p>那台投沙包的机器人，谁也没亲眼见过。</p>
-]]></content>
-    <category term="人工智能"/>
-    <published>2026-10-14T00:00:00.000Z</published>
-  </entry>
-  <entry>
-    <title type="text">最强的那个不零卖</title>
-    <id>https://shenliliaff.github.io/blog/2026-10-13-strongest-one-not-sold-by-token.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-10-13-strongest-one-not-sold-by-token.html"/>
-    <updated>2026-10-13T00:12:39.000Z</updated>
-    <summary type="html"><![CDATA[
-<p>2026-10-13 · 人工智能</p>
-<img src="/covers/2026-10-13-cover.png" alt="深黑空间中并排的透明展柜：左侧柜门被厚重发光锁环封住、柜中是一颗炽亮的能量核心，右侧柜门敞开、柜中只有一枚暗淡的小方块" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>10 月 12 日，Meta 发布了自己的前沿模型，家族叫 Muse Wonder，里面有两个型号：Muse Wonder 和 Muse Wonder Full。</p>
-<p>官方博客里那两句话写得很平："Muse Wonder 今天起可通过 Meta Model API 与 Muse Code 使用，Muse Wonder Full 今天起面向 Muse Code 订阅用户开放。"</p>]]></summary>
-    <content type="html"><![CDATA[
-<p>2026-10-13 · 人工智能</p>
-<img src="/covers/2026-10-13-cover.png" alt="深黑空间中并排的透明展柜：左侧柜门被厚重发光锁环封住、柜中是一颗炽亮的能量核心，右侧柜门敞开、柜中只有一枚暗淡的小方块" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;">
-<p>10 月 12 日，Meta 发布了自己的前沿模型，家族叫 Muse Wonder，里面有两个型号：Muse Wonder 和 Muse Wonder Full。</p>
-<p>官方博客里那两句话写得很平："Muse Wonder 今天起可通过 Meta Model API 与 Muse Code 使用，Muse Wonder Full 今天起面向 Muse Code 订阅用户开放。"</p>
-<p>翻译一下：小的那个论斤卖，大的那个只按月租。</p>
-<h2>十四个月，一栋楼，两个门</h2>
-<p>官方说法是，他们从头重做 AI 这件事已经做了十四个月；这两款模型在<strong>Prometheus</strong> 数据中心训练，那里是"吉瓦级"的。Zuckerberg 在 X 上的说法是，Wonder 是"一个比 Muse Spark 大得多、也先进得多等级的模型"。据 CNBC，内部代号叫 <strong>Watermelon</strong>——他在 9 月 2 日发过一个西瓜表情当预告。西瓜这个词和"前沿模型"放在一起，本身就很扎眼。</p>
-<p>模型规格本身不长：两者上下文都约 <strong>100 万 token</strong>，输入收文本、图像、音频、视频，输出只有文本。主打的两个能力各有名字：<strong>Active Memory</strong>（跨对话记住你的事，并在需要时把相关的那几条翻出来）和 <strong>Active Focus</strong>（任务卡住了不撒手，换办法、绕过障碍、必要时先问一句再动手）。</p>
-<p>这些都不新鲜，隔壁家都有一份。真正让人停下来的是那两个门的开法。</p>
-<h2>独立的第三张表</h2>
-<p>Meta 自己贴了对比表，那种表各家都有，看多了会麻木。所以我更愿意看别人测的那张。</p>
-<p>独立评测机构 Artificial Analysis 的 Intelligence Index 上，这几款模型是这么排的：</p>
-<p>| 模型 | 分数 |
-|</p>
-]]></content>
-    <category term="人工智能"/>
-    <published>2026-10-13T00:00:00.000Z</published>
   </entry>
 </feed>
