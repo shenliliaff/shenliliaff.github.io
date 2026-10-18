@@ -59,10 +59,63 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-18";
+export const hotRankingUpdatedAt = "2026-10-19";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "vast-edenlive-realtime-world-renderer",
+    title: "VAST 开源实时世界模型渲染器 EdenLive：单张 RTX 5090 上 720P 跑到 24 FPS 以上，把「世界状态」与「画面」彻底拆开",
+    summary:
+      "10-18，VAST（三启万物，Tripo 母公司）发布并开源实时生成式渲染器 EdenLive，属于其世界模型研究项目 Project Eden 的阶段性成果。核心设计是把两件事解耦：世界规则与状态由上游的代码智能体或游戏引擎维护，EdenLive 只负责把上游吐出的简化参考画面（proxy）实时渲染成精细画面，官方称之为 proxy-to-fine。输入有三路——proxy 或参考视频流（提供布局、相机与运动）、目标首帧（决定整体外观与画风）、文本提示词（补充风格与细节）；输出是精细视频或持续视频流。性能上，5B 模型在单张消费级 RTX 5090、720P 条件下生成速度超过 24 FPS，支持分钟级连续生成，输出 480P/720P 两档，从用户输入到对应画面出现的端到端延迟为百毫秒级。技术支撑有三：一个剥离外观信息、只保留结构与运动的结构-运动编码器；覆盖 2D/3D proxy、引擎渲染与真实视频的配对数据管线；把多步扩散模型蒸馏成少步 chunk-AR 的流式生成器，服务端再把程序模拟、参考编码与生成排成流水线并留一个 chunk 前瞻。开源内容包括 5B 与 14B 权重（双向与 few-step 两种推理版本）、实时流式推理代码、把提示词变成可玩粗糙游戏的 game-prototype-turbo 技能、以及整条 prompt-to-game 前端，协议 Apache 2.0，权重约 210 GB。官方自陈的短板是高频激烈交互、多角色身份保持、小物体精细控制与长时视觉一致性；仓库验证环境为 Linux x86-64、80GB 显存 NVIDIA 卡与 CUDA 13，所谓消费级指的是 5B/720P 这一档。",
+    keyPoints: [
+      "把世界状态与视觉渲染拆开：规则归代码智能体或游戏引擎，EdenLive 只把简化参考画面实时渲染成精细画面",
+      "5B 模型在单张 RTX 5090 上、720P 下跑到 24 FPS 以上，可连续生成分钟级画面，端到端延迟百毫秒级",
+      "开源 5B 与 14B 权重（双向 + few-step）、流式推理代码、prompt-to-game 技能与前端，Apache 2.0，权重约 210 GB",
+      "官方自陈短板：高频激烈交互、多角色身份保持、小物体控制、长时一致性；仓库验证环境要 80GB 显存卡",
+      "路线意义：承认扩散模型算不出血条与冷却，把它们从职责里划掉，只保留「把方块画成人」这一件事",
+    ],
+    org: "VAST（三启万物）",
+    category: "模型发布",
+    date: "2026-10-18",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "VAST 官方项目页 EdenLive（2026-10-18）",
+    sourceUrl: "https://vast-eden.ai/?p=edenlive",
+    refs: [
+      { name: "GitHub 代码仓库（Apache 2.0）", url: "https://github.com/VAST-AI-Research/EdenLive" },
+      { name: "量子位（2026-10-18）", url: "https://www.qbitai.com/2026/10/504136.html" },
+    ],
+    article: "/blog/2026-10-19-it-does-not-count-health-bars.html",
+  },
+  {
+    id: "shlab-intern-s2-three-dimensional-ghys-conjecture",
+    title: "上海 AI 实验室用书生-S2 与数学家一起证出三维 Ghys 猜想：模型首轮写下 400 页推导，北大团队用 Lean 做形式化验证",
+    summary:
+      "10-15，上海人工智能实验室宣布，其访问学者、大湾区大学教授许地生团队依托书生科学多模态大模型 S2（书生-S2），通过人机协同完成了三维 Ghys 猜想的证明；北京大学董彬教授、刘若川院士团队用自研 SHEAF 框架完成形式化验证。猜想由法国数学家 Étienne Ghys 于 1995 年在《Inventiones Mathematicae》提出：每个紧致复流形上的全纯 Anosov 系统，都双全纯共轭于某个复 infra-幂零流形上的全纯仿射自同构。Ghys 本人证了二维（复曲面）情形，三维卡了 31 年；其对应的实数版本至今仍是公开难题，更高维与更高余维也仍开放。过程：模型针对该猜想首轮推理即产出 400 页推导报告；许地生与其学生、现瑞典皇家理工学院博后张洁松从报告中抓住关键突破口，持续反馈校准方向，模型先后完成 7 批接续推演，问题图从 15 个节点扩展到 389 个，输出总量达千页，并生成数十种全新论证思路。验证：北大团队用 SHEAF 将论文四个主定理与所依赖的 Ghys 结果形式化，约 5 天完成，峰值 100 个智能体并行，产出约 55 万行 Lean 代码，四个定理均通过且仓库无 sorry。两处必须说明的保留：其一，仓库 README 写明其中三个定理以 HomotopyTorusRigidity（Borel 猜想的环面情形，1969 年由 Hsiang 与 Wall 证明）为假设前提，属合理引用经典结果，但并非无条件通过；其二，论文仍为 arXiv 预印本（2609.37695，v1 2026-09-29，v3 2026-10-13），尚未经同行评审，作者仅张洁松一人，AI 使用声明写明作者已独立验证全部数学论证并对稿件负全责。",
+    keyPoints: [
+      "上海 AI 实验室与数学家合作，用书生-S2 证明三维 Ghys 猜想——1995 年提出、卡了 31 年的复动力系统难题",
+      "模型首轮推理就产出 400 页推导，前后 7 批接续推演，问题图从 15 个节点扩到 389 个，总量约千页",
+      "北大董彬、刘若川团队用 SHEAF 做 Lean 形式化：约 5 天、峰值 100 个智能体并行、约 55 万行代码，四个主定理全过且无 sorry",
+      "两点保留：其中三个定理以 Borel 猜想环面情形为前提假设；论文仍是 arXiv 预印本，未过同行评审",
+      "论文作者只有张洁松一人，AI 使用声明写明「已独立验证全部数学论证并对稿件负全责」",
+    ],
+    org: "上海人工智能实验室",
+    category: "学术公益",
+    date: "2026-10-15",
+    heat: 88,
+    authority: "official",
+    precision: "exact",
+    sourceName: "上海人工智能实验室官方新闻稿（2026-10-15）",
+    sourceUrl: "https://www.shlab.org.cn/news/5444307",
+    refs: [
+      { name: "arXiv:2609.37695 论文页", url: "https://arxiv.org/abs/2609.37695" },
+      { name: "形式化代码仓库", url: "https://github.com/frenzymath/HolomorphicAnosov" },
+      { name: "央广网（2026-10-18 专访）", url: "https://www.cnr.cn/tech/gstj/20261018/t20261018_527845786.shtml" },
+    ],
+    article: "/blog/2026-10-19-four-hundred-pages.html",
+  },
   {
     id: "deepseek-v4-1-flash-1017-search-api",
     title: "DeepSeek 把 V4.1 Flash 换成 V4.1-Flash-1017：11 项基准全线上涨、API 价格不变，同一天首次对外开放自研搜索引擎的 API",
