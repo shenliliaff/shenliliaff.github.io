@@ -114,20 +114,19 @@ export default hopeTheme(
         assets: "iconify",
       },
 
-      // 评论系统：Waline（匿名 + 微信/知乎/微博/GitHub 登录）
-      // serverURL 部署后替换为你的 Waline 后端地址（见 docs/comment-deploy.md）
+      // 评论系统：Giscus（GitHub Discussions，评论 + 点赞/表情反应，免费无广告）
       comment: {
-        provider: "Waline",
-        serverURL: "https://your-waline-server.vercel.app",
-        // 登录模式：enable = 允许登录（也允许匿名）
-        login: "enable",
-        // 访客需要填写的信息：昵称必填，邮箱、网址选填
-        meta: ["nick", "mail", "link"],
-        requiredMeta: ["nick"],
-        // 每条评论字数上限
-        wordLimit: 500,
-        // 每页评论条数
-        pageSize: 10,
+        provider: "Giscus",
+        repo: "shenliliaff/shenliliaff.github.io",
+        repoId: "R_kgDOOQgGPg",
+        category: "Announcements",
+        categoryId: "DIC_kwDOOQgGPs4DI9Fo",
+        mapping: "pathname",
+        strict: false,
+        reactionsEnabled: true,
+        inputPosition: "bottom",
+        lightTheme: "light",
+        darkTheme: "dark",
       },
 
       // 组件库
