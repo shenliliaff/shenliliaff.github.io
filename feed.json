@@ -7,13 +7,13 @@
   "favicon": "https://shenliliaff.github.io/fengskb-icon.svg",
   "items": [
     {
-      "title": "评论系统部署指南（Waline）",
+      "title": "评论系统部署指南（Waline 后端）",
       "url": "https://shenliliaff.github.io/comment-deploy.html",
       "id": "https://shenliliaff.github.io/comment-deploy.html",
-      "summary": "评论系统部署指南（Waline） 本站评论用 Waline 实现，支持匿名评论 + 微信 / 知乎 / 微博 / GitHub 登录。 Waline 分前后端两部分： 前端：已在代码里配好（docs/.vuepress/theme.ts 的 comment 插件 + docs/reading/index.html 的 docsify 注入）。 后端：一...",
-      "content_html": "\n<p>本站评论用 <strong>Waline</strong> 实现，支持<strong>匿名评论</strong> + <strong>微信 / 知乎 / 微博 / GitHub 登录</strong>。</p>\n<p>Waline 分前后端两部分：</p>\n<ul>\n<li><strong>前端</strong>：已在代码里配好（<code>docs/.vuepress/theme.ts</code> 的 <code>comment</code> 插件 + <code>docs/reading/index.html</code> 的 docsify 注入）。</li>\n<li><strong>后端</strong>：一个独立部署的 Waline 服务，负责存评论数据 + 处理 OAuth 登录。本指南就是教你把后端搭起来。</li>\n</ul>\n",
+      "summary": "评论系统部署指南（Waline 后端） 站点评论用 Waline（匿名 + 昵称/邮箱选填 + GitHub/微信/知乎/微博登录）。 前端已配好（docs/.vuepress/theme.ts 的 comment 配置 + docs/reading/index.html 的注入脚本）， 本指南只差后端一步。 ⚠️ LeanCloud 国内版（cons...",
+      "content_html": "\n<p>站点评论用 <a href=\"https://waline.js.org\" target=\"_blank\" rel=\"noopener noreferrer\">Waline</a>（匿名 + 昵称/邮箱选填 + GitHub/微信/知乎/微博登录）。\n前端已配好（<code>docs/.vuepress/theme.ts</code> 的 <code>comment</code> 配置 + <code>docs/reading/index.html</code> 的注入脚本），\n本指南只差<strong>后端</strong>一步。</p>\n<blockquote>\n<p>⚠️ LeanCloud 国内版（console.leancloud.cn）已停止新用户注册，本指南改用 <strong>Supabase（免费 PostgreSQL）+ Vercel</strong>，\n两个平台都用 GitHub 账号直接登录，无需手机号实名，全程免费。</p>\n</blockquote>\n<p>前端 <code>serverURL</code> 目前是占位符 <code>https://your-waline-server.vercel.app</code>，\n<strong>部署完成后把它替换成你的真实地址</strong>（共两处：<code>theme.ts</code> + <code>reading/index.html</code>），然后构建推送。</p>\n",
       "date_published": "2026-10-16T02:29:08.000Z",
-      "date_modified": "2026-10-16T02:29:08.000Z",
+      "date_modified": "2026-10-19T07:41:01.000Z",
       "authors": [],
       "tags": []
     },
