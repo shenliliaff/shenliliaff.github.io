@@ -1,150 +1,138 @@
-# 评论系统部署指南（Waline）
+# 评论系统部署指南（Waline 后端）
 
-本站评论用 **Waline** 实现，支持**匿名评论** + **微信 / 知乎 / 微博 / GitHub 登录**。
+站点评论用 [Waline](https://waline.js.org)（匿名 + 昵称/邮箱选填 + GitHub/微信/知乎/微博登录）。
+前端已配好（`docs/.vuepress/theme.ts` 的 `comment` 配置 + `docs/reading/index.html` 的注入脚本），
+本指南只差**后端**一步。
 
-Waline 分前后端两部分：
-- **前端**：已在代码里配好（`docs/.vuepress/theme.ts` 的 `comment` 插件 + `docs/reading/index.html` 的 docsify 注入）。
-- **后端**：一个独立部署的 Waline 服务，负责存评论数据 + 处理 OAuth 登录。本指南就是教你把后端搭起来。
+> ⚠️ LeanCloud 国内版（console.leancloud.cn）已停止新用户注册，本指南改用 **Supabase（免费 PostgreSQL）+ Vercel**，
+> 两个平台都用 GitHub 账号直接登录，无需手机号实名，全程免费。
+
+前端 `serverURL` 目前是占位符 `https://your-waline-server.vercel.app`，
+**部署完成后把它替换成你的真实地址**（共两处：`theme.ts` + `reading/index.html`），然后构建推送。
 
 ---
 
-## 一、整体架构
+## 第一步：Supabase 建数据库（约 5 分钟）
 
+1. 打开 https://supabase.com → 点 **Sign In** → 选 **Continue with GitHub**（用你的 GitHub 账号授权）
+2. 新建项目：
+   - 点 **New project**
+   - Name：`waline`（随意）
+   - Database Password：点 Generate 设置一个强密码，**记下来**（后面要用）
+   - Region：选 **Singapore** 或 **Tokyo**（离中国近，延迟低）
+   - 等待 1-2 分钟初始化
+3. 初始化 Waline 数据表：
+   - 左侧菜单 → **SQL Editor** → **New query**
+   - 把下面这段 SQL 粘贴进去，点 **Run**：
+
+```sql
+CREATE TABLE IF NOT EXISTS wl_Comment (
+  id BIGSERIAL PRIMARY KEY,
+  user_id INTEGER,
+  comment TEXT,
+  insertedAt TIMESTAMP DEFAULT NOW(),
+  ip VARCHAR(100) DEFAULT '',
+  link VARCHAR(255) DEFAULT '',
+  mail VARCHAR(255) DEFAULT '',
+  nick VARCHAR(255) DEFAULT '',
+  pid INTEGER,
+  rid INTEGER,
+  sticky BOOLEAN DEFAULT FALSE,
+  like INTEGER DEFAULT 0,
+  ua VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS wl_Counter (
+  id BIGSERIAL PRIMARY KEY,
+  time INTEGER DEFAULT 0,
+  reaction0 INTEGER DEFAULT 0,
+  reaction1 INTEGER DEFAULT 0,
+  reaction2 INTEGER DEFAULT 0,
+  reaction3 INTEGER DEFAULT 0,
+  reaction4 INTEGER DEFAULT 0,
+  reaction5 INTEGER DEFAULT 0,
+  reaction6 INTEGER DEFAULT 0,
+  reaction7 INTEGER DEFAULT 0,
+  reaction8 INTEGER DEFAULT 0,
+  meta JSONB
+);
+
+CREATE TABLE IF NOT EXISTS wl_Users (
+  id BIGSERIAL PRIMARY KEY,
+  display_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  type VARCHAR(50) NOT NULL,
+  label VARCHAR(50) DEFAULT '',
+  url VARCHAR(255) DEFAULT '',
+  avatar VARCHAR(255) DEFAULT '',
+  github VARCHAR(255) DEFAULT '',
+  twitter VARCHAR(255) DEFAULT '',
+  facebook VARCHAR(255) DEFAULT '',
+  google VARCHAR(255) DEFAULT '',
+  weibo VARCHAR(255) DEFAULT '',
+  qq VARCHAR(255) DEFAULT '',
+  2fa VARCHAR(255) DEFAULT '',
+  createdAt TIMESTAMP DEFAULT NOW(),
+  updatedAt TIMESTAMP DEFAULT NOW()
+);
 ```
-访客浏览器 ──评论/登录──> Waline 后端(Vercel) ──读写──> LeanCloud 数据库(存评论)
-                                                    └──OAuth──> 微信/知乎/微博/GitHub
-```
 
-前端只需填一个 `serverURL`（你的 Waline 后端地址），登录按钮由后端按配置返回。
+4. 拿数据库连接信息：
+   - 左侧菜单 → **Project Settings** → **Database**
+   - 找到 **Connection string → URI**（选 **Connection pooling** / 端口 6543 的那个）
+   - 格式形如 `postgresql://postgres.abc123:[YOUR-PASSWORD]@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres`
+   - 把 `[YOUR-PASSWORD]` 换成第一步记下的密码
+   - **记下这个完整连接串**（下面要拆成 HOST / PORT / USER / PASSWORD / DB 五个变量）
 
----
+## 第二步：Vercel 部署 Waline 后端（约 5 分钟）
 
-## 二、第 1 步：创建 LeanCloud 数据库（免费）
+1. 打开 https://vercel.com → 点 **Sign Up** → 选 **Continue with GitHub**（授权）
+2. 部署 Waline 官方模板：
+   - 在浏览器打开 Waline 官方一键部署链接：https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwalinejs%2Fwaline%2Ftree%2Fmain%2Fexample&project-name=waline-blog
+   - Vercel 会自动把 Waline 的示例仓库复制到你的账号下
+3. 在部署页的 **Environment Variables** 里填：
 
-1. 打开 <https://console.leancloud.cn/>，注册 / 登录（国内版即可）。
-2. 点「创建应用」，名字随意，比如 `fengskb-comment`，开发版（免费）即可。
-3. 进应用 →「设置」→「应用凭证」，记下三个值：
-   - **AppID**
-   - **AppKey**
-   - **MasterKey**
-4. 进应用 →「数据存储」→「结构化数据」，新建三个 **Class**（表），名字和字段**必须**照抄（区分大小写）：
-
-| Class 名 | 说明 |
+| 变量名 | 值 |
 | --- | --- |
-| `Comment` | 评论本体 |
-| `Counter` | 访问量 / 评论计数 |
-| `Users` | 登录用户 |
+| `POSTGRES_HOST` | Supabase 连接串里的主机部分，如 `aws-0-ap-southeast-1.pooler.supabase.com` |
+| `POSTGRES_PORT` | `6543` |
+| `POSTGRES_DB` | `postgres` |
+| `POSTGRES_USER` | 连接串里的用户名，如 `postgres.abc123` |
+| `POSTGRES_PASSWORD` | 第一步的数据库密码 |
+| `SITE_NAME` | `fengsKB`（随意） |
+| `SITE_URL` | `https://shenliliaff.github.io` |
 
-> 如果你导入过官方模板可以跳过，但手建更稳。字段不用手动加，Waline 第一次运行时会自动建字段，只需确保这三个 Class 存在。
+4. 点 **Deploy**，等 1 分钟部署完成
+5. 部署成功后你会得到一个地址，形如 `https://waline-blog-xxxx.vercel.app` —— **这就是你的 serverURL**
 
----
+## 第三步：验证后端
 
-## 三、第 2 步：部署 Waline 后端到 Vercel（免费）
+浏览器打开 `https://你的地址/ui`（Vercel 分配的域名 + `/ui`），
+能进入 Waline 的**管理后台登录页**即部署成功。首次访问用邮箱注册一个管理员账号（这个邮箱就是你的评论管理员身份）。
 
-### 方式 A：一键部署（推荐）
+## 第四步：告诉我 serverURL
 
-1. 打开 Waline 官方部署模板：
-   <https://vercel.com/new/clone?repository-url=https://github.com/walinejs/waline&env=LEAN_ID,LEAN_KEY,LEAN_MASTER_KEY,JWT_TOKEN,SITE_NAME,SITE_URL>
-2. 按提示登录 Vercel（用 GitHub 账号即可），填写环境变量：
+把 `https://xxxx.vercel.app` 这个地址发我，我会：
+1. 替换 `theme.ts` 和 `reading/index.html` 两处 `serverURL`
+2. 构建并做真实联调（发一条测试评论验证读写闭环）
+3. 推送上线
 
-| 环境变量 | 值 |
-| --- | --- |
-| `LEAN_ID` | 第 1 步记下的 AppID |
-| `LEAN_KEY` | 第 1 步记下的 AppKey |
-| `LEAN_MASTER_KEY` | 第 1 步记下的 MasterKey |
-| `JWT_TOKEN` | 自己编一段长随机字符串（用来签发登录态，别泄露） |
-| `SITE_NAME` | 站点名，如 `fengsKB` |
-| `SITE_URL` | 你的站点地址 `https://shenliliaff.github.io` |
+## 第五步（可选，以后再做）：社交登录
 
-3. 点 Deploy，等 1~2 分钟部署完成。
-4. 部署完成后，Vercel 会给你一个地址，形如 `https://xxx.vercel.app`。
-   - **这就是你的 `serverURL`**。
-   - 测试后端是否正常：浏览器打开 `https://xxx.vercel.app/api/comment?type=list&path=/test`，能返回 JSON（哪怕是空列表 `{}`）就说明后端活了。
+默认已支持：**匿名评论（填昵称即可）+ GitHub 登录**。GitHub 登录需要配置 OAuth：
 
-### 方式 B：本地 Docker 部署
+1. GitHub → Settings → Developer settings → OAuth Apps → **New OAuth App**
+2. Homepage URL：`https://shenliliaff.github.io`；Callback URL：`https://你的serverURL/oauth/github`
+3. 拿到 Client ID / Client Secret，在 Vercel 项目的环境变量里加 `GITHUB_CLIENT_ID` 和 `GITHUB_CLIENT_SECRET`，然后 Redeploy
 
-```bash
-docker run -d --name waline \
-  -p 8360:8360 \
-  -e LEAN_ID=你的AppID \
-  -e LEAN_KEY=你的AppKey \
-  -e LEAN_MASTER_KEY=你的MasterKey \
-  -e JWT_TOKEN=你自己编的长随机串 \
-  -e SITE_NAME=fengsKB \
-  -e SITE_URL=https://shenliliaff.github.io \
-  lizheming/waline
-```
-
-本地 `http://localhost:8360` 即 serverURL。适合先用 Docker 测试、再上 Vercel。
+微信/知乎/微博登录需要去各平台开放平台申请 AppID（微信要企业资质），审核慢，建议以后有需要再补。
+配置方法见 Waline 官方文档：https://waline.js.org/guide/get-started.html#登录配置
 
 ---
 
-## 四、第 3 步：把 serverURL 填进代码
+## 给访客的体验（部署完成后）
 
-部署好后，改两处（把占位的 `https://your-waline-server.vercel.app` 换成你的真实地址）：
-
-1. `docs/.vuepress/theme.ts` → `comment.serverURL`
-2. `docs/reading/index.html` → 两处 `serverURL: "https://your-waline-server.vercel.app"`
-
-然后重新构建推送即可。
-
----
-
-## 五、第 4 步：配置社交登录（微信 / 知乎 / 微博）
-
-匿名评论**开箱即用**，不需要任何配置。社交登录需要在对应开放平台申请 AppID，再填进 LeanCloud 的设置里。
-
-> ⚠️ 注意：知乎、微博的开放平台近年对个人开发者收紧，微信开放平台需要**企业主体**。GitHub 登录最容易（个人即可申请）。建议**先上匿名 + GitHub**，社交登录逐个补。
-
-### GitHub 登录（最容易，先做）
-
-1. 打开 <https://github.com/settings/developers> →「OAuth Apps」→「New OAuth App」。
-2. 填写：
-   - **Homepage URL**：`https://shenliliaff.github.io`
-   - **Authorization callback URL**：`https://你的serverURL/oauth/redirect?type=github`（注意用你的 Vercel 地址）
-3. 创建后拿到 `Client ID` 和 `Client Secret`。
-4. 打开 LeanCloud 应用 →「设置」→「安全中心」→「Web 安全域名」，把 `https://你的serverURL` 加进去。
-5. 在 Waline 后端的环境变量里加：
-
-| 环境变量 | 值 |
-| --- | --- |
-| `GITHUB_CLIENT_ID` | 你的 Client ID |
-| `GITHUB_CLIENT_SECRET` | 你的 Client Secret |
-
-### 微信登录（需企业主体）
-
-1. 微信开放平台 <https://open.weixin.qq.com/> 注册（企业认证）→「创建网站应用」。
-2. 回调域名填 `https://你的serverURL`。
-3. 拿到 `AppID` / `AppSecret`，加到环境变量 `WECHAT_APP_ID` / `WECHAT_APP_SECRET`。
-
-### 知乎 / 微博登录
-
-- 知乎：<https://open.zhihu.com/>（个人可申请，但审核慢）。
-- 微博：<https://open.weibo.com/>（个人可申请「网页应用」）。
-- 同理拿到对应 AppID/Secret 后填入环境变量（字段名见 Waline 官方文档：<https://waline.js.org/guide/server/config.html>）。
-
-> 每改一次 Vercel 环境变量，需在 Vercel 项目 → Settings → Environment Variables 里添加，然后 Redeploy 才生效。
-
----
-
-## 六、验证清单（上线前必须全过）
-
-- [ ] 后端 `/api/comment?type=list` 能返回 JSON（非报错）
-- [ ] 站点页脚出现「评论」区，能**匿名**提交一条评论
-- [ ] 提交后评论即时显示，刷新仍在（说明存进了 LeanCloud）
-- [ ] 登录按钮出现，GitHub 登录跳转、回调后显示头像昵称
-- [ ] 明暗主题切换，评论区颜色跟随
-- [ ] `hot/`、`blog/` 文章、`notes/AI 动态追踪`、`reading/` 读书笔记都有评论区
-- [ ] 手机端评论区不溢出、可正常输入
-
----
-
-## 七、常见问题
-
-| 现象 | 原因 / 解决 |
-| --- | --- |
-| 页面没有评论区 | serverURL 还是占位符，或前端没重新构建推送 |
-| 评论区一直转圈 | 后端没部署成功，检查 `/api/comment` 是否返回 JSON |
-| 提交评论报错 | LeanCloud 三个 Class 没建，或 AppKey/MasterKey 填错 |
-| 登录按钮点开是空的 | 对应社交登录的环境变量没配 |
-| 评论存上了但看不到 | `JWT_TOKEN` 泄露 / 被改，或 LeanCloud 权限没放开 |
+- **匿名评论**：填昵称就能发（邮箱、网址选填）——不需要任何账号
+- **登录评论**：GitHub 一键登录（配置 OAuth 后）；微信/知乎/微博以后可加
+- **管理**：访问 `https://你的serverURL/ui` 管理评论（删垃圾、置顶等）
