@@ -27,7 +27,8 @@ export type HotCategory =
   | "安全对齐"
   | "硬件航天"
   | "行业动态"
-  | "学术公益";
+  | "学术公益"
+  | "开源项目";
 
 export interface HotItem {
   id: string;
@@ -1804,4 +1805,5 @@ export const categoryColors: Record<HotCategory, string> = {
   硬件航天: "#8a7fe0",
   行业动态: "#d4688f",
   学术公益: "#54b0a8",
+  开源项目: "#b0a050",
 };

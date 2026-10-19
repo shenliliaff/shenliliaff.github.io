@@ -8,7 +8,7 @@ article: false
 
 <img src="/covers/blog-overview-cover.png" alt="AI 前沿动态追踪" style="width:100%;border-radius:8px;margin:8px 0 20px;" />
 
-这里追踪 AI 前沿动态，每期聚焦一两个点，写深写透。一手信源核实，逐条注明来源与日期。完整的信源清单与关键进展见「[AI 动态追踪](../notes/AI 动态追踪.md)」。
+这里追踪 AI 前沿动态，每期聚焦一两个点，写深写透。一手信源核实，逐条注明来源与日期。范围覆盖**前沿实验室、个人智能体、国产大模型，以及 GitHub 上正在起势的开源项目**（高 star、高 fork 的技术项目与 AI skill）。完整的信源清单与关键进展见「[AI 动态追踪](../notes/AI 动态追踪.md)」。
 
 <HotRankingEntry />
 
@@ -23,6 +23,7 @@ article: false
 | AI4ALL | 李飞飞共同发起的 AI 教育公益 | ai-4-all.org |
 | 马斯克 & 星链 | 星舰试飞、Starlink 组网进展 | spacex.com + 官方 X |
 | 学术前沿 | 李飞飞相关的斯坦福学术动态 | hai.stanford.edu |
+| GitHub 开源项目 | 高 star、高 fork 的开源项目与技术 skill——正在起势的 AI 工具、Agent、MCP、模型与框架 | github.com/trending + trendshift.io |
 
 ## 我们怎么找信源
 
@@ -36,6 +37,8 @@ article: false
 | Hugging Face | 学术/工具 | 每日 | Daily Papers + 模型发布 |
 | Papers with Code | 学术 | 每日 | 论文 + 代码 + SOTA 榜单 |
 | 机器之心 / 量子位 | 中文垂直 | 每日 | 中文 AI 动态 |
+| GitHub Trending | 开源项目 | 每日 | 各语言热门仓库（高 star/fork） |
+| Trendshift | 开源趋势 | ~1 小时 | 正在起势的仓库（带 star 涨量，比 GitHub Trending 更早捕捉到新项目） |
 
 > 使用约定：聚合站的二手转述，一律回溯官方公告确认后才写进正文，避免以讹传讹。
 

@@ -44,6 +44,18 @@ order: -9
 | 腾讯混元 | hunyuan.tencent.com + 腾讯云官博 | 混元系列模型 |
 | MiniMax | minimax.net + 官方 X | MiniMax M 系列模型 |
 
+### GitHub 开源项目（重点新方向）
+
+高 star、高 fork 的开源项目与 AI skill——正在起势的 AI 工具、Agent、MCP、模型与框架。以「项目 GitHub 页 + README + 发布说明」为一手信源，star/fork 数为核实依据。
+
+| 关注对象 | 官方信源 | 说明 |
+| --- | --- | --- |
+| GitHub Trending | github.com/trending（可按语言） | 各语言日/周热门仓库，高 star/fork |
+| Trendshift | trendshift.io | 实时「正在起势」的仓库，带每日 star 涨量，比 Trending 更早捕捉新项目 |
+| 优质开源项目 | github.com/`owner`/`repo` | 项目 README、Releases、star/fork 数；核实后再写正文 |
+
+> 抓取约定：GitHub 项目的「star / fork」是硬核实依据，写正文前先点开项目页确认仓库存在、star 数、最近提交与许可证。README 里吹的功能要对照 release 说明与 issue 反馈，警惕「刷 star」「空壳仓库」与「蹭热度的营销仓库」。
+
 ### 综合 / 聚合站（查最近几天到一周内动态）
 
 适合定时抓取"最近几天 AI 圈发生了什么"，与官方一手互为补充，再逐条回溯官方公告核实。
@@ -59,6 +71,8 @@ order: -9
 | Papers with Code | paperswithcode.com | 每日 | 论文 + 代码 + 榜单 SOTA |
 | 机器之心 | jiqizhixin.com | 每日 | 中文垂直媒体，AI 动态 |
 | 量子位 | qbitai.com | 每日 | 中文垂直媒体，AI 动态 |
+| GitHub Trending | github.com/trending | 每日 | 各语言热门仓库（高 star/fork） |
+| Trendshift | trendshift.io | ~1 小时 | 正在起势的仓库（带 star 涨量） |
 
 > 使用约定：聚合站负责"发现"（今天/这周有什么新动静），官方站负责"核实"（是否属实、参数数字）。聚合站的二手转述一律回溯官方公告确认后才写入正文，避免以讹传讹。
 
