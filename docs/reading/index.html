@@ -6,7 +6,6 @@
     <title>读书笔记 | fengsKB</title>
     <link rel="icon" href="reading-icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="https://unpkg.com/docsify@4/lib/themes/vue.css" />
-    <link rel="stylesheet" href="https://unpkg.com/@waline/client@3/dist/waline.css" />
     <style>
       .sidebar .app-name img {
         display: inline-block;
@@ -46,7 +45,7 @@
               return content.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, "");
             });
           },
-          // 每篇读书笔记底部注入 Waline 评论区
+          // 每篇读书笔记底部注入 Giscus 评论区
           function (hook) {
             hook.doneEach(function () {
               var main = document.querySelector("main .content, section.content");
@@ -55,28 +54,34 @@
               var file = location.hash.replace(/^#\/?/, "") || "README.md";
               if (/README\.md$/i.test(file)) return;
               // 避免重复注入
-              var existing = document.getElementById("waline");
+              var existing = document.getElementById("giscus-comment");
               if (existing) { existing.remove(); }
               var wrap = document.createElement("div");
-              wrap.id = "waline-wrap";
+              wrap.id = "giscus-wrap";
               wrap.style.marginTop = "32px";
               wrap.innerHTML =
-                '<div class="waline-title" style="font-weight:600;margin-bottom:12px;">评论</div>' +
-                '<div id="waline"></div>';
+                '<div style="font-weight:600;margin-bottom:12px;">评论</div>' +
+                '<div id="giscus-comment"></div>';
               main.appendChild(wrap);
-              if (window.Waline) {
-                window.Waline.init({
-                  el: "#waline",
-                  serverURL: "https://your-waline-server.vercel.app",
-                  path: "/reading" + location.hash.replace(/^#/, ""),
-                  login: "enable",
-                  meta: ["nick", "mail", "link"],
-                  requiredMeta: ["nick"],
-                  dark: false,
-                  pageSize: 10,
-                  lang: "zh-CN",
-                });
-              }
+              // 页面路径作为 giscus 的 discussion 映射键（/reading 前缀 + 文件名去 .md）
+              var pagePath = "/reading/" + (location.hash.replace(/^#\/?/, "") || "README.md").replace(/\.md$/i, "");
+              var script = document.createElement("script");
+              script.src = "https://giscus.app/client.js";
+              script.setAttribute("data-repo", "shenliliaff/shenliliaff.github.io");
+              script.setAttribute("data-repo-id", "R_kgDOOQgGPg");
+              script.setAttribute("data-category", "Announcements");
+              script.setAttribute("data-category-id", "DIC_kwDOOQgGPs4DI9Fo");
+              script.setAttribute("data-mapping", "specific");
+              script.setAttribute("data-term", pagePath);
+              script.setAttribute("data-strict", "0");
+              script.setAttribute("data-reactions-enabled", "1");
+              script.setAttribute("data-emit-metadata", "0");
+              script.setAttribute("data-input-position", "bottom");
+              script.setAttribute("data-theme", "light");
+              script.setAttribute("data-lang", "zh-CN");
+              script.setAttribute("crossorigin", "anonymous");
+              script.async = true;
+              document.getElementById("giscus-comment").appendChild(script);
             });
           },
         ],
@@ -95,6 +100,5 @@
     </script>
     <script src="https://unpkg.com/docsify@4"></script>
     <script src="https://unpkg.com/docsify@4/lib/plugins/search.min.js"></script>
-    <script src="https://unpkg.com/@waline/client@3/dist/waline.js"></script>
   </body>
 </html>
