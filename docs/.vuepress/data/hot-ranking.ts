@@ -60,10 +60,135 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-19";
+export const hotRankingUpdatedAt = "2026-10-20";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "minimax-m3-1-flash",
+    title: "MiniMax 发布 M3.1 Flash：Agent 任务成本降七成，先匿名跑了一个月 200 万亿 token 再报名字",
+    summary:
+      "10-19 晚，MiniMax 发布新一代轻量模型 M3.1 Flash。官方口径是「代际提升」：agentic 任务、编程、Computer Use 与网络安全四项同时上台阶，线上推理速度接近原来的 3 倍，Agent 类任务的整体使用成本较上一代降 70%。规格上支持最高 100 万 token 上下文，输入可为文本、图像、视频，输出为文本；思考默认开启，可用 effort 在 low/medium/high/xhigh/max 五档间调，省略时默认 max。定价走平铺固定价，每百万 token 输入 $0.15、输出 $0.60、缓存输入 $0.015（国内站 1 元 / 4 元 / 0.1 元），与 DeepSeek V4.1-Flash-1017 的峰谷分时价形成两种路线。官方自评分数：DeepSWE v1.1 73.7%、Automation-Bench 62.8%、BankerToolBench 76.2、OSWorld V2 61.7、CyberGym 82%、Agents' Last Exam 29.6（官方称后两项在中国模型里第一）。发布同时官方认领了一件旧事：此前在 OpenRouter、OpenCode 上匿名运行的「太空兔」Space Bunny，处理了 200 万亿 token 以上，就是 M3.1 Flash 的早期版本。模型已通过 MiniMax API、M Plan 与桌面端 MiniMax Code 提供，权重「稍后发布」；官方预告更强的 Pro 版本也在路上。短板写在自家表里：DeepSWE 73.7 低于 DeepSeek V4.1-Flash-1017 的 77.0 与 Claude Opus 5 的 74.0，Terminal Bench 4.0 也落后 Opus 5。",
+    keyPoints: [
+      "10-19 发布，100 万 token 上下文，文本/图像/视频输入，输出 200+ TPS、P50 稳定 170+ TPS",
+      "Agent 类任务综合成本较上一代降 70%，平铺固定价 $0.15 / $0.60 / $0.015（国内 1 元 / 4 元 / 0.1 元每百万 token）",
+      "官方认领：此前匿名跑了 200 万亿 token 的「太空兔」Space Bunny 就是 M3.1 Flash 的早期版本——先让人用一个多月，再公布名字",
+      "官方自评 DeepSWE v1.1 73.7%、Automation-Bench 62.8%、OSWorld V2 61.7、CyberGym 82%、ALE 29.6",
+      "短板与留白：DeepSWE 落后 DeepSeek V4.1-Flash-1017 的 77.0；权重只写「稍后发布」，第三方复跑尚未铺开",
+    ],
+    org: "MiniMax（稀宇科技）",
+    category: "模型发布",
+    date: "2026-10-19",
+    heat: 79,
+    authority: "official",
+    precision: "exact",
+    sourceName: "MiniMax 官方博客（2026-10-19）",
+    sourceUrl: "https://www.minimax.io/blog/minimax-m31f",
+    refs: [
+      { name: "MiniMax 开放平台文档", url: "https://platform.minimaxi.com/docs/guides/text-generation" },
+      { name: "每日经济新闻（2026-10-19）", url: "https://www.nbd.com.cn/" },
+    ],
+  },
+  {
+    id: "google-research-harness2",
+    title: "Google Research 开源 Harness²：让智能体自己改外壳，模型权重一动不动，WorkBuddy-Bench 最多涨 11.5 分",
+    summary:
+      "10-19，Google Research 的 Harness² 单日涨 5.1k star，登上 GitHub 趋势榜首位。仓库 google-research/harness2 于 10-06 建立、10-08 首次提交，Apache 2.0，目前 11,599 star、1,051 fork；论文 10-09 挂 arXiv（2610.14224），作者九人，含 Tomas Pfister、Bhavana Dalvi Mishra、Chen-Yu Lee 等。核心主张是「harness（模型外面那圈提示词、工具、记忆、技能、编排）和模型本身一样决定智能体能力」，做法是让智能体递归地改自己的 harness，模型权重全程冻结。两层递归：任务级递归用对比式的 Propose–Probe–Compose——先提通用改动与针对当前任务的改动，再让候选改动各自跑同一个任务，最后比较行为差异拼出新 harness，因此不需要 ground-truth 判分器；harnessing 级递归把被采纳的改动和有证据支撑的教训写进一份长期保留的「改进 harness」，下一题从这儿起步。结果：三个专业基准、四组模型-外壳配置，只走一步，GLM-5 与 Gemini 3.5 Flash 在原有 harness 上分别最多提升 11.5 分（WorkBuddy-Bench）、4.5 分（JobBench）、11.8 个百分点（LAB 部分通过率），加预算多递归几步还能再涨。支持并行与串行递归、OpenCode 与 Codex 两种执行器。保留：无 release、无版本号，10-14 后未再提交；只测两个非顶配模型，涨分是 best case，第三方复现记录尚无。",
+    keyPoints: [
+      "仓库 google-research/harness2：Apache 2.0，11,599 star / 1,051 fork，10-19 单日涨 5.1k star 冲上趋势榜第一",
+      "模型权重全程冻结，只改外面那圈「harness」（提示词、工具、记忆、技能、编排）",
+      "三步 Propose–Probe–Compose：靠「改前改后的行为差异」代替标准答案，因此开放世界里不需要判分器",
+      "GLM-5 与 Gemini 3.5 Flash 单步最多 +11.5 分（WorkBuddy-Bench）、+4.5 分（JobBench）、+11.8 个百分点（LAB）",
+      "坑：只有四组配置、涨分是 best case、只测两个非顶配模型、无 release 无版本号，第三方复现还没出现",
+    ],
+    org: "Google Research",
+    category: "开源项目",
+    date: "2026-10-19",
+    heat: 74,
+    authority: "official",
+    precision: "exact",
+    sourceName: "项目页 github.com/google-research/harness2（2026-10-19 首日登顶趋势榜）",
+    sourceUrl: "https://github.com/google-research/harness2",
+    refs: [
+      { name: "arXiv:2610.14224 论文页", url: "https://arxiv.org/abs/2610.14224" },
+      { name: "Trendshift 日榜（Gained today 5.1k）", url: "https://trendshift.io/" },
+    ],
+    article: "/blog/2026-10-20-the-wrapper-did-it.html",
+  },
+  {
+    id: "openai-low-resource-programming-languages",
+    title: "OpenAI 官方博客：模型终于会写 COBOL 了——MultiLangBench 通过率从 26.8% 涨到 87.4%",
+    summary:
+      "10-19，OpenAI 发布官方博客《Advancing coding in low-resource programming languages》，没有新模型，讲的是现有模型在 COBOL、Fortran、Visual Basic 这些「语料稀薄但支撑关键基础设施」的语言上的进步。为此他们自建了两套评测：MultiLangBench 要求模型用指定的 20 种语言之一，从零写出一个兼容 SQLite 的数据库引擎，用数据库文件作为跨语言的共同接口，再用参考实现校验结果；另一套是 COBOL 迁移评测，看模型能否把既有程序翻译成别种语言同时保持行为不变。结果：MultiLangBench 上 GPT-6 Astra 在最大推理档平均通过率 87.4%，GPT-5.6 Sol 为 26.8%，20 种语言全部提升（COBOL 10.9%→72.1%、OCaml 25.6%→85.8%、Fortran 21.4%→83.5%、Visual Basic 27.5%→89.4%），20 种里 19 种超过 83%，COBOL 仍最难；低成本档 GPT-6 Luna 平均 40.3%，单样本估算 API 成本 $0.77，比 GPT-5.6 Sol 的 $3.48 低约 78%。COBOL 迁移评测上，GPT-6.1 Sol 低推理档 86.6%（GPT-5.6 Sol 5.4%）且成本低 39%，高推理档 97.9%，几乎打满。官方给出的背景数字：COBOL 支撑 40% 以上在线银行系统、80% 的线下刷卡交易、95% 的 ATM 交易。",
+    keyPoints: [
+      "10-19 官方博客，没有新模型，讲的是现有模型在 COBOL / Fortran / Visual Basic 上的提升",
+      "自建 MultiLangBench：用 20 种语言从零写一个兼容 SQLite 的数据库引擎，GPT-6 Astra 平均通过率 87.4%，GPT-5.6 Sol 只有 26.8%",
+      "COBOL 迁移评测：GPT-6.1 Sol 低推理档 86.6%（GPT-5.6 Sol 5.4%）且成本低 39%，高推理档 97.9%",
+      "低成本档 GPT-6 Luna 平均 40.3%，单样本 API 成本约 $0.77，比 GPT-5.6 Sol 的 $3.48 低约 78%",
+      "为什么值得看：COBOL 撑着 40% 以上在线银行、80% 刷卡交易、95% ATM，而这批系统的维护者正在退场",
+    ],
+    org: "OpenAI",
+    category: "模型发布",
+    date: "2026-10-19",
+    heat: 68,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方博客（2026-10-19）",
+    sourceUrl: "https://openai.com/index/low-resource-programming-languages/",
+    refs: [],
+  },
+  {
+    id: "anthropic-employment-report",
+    title: "Anthropic 自曝就业报告：智能体工时是人的 6 倍，但交互式会话八成时间在等人",
+    summary:
+      "10-16，Anthropic Institute 发布技术报告《How employment is changing at Anthropic》，作者为 Nathan Wilmers、Regina Catipon、Maxim Massenkoff、Peter McCrory 四位经济学家。数据来自内部人事记录、Claude 使用日志、代码提交、员工日历、Slack 与面试评分表，外加 17 个员工访谈。核心发现四条：其一，2026 年 3 月全公司智能体总工时首次超过人类，到 8 月，员工个人指挥的交互式智能体工时是这些人的 6 倍；其二，交互式会话约 80% 的时间是空闲，在等人回话，即便非技术岗，读完手下 agent 全部产出也要花掉半个工作周；其三，技术部门初级员工占比从 2025 年初的 21% 降到 14%，初级技术岗招聘占比从 27% 降到 9%，技术部门占全员比例从 61% 降到 56%；其四，管理 agent 的「meta-work」占会话比例从 10% 升到 22%，给 agent 写的长期指令一年内从几百条涨到 8500 条，员工会议时长中位数同比增加 20%。产出侧：每工程师代码提交量约为半年前的 5 倍；对比 192 名采纳编码智能体的工程师与 74 名未采纳者，采纳后新增代码显著上升，且被删除或回滚的比例没有上升。报告自陈限制：单公司样本、增长极快、采纳非随机，不构成因果。结尾一句：对在职者的就业保护，帮不到那些一开始就没被招进来的人。",
+    keyPoints: [
+      "10-16 技术报告，四位经济学家用内部人事、Claude 日志、代码提交、日历、面试评分表加 17 个访谈写成",
+      "员工指挥的交互式智能体工时达人类 6 倍，全公司智能体总工时 2026 年 3 月首次反超",
+      "交互式会话约 80% 时间在等人回话；非技术岗读完手下 agent 的全部产出要花半个工作周",
+      "初级技术岗招聘占比 27%→9%、在职占比 21%→14%；meta-work 会话 10%→22%，长期指令从几百条涨到 8500 条",
+      "作者自陈单公司样本、采纳非随机、不构成因果，并写下「对在职者的保护帮不到一开始没被招进来的人」",
+    ],
+    org: "Anthropic",
+    category: "行业动态",
+    date: "2026-10-16",
+    heat: 84,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 研究报告（2026-10-16）",
+    sourceUrl: "https://www.anthropic.com/research/employment-at-anthropic",
+    refs: [
+      { name: "配套报告《Working at the frontier shapes expectations for the future》", url: "https://www.anthropic.com/research/expectations-for-the-future" },
+      { name: "钛媒体（2026-10-17）", url: "https://www.tmtpost.com/nictation/8171912.html" },
+    ],
+    article: "/blog/2026-10-20-the-bottleneck-is-me.html",
+  },
+  {
+    id: "arc-agi-3-gemini-4-argon-harness-gap",
+    title: "ARC-AGI-3 同一模型两个分数：换外壳 97.5%，不换 49.8%",
+    summary:
+      "10-13，ARC Prize 公布 Gemini 4 Argon 的官方核验成绩，Google DeepMind 由此成为第二家在 ARC-AGI-3 上突破 95% 的实验室。数字本身很亮：ARC-AGI-1 98.5%（每任务 $0.162）、ARC-AGI-2 91.3%（$0.325）、ARC-AGI-3 用 Google 自家的 provider adapter 外壳 97.5%（整套 $4.8K）。但同一张榜上还并排放着另一组数：同一个模型、同一条 ARC-AGI-3、换成发给所有参赛模型统一使用的标准外壳，低推理档只有 49.8%（$5.8K），中推理档 46.3%（$6.2K），高推理档因 API 问题只跑了 55 局中的 19 局、未出分。也就是说，49.8% 与 97.5% 之间那 47.7 个百分点，全部来自「外壳」——负责反馈输入、动作输出与历史路径记忆的那一层。适配器外壳保留了模型不透明的推理过程，并能自动压缩上下文，这两件事标准外壳做不到，属真实能力差，不是作弊；ARC Prize 把两组数字并列公开，标得清清楚楚。另一个细节：标准外壳更贵，分却只有一半。低推理档在 ARC-AGI-2 上还骤降到 42.1%，说明该模型对推理预算相当敏感。",
+    keyPoints: [
+      "ARC Prize 10-13 公布核验成绩，Google DeepMind 成为第二家在 ARC-AGI-3 上破 95% 的实验室",
+      "同一模型同一基准：provider adapter 外壳 97.5%（$4.8K），统一标准外壳 49.8%（$5.8K），差 47.7 个百分点",
+      "中推理档同样反差：46.3%（$6.2K）对 97.3%（$5.0K）——更贵的那个分更低",
+      "ARC-AGI-1 98.5%（$0.162/题）、ARC-AGI-2 91.3%（$0.325/题）；低推理档在 ARC-AGI-2 骤降到 42.1%",
+      "分数不是模型单独拿的：适配器保留了不透明推理并自动压缩上下文，标准外壳做不到，属真实能力差而非作弊",
+    ],
+    org: "ARC Prize / Google DeepMind",
+    category: "学术公益",
+    date: "2026-10-13",
+    heat: 77,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "ARC Prize 官方成绩页（2026-10-13）",
+    sourceUrl: "https://arcprize.org/results/google-gemini-4-argon",
+    refs: [
+      { name: "ARC Prize 排行榜", url: "https://arcprize.org/leaderboard" },
+      { name: "36氪（2026-10-19）", url: "https://www.36kr.com/p/4032038686691973" },
+    ],
+    article: "/blog/2026-10-20-the-wrapper-did-it.html",
+  },
   {
     id: "vast-edenlive-realtime-world-renderer",
     title: "VAST 开源实时世界模型渲染器 EdenLive：单张 RTX 5090 上 720P 跑到 24 FPS 以上，把「世界状态」与「画面」彻底拆开",

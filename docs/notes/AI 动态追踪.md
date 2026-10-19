@@ -80,7 +80,7 @@ order: -9
 
 ## 李飞飞 & World Labs
 
-- **2026-10-19** — 仍无官方新发布；同赛道 VAST 10-18 开源实时世界模型渲染器 EdenLive（单卡 RTX 5090、5B 模型 24 FPS+，Apache 2.0）。（github.com/VAST-AI-Research/EdenLive）
+- **2026-10-19** — World Labs 的 Atlas 开始分批推送 Beta 权限，演示像素级相机路径控制（最长 1 分钟、1440p）与少图空间重建（点云 + 3DGS）。（经智源社区转述，官网未可核）
 - **2026-09-28** — **AMD 官宣全股票收购 World Labs，约 82 亿美元**（约人民币 550 亿），AMD 史上第二大收购；李飞飞出任 AMD 执行副总裁兼首席科学家，直接向苏姿丰汇报，预计 2026 年底交割。李飞飞公开信《To Seek a Newer World》："宇宙不是由文字构成的，而是由真实的事物构成的"。（World Labs 官网公告，Reuters/Bloomberg 交叉印证）
 - **2026-09-01** — 发布全模态世界模型 **Atlas**：1–6 张图 + 相机路径 → 最长 1 分钟、最高 1440p 视频，2–3 张图即可空间重建输出显式 3D。
 - **2026-07-28** — 收购机器人仿真公司 **SceniX**，推进 Real-to-Sim-to-Real 训练引擎。
@@ -95,6 +95,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-19** — 官方博客：模型在低资源语言上大幅提升——MultiLangBench 上 GPT-6 Astra 20 种语言平均通过率 87.4%（GPT-5.6 Sol 26.8%），COBOL 迁移评测低推理档 86.6%（5.4%）、高推理档 97.9%。（openai.com/index/low-resource-programming-languages）
 - **2026-10-18** — 奥特曼在《Sources》播客确认要自研机器人，重点做「大脑」而非外壳，预计 2027 年出演示样机。（无官方公告页，仅播客+媒体转述）
 - **2026-10-16** — ChatGPT Chrome 扩展升级：可读取打开的标签页、代发消息/填表；面向所有套餐开放。（IT之家转述官方更新）
 - **2026-10-16** — GPT-6 Pro 聊天标签升级（响应更快、多 agent 并行），官方未给速度数字。（OpenAI 帮助中心发布说明）
@@ -120,6 +121,8 @@ order: -9
 
 ### 近两周
 
+- **2026-10-19** — Google Research 开源 Harness²（递归改造 agent 外壳、模型权重不动，WorkBuddy-Bench 最多 +11.5 分），单日涨 5.1k star 冲上趋势榜第一；论文 arXiv:2610.14224（10-09）。（github.com/google-research/harness2，Apache 2.0）
+- **2026-10-13** — ARC Prize 公布 Gemini 4 Argon 三档成绩：ARC-AGI-3 用 provider adapter 外壳 97.5%（$4.8K）、统一标准外壳 49.8%（$5.8K），差 47.7 个百分点；ARC-AGI-2 91.3%、ARC-AGI-1 98.5%。（arcprize.org/results/google-gemini-4-argon）
 - **2026-10-15** — 四个 Gemini 4 Argon 智能体无人类介入、27 小时 14 分钟打通《我的世界》末影龙（arXiv:2610.22319）；成本按 API 入门价约 520 美元。
 - **2026-10-13** — **Gemini 4 Argon 全球公开发布**（$2/$10，11-30 后翻倍）；DeepSWE v1.1 77.9% 新 SOTA。（blog.google 官方博文）
 - **2026-10-12** — AI 活动自动识别从 10 类扩到 100 多类。（Google 官方博客）
@@ -140,6 +143,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-16** — 发布《How employment is changing at Anthropic》：员工指挥的交互式智能体工时达人类 6 倍（全公司总工时 3 月首次反超），交互式会话约八成时间在等人，初级技术岗招聘占比 27%→9%、在职占比 21%→14%。（anthropic.com/research/employment-at-anthropic）
 - **2026-10-18** — 与 Freshfields 律所合作研究 agent「代你谈判」的伦理；内部实验 Project Deal 无人工审批达成 186 笔交易。（FT，未见官方公告）
 - **2026-10-16** — Claude 无人类介入设计 8 类量子电路，7 类比已发表最优更省；主导 STEM Fellow Andi Gu。（anthropic.com/research/designing-efficient-quantum-circuits）
 - **2026-10-16** — 内部模型不到半小时解出 NIST 椭圆曲线「种子」来源之谜——不是哈希，是 1997–98 年 lrand48 伪随机数生成器输出。（anthropic.com/research/ecdsa-curve-origins）
@@ -162,11 +166,13 @@ order: -9
 
 ## 其他巨头动向
 
+- **2026-10-19** — MiniMax 发布 M3.1 Flash：1M 上下文、输出 200+ TPS（P50 170+），Agent 类任务综合成本降 70%，$0.15/$0.60（国内 1 元/4 元每百万 token）；官方认领匿名跑 200 万亿 token 的 Space Bunny 即其早期版本，权重「稍后发布」。（minimax.io/blog/minimax-m31f）
 - **2026-10-18** — VAST 开源实时世界模型渲染器 EdenLive（proxy-to-fine，单卡 5090 跑 5B 24 FPS+，Apache 2.0）。（github.com/VAST-AI-Research/EdenLive）
 - **2026-10-15** — 上海 AI 实验室与数学家合作，用书生-S2 证明三维 Ghys 猜想（悬了 31 年），Lean 形式化 55 万行。（shlab.org.cn/news/5444307）
 
 ## 马斯克 & 星链
 
+- **2026-10-19** — 猎鹰 9「Bandwagon-5」因回收区天气取消，改到 10-20 发射；B1085 第 19 次飞行，32 个载荷含 SpaceX 第二枚 Starfall 与 Varda W-7 两个返回舱。（Spaceflight Now 报道，非官方公告）
 - **2026-10-16** — 马斯克称 SpaceX 可能效仿 Anthropic，启动外部独立安全评估（尚无时间表）。（X 回复）
 - **2026-10-16** — 特斯拉发布第二代 Roadster（配 SpaceX 冷气推力器，2028 年量产目标）。
 - **2026-10-15** — 猎鹰 9 执行美国太空军机密任务 USSF-481，范登堡今年第 70 次发射。
