@@ -60,10 +60,112 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-20";
+export const hotRankingUpdatedAt = "2026-10-21";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "anthropic-scorpion-toxin-binders",
+    title: "Claude 六十四小时设计十七个抗蝎毒蛋白，官方先声明「这不叫抗毒血清」",
+    summary:
+      "10-20，Anthropic 发布研究博客：让内部研究模型在 Claude Science 里自主设计抗蝎子神经毒素的 minibinder。模型给了一个主提示词加四轮追问，六十四小时内生成 318,484 个设计，用 12 种设计工具共折叠并筛选 553,052 个「设计-毒素」配对，约 1 万 GPU 小时，自己挑了 180 个送检，团队补 31 个，共 211 个交给 Adaptyv Bio 与 Twist Bioscience 两家 CRO 实测。判定标准很硬：两家实验室每个重复都要有结合信号、每个解离常数 ≤1 µM、且不得粘无关人蛋白 CLEC12A。最终 17 个达标，分别针对四种毒素——墨西哥 Cn2 七个、北非 AaH II 四个、AaH I 四个、中东 LqhIII 两个，巴西 Ts1 一个没有。单毒素设计命中率 11/60（18%），官方称与既往蛋白设计项目一致。最强的 Cn2-B1、Cn2-B2 达个位数纳摩尔，竞争实验显示其表位与已知能中和 Cn2 的抗体 LR 重合，「提示很可能能中和」。失败的是多毒素方向：91 个打全部五种毒素的设计，没有一个对第二种达标。官方明确：没做体外中和、没做小鼠体内、用的是重组毒素，因此不声称做出抗毒血清；211 个设计与实验数据全部公开在 Hugging Face。项目起点是一家金融投资研究公司 Citrini Research 的提问——一群有热情的外行能否靠 AI 解决一个真实健康问题。",
+    keyPoints: [
+      "六十四小时、约 1 万 GPU 小时、12 种设计工具，生成 318,484 个设计并筛了 553,052 个「设计-毒素」配对",
+      "211 个设计送两家 CRO 实测（Adaptyv Bio / Twist Bioscience），17 个达标；单毒素命中率 18%（11/60）",
+      "分布：Cn2 七个、AaH II 四个、AaH I 四个、LqhIII 两个，巴西 Ts1 零个；打五种毒素的 91 个多毒素设计全军覆没",
+      "官方把话说死：未做体外中和与小鼠体内实验、用的是重组毒素，「我们不声称做出了抗毒血清」",
+      "提问方是金融投资研究公司 Citrini Research，其参与改写提示词；据 Quartz 引彭博，该公司现正看多部分生物医药股票",
+    ],
+    org: "Anthropic",
+    category: "学术公益",
+    date: "2026-10-20",
+    heat: 82,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 研究博客（2026-10-20）",
+    sourceUrl: "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+    refs: [
+      { name: "数据集：Anthropic/scorpion-toxin-binder-design（Hugging Face）", url: "https://huggingface.co/datasets/Anthropic/scorpion-toxin-binder-design" },
+      { name: "Quartz（2026-10-20，引彭博）", url: "https://qz.com/" },
+    ],
+    article: "/blog/2026-10-21-seventeen-stuck.html",
+  },
+  {
+    id: "deepseek-deepinfer-open-source",
+    title: "DeepSeek 开源生产推理框架 DeepInfer：单集群日均 155 万亿 token，谷时每 GPU 小时营收 38 美元",
+    summary:
+      "10-20，DeepSeek 把支撑线上服务的推理框架 DeepInfer 开源（Apache 2.0，仓库 10-16 建立、10-20 推送代码，11,938 star / 1,063 fork，暂无 release），同时开源 token 编解码组件 deepseek-recipe（MIT）。README 第一句就写明「本次开源提供离线推理」，支持模型只有 DeepSeek-V4.1-Flash 一个，硬件限 NVIDIA SM100 或华为昇腾 950。最坦白的是「构成一次完整推理服务所必需、但本次未包含」一节：KV cache 系统、VE/Prefill/Decode 分离部署、数据并行副本负载均衡三项都在外面——官方解释是这两块与内部基础设施耦合太深，只在知乎技术长文里讲了设计。技术问答文档给出一组极少见的运营数字：单个集群日均服务 155 万亿 token，按谷时电价计整体营收每 GPU 小时 38 美元；KV cache 保留 72 小时以上（聊天流量 7 天、agent 流量 3 天，砍到 3 天损失 0.5%–1% 命中率）；专用 3FS 集群约 100 PiB SSD，每卡逻辑容量约 14.4 TB。最小「高效」部署单元是 64 卡预填充 + 64 卡解码，1P+1D 虽能部署但比例约 1:1；负载均衡实测约为「完美均衡离线基准」的八成，moe_lb 预填充 1.074/1.045、解码 1.090。致谢里承认最初主要构建在 vLLM 之上。",
+    keyPoints: [
+      "仓库 deepseek-ai/DeepInfer：Apache 2.0，11,938 star / 1,063 fork，10-16 建库、10-20 推代码，尚无 release",
+      "只支持 DeepSeek-V4.1-Flash 一个模型、只提供离线推理；硬件限 NVIDIA SM100 或昇腾 950，最小高效部署 64 卡预填充 + 64 卡解码",
+      "「本次未包含」清单写进 README：KV cache 系统、E/P/D 分离部署、数据并行副本负载均衡——钱就赚在这三样上",
+      "官方数字：单集群日均 155 万亿 token，谷时每 GPU 小时营收 38 美元；KV cache TTL 3–7 天，约 100 PiB SSD",
+      "坑：负载均衡只到完美离线基准的八成；致谢承认最初主要构建在 vLLM 之上；另有 deepseek-recipe（MIT）负责 API 协议与 token 序列互转",
+    ],
+    org: "DeepSeek（深度求索）",
+    category: "开源项目",
+    date: "2026-10-20",
+    heat: 80,
+    authority: "official",
+    precision: "exact",
+    sourceName: "项目页 github.com/deepseek-ai/DeepInfer（2026-10-20 开源，含官方部署问答文档）",
+    sourceUrl: "https://github.com/deepseek-ai/DeepInfer",
+    refs: [
+      { name: "官方部署问答 doc/inference_deployment_qa.md", url: "https://github.com/deepseek-ai/DeepInfer/blob/main/doc/inference_deployment_qa.md" },
+      { name: "Trendshift 当日榜首（Gained today 8.8k）", url: "https://trendshift.io/" },
+    ],
+    article: "/blog/2026-10-21-the-parts-they-kept.html",
+  },
+  {
+    id: "google-gemini-for-government-services",
+    title: "Google 把 Gemini 智能体卖给政府：先做 FOIA 打码和投标评审，价格还没定",
+    summary:
+      "10-20，Google Public Sector 在华盛顿的峰会上发布 Gemini for government services，把通用 Gemini agent 打包成政府版：预置「技能」覆盖政策与法规检索、FOIA 记录发现与批量打码、供应商投标评审（对照 RFP 与 FAR）、合同与项目费用审计（对照 2 CFR 200）、入件材料核验、按《简明写作法》改写公告；连接器接 Google Workspace、Microsoft SharePoint、Outlook 365、Salesforce、ServiceNow，以及 eCFR、regulations.gov、Federal Register 与 Oracle Fusion；伙伴网络包括 Accenture Federal Services、Deloitte、SAIC、Slalom 等。官方称已在密苏里州与美国卫生与公众服务部（HHS）的部分机构试用，处于 private preview，只面向美国联邦、州与地方政府，未公布定价与正式可用时间，也未给出任何准确率数字或第三方评测。数据侧承诺不出组织云边界、沿用既有身份与权限、未经同意不用客户数据训练基础模型。这是继 Gemini for legal、Gemini for financial services 之后的第三个行业打包版本。",
+    keyPoints: [
+      "2026-10-20 发布，仅美国联邦/州/地方政府 private preview，未公布定价，也没有正式可用时间",
+      "预置技能：政策法规检索、FOIA 记录发现与批量打码、投标评审、费用审计、入件核验、公告改写",
+      "连接器覆盖 SharePoint、ServiceNow、Salesforce 与 eCFR / Federal Register / regulations.gov，数据不迁移、沿用既有权限",
+      "官方称密苏里州与 HHS 部分机构已在用，但未给使用规模、准确率或任何第三方评测数字",
+      "风险点：FOIA 打码与投标评分一旦出错有法律后果，官方只能承诺「引用到页码段落、关键步骤由人确认」",
+    ],
+    org: "Google Cloud（Public Sector）",
+    category: "产品发布",
+    date: "2026-10-20",
+    heat: 70,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google Cloud 官方博客（2026-10-20）",
+    sourceUrl: "https://cloud.google.com/blog/products/ai-machine-learning/gemini-for-government-services",
+    refs: [
+      { name: "Google Public Sector Summit 2026 汇总博文", url: "https://cloud.google.com/blog/topics/public-sector/announcements-and-highlights-from-google-public-sector-summit-2026" },
+      { name: "PR Newswire 官方新闻稿（2026-10-20）", url: "https://www.prnewswire.com/news-releases/google-public-sector-launches-gemini-for-government-services-302913759.html" },
+    ],
+  },
+  {
+    id: "anthropic-public-benefit-fund",
+    title: "Anthropic 拿出 5% 股份设公益基金：公司越值钱，划给公众的那一份越大",
+    summary:
+      "10-18，Anthropic 宣布把一部分股份划入新设的 Anthropic Public Benefit Fund：经股东批准后先划 5%，此后公司估值每比基准线涨 50%，董事会可自行决定再加最多 2%。基金设成公司全资的 LLC，而不是 501(c)(3)，理由是「在不同给法之间可以调整」——可以直接捐给传统非营利，也可以直接发给特定人群；基金持有的股份不得用于游说或政治捐款，美国内外都不行。官方把「AI 对劳动力市场的冲击」列为重点用途之一，此前已投入 2 亿美元研究此事。加上创始团队早年承诺捐出 80% 股份与员工配捐计划（约半数员工参与），合计约 20% 的股份将用于公益。官方同时把这件事与科技公司惯常的「高管递增薪酬包」对比，称把那份股权改给了公众。细节（治理结构、触发加划的估值门槛）未来几个月公布，另将发布一份公益进展报告。",
+    keyPoints: [
+      "先划 5% 股份，估值每涨 50% 董事会可再加最多 2%，叠加创始人 80% 承诺与员工配捐后合计约 20% 用于公益",
+      "结构是公司全资 LLC 而非 501(c)(3)，可灵活选择「捐给非营利」或「直接发给特定人群」",
+      "股份不得用于游说或政治捐款（美国及海外）；重点方向之一是 AI 对劳动力市场的冲击，此前已投 2 亿美元",
+      "官方把此举与科技公司惯常的高管递增薪酬包对照，称把那份股权转给了公众；仍需股东批准",
+      "留白：治理结构、触发加划的估值门槛均未公布，公益进展报告待发；正值其 IPO 准备期",
+    ],
+    org: "Anthropic",
+    category: "行业动态",
+    date: "2026-10-18",
+    heat: 85,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方公告（2026-10-18）",
+    sourceUrl: "https://www.anthropic.com/news/public-benefit-fund",
+    refs: [
+      { name: "Reuters（经 CNA 转载，2026-10-18）", url: "https://www.channelnewsasia.com/business/anthropic-commit-5-stake-new-public-benefit-fund-6470326" },
+      { name: "CNBC（2026-10-18）", url: "https://www.cnbc.com/amp/2026/10/18/anthropic-ai-public-benefit-fund.html" },
+    ],
+  },
   {
     id: "minimax-m3-1-flash",
     title: "MiniMax 发布 M3.1 Flash：Agent 任务成本降七成，先匿名跑了一个月 200 万亿 token 再报名字",

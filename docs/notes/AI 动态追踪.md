@@ -143,6 +143,8 @@ order: -9
 
 ### 近两周
 
+- **2026-10-20** — 内部研究模型在 Claude Science 里 64 小时自主设计 318,484 个抗蝎毒神经毒素 minibinder（约 1 万 GPU 小时），211 个送两家 CRO 实测、17 个达标（单毒素命中率 18%，多毒素 91 个全失败），官方明确「不声称做出抗毒血清」，211 个设计与数据全公开。（anthropic.com/research/claude-scorpion-toxin-binder-design）
+- **2026-10-18** — 成立 Anthropic Public Benefit Fund：先划 5% 股份，公司估值每涨 50% 董事会可再加 2%，叠加创始人 80% 与员工配捐后约 20% 股份用于公益；LLC 而非 501(c)(3)，股份不得用于游说或政治捐款，待股东批准。（anthropic.com/news/public-benefit-fund）
 - **2026-10-16** — 发布《How employment is changing at Anthropic》：员工指挥的交互式智能体工时达人类 6 倍（全公司总工时 3 月首次反超），交互式会话约八成时间在等人，初级技术岗招聘占比 27%→9%、在职占比 21%→14%。（anthropic.com/research/employment-at-anthropic）
 - **2026-10-18** — 与 Freshfields 律所合作研究 agent「代你谈判」的伦理；内部实验 Project Deal 无人工审批达成 186 笔交易。（FT，未见官方公告）
 - **2026-10-16** — Claude 无人类介入设计 8 类量子电路，7 类比已发表最优更省；主导 STEM Fellow Andi Gu。（anthropic.com/research/designing-efficient-quantum-circuits）
@@ -166,6 +168,8 @@ order: -9
 
 ## 其他巨头动向
 
+- **2026-10-20** — DeepSeek 开源生产推理框架 DeepInfer（Apache 2.0，仅离线推理、只支持 V4.1-Flash，KV cache 管理与负载均衡因耦合内部基建未开源）与 token 编解码组件 deepseek-recipe；官方披露单集群日均 155 万亿 token、谷时每 GPU 小时营收 38 美元。（github.com/deepseek-ai/DeepInfer）
+- **2026-10-20** — Google Public Sector 发布 Gemini for government services：预置政策检索、FOIA 检索与批量打码、供应商投标评审等技能，接 SharePoint/ServiceNow 与 eCFR/Federal Register，美国联邦与州地方政府 private preview，未公布定价。（cloud.google.com/blog/products/ai-machine-learning/gemini-for-government-services）
 - **2026-10-19** — MiniMax 发布 M3.1 Flash：1M 上下文、输出 200+ TPS（P50 170+），Agent 类任务综合成本降 70%，$0.15/$0.60（国内 1 元/4 元每百万 token）；官方认领匿名跑 200 万亿 token 的 Space Bunny 即其早期版本，权重「稍后发布」。（minimax.io/blog/minimax-m31f）
 - **2026-10-18** — VAST 开源实时世界模型渲染器 EdenLive（proxy-to-fine，单卡 5090 跑 5B 24 FPS+，Apache 2.0）。（github.com/VAST-AI-Research/EdenLive）
 - **2026-10-15** — 上海 AI 实验室与数学家合作，用书生-S2 证明三维 Ghys 猜想（悬了 31 年），Lean 形式化 55 万行。（shlab.org.cn/news/5444307）
