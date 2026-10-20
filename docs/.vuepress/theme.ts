@@ -118,7 +118,7 @@ export default hopeTheme(
       // serverURL 待部署后替换（部署步骤见 docs/comment-deploy.md）
       comment: {
         provider: "Waline",
-        serverURL: "https://waline-blog-shenliliaff.vercel.app",
+        serverURL: "https://waline.vttjit.tech",
         // 登录模式：enable = 允许登录（也允许匿名）
         login: "enable",
         // 访客需要填写的信息：昵称必填，邮箱、网址选填
