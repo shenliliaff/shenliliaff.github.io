@@ -4,7 +4,7 @@
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
   <icon>https://shenliliaff.github.io/fengskb-icon.svg</icon>
-  <updated>2026-10-20T23:09:21.546Z</updated>
+  <updated>2026-10-21T01:09:49.085Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://shenliliaff.github.io/atom.xml"/>
   <link rel="alternate" href="https://shenliliaff.github.io/"/>
@@ -13,25 +13,15 @@
     <title type="text">评论系统部署指南（Waline 后端）</title>
     <id>https://shenliliaff.github.io/comment-deploy.html</id>
     <link href="https://shenliliaff.github.io/comment-deploy.html"/>
-    <updated>2026-10-19T07:41:01.000Z</updated>
+    <updated>2026-10-21T01:08:51.000Z</updated>
     <summary type="html"><![CDATA[
-<p>站点评论用 <a href="https://waline.js.org" target="_blank" rel="noopener noreferrer">Waline</a>（匿名 + 昵称/邮箱选填 + GitHub/微信/知乎/微博登录）。
-前端已配好（<code>docs/.vuepress/theme.ts</code> 的 <code>comment</code> 配置 + <code>docs/reading/index.html</code> 的注入脚本），
-本指南只差<strong>后端</strong>一步。</p>
-<blockquote>
-<p>⚠️ LeanCloud 国内版（console.leancloud.cn）已停止新用户注册，本指南改用 <strong>Supabase（免费 PostgreSQL）+ Vercel</strong>，
-两个平台都用 GitHub 账号直接登录，无需手机号实名，全程免费。</p>
-</blockquote>]]></summary>
+<p>站点评论用 <a href="https://waline.js.org" target="_blank" rel="noopener noreferrer">Waline</a>：<strong>匿名评论（昵称+邮箱/网址选填）+ GitHub 登录</strong>。
+前端已配好（<code>docs/.vuepress/theme.ts</code> 的 <code>comment</code> 配置 + <code>docs/reading/index.html</code> 的注入脚本）。</p>
+<p>本文档是<strong>已完成的部署实录 + 后续扩展指引</strong>，供运维参考和故障排查。</p>]]></summary>
     <content type="html"><![CDATA[
-<p>站点评论用 <a href="https://waline.js.org" target="_blank" rel="noopener noreferrer">Waline</a>（匿名 + 昵称/邮箱选填 + GitHub/微信/知乎/微博登录）。
-前端已配好（<code>docs/.vuepress/theme.ts</code> 的 <code>comment</code> 配置 + <code>docs/reading/index.html</code> 的注入脚本），
-本指南只差<strong>后端</strong>一步。</p>
-<blockquote>
-<p>⚠️ LeanCloud 国内版（console.leancloud.cn）已停止新用户注册，本指南改用 <strong>Supabase（免费 PostgreSQL）+ Vercel</strong>，
-两个平台都用 GitHub 账号直接登录，无需手机号实名，全程免费。</p>
-</blockquote>
-<p>前端 <code>serverURL</code> 目前是占位符 <code>https://your-waline-server.vercel.app</code>，
-<strong>部署完成后把它替换成你的真实地址</strong>（共两处：<code>theme.ts</code> + <code>reading/index.html</code>），然后构建推送。</p>
+<p>站点评论用 <a href="https://waline.js.org" target="_blank" rel="noopener noreferrer">Waline</a>：<strong>匿名评论（昵称+邮箱/网址选填）+ GitHub 登录</strong>。
+前端已配好（<code>docs/.vuepress/theme.ts</code> 的 <code>comment</code> 配置 + <code>docs/reading/index.html</code> 的注入脚本）。</p>
+<p>本文档是<strong>已完成的部署实录 + 后续扩展指引</strong>，供运维参考和故障排查。</p>
 ]]></content>
     <published>2026-10-16T02:29:08.000Z</published>
   </entry>
