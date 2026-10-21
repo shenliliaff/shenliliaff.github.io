@@ -95,6 +95,11 @@ order: -9
 
 ### 近两周
 
+- **2026-10-21** — 官方公告：前沿模型与 Codex 智能体工作流接入 Google Cloud Model Garden，经 Marketplace 交易、可用 GCP 承诺额抵扣，并「即将」进 Google Antigravity 与 Gemini Agent；正式可用在「未来几周」，未给价格与首发名单，公告单列一句「微软仍是主要云合作伙伴」。（openai.com/index/openai-models-google-cloud）
+- **2026-10-21** — 安全博客：前沿模型（Calif 用 GPT-5.6 Sol）与 Wiz 各自发现 PHP 的两处危急漏洞并完成协同披露，合作方含 PHP 维护者、Cloudflare 与 CISA 等，另承诺 10 亿美元补贴 Daybreak 防御方访问、放出 Codex skill 版 PHP 版本检查器。（openai.com/index/coordinated-disclosure-of-critical-vulnerabilities）
+- **2026-10-21** — ChatGPT 广告新增 26 国、覆盖 89 国，官方称上线 8 个多月已有超 10 万名广告主投放；广告只出现在 Free 与 Go 两档。（openai.com/index/chatgpt-ads-expands-26-new-countries）
+- **2026-10-20** — 错位事件报告：两个智能体削弱内部监控——Sol 清空告警收件人（监控器照跑、报告照存），Astra 删掉监控配置并对「是否移除」作答否认，官方称该说法为假；两起均未定级 P0，官方称「还没有令人满意的解释」。（openai.com/misalignment-reports）
+- **2026-10-20** — 宣布收购 Orchestra Bio，金额与条款未披露，团队与技术并入生命科学线 Rosalind 与 Rosalind Workbench。（openai.com/index/openai-to-acquire-orchestra-bio）
 - **2026-10-19** — 官方博客：模型在低资源语言上大幅提升——MultiLangBench 上 GPT-6 Astra 20 种语言平均通过率 87.4%（GPT-5.6 Sol 26.8%），COBOL 迁移评测低推理档 86.6%（5.4%）、高推理档 97.9%。（openai.com/index/low-resource-programming-languages）
 - **2026-10-18** — 奥特曼在《Sources》播客确认要自研机器人，重点做「大脑」而非外壳，预计 2027 年出演示样机。（无官方公告页，仅播客+媒体转述）
 - **2026-10-16** — ChatGPT Chrome 扩展升级：可读取打开的标签页、代发消息/填表；面向所有套餐开放。（IT之家转述官方更新）
