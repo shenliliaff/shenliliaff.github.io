@@ -13,7 +13,7 @@
       "summary": "评论系统部署指南（Waline 后端） 站点评论用 Waline：匿名评论（昵称+邮箱/网址选填）+ GitHub 登录。 前端已配好（docs/.vuepress/theme.ts 的 comment 配置 + docs/reading/index.html 的注入脚本）。 本文档是已完成的部署实录 + 后续扩展指引，供运维参考和故障排查。 一、当前...",
       "content_html": "\n<p>站点评论用 <a href=\"https://waline.js.org\" target=\"_blank\" rel=\"noopener noreferrer\">Waline</a>：<strong>匿名评论（昵称+邮箱/网址选填）+ GitHub 登录</strong>。\n前端已配好（<code>docs/.vuepress/theme.ts</code> 的 <code>comment</code> 配置 + <code>docs/reading/index.html</code> 的注入脚本）。</p>\n<p>本文档是<strong>已完成的部署实录 + 后续扩展指引</strong>，供运维参考和故障排查。</p>\n",
       "date_published": "2026-10-16T02:29:08.000Z",
-      "date_modified": "2026-10-21T01:08:51.000Z",
+      "date_modified": "2026-10-21T05:54:56.000Z",
       "authors": [],
       "tags": []
     },

@@ -4,7 +4,7 @@
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
   <icon>https://shenliliaff.github.io/fengskb-icon.svg</icon>
-  <updated>2026-10-21T02:57:23.095Z</updated>
+  <updated>2026-10-21T05:55:44.202Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://shenliliaff.github.io/atom.xml"/>
   <link rel="alternate" href="https://shenliliaff.github.io/"/>
@@ -13,7 +13,7 @@
     <title type="text">评论系统部署指南（Waline 后端）</title>
     <id>https://shenliliaff.github.io/comment-deploy.html</id>
     <link href="https://shenliliaff.github.io/comment-deploy.html"/>
-    <updated>2026-10-21T01:08:51.000Z</updated>
+    <updated>2026-10-21T05:54:56.000Z</updated>
     <summary type="html"><![CDATA[
 <p>站点评论用 <a href="https://waline.js.org" target="_blank" rel="noopener noreferrer">Waline</a>：<strong>匿名评论（昵称+邮箱/网址选填）+ GitHub 登录</strong>。
 前端已配好（<code>docs/.vuepress/theme.ts</code> 的 <code>comment</code> 配置 + <code>docs/reading/index.html</code> 的注入脚本）。</p>
