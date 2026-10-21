@@ -131,32 +131,71 @@ CREATE TABLE IF NOT EXISTS wl_users (
 
 ## 五、社交登录
 
+### 登录按钮的真实机制（重要）
+
+Waline 的登录按钮**不是**由后端环境变量直接决定，而是：
+
+1. 后端启动时向 `OAUTH_URL`（默认 `https://oauth.lithub.cc`）请求一个「可用社交列表」
+2. 官方中转返回的是**写死的 5 个**：github、weibo、twitter、facebook、qq
+3. 前端登录弹窗按这个列表渲染按钮
+
+所以「只配 GitHub、不配微博」并不能隐藏微博按钮——必须**自建 auth 中转**，让中转服务只返回 GitHub。
+
+### 当前方案：自建 auth 中转，只保留 GitHub
+
+目标是登录页只显示 GitHub 一个按钮（去掉微博/Twitter/Facebook/QQ）。
+
+**第一步：部署 auth 服务**
+
+1. 打开 https://github.com/walinejs/auth → **Fork** 到自己的账号
+2. Vercel → Add New → Project → Import 这个 fork 的 `auth` 仓库
+3. 环境变量只配两个：
+   - `GITHUB_ID` = GitHub OAuth Client ID
+   - `GITHUB_SECRET` = GitHub OAuth Client Secret
+4. Deploy
+
+**第二步：GitHub OAuth 回调地址**
+
+GitHub → Settings → Developer settings → OAuth Apps → 你的应用 → Authorization callback URL 改为：
+```
+https://auth.vttjit.tech/github
+```
+
+**第三步：绑子域名**
+
+1. 阿里云云解析加一条 CNAME：主机记录 `auth`、记录值 `cname.vercel-dns.com`
+2. Vercel auth 项目 → Settings → Domains → 添加 `auth.vttjit.tech` → 等变绿
+
+**第四步：让 Waline 用自建中转**
+
+waline-blog 项目 → Settings → Environment Variables → 加：
+| Key | Value |
+|---|---|
+| `OAUTH_URL` | `https://auth.vttjit.tech` |
+
+然后 Redeploy。
+
+**第五步：验证**
+
+- 打开 `https://auth.vttjit.tech/` 应返回 JSON，`services` 里**只有 github**（auth 服务源码按「是否配了环境变量」动态过滤服务列表，只配 GITHUB 就只返回 github）
+- 刷新 `https://waline.vttjit.tech/ui/login`，社交按钮只剩 GitHub
+
+> ⚠️ 若 `/ui` 白屏或 auth 返回空，通常是 `auth` 子域名的 CNAME 解析没加/没生效，或 auth 项目未配 GITHUB_ID/SECRET、未部署成功。
+
 ### GitHub 登录（已启用）
 
 1. GitHub → Settings → Developer settings → OAuth Apps → New OAuth App：
    - Homepage URL：`https://vttjit.tech`
-   - Authorization callback URL：`https://waline.vttjit.tech/oauth/github`
-2. 拿到 Client ID + Client Secret，配 Vercel 环境变量：
-   - `GITHUB_ID`
-   - `GITHUB_SECRET`
-3. Redeploy
+   - Authorization callback URL：`https://auth.vttjit.tech/github`（自建中转后改为此地址）
+2. 拿到 Client ID + Client Secret，配到 auth 项目环境变量（`GITHUB_ID` / `GITHUB_SECRET`）
 
-> 登录按钮显隐由后端环境变量决定：配了哪个平台的 `*_ID`/`*_SECRET`，登录弹窗就显示哪个按钮；不配就不显示。
+### 微信登录（不支持）
 
-### 微信登录（预留，需企业主体 + AppID）
+**Waline 的社交登录列表里没有微信**。官方支持 GitHub / Twitter / Facebook / Google / 微博 / QQ / OIDC / 华为，无论个人还是企业主体都无法通过 Waline 原生实现「微信登录」。如需微信登录需自研/换方案，本项目不做。
 
-1. 微信开放平台（open.weixin.qq.com）用企业主体注册 → 创建「网站应用」（认证费 ¥300/年）
-2. 拿到 AppID + AppSecret，配环境变量：
-   - `WECHAT_APP_ID`
-   - `WECHAT_APP_SECRET`
-3. Redeploy
+### 微博 / QQ / Twitter / Facebook（已隐藏）
 
-### 微博登录（预留，企业可申请）
-
-- 微博开放平台「网站接入」→ 企业认证 → 申请网站应用
-- 授权回调页必须精确填 `https://waline.vttjit.tech/oauth/weibo`（严格全等）
-- 环境变量：`WEIBO_ID` / `WEIBO_SECRET`
-- 注：当前已主动删除微博变量（隐藏微博按钮），需要时再加回
+自建 auth 中转后，只要 auth 项目**不配**这些平台的 `*_ID`/`*_SECRET`，登录页就不会显示对应按钮。当前只配了 GitHub，故这些按钮全部隐藏。若以后要加回某平台，在 auth 项目补配对应变量即可（微博回调页须精确填 `https://auth.vttjit.tech/weibo`）。
 
 ### 知乎登录（放弃）
 
