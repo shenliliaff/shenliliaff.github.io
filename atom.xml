@@ -4,24 +4,45 @@
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
   <icon>https://shenliliaff.github.io/fengskb-icon.svg</icon>
-  <updated>2026-10-21T05:55:44.202Z</updated>
+  <updated>2026-10-21T06:53:16.530Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://shenliliaff.github.io/atom.xml"/>
   <link rel="alternate" href="https://shenliliaff.github.io/"/>
   <category term="人工智能"/>
   <entry>
-    <title type="text">评论系统部署指南（Waline 后端）</title>
+    <title type="text">评论系统部署文档（Waline 双项目架构 · 最终实录）</title>
     <id>https://shenliliaff.github.io/comment-deploy.html</id>
     <link href="https://shenliliaff.github.io/comment-deploy.html"/>
-    <updated>2026-10-21T05:54:56.000Z</updated>
+    <updated>2026-10-21T06:52:21.000Z</updated>
     <summary type="html"><![CDATA[
-<p>站点评论用 <a href="https://waline.js.org" target="_blank" rel="noopener noreferrer">Waline</a>：<strong>匿名评论（昵称+邮箱/网址选填）+ GitHub 登录</strong>。
-前端已配好（<code>docs/.vuepress/theme.ts</code> 的 <code>comment</code> 配置 + <code>docs/reading/index.html</code> 的注入脚本）。</p>
-<p>本文档是<strong>已完成的部署实录 + 后续扩展指引</strong>，供运维参考和故障排查。</p>]]></summary>
+<p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库 + 自有域名</strong>组成。
+本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。</p>
+<h2>一、架构总览</h2>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>访客浏览器</span></span>
+<span class="line"><span>  │ 匿名评论 / GitHub 登录</span></span>
+<span class="line"><span>  ▼</span></span>
+<span class="line"><span>[项目 1] Waline 后端 (waline-blog)</span></span>
+<span class="line"><span>  域名: waline.vttjit.tech</span></span>
+<span class="line"><span>  ├─ 读写评论数据 ──&gt; Supabase PostgreSQL (大阪)</span></span>
+<span class="line"><span>  └─ 登录时跳转 ──&gt; [项目 2] auth 中转</span></span>
+<span class="line"><span>                      域名: auth.vttjit.tech</span></span>
+<span class="line"><span>                      └─ GitHub OAuth ──&gt; github.com</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>]]></summary>
     <content type="html"><![CDATA[
-<p>站点评论用 <a href="https://waline.js.org" target="_blank" rel="noopener noreferrer">Waline</a>：<strong>匿名评论（昵称+邮箱/网址选填）+ GitHub 登录</strong>。
-前端已配好（<code>docs/.vuepress/theme.ts</code> 的 <code>comment</code> 配置 + <code>docs/reading/index.html</code> 的注入脚本）。</p>
-<p>本文档是<strong>已完成的部署实录 + 后续扩展指引</strong>，供运维参考和故障排查。</p>
+<p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库 + 自有域名</strong>组成。
+本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。</p>
+<h2>一、架构总览</h2>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>访客浏览器</span></span>
+<span class="line"><span>  │ 匿名评论 / GitHub 登录</span></span>
+<span class="line"><span>  ▼</span></span>
+<span class="line"><span>[项目 1] Waline 后端 (waline-blog)</span></span>
+<span class="line"><span>  域名: waline.vttjit.tech</span></span>
+<span class="line"><span>  ├─ 读写评论数据 ──&gt; Supabase PostgreSQL (大阪)</span></span>
+<span class="line"><span>  └─ 登录时跳转 ──&gt; [项目 2] auth 中转</span></span>
+<span class="line"><span>                      域名: auth.vttjit.tech</span></span>
+<span class="line"><span>                      └─ GitHub OAuth ──&gt; github.com</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>| 项目 | 仓库 | 作用 |
+|</p>
 ]]></content>
     <published>2026-10-16T02:29:08.000Z</published>
   </entry>

@@ -7,13 +7,13 @@
   "favicon": "https://shenliliaff.github.io/fengskb-icon.svg",
   "items": [
     {
-      "title": "评论系统部署指南（Waline 后端）",
+      "title": "评论系统部署文档（Waline 双项目架构 · 最终实录）",
       "url": "https://shenliliaff.github.io/comment-deploy.html",
       "id": "https://shenliliaff.github.io/comment-deploy.html",
-      "summary": "评论系统部署指南（Waline 后端） 站点评论用 Waline：匿名评论（昵称+邮箱/网址选填）+ GitHub 登录。 前端已配好（docs/.vuepress/theme.ts 的 comment 配置 + docs/reading/index.html 的注入脚本）。 本文档是已完成的部署实录 + 后续扩展指引，供运维参考和故障排查。 一、当前...",
-      "content_html": "\n<p>站点评论用 <a href=\"https://waline.js.org\" target=\"_blank\" rel=\"noopener noreferrer\">Waline</a>：<strong>匿名评论（昵称+邮箱/网址选填）+ GitHub 登录</strong>。\n前端已配好（<code>docs/.vuepress/theme.ts</code> 的 <code>comment</code> 配置 + <code>docs/reading/index.html</code> 的注入脚本）。</p>\n<p>本文档是<strong>已完成的部署实录 + 后续扩展指引</strong>，供运维参考和故障排查。</p>\n",
+      "summary": "评论系统部署文档（Waline 双项目架构 · 最终实录） 本站的评论系统由两个 Vercel 项目 + 一个 Supabase 数据库 + 自有域名组成。 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。 一、架构总览 为什么要两个项目：Waline 默认用公共中转 oauth.lithub.cc，它会返回固定的 5 个社交按钮（Gi...",
+      "content_html": "\n<p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库 + 自有域名</strong>组成。\n本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。</p>\n<h2>一、架构总览</h2>\n<div class=\"language- line-numbers-mode\" data-highlighter=\"shiki\" data-ext=\"\" data-title=\"\" style=\"--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34\"><pre class=\"shiki shiki-themes one-light one-dark-pro vp-code\"><code><span class=\"line\"><span>访客浏览器</span></span>\n<span class=\"line\"><span>  │ 匿名评论 / GitHub 登录</span></span>\n<span class=\"line\"><span>  ▼</span></span>\n<span class=\"line\"><span>[项目 1] Waline 后端 (waline-blog)</span></span>\n<span class=\"line\"><span>  域名: waline.vttjit.tech</span></span>\n<span class=\"line\"><span>  ├─ 读写评论数据 ──&gt; Supabase PostgreSQL (大阪)</span></span>\n<span class=\"line\"><span>  └─ 登录时跳转 ──&gt; [项目 2] auth 中转</span></span>\n<span class=\"line\"><span>                      域名: auth.vttjit.tech</span></span>\n<span class=\"line\"><span>                      └─ GitHub OAuth ──&gt; github.com</span></span></code></pre>\n<div class=\"line-numbers\" aria-hidden=\"true\" style=\"counter-reset:line-number 0\"><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div></div></div><p>| 项目 | 仓库 | 作用 |\n|</p>\n",
       "date_published": "2026-10-16T02:29:08.000Z",
-      "date_modified": "2026-10-21T05:54:56.000Z",
+      "date_modified": "2026-10-21T06:52:21.000Z",
       "authors": [],
       "tags": []
     },
