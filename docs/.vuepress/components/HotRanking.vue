@@ -2,7 +2,6 @@
 import { computed, ref } from "vue";
 import {
   hotRanking,
-  categoryColors,
   type HotCategory,
   type HotItem,
   type SourcePrecision,
@@ -176,7 +175,6 @@ const categoryStats = computed(() => {
       name,
       count,
       percent: Math.round((count / list.value.length) * 100),
-      color: categoryColors[name],
     }))
     .sort((a, b) => b.count - a.count);
 });
@@ -193,29 +191,35 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
 
 <template>
   <div class="hot-rank">
-    <!-- ===== 概览指标 ===== -->
-    <div class="hot-rank__metrics">
-      <div v-for="m in metrics" :key="m.label" class="hot-rank__metric">
-        <div class="hot-rank__metric-value">
-          {{ m.value }}<span v-if="m.unit" class="hot-rank__metric-unit">{{ m.unit }}</span>
-        </div>
-        <div class="hot-rank__metric-label">{{ m.label }}</div>
-      </div>
-    </div>
-
-    <!-- ===== 类别分布图 ===== -->
-    <div class="hot-rank__chart-card">
-      <div class="hot-rank__chart-title">类别分布</div>
-      <div class="hot-rank__chart">
-        <div v-for="c in categoryStats" :key="c.name" class="hot-rank__bar-row">
-          <div class="hot-rank__bar-label">{{ c.name }}</div>
-          <div class="hot-rank__bar-track">
-            <div
-              class="hot-rank__bar-fill"
-              :style="{ width: c.percent + '%', background: c.color }"
-            />
+    <div class="hot-rank__overview">
+      <!-- ===== 概览指标 ===== -->
+      <div class="hot-rank__metrics">
+        <div v-for="m in metrics" :key="m.label" class="hot-rank__metric">
+          <div class="hot-rank__metric-value">
+            {{ m.value }}<span v-if="m.unit" class="hot-rank__metric-unit">{{ m.unit }}</span>
           </div>
-          <div class="hot-rank__bar-value">{{ c.count }} 条 · {{ c.percent }}%</div>
+          <div class="hot-rank__metric-label">{{ m.label }}</div>
+        </div>
+      </div>
+
+      <!-- ===== 类别分布图 ===== -->
+      <div class="hot-rank__chart-card">
+        <div class="hot-rank__chart-heading">
+          <div class="hot-rank__chart-title">事件类别</div>
+          <div class="hot-rank__chart-total">{{ categoryStats.length }} 类 · {{ total }} 条</div>
+        </div>
+        <div class="hot-rank__chart">
+          <div v-for="c in categoryStats" :key="c.name" class="hot-rank__bar-row">
+            <div class="hot-rank__bar-label">{{ c.name }}</div>
+            <div
+              class="hot-rank__bar-track"
+              role="img"
+              :aria-label="`${c.name} ${c.count} 条，占 ${c.percent}%`"
+            >
+              <div class="hot-rank__bar-fill" :style="{ width: c.percent + '%' }" />
+            </div>
+            <div class="hot-rank__bar-value">{{ c.count }} 条 <span>{{ c.percent }}%</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -330,15 +334,7 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
                     <template v-else>{{ seg.text }}</template>
                   </template>
                 </span>
-                <span
-                  class="hot-rank__tag"
-                  :style="{
-                    color: categoryColors[item.category],
-                    borderColor: categoryColors[item.category],
-                  }"
-                >
-                  {{ item.category }}
-                </span>
+                <span class="hot-rank__tag">{{ item.category }}</span>
               </div>
               <ul v-if="item.keyPoints && item.keyPoints.length" class="hot-rank__keypoints">
                 <li v-for="(kp, ki) in item.keyPoints.slice(0, 5)" :key="ki">
@@ -359,10 +355,7 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
                 <div class="hot-rank__heat-track">
                   <div
                     class="hot-rank__heat-fill"
-                    :style="{
-                      width: (item.heat / maxHeat) * 100 + '%',
-                      background: categoryColors[item.category],
-                    }"
+                    :style="{ width: (item.heat / maxHeat) * 100 + '%' }"
                   />
                 </div>
                 <span class="hot-rank__heat-value">{{ item.heat }}</span>
@@ -468,26 +461,33 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
   --hr-accent: #3eaf7c;
   margin: 1.5rem 0 2.5rem;
 
-  /* ---------- 指标卡 ---------- */
+  /* ---------- 概览 ---------- */
+  &__overview {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: start;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
   &__metrics {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
-    gap: 0.75rem;
-    margin-bottom: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
+    gap: 0 0.55rem;
   }
 
   &__metric {
-    padding: 0.9rem 1rem;
-    border: 1px solid var(--hr-border);
-    border-radius: 10px;
-    background: var(--hr-bg-soft);
+    min-width: 0;
+    padding: 0.7rem 0.2rem;
+    border-bottom: 1px solid var(--hr-border);
   }
 
   &__metric-value {
-    color: var(--hr-accent);
-    font-weight: 600;
-    font-size: 1.6rem;
+    color: var(--vp-c-text, #202522);
+    font-weight: 650;
+    font-size: 1.35rem;
     line-height: 1.1;
+    font-variant-numeric: tabular-nums;
   }
 
   &__metric-unit {
@@ -500,61 +500,73 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
   &__metric-label {
     margin-top: 0.25rem;
     color: var(--hr-text-soft);
-    font-size: 0.8rem;
+    font-size: 0.72rem;
   }
 
-  /* ---------- 类别分布图 ---------- */
+  /* ---------- 类别分布 ---------- */
   &__chart-card {
-    padding: 1rem 1.15rem 1.15rem;
-    border: 1px solid var(--hr-border);
-    border-radius: 10px;
-    background: var(--hr-bg-soft);
-    margin-bottom: 1.75rem;
+    min-width: 0;
+    padding: 0 0 0 1.25rem;
+    border-left: 1px solid var(--hr-border);
+  }
+
+  &__chart-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.65rem;
   }
 
   &__chart-title {
-    margin-bottom: 0.85rem;
-    color: var(--hr-text-soft);
+    color: var(--vp-c-text, #202522);
     font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.02em;
+    font-size: 0.82rem;
+  }
+
+  &__chart-total {
+    color: var(--hr-text-soft);
+    font-size: 0.7rem;
+    white-space: nowrap;
   }
 
   &__bar-row {
     display: grid;
-    grid-template-columns: 4.5rem 1fr auto;
+    grid-template-columns: 5.2rem minmax(2rem, 1fr) 4.8rem;
     align-items: center;
-    gap: 0.7rem;
-    margin-bottom: 0.55rem;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    gap: 0.55rem;
+    min-height: 1.65rem;
   }
 
   &__bar-label {
-    font-size: 0.82rem;
+    color: var(--vp-c-text-2, #4b5563);
+    font-size: 0.72rem;
     white-space: nowrap;
   }
 
   &__bar-track {
-    height: 10px;
-    border-radius: 5px;
+    height: 4px;
+    border-radius: 2px;
     background: var(--vp-c-bg-alt, #eceef1);
     overflow: hidden;
   }
 
   &__bar-fill {
     height: 100%;
-    border-radius: 5px;
-    transition: width 0.6s cubic-bezier(0.25, 0.8, 0.3, 1);
+    border-radius: inherit;
+    background: var(--hr-accent);
   }
 
   &__bar-value {
     color: var(--hr-text-soft);
     font-variant-numeric: tabular-nums;
-    font-size: 0.78rem;
+    font-size: 0.68rem;
     white-space: nowrap;
+    text-align: right;
+
+    span {
+      margin-left: 0.15rem;
+    }
   }
 
   /* ---------- 搜索框 ---------- */
@@ -796,9 +808,14 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
   &__item {
     border-bottom: 1px solid var(--hr-border);
     padding: 0.95rem 0;
+    transition: background-color 0.18s ease;
 
     &:first-child {
       border-top: 1px solid var(--hr-border);
+    }
+
+    &:hover {
+      background: color-mix(in srgb, var(--hr-accent) 3%, transparent);
     }
   }
 
@@ -858,11 +875,12 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
 
   &__tag {
     padding: 0.05rem 0.45rem;
-    border: 1px solid currentcolor;
+    border: 1px solid color-mix(in srgb, var(--hr-accent) 42%, transparent);
     border-radius: 4px;
+    background: color-mix(in srgb, var(--hr-accent) 7%, transparent);
+    color: var(--hr-accent);
     font-size: 0.7rem;
     line-height: 1.4;
-    opacity: 0.85;
   }
 
   &__item-summary {
@@ -920,6 +938,7 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
   &__heat-fill {
     height: 100%;
     border-radius: 3px;
+    background: var(--hr-accent);
     transition: width 0.6s cubic-bezier(0.25, 0.8, 0.3, 1);
   }
 
@@ -980,9 +999,9 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
     }
 
     &.is-section {
-      color: #3b6ea8;
-      border-color: color-mix(in srgb, #5aa9e6 45%, transparent);
-      background: color-mix(in srgb, #5aa9e6 10%, transparent);
+      color: var(--hr-text-soft);
+      border-color: var(--hr-border);
+      background: var(--hr-bg-soft);
     }
 
     &.is-homepage {
@@ -1050,8 +1069,8 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
       }
 
       &.is-section {
-        border-color: color-mix(in srgb, #5aa9e6 45%, transparent);
-        background: color-mix(in srgb, #5aa9e6 20%, transparent);
+        border-color: var(--hr-border);
+        background: var(--hr-bg-soft);
       }
 
       &.is-homepage {
@@ -1059,6 +1078,111 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
         background: transparent;
       }
     }
+  }
+}
+
+@keyframes hot-rank-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hot-rank-bar {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hot-rank-intro,
+  .hot-rank__metrics,
+  .hot-rank__chart-card,
+  .hot-rank__toolbar {
+    animation: hot-rank-enter 0.38s ease-out both;
+  }
+
+  .hot-rank__chart-card {
+    animation-delay: 0.06s;
+  }
+
+  .hot-rank__bar-fill {
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: hot-rank-bar 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .hot-rank__item:nth-child(-n + 5) {
+    opacity: 0;
+    transform: translateY(5px);
+    animation: hot-rank-enter 0.34s ease-out both;
+  }
+
+  .hot-rank__item:nth-child(2) {
+    animation-delay: 0.06s;
+  }
+
+  .hot-rank__item:nth-child(3) {
+    animation-delay: 0.12s;
+  }
+
+  .hot-rank__item:nth-child(4) {
+    animation-delay: 0.18s;
+  }
+
+  .hot-rank__item:nth-child(5) {
+    animation-delay: 0.24s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hot-rank-intro,
+  .hot-rank__metrics,
+  .hot-rank__chart-card,
+  .hot-rank__toolbar,
+  .hot-rank__item,
+  .hot-rank__bar-fill,
+  .hot-rank__heat-fill {
+    animation: none;
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+}
+
+/* ---------- 热点页引导区 ---------- */
+.hot-rank-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 10rem);
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0.5rem 0 1.35rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--vp-c-border, #e5e7eb);
+
+  &__copy p {
+    margin: 0;
+    color: var(--vp-c-text-2, #4b5563);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  &__copy strong {
+    color: var(--vp-c-text, #202522);
+    font-weight: 600;
+  }
+
+  &__cover {
+    display: block;
+    width: 100%;
+    max-height: 8rem;
+    border-radius: 4px;
+    object-fit: contain;
+    object-position: right center;
   }
 }
 
@@ -1104,13 +1228,22 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
 }
 
 @media (width <= 719px) {
-  .hot-rank__bar-row {
-    grid-template-columns: 3.6rem 1fr;
+  .hot-rank__overview {
+    grid-template-columns: 1fr;
   }
 
-  .hot-rank__bar-value {
-    grid-column: 2;
-    text-align: right;
+  .hot-rank__metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hot-rank__chart-card {
+    padding: 1rem 0 0;
+    border-top: 1px solid var(--hr-border);
+    border-left: 0;
+  }
+
+  .hot-rank__bar-row {
+    grid-template-columns: 5.2rem minmax(2rem, 1fr) 4.8rem;
   }
 
   .hot-rank__heat-track {
@@ -1128,6 +1261,23 @@ const rowNo = (i: number) => (isSearching.value ? i + 1 : pageStartIndex.value +
   .hot-rank__pager-info {
     order: -1;
     flex-basis: 100%;
+  }
+
+  .hot-rank-intro {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .hot-rank-intro__cover {
+    justify-self: end;
+    width: min(12rem, 100%);
+    max-height: 6rem;
+  }
+}
+
+@media (width <= 420px) {
+  .hot-rank__metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 </style>

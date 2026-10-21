@@ -6,9 +6,9 @@ article: false
 
 # 热点榜单
 
-<img src="/covers/hot-ranking-cover.png" alt="AI 热点榜单" style="width:100%;border-radius:8px;margin:8px 0 20px;" />
-
-AI 前沿动态热点榜。**按事件日期降序排列（最新在最上）**，同一天内按热度降序；**每页最多 5 条，可分页翻看**，并支持跨全部记录搜索。只收录已回溯到官方一手信源的事件——聚合站的二手转述一律不入榜，每条均可点击追溯到官方来源。
+<!-- markdownlint-disable MD033 -->
+<div class="hot-rank-intro"><div class="hot-rank-intro__copy"><p>AI 前沿动态热点榜。<strong>按事件日期降序排列（最新在最上）</strong>，同一天内按热度降序；<strong>每页最多 5 条，可分页翻看</strong>，并支持跨全部记录搜索。只收录已回溯到官方一手信源的事件——聚合站的二手转述一律不入榜，每条均可点击追溯到官方来源。</p></div><img class="hot-rank-intro__cover" src="/covers/hot-ranking-cover.png" alt="AI 热点榜单" /></div>
+<!-- markdownlint-enable MD033 -->
 
 <HotRanking />
 
