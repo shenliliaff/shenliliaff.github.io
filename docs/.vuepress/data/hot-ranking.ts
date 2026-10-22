@@ -60,10 +60,95 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-22";
+export const hotRankingUpdatedAt = "2026-10-23";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-decisions-api",
+    title: "OpenAI 把「判断」单独卖成 API：输入 $0.10、输出不要钱，比 GPT-6 Luna 快 10 倍",
+    summary:
+      "10-22，Decisions API 正式通用可用。底座是 GPT-6 Luna，走 Responses API：开发者给一个问题、一组允许的答案、一段上下文（文本、图像或原生 JSON），API 从三类答案里挑一种返回——predicate 给 0~1 的概率，choice 给选中值加概率与置信度，score 给按等级的概率加权平均值。官方把定位说得很窄：不是生成，是在工作流里做大量小而快的判断，比如这段输入该归哪一类、请求该路由到哪儿、下一步该做什么动作。单次请求最多可提 400 个问题（此前上限的两倍），支持提示缓存、原生 JSON 输入、在问题里带图像，推理可驻留美国与欧盟，符合条件的客户可享零数据保留。客户侧的数字比宣传语实在：Box 对 30 份保险凭证做路由选择快约 5 倍、准确率与 Responses API 持平；Datadog 给智能体生成的 shell 命令做风险评分，p95 快 40 倍；Ramp 做 AI 成本归因快 4 倍、便宜 30%；Sierra 在实时客服对话里选下一步动作，p95 低于 280 毫秒、单次调用成本降 90%；Speak 接进 GPT-Live 后，下一步动作从 1.4 秒降到 0.13 秒。定价是这次最反常的一行：输入 $0.10/百万 token，缓存输入 $0.01，输出不收钱——它吐出来的本来就只有几个 token。",
+    keyPoints: [
+      "GPT-6 Luna 打底，只答「边界答案」：predicate 给概率、choice 给选项、score 给等级，不做开放式生成",
+      "单次请求最多 400 个问题（此前两倍），支持提示缓存、原生 JSON 输入，也能在问题里带图",
+      "定价反常：输入 $0.10/百万 token、缓存输入 $0.01、输出计费为零——因为答案只有几个 token",
+      "客户实测：Datadog 智能体 shell 命令风险评分 p95 快 40 倍，Sierra 单次调用成本降 90%、p95 低于 280ms",
+      "意义在于模型公司开始把「判断题」拆出来单卖，Agent 的控制回路第一次有了便宜的专用零件",
+    ],
+    org: "OpenAI",
+    category: "产品发布",
+    date: "2026-10-22",
+    heat: 78,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方公告（2026-10-22）",
+    sourceUrl: "https://openai.com/index/decisions-api/",
+  },
+  {
+    id: "uber-chatgpt-work-30000-employees",
+    title: "Uber 把 ChatGPT Work 从 1,000 人试点推到 3 万人：默认 GPT-6.1 Sol，工程团队仍走 Codex",
+    summary:
+      "10-22，OpenAI 发布客户案例：Uber 在全公司范围内部署 ChatGPT Work，覆盖超过 30,000 名员工，起点是 1,000 人的试点，默认模型 GPT-6.1 Sol。用途集中在知识型日常——信息调研、准备会议简报、做演示文稿、数据分析、把跨应用的事串成完整工作流，接入 Google Drive、Gmail、Google Calendar 与 Slack；运营、财务、市场、产品等职能都在用，工程团队继续用 Codex 写代码。配套动作是内部 AI 技能库、经批准的集成清单和专门的员工培训。Uber CTO Praveen Neppalli Naga 的说法是「Uber 一直是一家由建设者组成的公司」；Brockman 的说法是把前沿模型与智能体的组合交到「数万名员工」手里。这条的分量不在数字，在路径：先一千人试，跑通了再全公司推，中间没有喊口号。",
+    keyPoints: [
+      "覆盖 30,000+ 员工，起点是 1,000 人试点，默认模型 GPT-6.1 Sol",
+      "接 Google Drive、Gmail、Calendar、Slack，用途是调研、会议简报、演示文稿、数据分析、跨应用工作流",
+      "工程团队不并入这条线，继续用 Codex 写代码——知识与工程两条路径分开走",
+      "配套是内部 AI 技能库、经批准的集成清单与员工培训，不是发个账号就完事",
+      "这是「千人试点→全员推开」的完整样本，比发布会上的演示更能说明企业侧的真实节奏",
+    ],
+    org: "OpenAI / Uber",
+    category: "行业动态",
+    date: "2026-10-22",
+    heat: 66,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方客户案例（2026-10-22）",
+    sourceUrl: "https://openai.com/index/uber-chatgpt-work-rollout/",
+  },
+  {
+    id: "anthropics-knowledge-work-plugins",
+    title: "Anthropic 把知识工作者的插件库开源了：31.5k star、Apache-2.0，一天又涨三百多 star",
+    summary:
+      "anthropics/knowledge-work-plugins 是 Anthropic 官方仓库，定位是给知识工作者在 Claude Cowork 里用的插件集合。截至 10-23，31,557 star、3,530 fork，许可证 Apache-2.0，最近一次提交在 10-22，当日 GitHub 趋势新增约 303 star。它解决的问题很具体：Cowork 里的能力不是靠提示词堆出来的，而是一个个可复用、可安装的插件；官方把自家那套摊开给人看，等于公开了「怎么把一个工作流封装成插件」的参考答案。需要注意的坑有三个：这是官方主导的仓库，插件质量与更新节奏跟着 Cowork 的产品走，不等于社区共建；Apache-2.0 允许商用，但插件里调用 Anthropic 服务的部分仍受 API 条款约束；31.5k star 里有多少是「收藏了没用」的，从 star 数上看不出来。",
+    keyPoints: [
+      "owner/repo：anthropics/knowledge-work-plugins，31,557 star / 3,530 fork，Apache-2.0",
+      "最近一次提交在 2026-10-22，当日 GitHub 趋势新增约 303 star，属官方仓库的持续活跃",
+      "解决的是「工作流怎么封装成可安装插件」——把官方内部写法摊开，不是又一个提示词合集",
+      "坑一：节奏跟 Cowork 产品走，不是社区共建；插件调用的服务仍受 Anthropic API 条款约束",
+      "坑二：star 数不等于跑通率，Apache-2.0 只解决许可证，不解决「装上去能不能用」",
+    ],
+    org: "Anthropic",
+    category: "开源项目",
+    date: "2026-10-22",
+    heat: 57,
+    authority: "official",
+    precision: "exact",
+    sourceName: "GitHub 项目页（anthropics/knowledge-work-plugins，最近提交 2026-10-22）",
+    sourceUrl: "https://github.com/anthropics/knowledge-work-plugins",
+  },
+  {
+    id: "anthropic-claude-duet",
+    title: "Anthropic 上线主动型智能体 Claude Duet：肯替你付钱，但买卖证券、账户转账「即使批准也不做」",
+    summary:
+      "10-21，Anthropic 开放 Claude Duet 的研究预览，只对美国区 Pro 与 Max 订阅者候补开放，独立 app 上 iOS 与 Android，网页端挂在 claude.ai。底座是 Claude Opus 5.5，跑在自己的一台虚拟机上、带自己的浏览器，用户关掉设备它也继续干。行为模式是主动的：每天早晨把连接应用里最要紧的几件事汇成一份简报，白天每隔几小时巡检一次，只在真需要你的时候才发消息，接 Claude Marketplace 的 6,000 多个连接器与插件。授权分两级，这是全场最值得记的一处：「发消息、付款、签文件、删除」之前它把要干什么原样摊出来等你点头；而买卖证券、在账户之间转账属于「即使你批准也不行」。付款走 Stripe Link 或 Shop Pay，卡号是一次性虚拟卡，它拿不到完整卡号；凭证层面它看不见密码与登录令牌，另配一个专用分类器加系统提示词拦信用卡号与政府证件号，上线前做了红队与外部渗透测试，还挂在公开漏洞赏金计划下。代价与短板官方没藏：后台巡检计入同一套用量额度，可能误判事项紧急程度，两次检查之间会漏掉新出现的事，订票这类生活琐事目前还不行。",
+    keyPoints: [
+      "10-21 研究预览，仅美国 Pro/Max 候补；独立 iOS/Android app + claude.ai，底座 Claude Opus 5.5",
+      "自带虚拟机与浏览器，关掉设备后继续跑；早晨简报 + 每几小时巡检，接 6,000+ 连接器",
+      "两级授权：发消息/付款/签文件/删除要你点头；买卖证券、账户间转账「即使你批准也不做」",
+      "付款走一次性虚拟卡，模型拿不到完整卡号；凭证设计上它看不见密码与登录令牌",
+      "代价写在明处：后台巡检占同一套额度，官方承认会误判紧急程度、检查间隙会漏事",
+    ],
+    org: "Anthropic",
+    category: "产品发布",
+    date: "2026-10-21",
+    heat: 88,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方发布文（2026-10-21）",
+    sourceUrl: "https://claude.com/resources/articles/claude-duet",
+    article: "/blog/2026-10-23-pays-but-wont-move-money.html",
+  },
   {
     id: "openai-models-on-google-cloud",
     title: "OpenAI 把前沿模型和 Codex 摆上 Google Cloud 的货架：可用 GCP 承诺额抵扣，还要进 Antigravity 与 Gemini Agent",
