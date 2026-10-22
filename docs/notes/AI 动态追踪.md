@@ -95,6 +95,8 @@ order: -9
 
 ### 近两周
 
+- **2026-10-22** — Decisions API 正式可用：基于 GPT-6 Luna，专做「边界答案」（predicate / choice / score 三类），按输入计费 $0.10/百万 token、缓存输入 $0.01、输出不计费，官方称比 GPT-6 Luna 快最多 10 倍；Sierra 称 p95 <280ms、单次调用成本降 90%，Datadog 称智能体 shell 命令风险评分 p95 快 40 倍。（openai.com/index/decisions-api）
+- **2026-10-22** — Uber 把 ChatGPT Work 从 1,000 人试点推到全公司 30,000+ 员工，默认模型 GPT-6.1 Sol，接 Google Drive / Gmail / Calendar / Slack，工程团队继续用 Codex。（openai.com/index/uber-chatgpt-work-rollout）
 - **2026-10-21** — 官方公告：前沿模型与 Codex 智能体工作流接入 Google Cloud Model Garden，经 Marketplace 交易、可用 GCP 承诺额抵扣，并「即将」进 Google Antigravity 与 Gemini Agent；正式可用在「未来几周」，未给价格与首发名单，公告单列一句「微软仍是主要云合作伙伴」。（openai.com/index/openai-models-google-cloud）
 - **2026-10-21** — 安全博客：前沿模型（Calif 用 GPT-5.6 Sol）与 Wiz 各自发现 PHP 的两处危急漏洞并完成协同披露，合作方含 PHP 维护者、Cloudflare 与 CISA 等，另承诺 10 亿美元补贴 Daybreak 防御方访问、放出 Codex skill 版 PHP 版本检查器。（openai.com/index/coordinated-disclosure-of-critical-vulnerabilities）
 - **2026-10-21** — ChatGPT 广告新增 26 国、覆盖 89 国，官方称上线 8 个多月已有超 10 万名广告主投放；广告只出现在 Free 与 Go 两档。（openai.com/index/chatgpt-ads-expands-26-new-countries）
@@ -148,6 +150,8 @@ order: -9
 
 ### 近两周
 
+- **2026-10-22** — 官方开源 anthropics/knowledge-work-plugins（Apache-2.0，31.5k star / 3.5k fork），面向知识工作者的 Claude Cowork 插件库，当日 GitHub 趋势 +303 star。（github.com/anthropics/knowledge-work-plugins）
+- **2026-10-21** — 开放 Claude Duet 研究预览：主动型 Agent，独立 iOS/Android app + claude.ai，基于 Opus 5.5，自带虚拟机与浏览器，早晨推送简报、每几小时巡检一次，接 6,000+ 连接器；发消息/付款/签文件/删除前需批准，买卖证券与账户间转账「即使批准也不做」，仅美国 Pro/Max 候补。（claude.com/resources/articles/claude-duet）
 - **2026-10-20** — 内部研究模型在 Claude Science 里 64 小时自主设计 318,484 个抗蝎毒神经毒素 minibinder（约 1 万 GPU 小时），211 个送两家 CRO 实测、17 个达标（单毒素命中率 18%，多毒素 91 个全失败），官方明确「不声称做出抗毒血清」，211 个设计与数据全公开。（anthropic.com/research/claude-scorpion-toxin-binder-design）
 - **2026-10-18** — 成立 Anthropic Public Benefit Fund：先划 5% 股份，公司估值每涨 50% 董事会可再加 2%，叠加创始人 80% 与员工配捐后约 20% 股份用于公益；LLC 而非 501(c)(3)，股份不得用于游说或政治捐款，待股东批准。（anthropic.com/news/public-benefit-fund）
 - **2026-10-16** — 发布《How employment is changing at Anthropic》：员工指挥的交互式智能体工时达人类 6 倍（全公司总工时 3 月首次反超），交互式会话约八成时间在等人，初级技术岗招聘占比 27%→9%、在职占比 21%→14%。（anthropic.com/research/employment-at-anthropic）
