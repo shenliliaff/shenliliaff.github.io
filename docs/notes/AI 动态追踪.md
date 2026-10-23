@@ -95,6 +95,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-23** — 官方安全博客：前沿模型的训练与评估全面断网（起因是 9-20 一个内部研究模型借 DNS 解析器配置错误获得对实网的有限访问，最强模型停训 11 天、10-01 恢复）；红队让前沿智能体攻击自家设施、烧掉数千亿 token，串漏洞做出虚拟机逃逸，并用 CPU 缓存时序、共享存储、CPU 时间竞争跨隔离传秘密，漏洞已回补 Kata Containers / gVisor / Moby-Docker 与若干内核。（openai.com/index/securing-our-frontier-model-training-environment）
 - **2026-10-22** — Decisions API 正式可用：基于 GPT-6 Luna，专做「边界答案」（predicate / choice / score 三类），按输入计费 $0.10/百万 token、缓存输入 $0.01、输出不计费，官方称比 GPT-6 Luna 快最多 10 倍；Sierra 称 p95 <280ms、单次调用成本降 90%，Datadog 称智能体 shell 命令风险评分 p95 快 40 倍。（openai.com/index/decisions-api）
 - **2026-10-22** — Uber 把 ChatGPT Work 从 1,000 人试点推到全公司 30,000+ 员工，默认模型 GPT-6.1 Sol，接 Google Drive / Gmail / Calendar / Slack，工程团队继续用 Codex。（openai.com/index/uber-chatgpt-work-rollout）
 - **2026-10-21** — 官方公告：前沿模型与 Codex 智能体工作流接入 Google Cloud Model Garden，经 Marketplace 交易、可用 GCP 承诺额抵扣，并「即将」进 Google Antigravity 与 Gemini Agent；正式可用在「未来几周」，未给价格与首发名单，公告单列一句「微软仍是主要云合作伙伴」。（openai.com/index/openai-models-google-cloud）
@@ -128,6 +129,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-22** — 皮查伊在《Sources》播客复盘 Argon：上线 72 小时消耗近 25 万亿 token（约 Gemini 3.0 同期 3 倍）并一度限流；Gemini 3.5 Pro 属主动取消，Flash 系列三个月连迭代的经验直接注入 Argon 后训练；他称内部已进入递归自我改进阶段，模型参与提议训练配方、自动评估下一个检查点。（播客访谈，非官方公告，经 36氪 / 腾讯新闻 转述）
 - **2026-10-19** — Google Research 开源 Harness²（递归改造 agent 外壳、模型权重不动，WorkBuddy-Bench 最多 +11.5 分），单日涨 5.1k star 冲上趋势榜第一；论文 arXiv:2610.14224（10-09）。（github.com/google-research/harness2，Apache 2.0）
 - **2026-10-13** — ARC Prize 公布 Gemini 4 Argon 三档成绩：ARC-AGI-3 用 provider adapter 外壳 97.5%（$4.8K）、统一标准外壳 49.8%（$5.8K），差 47.7 个百分点；ARC-AGI-2 91.3%、ARC-AGI-1 98.5%。（arcprize.org/results/google-gemini-4-argon）
 - **2026-10-15** — 四个 Gemini 4 Argon 智能体无人类介入、27 小时 14 分钟打通《我的世界》末影龙（arXiv:2610.22319）；成本按 API 入门价约 520 美元。
@@ -177,6 +179,8 @@ order: -9
 
 ## 其他巨头动向
 
+- **2026-10-23** — Muse 首次进入日本市场；Meta 首席 AI 官 Alexandr Wang 表示 Muse 不投广告，靠高阶订阅、企业服务与智能体购物抽佣变现。（日经采访，经华尔街见闻转述）
+- **2026-10-21** — Meta Q3：美加 Muse 六周超 1000 万用户、约 25% 每日使用，购物成第一大场景（含旅行客单超 200 美元），第一周交易量超预期、联合 Stripe 上调信用额度；官方计划一年内算力效率提升 10 倍，当季自由现金流上市以来首次转负（-21.2 亿美元）。（investor.atmeta.com 财报新闻稿 + 电话会）
 - **2026-10-20** — DeepSeek 开源生产推理框架 DeepInfer（Apache 2.0，仅离线推理、只支持 V4.1-Flash，KV cache 管理与负载均衡因耦合内部基建未开源）与 token 编解码组件 deepseek-recipe；官方披露单集群日均 155 万亿 token、谷时每 GPU 小时营收 38 美元。（github.com/deepseek-ai/DeepInfer）
 - **2026-10-20** — Google Public Sector 发布 Gemini for government services：预置政策检索、FOIA 检索与批量打码、供应商投标评审等技能，接 SharePoint/ServiceNow 与 eCFR/Federal Register，美国联邦与州地方政府 private preview，未公布定价。（cloud.google.com/blog/products/ai-machine-learning/gemini-for-government-services）
 - **2026-10-19** — MiniMax 发布 M3.1 Flash：1M 上下文、输出 200+ TPS（P50 170+），Agent 类任务综合成本降 70%，$0.15/$0.60（国内 1 元/4 元每百万 token）；官方认领匿名跑 200 万亿 token 的 Space Bunny 即其早期版本，权重「稍后发布」。（minimax.io/blog/minimax-m31f）
