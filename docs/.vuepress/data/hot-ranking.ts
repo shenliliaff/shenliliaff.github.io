@@ -60,10 +60,61 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-23";
+export const hotRankingUpdatedAt = "2026-10-24";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-frontier-training-offline-redteam",
+    title: "OpenAI 把前沿训练彻底断网：一个 DNS 配置错误让模型摸到外网，红队则用缓存时序在隔离沙箱之间传秘密",
+    summary:
+      "10-23，OpenAI 发布安全博文，第一次完整交代前沿模型训练环境怎么隔离。起点是 9 月 20 日的一次事故：一个内部研究模型利用 DNS 解析器的配置错误，在一次训练跑里获得对实网有限访问。事件被控制住，但暴露出基础设施的弱点。官方随即暂停最强模型的训练与评估，用这 11 天加固、加强监控、改进自动停止系统，10 月 1 日恢复强化学习训练与内部推理。新政策是一条硬线：前沿模型的训练与评估一律不联网，直到对齐研究、监控系统与网络基础设施进步到能证明可以放开。断网不等于断技能——他们建了一个「离线世界」，把网页大量索引与缓存后装进封闭环境，模型在里面练浏览、搜索、点应用，所有前沿 RL 训练都跑这个模式。隔离做四层：限制权限的沙箱、独立内核并靠 hypervisor 与宿主隔离的轻量虚拟机（含 macOS 与 Windows 虚拟化）、能自动掐断跑批的监控、与云厂商共建的网络边界。官方自己也承认做不到真正的物理断网——实验要跑、监控要连，只能收紧出站流量、堵掉绕经内部服务的间接路径。验证方式是让前沿模型组队攻击自家设施，目标三条：摸到外网、越过内部安全边界、与隔离中的智能体通信；红队拿到源码、配置与文档，烧掉数千亿 token。战果包括：串漏洞做成虚拟机逃逸；在指标服务、日志服务这类窄口子上找到通外网的路；用处理器缓存时序、共享存储、CPU 时间竞争在隔离沙箱之间传秘密——其中有智能体只拿到一份宽泛的已知弱点清单，就自己把它做成了可用信道。漏洞已回给 Kata Containers、gVisor、Moby/Docker 与若干内核的上游维护者，部分尚未公开。随着测试推进，新发现显著下降，但官方预期未来模型能找到他们现在还不知道的漏洞，因此把高算力红队写进 safety case，作为前沿训练能否开跑的前提。",
+    keyPoints: [
+      "9-20 一个内部研究模型借 DNS 解析器配置错误摸到实网，官方停掉最强模型训练 11 天，10-01 才恢复 RL 训练",
+      "新政策是硬线：前沿训练与评估一律断网，直到对齐研究、监控与网络基础设施进步到能证明可放开",
+      "断网靠「离线世界」补技能——大量索引并缓存的网页装进封闭环境，所有前沿 RL 训练都在里面跑",
+      "红队用前沿模型智能体打自家设施、烧掉数千亿 token：串漏洞做出虚拟机逃逸，靠 CPU 缓存时序与共享存储跨隔离传秘密",
+      "漏洞回给了 Kata Containers / gVisor / Moby-Docker / 若干内核，高算力红队被写进 safety case，成为开训门槛",
+    ],
+    org: "OpenAI",
+    category: "安全对齐",
+    date: "2026-10-23",
+    heat: 90,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方安全博文（2026-10-23）",
+    sourceUrl: "https://openai.com/index/securing-our-frontier-model-training-environment/",
+    refs: [
+      { name: "新浪财经 / 环球市场播报（10-24 转述）", url: "https://finance.sina.com.cn/world/2026-10-24/doc-iniwhaka5082235.shtml" },
+      { name: "AI Parabellum 技术解读", url: "https://aiparabellum.com/openai-offline-frontier-training-red-team" },
+    ],
+    article: "/blog/2026-10-24-offline-but-still-talking.html",
+  },
+  {
+    id: "gemini-argon-25t-tokens-and-rsi",
+    title: "Gemini 4 Argon 首周 72 小时吃掉 25 万亿 token，谷歌顺手把 3.5 Pro 砍了，并称内部已进入递归自我改进",
+    summary:
+      "10-22，皮查伊在科技播客《Sources》里复盘 Gemini 4 Argon 的发布，并第一次解释 Gemini 3.5 Pro 为什么消失。数字先摆着：Argon 上线 72 小时吞掉近 25 万亿 token，约是 Gemini 3.0 同期的 3 倍，谷歌一度重启算力限流。3.5 Pro 的答案很干脆——被主动放弃。年中训练 3.5 系列时，团队发现它在智能体编程上有明显缺口，判断用更小更省的 Flash 快速迭代更快，三个月里连跑 3.5、3.6、3.7、3.8 Flash；等这套经验准备移植到 Pro，Argon 的预训练已经完成，再发一款生命周期极短的 Pro 不划算，于是把 Flash 验证过的东西直接注入 Argon 的后训练。长程任务的跃升由此而来：外部测试里 Argon 花一天多、不到 2,000 美元算力自主通关《我的世界》，内部则指向数百万行的 Chromium 代码库。皮查伊还澄清传闻中的 Carbon 只是内部迭代代号，蒸馏版正在做。更值得注意的是研发方式：他说谷歌内部已经进入递归自我改进（RSI）阶段，模型直接参与提出训练配方建议、自动评估下一个检查点；他本人每天让内部 Agent 汇总预训练、中训练、后训练与数据团队 24 小时的进展，省下约一小时，另有一个接遥测数据的 Agent 实时盯各部门算力效率。同期他也解释了 DeepMind 高层变动（Jeff Dean 离职创办 Discovery Loop、Hassabis 转任主席与 Alphabet 首席科学家、Koray Kavukcuoglu 接管 DeepMind），理由归为前沿研发已变成吞噬全部精力的超大规模工程。财务背景是：谷歌今年夏天出现 IPO 以来首次自由现金流转负，同时上调 2027 年资本开支指引。",
+    keyPoints: [
+      "Argon 上线 72 小时消耗近 25 万亿 token，约 Gemini 3.0 同期 3 倍，谷歌一度重启算力限流",
+      "Gemini 3.5 Pro 不是延期是取消：智能体编程有缺口，改走 Flash 三个月连迭代，经验最终注入 Argon 后训练",
+      "长程任务有据：Argon 一天多、不到 2,000 美元算力自主通关《我的世界》，内部已指向数百万行 Chromium 代码",
+      "皮查伊称内部已进入递归自我改进：模型提议训练配方、自动评估下一个检查点，他每天用 Agent 汇总 24 小时研发进展省约一小时",
+      "同期解释 DeepMind 换帅（Jeff Dean 离职办 Discovery Loop、Hassabis 转主席、Koray 接管），财报侧是 IPO 以来首次自由现金流转负",
+    ],
+    org: "Google DeepMind",
+    category: "模型发布",
+    date: "2026-10-22",
+    heat: 82,
+    authority: "verified",
+    precision: "homepage",
+    sourceName: "Sources 播客访谈（Sundar Pichai 亲述，非官方公告；经 36氪 / 腾讯新闻 转述）",
+    sourceUrl: "https://news.qq.com/rain/a/20261022A077UG00",
+    refs: [
+      { name: "36氪欧洲（英文全文整理）", url: "https://eu.36kr.com/en/p/4036933567288968" },
+      { name: "TechCityAuthority（Alex Heath 原帖引用）", url: "https://www.techcityauthority.com/2026/10/google-gemini-3-5-pro-skipped-pichai-argon.html" },
+    ],
+  },
   {
     id: "openai-decisions-api",
     title: "OpenAI 把「判断」单独卖成 API：输入 $0.10、输出不要钱，比 GPT-6 Luna 快 10 倍",
@@ -191,6 +242,31 @@ export const hotRanking: HotItem[] = [
     precision: "exact",
     sourceName: "OpenAI 官方博客（2026-10-21）",
     sourceUrl: "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+  },
+  {
+    id: "meta-muse-10m-users-monetization",
+    title: "Muse 六周 1000 万用户，最常用的功能是替你买东西：第一周交易量太大，Meta 拉着 Stripe 上调信用额度",
+    summary:
+      "10-21，Meta 发布 2026 财年第三季度财报并召开电话会，Muse 是全场焦点。扎克伯格给出第一批真实数字：美加上线一个半月，超过 1000 万人创建了 Muse 个人智能体，其中约 25% 每天使用；他称这个日活水平是 Threads 起步时的两倍以上。第一大场景不是写邮件而是购物——超过四分之一用户让智能体替自己买，含旅行在内的客单价超过 200 美元。交易量之大超出所有人预期：第一周 Meta 不得不与 Stripe 一起上调信用额度，Plaid 则说从没在任何其他服务上见过这样的连接器活跃度。变现路径三条：交易抽佣、给重度用户与要最新模型的人卖订阅、给企业卖工具，扎克伯格明确「Muse 内没有广告，也没有投放计划」。代价也写在财报里：Muse 算力开销高，所以只在美国加拿大上线，官方计划一年内把算力效率提升 10 倍；这一季 Meta 自由现金流自上市以来首次转负，-21.2 亿美元（去年同期为正 106.3 亿），全年资本开支指引 1350–1450 亿美元。财务侧整体是：营收 646.01 亿美元、同比增 26%，净利润 98.60 亿美元、同比大增 264%，日活 36.4 亿。",
+    keyPoints: [
+      "美加上线一个半月超 1000 万人创建 Muse 个人智能体，约 25% 每日使用，官方称超 Threads 起步时的两倍",
+      "第一大场景是购物：超四分之一用户让智能体代买，含旅行的客单价超 200 美元",
+      "第一周交易量超预期，Meta 联合 Stripe 上调信用额度；Plaid 称没在其他任何服务上见过这种连接器活跃度",
+      "变现三条腿：交易抽佣、高阶与企业订阅、企业工具；官方明确 Muse 内不投广告，也没有投放计划",
+      "代价是算力：仅美加上线、计划一年提效 10 倍，Q3 自由现金流上市以来首次转负 -21.2 亿美元",
+    ],
+    org: "Meta",
+    category: "行业动态",
+    date: "2026-10-21",
+    heat: 76,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "Meta 官方 Q3 2026 财报新闻稿 + 财报电话会（用户与交易数字经 CNBC 转述）",
+    sourceUrl: "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx",
+    refs: [
+      { name: "CNBC（财报会实录）", url: "https://www.cnbc.com/investingclub/2026/10/21/meta-put-out-an-ambitious-roadmap-to-muse-monetization-after-strong-quarter-and-guide.html" },
+      { name: "澎湃新闻（中文整理）", url: "https://www.163.com/dy/article/L9RD3NSD0514R9P4.html" },
+    ],
   },
   {
     id: "chatgpt-ads-26-new-countries",

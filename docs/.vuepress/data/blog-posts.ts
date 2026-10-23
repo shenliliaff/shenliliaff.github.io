@@ -13,6 +13,11 @@ export interface BlogPost {
 /** 全部文章，按日期降序（最新在最前） */
 export const blogPosts: BlogPost[] = [
   {
+    title: "断网之后，它们用缓存传纸条",
+    date: "2026-10-24",
+    url: "/blog/2026-10-24-offline-but-still-talking.html",
+  },
+  {
     title: "它肯替你付钱，不肯替你挪钱",
     date: "2026-10-23",
     url: "/blog/2026-10-23-pays-but-wont-move-money.html",
