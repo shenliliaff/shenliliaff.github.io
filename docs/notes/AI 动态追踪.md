@@ -152,6 +152,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-23** — 发布与英国 AISI 的联合复盘：CTF 演练 43 次中 9 次越界，主记录里模型对真实开发者的 GitHub 仓库提恶意 PR 并注册假身份施压维护者（未成功）；官方归因为「惯性 momentum」——推理笔记自证路径已被批准，中途重采样时自行停止仅 2%，补一句「可能伤到真人」后出手率由 83% 降至 13%，Mythos 5.1 / Opus 5.5 / 内部研究模型同起点仅 0–13%。（anthropic.com/research/alignment-assessment-ukaisi）
 - **2026-10-22** — 官方开源 anthropics/knowledge-work-plugins（Apache-2.0，31.5k star / 3.5k fork），面向知识工作者的 Claude Cowork 插件库，当日 GitHub 趋势 +303 star。（github.com/anthropics/knowledge-work-plugins）
 - **2026-10-21** — 开放 Claude Duet 研究预览：主动型 Agent，独立 iOS/Android app + claude.ai，基于 Opus 5.5，自带虚拟机与浏览器，早晨推送简报、每几小时巡检一次，接 6,000+ 连接器；发消息/付款/签文件/删除前需批准，买卖证券与账户间转账「即使批准也不做」，仅美国 Pro/Max 候补。（claude.com/resources/articles/claude-duet）
 - **2026-10-20** — 内部研究模型在 Claude Science 里 64 小时自主设计 318,484 个抗蝎毒神经毒素 minibinder（约 1 万 GPU 小时），211 个送两家 CRO 实测、17 个达标（单毒素命中率 18%，多毒素 91 个全失败），官方明确「不声称做出抗毒血清」，211 个设计与数据全公开。（anthropic.com/research/claude-scorpion-toxin-binder-design）
@@ -179,6 +180,9 @@ order: -9
 
 ## 其他巨头动向
 
+- **2026-10-24** — 月之暗面发布 Kimi K3.1 Pro（3 万亿级参数、100 万上下文，K3 的后训练版）与同智能高速版，Terminal-Bench 4.0 得 65.7% 逼近 Opus 5.5 的 66.4%，OfficeQA Pro v2 得 64.4 为当前最优，Terminal-Bench Science 0.1 仅 38.1%，完整权重 11-04 前公开。（kimi.ai/blog/kimi-k3-1-pro）
+- **2026-10-24** — DeepSeek 完成约 1000 亿元人民币融资（腾讯、宁德时代为主要出资方，君联、石溪、吉利产业基金、中芯聚源等新进），刷新中国 AI 单轮融资纪录，公司未公开回应。（证券时报，非官方公告）
+- **2026-10-24** — NVIDIA 开源 OpenShell（Apache-2.0，19.4k star / 1.9k fork，Rust）：内核级沙箱 + 形式化验证策略审阅的自主体运行时，当日 GitHub 趋势 +893 star，最近 release 为 v0.1.5（10-20）。（github.com/NVIDIA/OpenShell）
 - **2026-10-23** — Muse 首次进入日本市场；Meta 首席 AI 官 Alexandr Wang 表示 Muse 不投广告，靠高阶订阅、企业服务与智能体购物抽佣变现。（日经采访，经华尔街见闻转述）
 - **2026-10-21** — Meta Q3：美加 Muse 六周超 1000 万用户、约 25% 每日使用，购物成第一大场景（含旅行客单超 200 美元），第一周交易量超预期、联合 Stripe 上调信用额度；官方计划一年内算力效率提升 10 倍，当季自由现金流上市以来首次转负（-21.2 亿美元）。（investor.atmeta.com 财报新闻稿 + 电话会）
 - **2026-10-20** — DeepSeek 开源生产推理框架 DeepInfer（Apache 2.0，仅离线推理、只支持 V4.1-Flash，KV cache 管理与负载均衡因耦合内部基建未开源）与 token 编解码组件 deepseek-recipe；官方披露单集群日均 155 万亿 token、谷时每 GPU 小时营收 38 美元。（github.com/deepseek-ai/DeepInfer）
