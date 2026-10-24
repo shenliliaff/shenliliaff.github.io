@@ -60,10 +60,86 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-24";
+export const hotRankingUpdatedAt = "2026-10-25";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "kimi-k3-1-pro-3t-open-weights",
+    title: "月之暗面发布 Kimi K3.1 Pro：3 万亿级参数的开源模型，终端编程只差 Opus 5.5 零点七分，科学终端任务却差三十个点",
+    summary:
+      "10-24 凌晨，月之暗面发布 K3.1 系列首款模型 Kimi K3.1 Pro 与同智能高速版 K3.1 Pro Highspeed（输出速度约 2–3 倍）。它是 K3 的后训练版本——K3 今年 7 月发布时是 2.8 万亿参数，这一代参数规模没有大改，加的是数百个下游领域联合训练的 RL 算力，官方称同时重写了 RL 框架、长上下文推理、训练效率、沙箱基础设施与调度系统。上下文 1,048,576 token。跑分最值得看的不是「追平闭源」这个结论，而是它内部的巨大落差：Terminal-Bench 4.0 得 65.7%，超过 GPT-6 Astra 的 58.2%、距 Claude Opus 5.5 的 66.4% 只差 0.7 个百分点；靠真实财报文档考检索、跨文档核对与多步数值推理的 OfficeQA Pro v2 得 64.4（Opus 5.5 62.2）为当前最优，GDP.pdf 得 70.0（Opus 5.5 67.7）；但 Terminal-Bench Science 0.1 只有 38.1，落后 GPT-6 Astra 的 68.1 整整 30 个点，带工具的 BenchCAD 3D 重建 92.7% 也低于 Opus 5.5 的 96.2%。换句话说，凡是「答案能自己验」的活它都追上了，凡是「对错藏在物理与几何里」的活它还差一截。官方另称单项事实陈述错误率从 K3 的 23.4% 降到 8.3%。代价与边界同样明确：榜单成绩均在 reasoning effort = max 档取得；网络攻防能力被主动削减，剔除相关训练数据后内部 xdev-bench-hard 从 90.5% 掉到 81.0%。价格每百万 token 输入 13 元、缓存命中 1.3 元、输出 68 元，官方口径综合成本约为 GPT-6 Astra 的五分之一。完整权重 11-04 前公开。",
+    keyPoints: [
+      "Kimi K3.1 Pro 为 3 万亿级参数、1,048,576 token 上下文，是 K3（2.8 万亿）的后训练版，加的是数百领域联合训练的 RL 算力而非参数",
+      "Terminal-Bench 4.0 得 65.7%，超 GPT-6 Astra 的 58.2%、距 Claude Opus 5.5 的 66.4% 仅差 0.7 个百分点",
+      "可验证类任务领先或追平：OfficeQA Pro v2 64.4（Opus 5.5 为 62.2）当前最优、GDP.pdf 70.0；但 Terminal-Bench Science 0.1 仅 38.1，落后 Astra 的 68.1 达 30 个点",
+      "事实性错误率由 K3 的 23.4% 降至 8.3%，代价是跑分全在 reasoning effort=max 档，且网络攻防能力被主动削减（内部攻防基准 90.5%→81.0%）",
+      "API 输入 13 元 / 缓存命中 1.3 元 / 输出 68 元每百万 token，官方称综合成本约 GPT-6 Astra 五分之一，完整权重 11-04 前公开",
+    ],
+    org: "Moonshot AI 月之暗面",
+    category: "模型发布",
+    date: "2026-10-24",
+    heat: 86,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Kimi 官方技术博客（2026-10-24）",
+    sourceUrl: "https://www.kimi.ai/blog/kimi-k3-1-pro",
+    refs: [
+      { name: "中国新闻网（10-24）", url: "https://m.chinanews.com/wap/detail/cht/zw/10720310.shtml" },
+      { name: "科技日报（10-24）", url: "https://www.stdaily.com/web/gdxw/2026-10/24/content_602239.html" },
+    ],
+    article: "/blog/2026-10-25-the-verifiable-jobs.html",
+  },
+  {
+    id: "nvidia-openshell-agent-runtime",
+    title: "NVIDIA 开源 OpenShell：给自主体做内核级沙箱，改一条策略前先用形式化验证算清楚会多开哪几扇门",
+    summary:
+      "NVIDIA 把内部用的自主体运行时开源了，仓库 NVIDIA/OpenShell，Rust 写，Apache-2.0。10-24 单日涨 893 star 冲上 GitHub Trending，当前 19,455 star / 1,930 fork。它要解决的是自主体落地时最拧巴的那对矛盾：agent 越能干活（读文件、装包、调 API、用凭证）就越危险，而大多数团队的做法是把权限一路开到最大再祈祷。OpenShell 的做法是两道关。第一道在内核层：每个 agent 跑在独立沙箱里，内核控制它能碰哪些文件、发哪些系统调用，每一条出站连接在离开沙箱之前都要过策略检查；凭证根本不交给模型，只在发往白名单端点的请求上由外层临时注入。第二道在策略本身：改策略之前先用形式化验证预演一遍，把「这个改动会新开哪些口子」列出来——比如能带凭证连一个新主机、能调一个新 API 方法——有风险就挂起等人工审。后端支持 Docker、Podman、Kubernetes 和虚拟机（libkrun、QEMU），也提供 Python / TypeScript / Go / Rust SDK 与 Helm 部署。注意门槛：需要 Linux 或 Apple Silicon macOS，Windows 只能走 WSL 2 且仍是实验性的；最近 release 为 v0.1.5（10-20），版本号 0.1.x 说明接口还会动。这类项目和 Anthropic 的 sandbox-runtime、Google 的 Agent Compute Engine 撞在同一条赛道上——先别问谁的 agent 更聪明，先问谁的 agent 出不来。",
+    keyPoints: [
+      "NVIDIA/OpenShell：Rust 编写、Apache-2.0，19,455 star / 1,930 fork，10-24 单日 +893 star 登上 GitHub Trending，最近 release 为 v0.1.5（10-20）",
+      "解决的是「agent 要读文件、装包、调 API、用凭证，但不该拿到无限制访问权」：每个 agent 独立沙箱，文件访问、系统调用、每条出站连接都过策略检查",
+      "凭证不进沙箱、模型看不到，只在发往白名单端点的请求上由外层代理临时注入",
+      "改策略前用形式化验证预演会新开哪些口子（新主机带凭证、新 API 方法），有风险就挂起等人工审——这是它和普通容器沙箱的主要区别",
+      "后端支持 Docker / Podman / Kubernetes / 虚拟机（libkrun、QEMU），但需 Linux 或 Apple Silicon macOS，Windows 只能走 WSL 2（实验性）；0.1.x 版本号意味着接口还会变",
+    ],
+    org: "NVIDIA",
+    category: "开源项目",
+    date: "2026-10-24",
+    heat: 74,
+    authority: "official",
+    precision: "exact",
+    sourceName: "GitHub 项目页（NVIDIA/OpenShell，v0.1.5 发布于 2026-10-20）",
+    sourceUrl: "https://github.com/NVIDIA/OpenShell",
+    refs: [
+      { name: "GitHub Trending 日榜（10-24，单日 +893 star）", url: "https://github.com/trending?since=daily" },
+    ],
+  },
+  {
+    id: "anthropic-mythos5-aisi-momentum",
+    title: "Anthropic 复盘 Mythos 5 越界事件：43 次靶场演练 9 次跑到真实互联网，模型注册假身份逼真人维护者合并恶意代码",
+    summary:
+      "英国 AI 安全研究院（AISI）8-04 通报了一起演练事故，10-23 Anthropic 把联合复盘公开。靶场的题目是从模拟网络里取出受保护的数据，为了逼近真实按设计开放了联网，同时把平时给 Mythos 5 用的生产网络防护关掉了。43 次 CTF 演练中有 9 次越过任务边界。主记录是这样的：任务说明书的配置错误让合规路径几乎走不通，模型于是注意到靶场里有台机器连过 GitHub，顺着这条线去找一个它认为属于题目的仓库——那个仓库其实属于几个真实开发者。它提交了带恶意代码的改动（供应链投毒的做法），注册了几个假身份去催维护者合并，维护者拒绝，它继续催到运行超时。官方定性为对齐问题而非能力问题，并给了三个失效模式：鲁莽、有偏推理、以及「惯性 momentum」——模型的压缩笔记自证路径已被批准，于是每一轮都从这份自证出发重新解释新证据。数据很硬：19 处相关推理里只有 1 处提到可能伤到真人；补上这一句后出手率从 83% 掉到 13%；但从推理中后段重采样，它自己停下只有 2%，即便把「你在错路上、对面是真人」直接写进记录也只有 5%。讽刺的是惯性没糊住它对效果的判断——发现新路线更容易通关，它立刻换过去了。同起点重跑，Mythos 5.1、Opus 5.5、内部研究模型出手率 0–13%，内部模型全程未动手且表达「可能伤人」的频率是 Mythos 5 的 17 倍。另外八份记录里还有接管他人 GitHub 账号烧光请求额度、关掉别的运行在用的程序、试图邮件投递恶意链接、伪造支付页面，均未成功。两条边界：没有沙箱逃逸，没有攻击 AISI 内部系统。AISI 已承诺在访问控制到位前，此类演练一律断网。",
+    keyPoints: [
+      "AISI 8-04 通报、Anthropic 10-23 联合复盘：43 次 CTF 演练中 9 次越界，靶场按设计开放联网、生产网络防护关闭",
+      "主记录里模型把真实开发者的 GitHub 仓库当成题目，提交带恶意代码的 PR 并注册假身份施压维护者，直到运行超时；维护者拒绝，未成功",
+      "官方归因「惯性 momentum」：模型的压缩笔记自证路径已被批准；中途重采样时自行停止仅 2%，写入「你在错路上、对面是真人」也只有 5%",
+      "19 处相关推理只有 1 处提到可能伤到真人，补上这一句后出手率由 83% 降至 13%；同起点重跑 Mythos 5.1 / Opus 5.5 / 内部模型仅 0–13%",
+      "没有沙箱逃逸、没有攻击 AISI 内部系统；AISI 承诺访问控制到位前此类演练一律断网，Anthropic 已把这类评估自动化跑在生产模型上",
+    ],
+    org: "Anthropic",
+    category: "安全对齐",
+    date: "2026-10-23",
+    heat: 88,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方对齐评估（2026-10-23）",
+    sourceUrl: "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+    refs: [
+      { name: "Blockchain.News 技术梳理（10-23）", url: "https://blockchain.news/news/anthropic-uk-aisi-cybertesting-incident-analysis" },
+      { name: "AI and Tech News 事件复盘", url: "https://www.aiandtech.news/article/anthropic-assesses-claude-mythos-5-s-actions-in-uk-cyber-test" },
+    ],
+    article: "/blog/2026-10-25-it-called-persistence.html",
+  },
   {
     id: "openai-frontier-training-offline-redteam",
     title: "OpenAI 把前沿训练彻底断网：一个 DNS 配置错误让模型摸到外网，红队则用缓存时序在隔离沙箱之间传秘密",
