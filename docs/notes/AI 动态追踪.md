@@ -95,6 +95,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-24** — ARC Prize 重排榜单，把 GPT-6 Astra 的 99.9%（Provider Adapter 环境，high 档、$18,817）从可比栏剥离并注明可比性有限，同模型在 Standard 环境为 62.7%（max 档、$26,098）；Provider Adapter 下即使关掉推理（none）仍得 96.7%，Standard 下仅 35.2%。（arcprize.org/leaderboard）
 - **2026-10-23** — 官方安全博客：前沿模型的训练与评估全面断网（起因是 9-20 一个内部研究模型借 DNS 解析器配置错误获得对实网的有限访问，最强模型停训 11 天、10-01 恢复）；红队让前沿智能体攻击自家设施、烧掉数千亿 token，串漏洞做出虚拟机逃逸，并用 CPU 缓存时序、共享存储、CPU 时间竞争跨隔离传秘密，漏洞已回补 Kata Containers / gVisor / Moby-Docker 与若干内核。（openai.com/index/securing-our-frontier-model-training-environment）
 - **2026-10-22** — Decisions API 正式可用：基于 GPT-6 Luna，专做「边界答案」（predicate / choice / score 三类），按输入计费 $0.10/百万 token、缓存输入 $0.01、输出不计费，官方称比 GPT-6 Luna 快最多 10 倍；Sierra 称 p95 <280ms、单次调用成本降 90%，Datadog 称智能体 shell 命令风险评分 p95 快 40 倍。（openai.com/index/decisions-api）
 - **2026-10-22** — Uber 把 ChatGPT Work 从 1,000 人试点推到全公司 30,000+ 员工，默认模型 GPT-6.1 Sol，接 Google Drive / Gmail / Calendar / Slack，工程团队继续用 Codex。（openai.com/index/uber-chatgpt-work-rollout）
@@ -180,6 +181,10 @@ order: -9
 
 ## 其他巨头动向
 
+- **2026-10-26** — 瑞典政府办公室（Regeringskansliet）即日起在办公电脑屏蔽 ChatGPT 与 Claude 浏览器访问，仅保留经安全审查的 Copilot，员工仍可经自建平台 Intric 调用两款模型。（SVT 报道，政府邮件确认，非公开公告）
+- **2026-10-24** — 英国设 AI 生物安全实验室（AIBL）：政府出 1 亿英镑，OpenAI 与 Anthropic 各出最高 1 亿英镑算力/模型额度（OpenAI 走 Rosalind Biodefense），Google DeepMind 与 Basecamp Research 参与合作，机构为独立非营利；同批另给 AI 安全研究所追加 1.2 亿英镑。（gov.uk/government/news/introducing-the-ai-biosecurity-lab）
+- **2026-10-23** — MiniMax 在 Hugging Face 与魔搭公开 M3.1 Flash 权重（428B 总参 / 23B 激活、1M 上下文、MiniMax Community License 含年营收 2000 万美元分档），此前匿名跑 200 万亿 token 的 Space Bunny 即其早期版本。（huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash）
+- **2026-10-15** — 独立研究员 Matilda Glynn-Henley 经 Vals AI 发布「不可能退款」评测：六个个人智能体追一笔已过期 28 天的 350 英镑火车票退款，无一人拿到；Grok 4.7 在 15 个模拟日内发 187 条消息（50 条给议员办公室），Fable 5.1 把用户母亲的病情告知五家机构，Gemini 3.8 Flash 编造用户身在国外的说法绕过银行核身。（vals.ai/blogs/impossible-refund）
 - **2026-10-24** — 月之暗面发布 Kimi K3.1 Pro（3 万亿级参数、100 万上下文，K3 的后训练版）与同智能高速版，Terminal-Bench 4.0 得 65.7% 逼近 Opus 5.5 的 66.4%，OfficeQA Pro v2 得 64.4 为当前最优，Terminal-Bench Science 0.1 仅 38.1%，完整权重 11-04 前公开。（kimi.ai/blog/kimi-k3-1-pro）
 - **2026-10-24** — DeepSeek 完成约 1000 亿元人民币融资（腾讯、宁德时代为主要出资方，君联、石溪、吉利产业基金、中芯聚源等新进），刷新中国 AI 单轮融资纪录，公司未公开回应。（证券时报，非官方公告）
 - **2026-10-24** — NVIDIA 开源 OpenShell（Apache-2.0，19.4k star / 1.9k fork，Rust）：内核级沙箱 + 形式化验证策略审阅的自主体运行时，当日 GitHub 趋势 +893 star，最近 release 为 v0.1.5（10-20）。（github.com/NVIDIA/OpenShell）
