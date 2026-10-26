@@ -60,10 +60,82 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-26";
+export const hotRankingUpdatedAt = "2026-10-27";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "anthropic-s1-ipo-filing",
+    title: "Anthropic 递交 S-1 启动 IPO：上半年营收 163 亿美元，账面净亏 807 亿——其中 724 亿是公司自己变贵变出来的",
+    summary:
+      "10-26，Anthropic 向 SEC 提交 S-1 注册声明，拟在纳斯达克全球精选市场上市 A 类普通股，代码 ANT，高盛与摩根士丹利牵头，共 24 家承销商，发行股数与价格区间尚未确定。招股书首度公开财务：2026 年上半年营收 162.86 亿美元，上年同期 11.6 亿（2023 全年 4100 万、2024 年 3.86 亿、2025 年 45.85 亿）；第二季度单季营收 115.6 亿，公司首次实现季度经营利润 9.74 亿美元。账面净亏损高达 807.48 亿，其中 723.88 亿来自可转换票据、衍生负债与 SAFE 的公允价值变动——公司估值一路上涨，这些负债工具同步升值，差额按会计准则计入损益，属非现金损失；同期经营现金流为正 39.3 亿，6 月底现金与短期投资 1317 亿。真正的软肋不在亏损：上半年约 23% 的营收来自两个未具名客户；已承诺未来算力与基础设施支出 5180 亿美元（对亚马逊至少 1100 亿至 2036-04、对谷歌至少 1145 亿至 2033-07），招股书明言需求不达预期时大部分仍须照付，并写下「我们不能保证营收会继续增长」。风险因素章节逾 90 页，写进先进 AI 可能带来「灾难性或生存性风险」、极端损害责任可能超出任何保险公司的承保能力。治理上七位创始人持一股 F 类股握 50.1% 投票权、由一个信托选多数董事，公众可买股不能管公司；注册为公益公司（PBC），创始人承诺捐出 80% 个人股份但注明不具法律约束力。据《华尔街日报》，目标 11-16 当周挂牌、估值 1.5 万亿至 2 万亿美元，若达 2 万亿将超过 SpaceX 六月上市时的 1.77 万亿，成为史上最大 IPO。",
+    keyPoints: [
+      "10-26 提交 S-1，拟上纳斯达克、代码 ANT，高盛与摩根士丹利牵头共 24 家承销，发行股数与价格区间均未定",
+      "上半年营收 162.86 亿美元（上年同期 11.6 亿），Q2 单季 115.6 亿，首次做出季度经营利润 9.74 亿美元",
+      "账面净亏 807.48 亿，其中 723.88 亿是可转债与衍生工具公允价值随估值上涨产生的非现金损失，同期经营现金流为正 39.3 亿",
+      "约 23% 营收来自两个未具名客户；已承诺未来算力与基础设施支出 5180 亿美元，需求不达预期大部分仍须支付，招股书写明「不能保证营收继续增长」",
+      "媒体预期 11 月中旬挂牌、估值 1.5–2 万亿美元，达 2 万亿即超 SpaceX 的 1.77 万亿成史上最大 IPO；创始人持 F 类股握 50.1% 投票权",
+    ],
+    org: "Anthropic",
+    category: "行业动态",
+    date: "2026-10-26",
+    heat: 92,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方公告《Anthropic files S-1 with the SEC》（2026-10-26）",
+    sourceUrl: "https://www.anthropic.com/news/s1-sec",
+    refs: [
+      { name: "新华社（10-27，招股书财务细节）", url: "https://english.news.cn/northamerica/20261027/5a4c79f9eb704f9c850503824377324d/c.html" },
+      { name: "Le Monde（10-26，风险因素与算力承诺）", url: "https://www.lemonde.fr/en/economy/article/2026/10/26/anthropic-files-for-stock-market-listing-revealing-soaring-sales-and-a-long-list-of-risks_6764782_19.html" },
+    ],
+    article: "/blog/2026-10-27-loss-that-appreciated.html",
+  },
+  {
+    id: "openai-gpt-6-1-terra",
+    title: "OpenAI 发 GPT-6.1 Terra：价格砍到旗舰的十分之一，网络安全危险等级却和旗舰一样是 Critical",
+    summary:
+      "10-26，OpenAI 上线 GPT-6.1 Terra，定位「一整个工作日」的日常电脑操作模型，接替 GPT-5.6 Terra。定价每百万 token 输入 1 美元、输出 5 美元、缓存输入 0.05 美元，比 GPT-5.6 Terra 与 GPT-6.1 Sol 均低 50%；上下文 105 万 token、输出上限 128K，reasoning effort 从 none 到 max。官方口径：Agents' Last Exam 中等档比 GPT-5.6 Terra 高 15 个百分点、成本约其三分之一，成绩与 GPT-6 Astra 持平而每 token 价为其十分之一，完成任务快 3 倍以上；对 Claude Opus 5.5 为 token 效率 3 倍以上、每 token 价四分之一、折合每任务成本低约 9 倍。Terminal-Bench 4.0 最高档解出 50.3%（前代公布 21.5%），MMMU-Pro 各档均超前代，低推理档的事实错误率由 53.6% 降至 16.7%、最高档 4.3%。发布页把「每完成一件事的成本」而非榜单分数放在第一位，是这一轮竞争口径的转向。最值得留意的是系统卡：按 Preparedness Framework，Terra 的网络安全能力被定为 Critical（最高档）、生物与化学为 High，与 Astra、Sol 共用同一套防护栈。换言之，最便宜的一档拿着与旗舰相同的危险等级——能力被压低的是价格，不是攻击面。OpenAI 自己在发布页写明，最复杂的编码任务仍应改用 Sol 或 Astra；全部数字均为自家测试，外部尚未见独立复现。",
+    keyPoints: [
+      "10-26 上线，$1 输入 / $5 输出 / $0.05 缓存输入每百万 token，比 GPT-5.6 Terra 与 GPT-6.1 Sol 低 50%",
+      "Agents' Last Exam 中等档比前代高 15 个百分点，与 GPT-6 Astra 成绩持平而每 token 价为其十分之一，任务完成快 3 倍以上",
+      "Terminal-Bench 4.0 最高档 50.3%（前代公布 21.5%）；低推理档事实错误率从 53.6% 降到 16.7%，最高档 4.3%",
+      "系统卡按 Preparedness Framework 定为网络安全 Critical、生化 High，与 Astra/Sol 共用防护栈——最便宜的一档拿着最高危险等级",
+      "105 万上下文、输出上限 128K，ChatGPT Work 与 Codex 全档可用；OpenAI 自认最复杂编码仍应用 Sol 或 Astra，跑分均为自家测试",
+    ],
+    org: "OpenAI",
+    category: "模型发布",
+    date: "2026-10-26",
+    heat: 88,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方发布页《Introducing GPT-6.1 Terra》（2026-10-26）",
+    sourceUrl: "https://openai.com/index/introducing-gpt-6-1-terra/",
+    refs: [
+      { name: "OpenAI Deployment Safety Hub 系统卡附录（Preparedness 定级 Critical/High）", url: "https://deploymentsafety.openai.com/gpt-6-1-terra" },
+    ],
+    article: "/blog/2026-10-27-the-cheap-one-is-critical.html",
+  },
+  {
+    id: "springer-nature-gemini-peer-review",
+    title: "施普林格·自然与 Google DeepMind 合造 AI 同行评审助手：模型跑在自家内网，最终判断仍归人",
+    summary:
+      "10-26，施普林格·自然（Springer Nature）与 Google DeepMind 在伦敦、柏林、纽约三地同步宣布研究合作，共同设计一款 AI 同行评审助手。技术上用前沿 Gemini 模型加 Google 开源的 Agent Development Kit（ADK），承接 Google 早前的两个智能体科研工具 ScholarPeer（arXiv:2601.22638）与 Deep Review；要做的事是帮评审人通读稿件、分析大量文本与图表、标出需要重点核查的位置，把时间省下来留给需要专业判断的部分。关键的工程选择是隔离：整套系统只跑在施普林格·自然私有的 Gemini Enterprise 环境内，用于开发与测试的稿件内容不出内网，作者与评审人保密性由此保证——这正回应了学界对「未发表论文被送进第三方模型」的长期担忧。目前只是原型在测试，双方都没给上线时间、覆盖期刊范围，也没有任何准确率或效率数据。官方口径是「human first, AI second」：AI 负责找值得细看的地方，最终的科学判断仍归人类评审与期刊编辑。项目同时挂在该社推进投稿与评审流程自动化的整体计划下，含其自研平台 Snapp。",
+    keyPoints: [
+      "10-26 三地同步宣布研究合作，共建 AI 同行评审助手，用前沿 Gemini 模型加 Google 开源 Agent Development Kit（ADK）",
+      "承接 Google 早前两个智能体科研工具 ScholarPeer 与 Deep Review 的经验，帮评审人通读稿件、分析图表、标出需重点核查处",
+      "整套系统只跑在施普林格·自然私有的 Gemini Enterprise 环境内，稿件不出内网——正面回应「未发表论文进第三方模型」的保密担忧",
+      "目前仅原型测试，未公布上线时间、覆盖期刊与任何准确率/效率数据，属探索性合作而非产品发布",
+      "官方定位 human first, AI second：AI 找需细看之处，最终科学判断仍归人类评审与期刊编辑",
+    ],
+    org: "Springer Nature × Google DeepMind",
+    category: "学术公益",
+    date: "2026-10-26",
+    heat: 70,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Springer Nature 集团新闻稿（2026-10-26，伦敦/柏林/纽约）",
+    sourceUrl: "https://group.springernature.com/gp/group/media/press-releases/research-partnership-with-googledeepmind-to-support-peer-review/53891572",
+  },
   {
     id: "kimi-k3-1-pro-3t-open-weights",
     title: "月之暗面发布 Kimi K3.1 Pro：3 万亿级参数的开源模型，终端编程只差 Opus 5.5 零点七分，科学终端任务却差三十个点",
