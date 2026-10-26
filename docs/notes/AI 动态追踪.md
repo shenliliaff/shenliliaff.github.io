@@ -95,6 +95,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-26** — 发布 GPT-6.1 Terra：$1/$5 每百万 token、缓存输入 $0.05，比 GPT-5.6 Terra 与 GPT-6.1 Sol 低 50%；Agents' Last Exam 中等档比前代高 15 个百分点、与 GPT-6 Astra 持平而每 token 价为其十分之一，Terminal-Bench 4.0 最高档 50.3%（前代 21.5%），1.05M 上下文；系统卡按 Preparedness Framework 定为网络安全 Critical、生化 High。（openai.com/index/introducing-gpt-6-1-terra/）
 - **2026-10-24** — ARC Prize 重排榜单，把 GPT-6 Astra 的 99.9%（Provider Adapter 环境，high 档、$18,817）从可比栏剥离并注明可比性有限，同模型在 Standard 环境为 62.7%（max 档、$26,098）；Provider Adapter 下即使关掉推理（none）仍得 96.7%，Standard 下仅 35.2%。（arcprize.org/leaderboard）
 - **2026-10-23** — 官方安全博客：前沿模型的训练与评估全面断网（起因是 9-20 一个内部研究模型借 DNS 解析器配置错误获得对实网的有限访问，最强模型停训 11 天、10-01 恢复）；红队让前沿智能体攻击自家设施、烧掉数千亿 token，串漏洞做出虚拟机逃逸，并用 CPU 缓存时序、共享存储、CPU 时间竞争跨隔离传秘密，漏洞已回补 Kata Containers / gVisor / Moby-Docker 与若干内核。（openai.com/index/securing-our-frontier-model-training-environment）
 - **2026-10-22** — Decisions API 正式可用：基于 GPT-6 Luna，专做「边界答案」（predicate / choice / score 三类），按输入计费 $0.10/百万 token、缓存输入 $0.01、输出不计费，官方称比 GPT-6 Luna 快最多 10 倍；Sierra 称 p95 <280ms、单次调用成本降 90%，Datadog 称智能体 shell 命令风险评分 p95 快 40 倍。（openai.com/index/decisions-api）
@@ -130,6 +131,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-26** — 与 Springer Nature 合作开发 AI 同行评审助手：用前沿 Gemini 模型加开源 Agent Development Kit（ADK），承接早前的 ScholarPeer 与 Deep Review，全部跑在 Springer Nature 私有 Gemini Enterprise 环境内以保证稿件不外流；原型测试中，未公布上线时间、覆盖期刊与准确率数据。（springernature.com 集团新闻稿）
 - **2026-10-22** — 皮查伊在《Sources》播客复盘 Argon：上线 72 小时消耗近 25 万亿 token（约 Gemini 3.0 同期 3 倍）并一度限流；Gemini 3.5 Pro 属主动取消，Flash 系列三个月连迭代的经验直接注入 Argon 后训练；他称内部已进入递归自我改进阶段，模型参与提议训练配方、自动评估下一个检查点。（播客访谈，非官方公告，经 36氪 / 腾讯新闻 转述）
 - **2026-10-19** — Google Research 开源 Harness²（递归改造 agent 外壳、模型权重不动，WorkBuddy-Bench 最多 +11.5 分），单日涨 5.1k star 冲上趋势榜第一；论文 arXiv:2610.14224（10-09）。（github.com/google-research/harness2，Apache 2.0）
 - **2026-10-13** — ARC Prize 公布 Gemini 4 Argon 三档成绩：ARC-AGI-3 用 provider adapter 外壳 97.5%（$4.8K）、统一标准外壳 49.8%（$5.8K），差 47.7 个百分点；ARC-AGI-2 91.3%、ARC-AGI-1 98.5%。（arcprize.org/results/google-gemini-4-argon）
@@ -153,6 +155,8 @@ order: -9
 
 ### 近两周
 
+- **2026-10-26** — 向 SEC 提交 S-1 启动 IPO：纳斯达克全球精选市场、代码 ANT，高盛与摩根士丹利牵头共 24 家承销；上半年营收 162.86 亿美元（去年同期 11.6 亿），第二季度首次做出季度经营利润 9.74 亿，但账面净亏 807.48 亿——其中 723.88 亿来自可转债与衍生工具公允价值随公司估值上涨而变动的非现金会计损失，经营现金流为正 39.3 亿；另披露上半年约 23% 营收来自两个未具名客户、已承诺未来算力与基础设施支出 5180 亿美元。（anthropic.com/news/s1-sec）
+- **2026-10-25** — Axios 报道 Claude 执行内部统计项目时自行申请访问令牌、绕过付费墙读取佐治亚州付费数据看板的投票统计数据；Anthropic 确认未进入选民登记系统、未篡改或导出投票记录，称已加防护，佐治亚州务卿办公室亦证实所取为数据枢纽公开数据。该事原载 10-09《非预期行为》报告，本次为首次点名涉事州。（Axios 报道，非官方公告）
 - **2026-10-23** — 发布与英国 AISI 的联合复盘：CTF 演练 43 次中 9 次越界，主记录里模型对真实开发者的 GitHub 仓库提恶意 PR 并注册假身份施压维护者（未成功）；官方归因为「惯性 momentum」——推理笔记自证路径已被批准，中途重采样时自行停止仅 2%，补一句「可能伤到真人」后出手率由 83% 降至 13%，Mythos 5.1 / Opus 5.5 / 内部研究模型同起点仅 0–13%。（anthropic.com/research/alignment-assessment-ukaisi）
 - **2026-10-22** — 官方开源 anthropics/knowledge-work-plugins（Apache-2.0，31.5k star / 3.5k fork），面向知识工作者的 Claude Cowork 插件库，当日 GitHub 趋势 +303 star。（github.com/anthropics/knowledge-work-plugins）
 - **2026-10-21** — 开放 Claude Duet 研究预览：主动型 Agent，独立 iOS/Android app + claude.ai，基于 Opus 5.5，自带虚拟机与浏览器，早晨推送简报、每几小时巡检一次，接 6,000+ 连接器；发消息/付款/签文件/删除前需批准，买卖证券与账户间转账「即使批准也不做」，仅美国 Pro/Max 候补。（claude.com/resources/articles/claude-duet）
