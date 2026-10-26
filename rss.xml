@@ -6,8 +6,8 @@
     <link>https://shenliliaff.github.io/</link>
     <description>fengsKB 个人知识库</description>
     <language>zh-CN</language>
-    <pubDate>Sun, 25 Oct 2026 23:10:05 GMT</pubDate>
-    <lastBuildDate>Sun, 25 Oct 2026 23:10:05 GMT</lastBuildDate>
+    <pubDate>Mon, 26 Oct 2026 23:10:29 GMT</pubDate>
+    <lastBuildDate>Mon, 26 Oct 2026 23:10:29 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>人工智能</category>
@@ -34,6 +34,89 @@
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>| 项目 | 仓库 | 作用 |
 |</p>
 ]]></content:encoded>
+    </item>
+    <item>
+      <title>亏掉的八百亿，是估值自己涨出来的</title>
+      <link>https://shenliliaff.github.io/blog/2026-10-27-loss-that-appreciated.html</link>
+      <guid>https://shenliliaff.github.io/blog/2026-10-27-loss-that-appreciated.html</guid>
+      <source url="https://shenliliaff.github.io/rss.xml">亏掉的八百亿，是估值自己涨出来的</source>
+      <description>亏掉的八百亿，是估值自己涨出来的 2026-10-27 · 人工智能 一只悬浮的玻璃天平，一端是发光的数字方块，另一端空着，深黑背景上的绿色体积光一只悬浮的玻璃天平，一端是发光的数字方块，另一端空着，深黑背景上的绿色体积光 十月二十六日晚上，Anthropic 把 S-1 挂上了 SEC。我翻到「简明合并经营数据」那张表，先看营收，再看亏损，以为自己串...</description>
+      <category>人工智能</category>
+      <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>2026-10-27 · 人工智能</p>
+<figure><img src="/covers/2026-10-27-cover.png" alt="一只悬浮的玻璃天平，一端是发光的数字方块，另一端空着，深黑背景上的绿色体积光" tabindex="0" loading="lazy"><figcaption>一只悬浮的玻璃天平，一端是发光的数字方块，另一端空着，深黑背景上的绿色体积光</figcaption></figure>
+<p>十月二十六日晚上，Anthropic 把 S-1 挂上了 SEC。我翻到「简明合并经营数据」那张表，先看营收，再看亏损，以为自己串行了。</p>
+<p>上半年营收 162.86 亿美元，去年同期 11.6 亿。第二季度单季 115.6 亿，公司第一次做出季度经营利润，9.74 亿。往前翻，2023 年全年 4100 万，2024 年 3.86 亿，2025 年 45.85 亿。这条线陡得不像财报。</p>
+<p>然后同一张表上，上半年净亏损 807.48 亿。</p>
+<p>营收 163 亿，亏 807 亿。我把附注读了两遍。亏损里有 723.88 亿，来自「可转换票据、衍生负债及 SAFE 的公允价值变动」。</p>
+<p>翻译成人话：公司越值钱，它发出去的那些可转债和优先股就越值钱。会计上这算负债变大，差额打进损益表，变成亏损。一分钱现金都没出去。同一份报表里，上半年经营现金流是正的 39.3 亿，六月三十日账上现金加短期投资 1317 亿。</p>
+<p>这是会计上最体面的一种亏法：你没花掉什么，只是变得太值钱了。</p>
+<h2>两个不能说的名字</h2>
+<p>真正让我停下来的不是那 807 亿，是一句藏在后面的小话。</p>
+<p>上半年约 23% 的营收来自两个客户。招股书没写名字。</p>
+<p>一家准备按两万亿估值卖给公众的公司，将近四分之一的收入，挂在两个不能说的名字上。这个数字比亏损刺眼，因为亏损可以解释成记账方式，客户集中不能。</p>
+<p>配套的几个数字也值得摆在一起看。到九月三十日，1900 多家客户年付超过 100 万美元，11900 多家超过 10 万——去年同期，后一个数字是 950 家。老客户花的钱，大约是一年前的九倍。</p>
+<p>另一边是支出。上半年算力与基础设施花掉近 90 亿。已经承诺的未来支出是 5180 亿：对亚马逊至少 1100 亿，付到 2036 年 4 月；对谷歌至少 1145 亿，付到 2033 年 7 月。招股书写明，需求要是不如预期，这些钱大部分照付。</p>
+<p>所以那句风险提示才写得那么直白：「我们不能保证营收会继续增长。」原文用了 at all。</p>
+<p>据路透社报道，第三季度营收 168 亿，环比涨 45%，增速比二季度慢下来了。</p>
+<h2>一份九十多页的说明书</h2>
+<p>风险因素章节九十多页。写得最重的一条是：先进 AI「可能给社会带来灾难性或生存性风险」。还有一句，极端损害导致的赔偿责任，可能超过任何保险公司的承保能力。</p>
+<p>我在这两页之间来回看了很久。</p>
+<p>一家公司，在同一份文件里，一边告诉你它做的东西可能杀死所有人，一边问你买不买。这不是虚伪，这是披露义务逼出来的诚实——上市文件里说假话要坐牢，说不清楚也要坐牢，于是它把最坏的情况全写上了。</p>
+<p>治理那一段也很有意思。七位创始人持有一股 F 类股，握 50.1% 的投票权，另有一个信托负责选多数董事。公众可以买股票，不能管公司。它注册成公益公司（PBC），法律要求它同时考虑使命和股东回报。创始人各自承诺把 80% 的个人股份捐给公益，招股书紧跟着注明：这些承诺不具法律约束力。</p>
+<p>十月十八日它刚成立了一个公益基金，先划 5% 股份进去。这笔划得实在，但也就 5%。</p>
+<h2>十一月中的一个早晨</h2>
+<p>时间表是：纳斯达克全球精选市场，代码 ANT。高盛和摩根士丹利牵头，一共 24 家承销商。发行股数和价格区间都还没定。《华尔街日报》说目标是 11 月 16 日那一周挂牌，估值 1.5 万亿到 2 万亿。要是真到 2 万亿，会超过 SpaceX 六月上市时的 1.77 万亿，成为史上最大的一笔 IPO。五月它刚融了 650 亿美元，那时候的估值是 9650 亿。</p>
+<p>招股书首页有一行小字我记住了：registration statement has not yet become effective。注册声明尚未生效。</p>
+<p>所以这些数字、这些风险、包括那句「可能给人类带来生存性风险」，此刻都还是一份草案。几天之后，它会变成一个价格。</p>
+<p>我想象那个早晨，纳斯达克开盘，ANT 跳出第一个数字。那个数字里装着 807 亿的账面亏损、两个占掉 23% 的客户、九十页关于人类能不能活下去的警告。而按下买入键的人，只需要看一个数字。</p>
+]]></content:encoded>
+      <enclosure url="https://shenliliaff.github.io/covers/2026-10-27-cover.png" type="image/png"/>
+    </item>
+    <item>
+      <title>便宜的那款，危险等级和旗舰一样</title>
+      <link>https://shenliliaff.github.io/blog/2026-10-27-the-cheap-one-is-critical.html</link>
+      <guid>https://shenliliaff.github.io/blog/2026-10-27-the-cheap-one-is-critical.html</guid>
+      <source url="https://shenliliaff.github.io/rss.xml">便宜的那款，危险等级和旗舰一样</source>
+      <description>便宜的那款，危险等级和旗舰一样 2026-10-27 · 人工智能 一台布满发光电路的低矮服务器，周围是向下流动的青色数据粒子，深黑背景一台布满发光电路的低矮服务器，周围是向下流动的青色数据粒子，深黑背景 OpenAI 昨天发了 GPT-6.1 Terra。我先没看跑分表，先翻了系统卡。 那行字在第一节：按 Preparedness Framework...</description>
+      <category>人工智能</category>
+      <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>2026-10-27 · 人工智能</p>
+<figure><img src="/covers/2026-10-27-cover-2.png" alt="一台布满发光电路的低矮服务器，周围是向下流动的青色数据粒子，深黑背景" tabindex="0" loading="lazy"><figcaption>一台布满发光电路的低矮服务器，周围是向下流动的青色数据粒子，深黑背景</figcaption></figure>
+<p>OpenAI 昨天发了 GPT-6.1 Terra。我先没看跑分表，先翻了系统卡。</p>
+<p>那行字在第一节：按 Preparedness Framework，Terra 的网络安全能力定为 Critical，生物与化学能力定为 High。Critical 是这套框架里的最高一档。它和 GPT-6 Astra、GPT-6.1 Sol 共用同一套防护。</p>
+<p>然后是价格。每百万 token 输入 1 美元，输出 5 美元，缓存输入 0.05 美元。比 GPT-5.6 Terra 低一半，比 GPT-6.1 Sol 也低一半。</p>
+<p>把这两件事放在一起，就是这款模型最怪的地方：能力接近旗舰，价格是旗舰的十分之一，危险等级一模一样。</p>
+<p>危险等级一样，价格十分之一。这种搭配在别的行业也常见，一般印在超市货架的黄色标签上。</p>
+<h2>头条数字不是分数</h2>
+<p>发布页第一屏我没找到跑分。它把一句话放在最前面：完成一件事的成本。</p>
+<p>这话以前没人当卖点。一年前发模型，各家比的是榜上的小数点。这次 OpenAI 摆出来的是另一套账：</p>
+<p>Agents' Last Exam，一个考智能体怎么用软件干活的考试。中等推理档，比 GPT-5.6 Terra 高 15 个百分点，成本大约是后者的三分之一。在这个考试上，它的成绩跟 GPT-6 Astra 基本持平，每 token 价格是 Astra 的十分之一。同样的任务，它比 Astra 和 Sol 都快三倍以上。</p>
+<p>对着 Claude Opus 5.5，OpenAI 的说法更直接：token 效率三倍以上，每 token 价格四分之一，折成每完成一个任务，便宜约九倍。</p>
+<p>Terminal-Bench 4.0，最高推理档，它解出 50.3% 的任务。GPT-5.6 Terra 公布的是 21.5%，翻了一倍多。</p>
+<p>这些数字都是自家测的。三倍快也是自家掐的表。外面我只见到 Artificial Analysis 给过一个 48 分，源头没找到，先当没看见。</p>
+<p>同一页上还有一句我觉得比所有跑分都诚实的话：最复杂的编码任务，还是用 GPT-6.1 Sol 或 GPT-6 Astra。</p>
+<h2>它最先修的不是聪明</h2>
+<p>内部有个专门用来诱发错误的提示词测试。低推理档，GPT-5.6 Terra 的错误率 53.6%，Terra 降到 16.7%。档位拉满，4.3%，差不多追平 Astra 和 Sol。</p>
+<p>一个便宜模型最该先修的地方，不是聪明，是胡说。</p>
+<p>原因不难懂。贵的模型你会盯着它跑，一遍一遍看输出，错了就重来。便宜到九分之一价钱的模型，你会把它塞进一个循环里跑一千遍，没人在旁边看第二遍。这种时候，它错得稳不稳，比它答得多漂亮重要得多。</p>
+<p>上下文 1,050,000 个输入 token，输出上限 128K。模型名 gpt-6.1-terra，ChatGPT Work 和 Codex 里的 Plus、Pro、Enterprise、Edu 都能用，Codex CLI 要 0.159.0 以上。</p>
+<h2>一个跑在没人看着的地方的东西</h2>
+<p>系统卡里还有一段我反复读的话：这一代比 GPT-5.6 Terra 更愿意留在任务边界内，更愿意主动说自己做不到、哪里卡住了。在提示注入测试里，它对那些想把它骗离用户指令的请求，抵抗得比较硬。</p>
+<p>这段话和前面那个 Critical 摆在一起，就成了一个拧巴的组合：一边认定它有网络攻防的能力，一边说它不太容易被骗着去用。</p>
+<p>我自己的判断很土。改变使用方式的不是它多聪明，是它便宜到可以浪费。</p>
+<p>一个每次调用都要想清楚再按的模型，你会省着用，会一句一句改提示词。一个九分之一价钱的模型，你会先让它跑一百遍，跑完再挑。事情就从「问它一个问题」变成了「让它替我试」。</p>
+<p>等到大家都这么用，那个 Critical 就不再是某一款模型的属性了。它变成一种分布，铺在无数个循环里。它不在某家实验室的旗舰机上，它在你写完之后就没再看过的那个 while 循环里。</p>
+<p>凌晨三点，这些循环还在跑。日志没人看，也没有人为它们负责。</p>
+<h2>出处</h2>
+<ul>
+<li>OpenAI 发布页：<code>openai.com/index/introducing-gpt-6-1-terra/</code>（2026-10-26）</li>
+<li>系统卡附录：<code>deploymentsafety.openai.com/gpt-6-1-terra</code></li>
+</ul>
+]]></content:encoded>
+      <enclosure url="https://shenliliaff.github.io/covers/2026-10-27-cover-2.png" type="image/png"/>
     </item>
     <item>
       <title>九十九点九跑得比六十二点七快</title>
@@ -411,116 +494,6 @@
 <p>空多久才算正常？没人给得出这个数。</p>
 ]]></content:encoded>
       <enclosure url="https://shenliliaff.github.io/covers/2026-10-22-cover.png" type="image/png"/>
-    </item>
-    <item>
-      <title>三十一万个设计，十七个粘住了，零个算药</title>
-      <link>https://shenliliaff.github.io/blog/2026-10-21-seventeen-stuck.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-10-21-seventeen-stuck.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">三十一万个设计，十七个粘住了，零个算药</source>
-      <description>三十一万个设计，十七个粘住了，零个算药 2026-10-21 · 人工智能 深黑背景中悬浮的蛋白螺旋结构，被霓虹绿的粒子流包裹，一束体积光从上方穿过深黑背景中悬浮的蛋白螺旋结构，被霓虹绿的粒子流包裹，一束体积光从上方穿过 10 月 20 日，Anthropic 发了一篇研究博客，标题很朴素：《Claude 如何设计针对蝎子神经毒素的蛋白结合体》。 我先...</description>
-      <category>人工智能</category>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[
-<p>2026-10-21 · 人工智能</p>
-<figure><img src="/covers/2026-10-21-cover.png" alt="深黑背景中悬浮的蛋白螺旋结构，被霓虹绿的粒子流包裹，一束体积光从上方穿过" tabindex="0" loading="lazy"><figcaption>深黑背景中悬浮的蛋白螺旋结构，被霓虹绿的粒子流包裹，一束体积光从上方穿过</figcaption></figure>
-<p>10 月 20 日，Anthropic 发了一篇研究博客，标题很朴素：《Claude 如何设计针对蝎子神经毒素的蛋白结合体》。</p>
-<p>我先看数字。</p>
-<p>三十一万八千四百八十四个设计。六十四小时。一万 GPU 小时的算力。五千五百三十次共同折叠与筛选。最后送进实验室两百一十一个。粘住十七个。</p>
-<p>把这些数字念一遍，你会发现它们不在同一个量级上。前面全是六位数，后面是两位数。中间那一刀，砍掉了百分之九十九点九三。</p>
-<p>剩下的十七个，还没有一个是药。</p>
-<h2>一、六十四小时里，人只说了四句话</h2>
-<p>过程是这样的：给模型一个提示词，然后四轮追问。就这样。</p>
-<p>六十四小时里，Claude 在 Claude Science 里基本自己跑。它去 Protein Data Bank 和 AlphaFold 数据库里找结构，自己挑了五种毒素各五个「热点」——也就是毒素上贴着钠离子通道的那块地方，堵住那儿，毒素就进不去了。它设了质量门槛，决定十二种设计工具各用多少，还自己想了对付多毒素的办法。</p>
-<p>人做了什么呢。人监督，然后收尾：分析数据、画图、起草报告，都是它做的。</p>
-<p>那几个提示词背后有另一拨人。Anthropic 在博客里写得很直白，这套提示词是跟「金融投资研究公司 Citrini Research」一起改的。</p>
-<p>一家做投资研究的公司，跑来问生物的问题，这事本身就有点意思。</p>
-<p>他们的问题不是「能不能设计蛋白」，而是：一群有热情的外行，能不能靠 AI 解决一个真实的人类健康问题。</p>
-<p>外行。他们自己这么定位。</p>
-<h2>二、目标选得很讲究</h2>
-<p>蝎子蛰人这事，数字冷得让人不舒服。</p>
-<p>每年一百二十万人被蛰，三千二百五十多人死掉，多数是孩子，多在医疗条件差的地方。</p>
-<p>现有的抗毒血清怎么做：从几千只蝎子里挤毒液，拿去给马免疫，再纯化马的抗体。整个过程几个月。而且一种血清通常只对其中少数几种神经毒素有效。</p>
-<p>这门生意不赚钱。得病的人付不起，做出来的药收不回成本。医学上有个词叫「被忽视的热带病」，蝎子蛰伤算一个。</p>
-<p>所以这是个「值得做、但没人做」的题目。也正是这种题目，最适合拿来试新工具——反正输了也没人亏钱。</p>
-<p>目标五种毒素，四个地区：墨西哥的 Cn2，巴西的 Ts1，北非的 AaH I 和 AaH II，中东的 LqhIII。</p>
-<h2>三、什么叫「粘住了」</h2>
-<p>判定标准写得很硬：两个实验室都得做出来，每个重复都得有结合信号；解离常数每一个都要小于等于 1 微摩尔；还不能粘到无关的人类蛋白 CLEC12A 上。</p>
-<p>最后一条是防「什么都粘」的。生物实验里最没用的东西，就是什么都粘一点的东西。</p>
-<p>两家合同实验室用不同方法做：Adaptyv Bio 用无细胞体系，Twist Bioscience 用人肾细胞做 Fc 融合表达。检测靠表面等离子体共振。</p>
-<p>两百一十一个设计，十七个过线：</p>
-<p>| 毒素 | 地区 | 结合体数量 |
-|</p>
-]]></content:encoded>
-      <enclosure url="https://shenliliaff.github.io/covers/2026-10-21-cover.png" type="image/png"/>
-    </item>
-    <item>
-      <title>它把账本摊开了，然后告诉你先买一百二十八张卡</title>
-      <link>https://shenliliaff.github.io/blog/2026-10-21-the-parts-they-kept.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-10-21-the-parts-they-kept.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">它把账本摊开了，然后告诉你先买一百二十八张卡</source>
-      <description>它把账本摊开了，然后告诉你先买一百二十八张卡 2026-10-21 · 人工智能 深黑机房中一排排发光加速卡，霓虹绿的冷却光带贯穿其间，数据粒子沿光缆奔流深黑机房中一排排发光加速卡，霓虹绿的冷却光带贯穿其间，数据粒子沿光缆奔流 10 月 20 日，DeepSeek 把自家支撑线上服务的推理框架开源了，名字叫 DeepInfer。同时开源的还有一个 to...</description>
-      <category>人工智能</category>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[
-<p>2026-10-21 · 人工智能</p>
-<figure><img src="/covers/2026-10-21-cover-2.png" alt="深黑机房中一排排发光加速卡，霓虹绿的冷却光带贯穿其间，数据粒子沿光缆奔流" tabindex="0" loading="lazy"><figcaption>深黑机房中一排排发光加速卡，霓虹绿的冷却光带贯穿其间，数据粒子沿光缆奔流</figcaption></figure>
-<p>10 月 20 日，DeepSeek 把自家支撑线上服务的推理框架开源了，名字叫 DeepInfer。同时开源的还有一个 token 编解码组件，deepseek-recipe。</p>
-<p>仓库是 10 月 16 日建的，10 月 20 日推的代码。到 21 日早上，GitHub API 上记着一万一千九百三十八颗 star，一千零六十三 fork，Apache 2.0，一百一十五个待处理 issue，还没有任何 release。</p>
-<p>Trendshift 上它排第一。</p>
-<p>我先去读 README。读完第一段，人就清醒了。</p>
-<h2>一、第一句话就写清楚了</h2>
-<p>README 里关于这个开源版本，原话是：<strong>本次开源提供离线推理，包含大规模服务所需的核心能力。</strong></p>
-<p>offline。离线。</p>
-<p>支持模型只有一行：DeepSeek-V4.1-Flash。就一个。</p>
-<p>然后往下翻，有一节标题写得跟别的开源项目不太一样，叫「构成一次完整推理服务所必需、但本次未包含」（Required for a complete inference service, not included in this release）。</p>
-<p>三项：</p>
-<p>一，KV cache 系统。
-二，视觉编码器 / 预填充 / 解码的分离部署。
-三，数据并行副本之间的负载均衡。</p>
-<p>我见过很多开源项目的 README，这一节的位置和措辞都很少见。多数项目会把这些写在 issue 里，或者干脆不提，让人下回来跑不动，再去 Discord 里问。</p>
-<p>DeepSeek 是直接列在首页上的。</p>
-<p>官方的解释也很直：KV cache 管理和负载均衡这两块跟内部基础设施耦合太深，代码还没全量放开。他们在知乎发了一篇技术长文，把这两块的设计讲了一遍。</p>
-<p>设计讲了，代码没给。</p>
-<h2>二、账本倒是给了</h2>
-<p>技术问答文档的开头有一句话，我读了两遍：</p>
-<p><strong>单个集群目前每天服务一百五十五万亿 token，按谷时电价计，整体营收为每 GPU 小时 38 美元。</strong></p>
-<p>这句话的信息量比整份 README 都大。</p>
-<p>一家公司愿意公开自己单位算力的收入，这在 AI 行业里是极罕见的。你可以拿它去算很多东西：一次调用大概摊多少钱，缓存命中率值多少钱，一个 KV cache 保留三天的存储成本摊到每百万 token 上是多少。</p>
-<p>它同时也是一句提醒：这个数字是「营收」，不是「成本」，更不是「利润」。它是一个规模化之后的坐标，不是一张价目表。</p>
-<p>另一组数字在文档里散着：KV cache 保留超过 72 小时；聊天机器人流量的 TTL 是 7 天，agent 流量 3 天；把 7 天砍到 3 天，聊天流量的缓存命中率会掉 0.5% 到 1%。</p>
-<p>0.5%。听起来很小。放到一百五十五万亿 token 上，就不是小数了。</p>
-<p>存储那边是专用的 3FS 集群，大约 100 PiB 的 SSD，每台存储服务器配 20 块 30.73 TB 的盘，读至少 40 GB/s。摊到每张卡，逻辑容量约 14.4 TB。</p>
-<p>我算了一下自己家里那台机器。四个 T 的硬盘，还空着一半。</p>
-<h2>三、最小能跑多大</h2>
-<p>文档里有个问答，问的是「最小部署单元得多大」。</p>
-<p>回答很客气：1 个预填充实例加 1 个解码实例，是能部署的。然后补了一句，实际上预填充和解码的卡数比例大概是 1 比 1；而推荐的解码配置是 EP64 以上，所以<strong>最小的「高效」部署单元，是 64 张卡做预填充，加 64 张做解码</strong>。</p>
-<p>一百二十八张。</p>
-<p>硬件门槛也写明白了：NVIDIA SM100，或者华为昇腾 950。软件这边：Linux、GCC 13 以上、Python 3.12、CUDA 13 或 CANN 9.2。</p>
-<p>README 里的性能曲线，prefill 是 4 张 SM100 测的，decode 是 64 张测的。</p>
-<p>所以那个场景基本可以想见了：一个团队负责人把这仓库 clone 下来，跑 <code>./build.sh</code>，编译通过，然后打开 README 找部署说明，看到「64 + 64」，合上笔记本，去写预算申请。</p>
-<p>这份开源最诚实的地方就在这儿：它没打算让你在 MacBook 上跑起来。</p>
-<h2>四、它值钱的地方在哪</h2>
-<p>那它开源什么了？</p>
-<p>预填充和 MoE 那套专家并行，EPLB 的冗余专家与重排策略，DSpark 的投机解码加置信度调度验证，SWA 有界重放，异步零开销批调度，以及「批不变推理」和确定性采样——同样的输入、同样的参数，换一批拼在一起的请求，输出一个字都不变。</p>
-<p>最后这两条对做评测的人很重要。批量组成会改变输出，是很多推理框架的隐疾，报分数的时候没人提。</p>
-<p>EPLB 那个策略文件只有一百多行，写的是完整的 min-max 放置算法。这部分跟 DeepSeek 的模型没关系，任何人做 MoE 推理都能拿去改。</p>
-<p>还有个数字：这套负载均衡做到的效果，大约是「完美均衡的离线基准」的八成。</p>
-<p>八成。剩下的两成，就藏在没开源的那部分里。</p>
-<h2>五、底子是别人的</h2>
-<p>致谢那一节，DeepSeek 写得很干脆：DeepInfer 最初主要构建在 vLLM 之上，另外参考了 SGLang 和 TensorRT-LLM。</p>
-<p>一个把 vLLM 改成自己形状的团队，现在把改完的东西放回来了，还配了一份问答文档，把「我们为什么这么改」一条条讲清楚。</p>
-<p>这件事的意义不在「又一个 vLLM 替代品」。它更像一份施工记录：从通用框架出发，为了一个特定模型、两种特定芯片、一种特定的负载（长上下文、高缓存命中、agent 流量），到底要动哪些地方。</p>
-<p>对绝大多数人来说，这仓库的正确用法是当资料读，不是当服务装。</p>
-<h2>六、最后说那个 38 美元</h2>
-<p>我一直想着那个数字。</p>
-<p>每 GPU 小时 38 美元，谷时价，单个集群，一天一百五十五万亿 token。这三个数放在一起，是一个很少被公开的坐标系：AI 服务的钱，究竟是在模型上赚的，还是在调度、缓存和电费之间省出来的。</p>
-<p>DeepSeek 的答案看起来是后者。他们把 KV cache 留到三天以上，把预填充和解码拆开，把专家在卡之间搬来搬去，就为了那百分之几的命中率和那零点几的均衡损耗。</p>
-<p>这些东西不好看，也不上发布会。它们是一堆 if 和 else，是一百多行的放置策略，是「三天还是七天」这种没人愿意争论的选择。</p>
-<p>而真正的秘密，恰好是他们没给的那部分。</p>
-<p>所以你打开这个仓库，会看到一个奇怪的分工：能学的那一半全给了，能赚钱的那一半留着了。中间那条线画得很清楚，清楚到你可以指着它说——哦，原来难点在这儿。</p>
-<p>知道难点在哪儿，本身已经比大部分开源项目给得多。</p>
-]]></content:encoded>
-      <enclosure url="https://shenliliaff.github.io/covers/2026-10-21-cover-2.png" type="image/png"/>
     </item>
   </channel>
 </rss>
