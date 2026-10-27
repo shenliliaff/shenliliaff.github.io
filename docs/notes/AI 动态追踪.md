@@ -131,6 +131,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-27** — 发布世界模型 Genie 4 研究预览：首个原生生成音频的实时世界模型，环境音、音乐与可交互对话同画面一起生成，支持自然语言实时改天气/镜头/增删人物；实时回路里做引导的是 Gemini 3.8 Flash（观察画面、拆步、核验），Gemini 4 Argon 只用于与 Gemini Robotics 的任务分解实验；官方自述物体恒存与视觉细节仍会漂移，产物全部嵌 SynthID。（deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/）
 - **2026-10-26** — 与 Springer Nature 合作开发 AI 同行评审助手：用前沿 Gemini 模型加开源 Agent Development Kit（ADK），承接早前的 ScholarPeer 与 Deep Review，全部跑在 Springer Nature 私有 Gemini Enterprise 环境内以保证稿件不外流；原型测试中，未公布上线时间、覆盖期刊与准确率数据。（springernature.com 集团新闻稿）
 - **2026-10-22** — 皮查伊在《Sources》播客复盘 Argon：上线 72 小时消耗近 25 万亿 token（约 Gemini 3.0 同期 3 倍）并一度限流；Gemini 3.5 Pro 属主动取消，Flash 系列三个月连迭代的经验直接注入 Argon 后训练；他称内部已进入递归自我改进阶段，模型参与提议训练配方、自动评估下一个检查点。（播客访谈，非官方公告，经 36氪 / 腾讯新闻 转述）
 - **2026-10-19** — Google Research 开源 Harness²（递归改造 agent 外壳、模型权重不动，WorkBuddy-Bench 最多 +11.5 分），单日涨 5.1k star 冲上趋势榜第一；论文 arXiv:2610.14224（10-09）。（github.com/google-research/harness2，Apache 2.0）
@@ -185,6 +186,7 @@ order: -9
 
 ## 其他巨头动向
 
+- **2026-10-26** — 英伟达宣布扩大与 Meta 在 Muse 及 Muse 系列模型上的合作（扩部署 Vera Rubin、Vera CPU、Spectrum-X、BlueField-4；OpenShell 与 Sentry 仅写「考虑」），并向 Meta 同日公布的约 950 亿美元股权融资投入 30 亿美元，AMD 与博通同列基石意向、三家合计最多 50 亿且不构成约束性承诺。（nvidianews.nvidia.com/news/nvidia-and-meta-to-expand-collaboration-on-muse-and-muse-family-of-models-amid-robust-growth；融资结构见 cnbc.com/2026/10/26/meta-stock-offering-ai.html）
 - **2026-10-26** — 瑞典政府办公室（Regeringskansliet）即日起在办公电脑屏蔽 ChatGPT 与 Claude 浏览器访问，仅保留经安全审查的 Copilot，员工仍可经自建平台 Intric 调用两款模型。（SVT 报道，政府邮件确认，非公开公告）
 - **2026-10-24** — 英国设 AI 生物安全实验室（AIBL）：政府出 1 亿英镑，OpenAI 与 Anthropic 各出最高 1 亿英镑算力/模型额度（OpenAI 走 Rosalind Biodefense），Google DeepMind 与 Basecamp Research 参与合作，机构为独立非营利；同批另给 AI 安全研究所追加 1.2 亿英镑。（gov.uk/government/news/introducing-the-ai-biosecurity-lab）
 - **2026-10-23** — MiniMax 在 Hugging Face 与魔搭公开 M3.1 Flash 权重（428B 总参 / 23B 激活、1M 上下文、MiniMax Community License 含年营收 2000 万美元分档），此前匿名跑 200 万亿 token 的 Space Bunny 即其早期版本。（huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash）
