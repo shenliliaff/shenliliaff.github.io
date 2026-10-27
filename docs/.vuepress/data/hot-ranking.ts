@@ -60,10 +60,36 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-27";
+export const hotRankingUpdatedAt = "2026-10-28";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "google-genie-4-world-model",
+    title: "DeepMind 放出 Genie 4：世界模型第一次会出声、会搭话，但走两步就记不住自己摆过一张桌子",
+    summary:
+      "10-27，Google DeepMind 发布世界模型 Genie 4 的研究预览，作者为 Raia Hadsell、Diego Rivas、Hang Qi。核心突破是原生多模态：环境音、音乐与可交互对话跟画面在同一次生成里出来——官方称它是第一个原生生成音频的实时世界模型，演示视频里湖面的风声、水声与萨克斯全部由模型直接生成，而非后期配音。用户可用键盘导航与运镜，并用自然语言实时改天气、移镜头、往场景里加人或物，Gemini 会按周围场景自动适配这些指令，两次输入之间还持续监控并引导场景保持连贯。物理上强调空气动力学、碰撞与人物动作的真实感，角色能对话并对世界事件做反应。架构上分工明确：Gemini 3.8 Flash 在实时回路里当引导智能体，观察不断传入的画面、把目标拆成步骤、逐帧核验是否完成并在用户插话时重排计划；Gemini Omni 负责把模拟锚在真实世界的外观与行为上；Gemini 4 Argon 则用于与 Gemini Robotics 的联合实验，把任务拆成字幕边渲染边送入，模拟 Apptronik 的 Apollo 人形机器人下跳棋。官方自述的短板同样具体：视觉细节与物体恒存会随时间漂移，长时段运行、多次复杂提示编辑之后、在场景中穿行时尤其明显；复杂物理交互、实时音频准确性、画面可读文字、空间准确性与长期一致性均被列为在研问题。所有生成的视频与音频都嵌入 SynthID 水印。发布节奏为研究预览，先给受信任测试者，之后向 Google AI Ultra 订阅者（Project Genie）与 Gemini API、Google AI Studio 的早期访问伙伴开放，可通过候补名单申请。",
+    keyPoints: [
+      "10-27 发布研究预览，官方称其为第一个原生生成音频的实时世界模型：环境音、音乐与可交互对话同画面一次生成",
+      "自然语言可实时改天气、移镜头、增删人物与物体，Gemini 按场景自动适配指令并在两次输入之间持续纠偏",
+      "实时回路里干活的是 Gemini 3.8 Flash（观察、拆步、核验），Gemini 4 Argon 只用于与 Gemini Robotics 的任务分解实验",
+      "官方自述局限：物体恒存与视觉细节会漂移，长时间运行与多次编辑后明显；复杂物理、可读文字、空间准确性仍在研究",
+      "先给受信任测试者，之后进 Google AI Ultra 的 Project Genie 与 Gemini API/AI Studio 早期伙伴，全部产物嵌 SynthID",
+    ],
+    org: "Google DeepMind",
+    category: "模型发布",
+    date: "2026-10-27",
+    heat: 89,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google DeepMind 官方博客《Genie 4: A new generation of world simulation》（2026-10-27）",
+    sourceUrl: "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+    refs: [
+      { name: "凤凰网科技（10-28，编译 TechCrunch：两分钟稳定场景、Argon 与 3.8 Flash 的分工）", url: "https://i.ifeng.com/c/8xa7f2B1Jlr" },
+      { name: "iClarified（10-27，物理与音频细节、局限清单）", url: "https://www.iclarified.com/103125/google-unveils-genie-4-with-interactive-ai-worlds-and-real-time-audio-video" },
+    ],
+    article: "/blog/2026-10-28-world-that-cannot-remember.html",
+  },
   {
     id: "anthropic-s1-ipo-filing",
     title: "Anthropic 递交 S-1 启动 IPO：上半年营收 163 亿美元，账面净亏 807 亿——其中 724 亿是公司自己变贵变出来的",
@@ -89,6 +115,32 @@ export const hotRanking: HotItem[] = [
       { name: "Le Monde（10-26，风险因素与算力承诺）", url: "https://www.lemonde.fr/en/economy/article/2026/10/26/anthropic-files-for-stock-market-listing-revealing-soaring-sales-and-a-long-list-of-risks_6764782_19.html" },
     ],
     article: "/blog/2026-10-27-loss-that-appreciated.html",
+  },
+  {
+    id: "nvidia-meta-muse-3b-investment",
+    title: "英伟达向 Meta 的 950 亿增发投进 30 亿：卖铲子的人成了淘金者的股东",
+    summary:
+      "10-26，英伟达与 Meta 同日发两份公告。Meta 宣布计划融资最多 950 亿美元用于 AI 基础设施与「个人超级智能」：约 350 亿美元为承销公开增发（其中约 225 亿为 A 类普通股、约 125 亿为代表优先股的存托凭证），另设 600 亿美元按市价发行（ATM）计划，后者要等新的 C 类无投票权股开始交易后启动，公司称预计不早于 2027 年第一季度，时间与条款尚未确定。英伟达、AMD、博通作为基石投资者有意认购合计最多 50 亿美元的 A 类普通股，Meta 明言这些意向「不构成有约束力的认购承诺」；英伟达新闻稿单独说明，自己将投入 30 亿美元。合作层面，双方将扩大在 Muse 及 Muse 系列模型上的推理与训练优化，Meta 计划扩大部署英伟达 Vera Rubin、Vera CPU、Spectrum-X 以太网与 BlueField-4，目标是每瓦性能最大化与总拥有成本下降；至于英伟达 OpenShell 参考架构与 Sentry 智能体行为监控，公告两处都只写「考虑」。背景是 Meta 现金流的转向：三季度营收 646 亿美元、同比增 26%，但自由现金流为负 21.2 亿美元，是十多年来首次为负；全年资本开支指引 1350 亿至 1450 亿美元，已承诺未来支出约 8250 亿美元，9 月底现金与有价证券 824.5 亿、长期债务 809.2 亿。路透社指出，芯片供应商出钱帮最大客户扩张，加剧了外界对 AI 行业「资本循环」的担忧。同日 SpaceX 另与阿波罗全球管理签下约 400 亿美元设备融资租赁用于购买 AI 芯片与服务器。",
+    keyPoints: [
+      "10-26 英伟达宣布向 Meta 同日公布的约 950 亿美元股权融资投入 30 亿美元，钱最终又流回自家芯片与网络设备",
+      "Meta 融资结构：350 亿承销公开增发（约 225 亿 A 类普通股 + 125 亿优先股存托凭证）加 600 亿按市价发行，后者要等 C 类股 2027 Q1 交易后才启动",
+      "AMD 与博通同列基石意向，三家合计最多认购 50 亿美元 A 类普通股，Meta 写明不构成有约束力的认购承诺",
+      "写进承诺的是硬件与成本：扩部署 Vera Rubin / Vera CPU / Spectrum-X / BlueField-4，追求每瓦性能与总拥有成本；OpenShell 与 Sentry 只写「考虑」",
+      "背景是 Meta 三季度自由现金流 -21.2 亿美元（十多年首次为负）、资本开支 1350–1450 亿；路透称此举加剧 AI 行业「资本循环」担忧",
+    ],
+    org: "NVIDIA / Meta",
+    category: "行业动态",
+    date: "2026-10-26",
+    heat: 90,
+    authority: "official",
+    precision: "exact",
+    sourceName: "NVIDIA 官方新闻稿《NVIDIA and Meta to Expand Collaboration on Muse and Muse Family of Models Amid Robust Growth》（2026-10-26）",
+    sourceUrl: "https://nvidianews.nvidia.com/news/nvidia-and-meta-to-expand-collaboration-on-muse-and-muse-family-of-models-amid-robust-growth",
+    refs: [
+      { name: "CNBC（10-26，Meta 950 亿融资结构与基石投资者）", url: "https://www.cnbc.com/2026/10/26/meta-stock-offering-ai.html" },
+      { name: "路透社 / 海峡时报（10-26，资本循环担忧、现金流与资本开支）", url: "https://www.straitstimes.com/business/meta-eyes-record-us95-billion-equity-raise-to-fund-ai-expansion" },
+    ],
+    article: "/blog/2026-10-28-shovel-seller-takes-a-stake.html",
   },
   {
     id: "openai-gpt-6-1-terra",
