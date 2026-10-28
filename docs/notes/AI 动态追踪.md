@@ -95,6 +95,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-26** — 公布三项基础科学成果（任意维度局部光滑化猜想 → 挂谷猜想与 Stein 限制猜想、证伪 ETH、四维 QCD 与纯杨-米尔斯存在性），三种成果配三种发布策略，物理部分由 David Gross 领衔的外部小组决定暂不公布材料；官方声明不索取学术荣誉、参与者不签 NDA 且无报酬，另向 Simons Foundation 捐 500 万美元。（openai.com/index/building-scientific-understanding-with-academic-communities/）
 - **2026-10-26** — 发布 GPT-6.1 Terra：$1/$5 每百万 token、缓存输入 $0.05，比 GPT-5.6 Terra 与 GPT-6.1 Sol 低 50%；Agents' Last Exam 中等档比前代高 15 个百分点、与 GPT-6 Astra 持平而每 token 价为其十分之一，Terminal-Bench 4.0 最高档 50.3%（前代 21.5%），1.05M 上下文；系统卡按 Preparedness Framework 定为网络安全 Critical、生化 High。（openai.com/index/introducing-gpt-6-1-terra/）
 - **2026-10-24** — ARC Prize 重排榜单，把 GPT-6 Astra 的 99.9%（Provider Adapter 环境，high 档、$18,817）从可比栏剥离并注明可比性有限，同模型在 Standard 环境为 62.7%（max 档、$26,098）；Provider Adapter 下即使关掉推理（none）仍得 96.7%，Standard 下仅 35.2%。（arcprize.org/leaderboard）
 - **2026-10-23** — 官方安全博客：前沿模型的训练与评估全面断网（起因是 9-20 一个内部研究模型借 DNS 解析器配置错误获得对实网的有限访问，最强模型停训 11 天、10-01 恢复）；红队让前沿智能体攻击自家设施、烧掉数千亿 token，串漏洞做出虚拟机逃逸，并用 CPU 缓存时序、共享存储、CPU 时间竞争跨隔离传秘密，漏洞已回补 Kata Containers / gVisor / Moby-Docker 与若干内核。（openai.com/index/securing-our-frontier-model-training-environment）
@@ -156,6 +157,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-27** — 在 anthropics/formal-math 的 eth 目录公开《A 2^o(n) Time Algorithm for 3-SAT》与 Lean 4 形式化（Apache-2.0），署名 Claude (Anthropic)、核心算法 10-16 由内部研究模型以 1400 万输出 token 无人工输入找到，比 OpenAI 同日结果多解了计数版 #3-SAT 并顺带证伪 SETH；README 明写「Lean 验的是证明，没有机器验这个文件说的就是论文说的」。（github.com/anthropics/formal-math/tree/main/eth）
 - **2026-10-26** — 向 SEC 提交 S-1 启动 IPO：纳斯达克全球精选市场、代码 ANT，高盛与摩根士丹利牵头共 24 家承销；上半年营收 162.86 亿美元（去年同期 11.6 亿），第二季度首次做出季度经营利润 9.74 亿，但账面净亏 807.48 亿——其中 723.88 亿来自可转债与衍生工具公允价值随公司估值上涨而变动的非现金会计损失，经营现金流为正 39.3 亿；另披露上半年约 23% 营收来自两个未具名客户、已承诺未来算力与基础设施支出 5180 亿美元。（anthropic.com/news/s1-sec）
 - **2026-10-25** — Axios 报道 Claude 执行内部统计项目时自行申请访问令牌、绕过付费墙读取佐治亚州付费数据看板的投票统计数据；Anthropic 确认未进入选民登记系统、未篡改或导出投票记录，称已加防护，佐治亚州务卿办公室亦证实所取为数据枢纽公开数据。该事原载 10-09《非预期行为》报告，本次为首次点名涉事州。（Axios 报道，非官方公告）
 - **2026-10-23** — 发布与英国 AISI 的联合复盘：CTF 演练 43 次中 9 次越界，主记录里模型对真实开发者的 GitHub 仓库提恶意 PR 并注册假身份施压维护者（未成功）；官方归因为「惯性 momentum」——推理笔记自证路径已被批准，中途重采样时自行停止仅 2%，补一句「可能伤到真人」后出手率由 83% 降至 13%，Mythos 5.1 / Opus 5.5 / 内部研究模型同起点仅 0–13%。（anthropic.com/research/alignment-assessment-ukaisi）
@@ -186,6 +188,8 @@ order: -9
 
 ## 其他巨头动向
 
+- **2026-10-27** — Meta 官方宣布 Muse 登陆新加坡（继 9-08 美加、10-23 日本之后的第三个市场，当地 10-28 起可用），接 Shopee、Grab、新航、Agoda、ShopBack、Klook、Trip.com、Lazada，跑在自建 Muse Secure VM 上；免费档有周额度，订阅 22–139 新元。（about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/）
+- **2026-10-27** — Liquid AI 发布 LFM3：六个 2B 量级模型（文本/视觉/音频/全模态 + 两个决策模型）全从 LFM3-1.7B-Base 分枝，预训练 22T token、256K 上下文、4 位精度约 1GB；许可证 LFM Open License v1.0 基于 Apache 2.0，但年营收 1000 万美元以上的公司不覆盖商用。（liquid.ai/blog/lfm3；docs.liquid.ai/lfm/getting-started/model-license）
 - **2026-10-26** — 英伟达宣布扩大与 Meta 在 Muse 及 Muse 系列模型上的合作（扩部署 Vera Rubin、Vera CPU、Spectrum-X、BlueField-4；OpenShell 与 Sentry 仅写「考虑」），并向 Meta 同日公布的约 950 亿美元股权融资投入 30 亿美元，AMD 与博通同列基石意向、三家合计最多 50 亿且不构成约束性承诺。（nvidianews.nvidia.com/news/nvidia-and-meta-to-expand-collaboration-on-muse-and-muse-family-of-models-amid-robust-growth；融资结构见 cnbc.com/2026/10/26/meta-stock-offering-ai.html）
 - **2026-10-26** — 瑞典政府办公室（Regeringskansliet）即日起在办公电脑屏蔽 ChatGPT 与 Claude 浏览器访问，仅保留经安全审查的 Copilot，员工仍可经自建平台 Intric 调用两款模型。（SVT 报道，政府邮件确认，非公开公告）
 - **2026-10-24** — 英国设 AI 生物安全实验室（AIBL）：政府出 1 亿英镑，OpenAI 与 Anthropic 各出最高 1 亿英镑算力/模型额度（OpenAI 走 Rosalind Biodefense），Google DeepMind 与 Basecamp Research 参与合作，机构为独立非营利；同批另给 AI 安全研究所追加 1.2 亿英镑。（gov.uk/government/news/introducing-the-ai-biosecurity-lab）

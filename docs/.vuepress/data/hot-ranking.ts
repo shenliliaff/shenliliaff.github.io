@@ -60,10 +60,113 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-28";
+export const hotRankingUpdatedAt = "2026-10-29";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "meta-muse-singapore-launch",
+    title: "Meta Muse 进新加坡：接 Shopee、Grab、新航，订阅 22–139 新元——面向大众的个人智能体开始补亚洲",
+    summary:
+      "10-27，Meta 官方新闻稿宣布个人智能体 Muse 在新加坡上线（当地 10-28 起可用），这是继 9-08 美国与加拿大、10-23 日本之后的第三个市场，iOS、Android 与 muse.ai 三端可用。首批连接的应用覆盖购物、出行、餐饮与旅行：Shopee、Lazada、Grab、新加坡航空、Agoda、ShopBack、Klook、Trip.com，功能分阶段开放，部分体验在上线后才推出；同时也接 Gmail、Google 日历与 Instagram，用来管邮件、排日程、调取已保存内容。架构上跑在自建的 Muse Secure VM 上——一台云端专属机器，凭据与已连接服务的数据都存在里面，密码和支付方式对智能体本身不可见，哪怕是用户在浏览器里亲手输入的密码也一样。用户可以自选授予哪些权限，也可设为只读（不能发消息、改文件、下单）；发邮件与付款这类敏感动作必须事先批准。定价为免费档设周额度，超出需求可订阅，价位 22 至 139 新元，换取更多 token 或额度。官方此前披露美加上线 40 天在 App Store 与 Google Play 的下载量约 1020 万次（Sensor Tower），但分析人士指出增长伴以 Meta 的大规模广告投放，留存仍待观察。媒体实测暴露了边界：《海峡时报》记者让 Muse 取消一个餐厅订座，它去登录了一个并不存在的 Chope 账号，失败；另一次它推荐了一家已经关门的餐厅，因为 Google 上的信息没有更新。安全背景不容乐观——近几个月 OpenAI 与 Anthropic 接连披露智能体越界事件，而亚马逊、摩根大通、达美航空、Amtrak 等平台正以防安全与商业利益为由限制第三方智能体访问，沃尔玛则选择放开，允许用户为智能体单独建档案。",
+    keyPoints: [
+      "10-27 官方宣布、10-28 起在新加坡可用，为继 9-08 美加、10-23 日本之后的第三个市场，iOS / Android / muse.ai 三端",
+      "首批接入 Shopee、Lazada、Grab、新航、Agoda、ShopBack、Klook、Trip.com 八个本地服务，功能分阶段开放",
+      "跑在自建 Muse Secure VM 上，密码与支付方式对智能体不可见，发邮件与付款前须批准，可设只读权限",
+      "免费档设周额度，订阅 22–139 新元；美加上线 40 天下载约 1020 万次，但伴以大规模投放，留存待观察",
+      "《海峡时报》实测翻车：取消订座时登录了不存在的账号、推荐已关门的餐厅；亚马逊、摩根大通等平台仍在限制第三方智能体",
+    ],
+    org: "Meta",
+    category: "产品发布",
+    date: "2026-10-27",
+    heat: 72,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Meta 官方新闻稿《Muse Is Now Available in Singapore: The World's First Personal AI Agent Built for Everyone》（2026-10-27）",
+    sourceUrl: "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
+    refs: [
+      { name: "联合早报（10-28，本地接入清单、定价与安全争议）", url: "https://www.zaobao.com.sg/finance/singapore/story20261028-9906147" },
+      { name: "The Straits Times（10-28，实测失败案例与平台封锁背景）", url: "https://www.straitstimes.com/tech/meta-rolls-out-consumer-ai-agent-in-singapore-amid-global-safety-retail-pushback" },
+    ],
+  },
+  {
+    id: "anthropic-eth-3sat-refutation",
+    title: "Anthropic 隔六小时也交了 ETH 的反证：一个 commit、一个 Apache-2.0 目录，和一句「没有机器验过这份文件」",
+    summary:
+      "UTC 10-27 03:07，Anthropic 的 GitHub 仓库 anthropics/formal-math 在 eth 目录下多了一批文件——论文《A 2^o(n) Time Algorithm for 3-SAT》与一份 Lean 4 形式化证明，Apache-2.0。没有博客，没有推文。此时距离 OpenAI 在 openai/math 提交同一结论的材料（UTC 10-26 20:52）刚过六个多小时。论文署名是「Claude (Anthropic)」，README 给出的来源说明是：核心算法于 10 月 16 日由内部 Claude 研究模型找到，1400 万输出 token，无任何人工输入；此后 Anthropic 研究者与 Claude 一起改进了表述。它比 OpenAI 那份多做了一步——不只是判定 3-SAT，而是解了更难的计数版 #3-SAT，在 2^O(n log log n / √log n) 时间内数出满足赋值的个数；论文同时指出 ETH 被证伪也意味着更强的 SETH 倒下，但不动 Orthogonal Vectors 假设。验证方面写得很克制：Lean 4 形式化由 AI 模型撰写，证明只依赖 Lean 的三条标准公理，CI 里另有第二个独立编写的内核 nanoda 重跑一遍；MainResults.lean 被故意写得很短，短到人能肉眼跟论文对一遍。README 原文留下一句关键限定：「Lean 验的是证明，没有机器验这个文件说的就是论文说的。」结果纯属渐近——论文自己说，界要到变量数远超 10^108 才优于穷举，对现实的 SAT 求解器毫无影响，也不直接触及 P vs NP。论文里还写明与 OpenAI 的工作「独立且同时」。",
+    keyPoints: [
+      "UTC 10-27 03:07 在 anthropics/formal-math 的 eth 目录公开论文与 Lean 4 证明，Apache-2.0，无博客无推文，距 OpenAI 同类提交约六小时",
+      "署名「Claude (Anthropic)」：核心算法 10-16 由内部研究模型以 1400 万输出 token、无人工输入找到，论文称与 OpenAI 的工作「独立且同时」",
+      "比 OpenAI 那份多解了计数版 #3-SAT（2^O(n log log n / √log n)），并顺带证伪更强的 SETH，但不动 Orthogonal Vectors 假设",
+      "README 自陈局限：Lean 只验证明、没有机器验形式陈述是否等于论文，MainResults.lean 故意写短供人肉比对，CI 另跑独立内核 nanoda",
+      "结果纯渐近：变量数需远超 10^108 才优于穷举，对现实 SAT 求解器无影响，也不直接触及 P vs NP",
+    ],
+    org: "Anthropic",
+    category: "学术公益",
+    date: "2026-10-27",
+    heat: 90,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方仓库《A 2^o(n) Time Algorithm for 3-SAT》（2026-10-27 提交）",
+    sourceUrl: "https://github.com/anthropics/formal-math/tree/main/eth",
+    refs: [
+      { name: "Times of AI（10-27，两次提交的 GitHub 时间戳与论文边界）", url: "https://timesof.ai/2026/10/anthropic-claude-eth-3sat-subexponential-claim" },
+      { name: "AI Insiders（10-27，Lean 验证范围与 nanoda 二次校验）", url: "https://aiinsiders.net/article/anthropic-says-its-claude-model-also-broke-a-famous" },
+    ],
+    article: "/blog/2026-10-29-press-conference-vs-commit.html",
+  },
+  {
+    id: "liquid-ai-lfm3-six-models",
+    title: "Liquid AI 放出 LFM3：一根 1.7B 底座切出六个 2B 模型，许可证在年营收 1000 万美元处划线",
+    summary:
+      "10-27，Liquid AI 发布 LFM3 家族首批六个模型，全部从同一个底座 LFM3-1.7B-Base 分枝，参数都在 2B 量级：文本的 LFM3-1.7B、视觉的 LFM3-VL-2B（1.9B，首个支持视频输入的 LFM 视觉模型）、音频的 LFM3-Audio-2B（覆盖 18 种语言）、全模态的 LFM3-Omni-2B（2.2B），以及两个决策模型 d1-2B 与 d1-Omni-2B——后者不生成文字，而是一次前向就吐出带校准概率的答案，能框物体、抠字段、估区间、多选。底座预训练 22 万亿 token，最后 3.5 万亿为中期训练，侧重 agent 轨迹与工具调用，并把上下文拉到 256K。架构叫 tri-hybrid：24 层里 13 层门控短卷积（卷积核 7，上一代为 3）、5 层 256 词滑窗注意力、6 层全局注意力；另加头级别的 sigmoid 门控、全局层只对每头高频一半做 RoPE、每个块输入输出都归一化。架构搜索是硬件在环的，从上一代的一部手机加一台笔记本 CPU 扩到 14 种设备与后端（三星 S26 Ultra、一加 15、树莓派 5、M4 Max、Ryzen AI、Arm 与 x86 云 CPU、高通 Hexagon NPU）。文本模型 4 位精度约占 1GB，每个模型都能在单卡上微调。厂商自报综合平均 49.37，高于 Qwen3.5-9B 的 47.24；WebArena-Verified 38.42 对 28.94；但在 SWE-bench Verified（43.40 对 51.20）、GPQA Diamond（63.37 对 80.40）与 128K 长上下文（65.56 对 87.11）落后，官方承认不打算用于 agentic coding 与多步复杂推理。许可证是重点：LFM Open License v1.0 以 Apache 2.0 为底，加了一条商业使用门槛——年营收低于 1000 万美元免费商用，达到或超过则不覆盖，需单独洽谈；官方通篇写 open-weight，不写 open source。",
+    keyPoints: [
+      "10-27 发布六个 2B 量级模型（文本 / 视觉 / 音频 / 全模态 + d1-2B、d1-Omni-2B 两个决策模型），全部从 LFM3-1.7B-Base 分枝",
+      "tri-hybrid：24 层中 13 层门控短卷积（核 7）、5 层 256 词滑窗注意力、6 层全局注意力；预训练 22T token、上下文 256K",
+      "文本模型 4 位精度约 1GB、可在单卡微调；厂商自报综合 49.37 对 Qwen3.5-9B 47.24，但 SWE-bench、GPQA、128K 长上下文三项落后",
+      "LFM Open License v1.0 基于 Apache 2.0，年营收 1000 万美元以下免费商用、以上不覆盖；官方只用 open-weight 一词，不称 open source",
+      "发布伙伴含 AMD、Arm、Intel、NVIDIA、Qualcomm、Vercel 等八家，奔驰与 Shopify 发布前试用；全部跑分为厂商自测，暂无第三方复现",
+    ],
+    org: "Liquid AI",
+    category: "模型发布",
+    date: "2026-10-27",
+    heat: 78,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Liquid AI 官方博客《Introducing LFM3: Every Modality for Specialized Intelligence》（2026-10-27）",
+    sourceUrl: "https://www.liquid.ai/blog/lfm3",
+    refs: [
+      { name: "Liquid AI 文档《LFM Open License User Guide》（1000 万美元营收门槛与商用条款）", url: "https://docs.liquid.ai/lfm/getting-started/model-license" },
+      { name: "i-scoop（10-28，AA-Omniscience 7% 正确率与许可门槛的欧洲视角）", url: "https://www.i-scoop.eu/liquid-ai-lfm3" },
+    ],
+    article: "/blog/2026-10-29-seven-percent-honest.html",
+  },
+  {
+    id: "openai-three-scientific-results",
+    title: "OpenAI 一天交三份科学答卷：挂谷猜想全维度告破、ETH 被证伪、四维 QCD 拿到存在性证明——物理那份先不公开",
+    summary:
+      "10-26，OpenAI 发布《Working with academic communities to build scientific understanding》，公布三项基础科学结果。数学：模型给出 1991 年 Sogge 局部光滑化猜想在任意维度的证明，由此一并解决所有维度的挂谷猜想与 Stein 限制猜想，证明基于一个全新的辅助偏微分方程；10-18 得到 AI 输出，次日完成 Lean 形式化。计算机：模型于 10-16 给出指数时间假设（ETH）的自然语言反证、10-17 完成 Lean 形式化，ETH 自 1999 年提出后被数百篇论文用作前提，涉及图论、计算生物学、数据库与计算几何；该结论「重新打开了这些任务能快多少的问题」。物理：给出四维中含规范场与费米子的相互作用量子场论存在性的严格证明，涵盖 QCD 与标准模型的一种统一完备化，作为子问题完成纯杨-米尔斯理论的存在性——属克雷千禧年难题「杨-米尔斯存在性与质量隙」的一半，未涉及质量隙；9-09 产出杨-米尔斯、9-18 产出 QCD、10-16 完成形式化，方法与 Balaban 的构造性量子场论路线相关。发布方式本身是一次实验：先请外部专家当「牧羊人」，三种结果配三种策略——数学直接放出 AI 输出让学界自行组织解读；计算机组外部小组解释、材料同时公开；物理由小组决定，小组选择暂不发布 AI 材料、自行撰写。四条原则为透明（参与不签 NDA、可自由讨论与发表）、不索取学术荣誉、认可小组的解读工作、独立（自愿无报酬、结论属个人）。计算机组由 ETH 提出者 Russell Impagliazzo、Ramamohan Paturi 与 MIT 的 Ryan Williams 领衔，三人公开信写明「我们的参与不应被视为对该主张的认证」；物理组由 2004 年诺奖得主 David Gross 领衔，成员含与 Witten 共同提出该千禧年难题的 Arthur Jaffe。官方同时向 Simons Foundation 新倡议捐 500 万美元（该倡议共 1500 万），并承认选定初始牧羊人「必然决定了谁先参与，造成信息不对称」。",
+    keyPoints: [
+      "10-26 公布：模型 10-18 给出任意维度局部光滑化猜想证明（次日 Lean 形式化），由此解决所有维度的挂谷猜想与 Stein 限制猜想",
+      "计算机方向 10-16 给出 ETH 反证、10-17 完成形式化，由 ETH 提出者 Impagliazzo、Paturi 与 MIT 的 Williams 领衔核查，三人声明参与不等于认证",
+      "物理方向 9-09 与 9-18 分别产出杨-米尔斯与 QCD 存在性证明、10-16 完成形式化，但只证存在性，未涉及千禧年难题要求的正质量隙",
+      "三种成果三种发布策略：数学直接放出、计算机组外部小组解释、物理由 David Gross 领衔的小组决定暂不公开 AI 材料并自行撰写",
+      "不索取学术荣誉、参与者不签 NDA 且无报酬、向 Simons Foundation 捐 500 万美元；官方承认手挑牧羊人会造成信息不对称",
+    ],
+    org: "OpenAI",
+    category: "学术公益",
+    date: "2026-10-26",
+    heat: 94,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方公告《Working with academic communities to build scientific understanding》（2026-10-26）",
+    sourceUrl: "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+    refs: [
+      { name: "澎湃新闻（10-28，三种发布策略、学者公开信与两方口径）", url: "https://www.thepaper.cn/newsDetail_forward_34341314" },
+      { name: "IT之家（10-28，转述 The Verge：学界对发布方式的不满）", url: "https://www.toutiao.com/article/7701556143440527891" },
+    ],
+    article: "/blog/2026-10-29-press-conference-vs-commit.html",
+  },
   {
     id: "google-genie-4-world-model",
     title: "DeepMind 放出 Genie 4：世界模型第一次会出声、会搭话，但走两步就记不住自己摆过一张桌子",
