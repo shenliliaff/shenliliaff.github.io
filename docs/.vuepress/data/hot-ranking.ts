@@ -84,6 +84,7 @@ export const hotRanking: HotItem[] = [
     precision: "exact",
     sourceName: "Google 官方博客《Gemini 4 Carbon: our next frontier model》（2026-10-28 17:00 UTC / 北京时间 10-29 01:00）",
     sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+    article: "/blog/2026-10-29-only-on-the-menu.html",
   },
   {
     id: "nvidia-nemotron-3-5-transcribe",
@@ -105,6 +106,7 @@ export const hotRanking: HotItem[] = [
     precision: "exact",
     sourceName: "NVIDIA 官方博客《NVIDIA RTX Spark Windows Laptops Gain New Models, Agent Tools and Games》（2026-10-28 PT / 北京时间 10-29）",
     sourceUrl: "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
+    article: "/blog/2026-10-29-meeting-stays-home.html",
   },
 
   {
