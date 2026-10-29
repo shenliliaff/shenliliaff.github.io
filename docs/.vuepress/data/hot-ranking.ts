@@ -65,6 +65,49 @@ export const hotRankingUpdatedAt = "2026-10-29";
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
   {
+    id: "gemini-4-carbon-cyber-frontier",
+    title: "谷歌放出 Gemini 4 Carbon，最强的一项能力却不让你用：只发给通过审查的网络安全防守方",
+    summary:
+      "北京时间 10-29 凌晨，Google DeepMind 发布 Gemini 4 Carbon，官方称这是目前最强的模型，重点不在聊天，而在写代码和网络安全防御。跑分上，Artificial Analysis 智能指数 v5 拿到 59 分排第一，压过 Claude Opus 5.5 与 GPT-6 Astra；漏洞发现 SEC-bench Pro 88.2%、漏洞利用 ExploitGym 54.8%、漏洞修复 CWE-bench 71.0%；对间接提示注入的抵抗从 Argon 的 0.7% 成功率降到 0.0%；内部测试里高危「跑偏」告警下降近八成，无依据的说法减少约一半。定价是介绍期每百万输入 2 美元、输出 10 美元，之后回到 4 与 20 美元。最关键的一句在发布方式里：Carbon 暂时只通过 Fairwind 计划发给经过审核的安全防守人员，同时配合美国政府做发布前自愿测试，面向开发者、企业和普通用户的时间官方只说「soon」，没给日期。换句话说，参数最强的那一代，先交给了守门的人。",
+    keyPoints: [
+      "10-29 凌晨发布，官方称最强模型，重点是长时程工程任务与网络安全防御，不是聊天",
+      "Artificial Analysis 智能指数 v5 得 59 分居首，超过 Claude Opus 5.5 与 GPT-6 Astra",
+      "安全三项：SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%；提示注入抵抗 0.0% 成功率",
+      "介绍期每百万输入 2 美元、输出 10 美元，之后涨到 4 与 20 美元",
+      "只发给通过审核的安全防守方（Fairwind 计划），普通用户与开发者「即将开放」但无日期",
+    ],
+    org: "Google DeepMind",
+    category: "模型发布",
+    date: "2026-10-29",
+    heat: 93,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google 官方博客《Gemini 4 Carbon: our next frontier model》（2026-10-28 17:00 UTC / 北京时间 10-29 01:00）",
+    sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+  },
+  {
+    id: "nvidia-nemotron-3-5-transcribe",
+    title: "英伟达开源语音模型 Nemotron 3.5 Transcribe：一次录音，转写、认人、翻译、总结全用它一个",
+    summary:
+      "北京时间 10-29（美西 10-28），英伟达发布开放权重的语音模型 Nemotron 3.5 Transcribe。以前做会议记录要拼三个模型——一个转写、一个认发言人、一个翻译；现在一个模型接自然语言指令就能全干，还能直接问录音里的内容，比如「这场会做了哪些决定」。覆盖 40 种语言，含 7 种印度语系；在 Hugging Face 开放语音识别榜排第一，Artificial Analysis 开放权重榜排第二，激活参数约 43 亿，比榜首那个开放模型少八成。权重以 BF16、FP8、NVFP4 三种格式放出，能跑在 RTX Spark 笔记本、DGX Spark、Jetson AGX Thor 和 RTX 5090 上，NVFP4 版本可用 NeMo-Speech.cpp 或 vLLM 部署。对普通人的意义很直接：会议录音不必再传到别人的服务器上，本地电脑就能转。",
+    keyPoints: [
+      "北京时间 10-29 发布，开放权重，一个模型同时做转写、发言人标注、翻译和内容提问",
+      "覆盖 40 种语言（含 7 种印度语系），用自然语言指令控制，可带行业术语与格式要求",
+      "Hugging Face 开放 ASR 榜第一、Artificial Analysis 开放权重榜第二，激活参数约 4.3B，比榜首少八成",
+      "权重以 BF16 / FP8 / NVFP4 开放，可在 RTX Spark、DGX Spark、Jetson AGX Thor、RTX 5090 本地跑",
+      "对用户最实际的一点：录音可以不出本机，会议转写不再必须上传云端",
+    ],
+    org: "NVIDIA",
+    category: "模型发布",
+    date: "2026-10-29",
+    heat: 74,
+    authority: "official",
+    precision: "exact",
+    sourceName: "NVIDIA 官方博客《NVIDIA RTX Spark Windows Laptops Gain New Models, Agent Tools and Games》（2026-10-28 PT / 北京时间 10-29）",
+    sourceUrl: "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
+  },
+
+  {
     id: "meta-muse-singapore-launch",
     title: "Meta Muse 进新加坡：接 Shopee、Grab、新航，订阅 22–139 新元——面向大众的个人智能体开始补亚洲",
     summary:
