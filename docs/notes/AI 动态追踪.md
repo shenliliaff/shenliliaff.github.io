@@ -1,7 +1,5 @@
--- **2026-10-29** — 英伟达开源语音模型 Nemotron 3.5 Transcribe：一个模型同时做转写、发言人标注、翻译与内容提问，覆盖 40 种语言（含 7 种印度语系）；HF 开放 ASR 榜第一、AA 开放权重榜第二，激活参数约 4.3B；BF16/FP8/NVFP4 权重开放，可在 RTX Spark、DGX Spark、Jetson AGX Thor、RTX 5090 本地运行。（blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/）
---
-tit- **2026-10-29** — 发布前沿模型 Gemini 4 Carbon：AA 智能指数 v5 得 59 分居首，SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%，间接提示注入成功率降至 0.0%；介绍期每百万输入/输出 2/10 美元（之后 4/20）；仅通过 Fairwind 计划向审核过的安全防守方开放，配合美国政府发布前自愿测试。（blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/）
-le: AI 动态追踪
+---
+title: AI 动态追踪
 icon: fa6-solid:satellite-dish
 article: false
 order: -9
@@ -135,6 +133,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-29** — 发布前沿模型 Gemini 4 Carbon：AA 智能指数 v5 得 59 分居首，SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%，间接提示注入成功率降至 0.0%；介绍期每百万输入/输出 2/10 美元（之后 4/20）；仅通过 Fairwind 计划向审核过的安全防守方开放，配合美国政府发布前自愿测试。（blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/）
 - **2026-10-27** — 发布世界模型 Genie 4 研究预览：首个原生生成音频的实时世界模型，环境音、音乐与可交互对话同画面一起生成，支持自然语言实时改天气/镜头/增删人物；实时回路里做引导的是 Gemini 3.8 Flash（观察画面、拆步、核验），Gemini 4 Argon 只用于与 Gemini Robotics 的任务分解实验；官方自述物体恒存与视觉细节仍会漂移，产物全部嵌 SynthID。（deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/）
 - **2026-10-26** — 与 Springer Nature 合作开发 AI 同行评审助手：用前沿 Gemini 模型加开源 Agent Development Kit（ADK），承接早前的 ScholarPeer 与 Deep Review，全部跑在 Springer Nature 私有 Gemini Enterprise 环境内以保证稿件不外流；原型测试中，未公布上线时间、覆盖期刊与准确率数据。（springernature.com 集团新闻稿）
 - **2026-10-22** — 皮查伊在《Sources》播客复盘 Argon：上线 72 小时消耗近 25 万亿 token（约 Gemini 3.0 同期 3 倍）并一度限流；Gemini 3.5 Pro 属主动取消，Flash 系列三个月连迭代的经验直接注入 Argon 后训练；他称内部已进入递归自我改进阶段，模型参与提议训练配方、自动评估下一个检查点。（播客访谈，非官方公告，经 36氪 / 腾讯新闻 转述）
@@ -191,6 +190,9 @@ order: -9
 
 ## 其他巨头动向
 
+- **2026-10-29** — 腾讯全球数字生态大会宣布混元 Hy4 正式版「即将发布」、Hy4 Flash 在准备中：对比 8-28 开源的 Hy4 preview（770B 总参 / 49B 激活 / 1M 上下文）强化长程与生产力任务、提升思维链效率、首次加入视觉理解；同场披露 WorkBuddy 自 3 月上线累计 90 亿次任务请求、覆盖 50+ 行业、中国 500 强半数企业在用、生态 5 万开发者与 20 万 skills；企业侧统一入口为腾讯云 TokenHub（一个 API 同时接 Hy 系列与第三方模型），国内推 Buddy One 做跨应用调度。未给发布日期、价格与是否开源。（tencent.com/tencent-cloud-accelerates-international-growth-advances-enterprise-ai-and-expands-global-partnerships）
+- **2026-10-29** — 英伟达开源语音模型 Nemotron 3.5 Transcribe：一个模型同时做转写、发言人标注、翻译与内容提问，覆盖 40 种语言（含 7 种印度语系）；HF 开放 ASR 榜第一、AA 开放权重榜第二，激活参数约 4.3B；BF16/FP8/NVFP4 权重开放，可在 RTX Spark、DGX Spark、Jetson AGX Thor、RTX 5090 本地运行。（blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/）
+- **2026-10-29** — 欧洲电信标准化协会 ETSI 发布技术规范 ETSI TS 104 275（TC SAI 制定，文本 v1.1.1 公开下载）：思路从「事后鉴伪」转为「上线前防」，要求把深伪风险当安全与治理问题贯穿系统生命周期——五条措施为部署前风险评估、人工复核与干预、内容过滤+AI 内容标识+用户提示、持续监控、留档举证，并附测试场景与通过/失败判据；建在 EN 304 223 基线之上，官方称支撑 EU AI Act 并将安全要求延伸到非高风险系统。（etsi.org/newsroom/press-releases/etsi-unveils-new-standard-to-reduce-production-of-harmful-deepfakes）
 - **2026-10-28** — GitHub Universe 发布 Copilot Fusion 正式可用：开发者只选 Standard / High / Max，系统在 Anthropic 与 OpenAI 等多个模型间路由或组合（单模型 / Cascade / Critique），Artificial Analysis 编码智能体指数 Fusion Max 得 60 分、与 Opus 5.5 Max 差 2 分内，成本约一半、时间少 40%，同场企业版改为按 token 用量付费不再按席位收 Copilot 费。（github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/）
 - **2026-10-27** — Meta 官方宣布 Muse 登陆新加坡（继 9-08 美加、10-23 日本之后的第三个市场，当地 10-28 起可用），接 Shopee、Grab、新航、Agoda、ShopBack、Klook、Trip.com、Lazada，跑在自建 Muse Secure VM 上；免费档有周额度，订阅 22–139 新元。（about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/）
 - **2026-10-27** — Liquid AI 发布 LFM3：六个 2B 量级模型（文本/视觉/音频/全模态 + 两个决策模型）全从 LFM3-1.7B-Base 分枝，预训练 22T token、256K 上下文、4 位精度约 1GB；许可证 LFM Open License v1.0 基于 Apache 2.0，但年营收 1000 万美元以上的公司不覆盖商用。（liquid.ai/blog/lfm3；docs.liquid.ai/lfm/getting-started/model-license）
