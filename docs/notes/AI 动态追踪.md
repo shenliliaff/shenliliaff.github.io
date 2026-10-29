@@ -1,5 +1,7 @@
----
-title: AI 动态追踪
+-- **2026-10-29** — 英伟达开源语音模型 Nemotron 3.5 Transcribe：一个模型同时做转写、发言人标注、翻译与内容提问，覆盖 40 种语言（含 7 种印度语系）；HF 开放 ASR 榜第一、AA 开放权重榜第二，激活参数约 4.3B；BF16/FP8/NVFP4 权重开放，可在 RTX Spark、DGX Spark、Jetson AGX Thor、RTX 5090 本地运行。（blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/）
+--
+tit- **2026-10-29** — 发布前沿模型 Gemini 4 Carbon：AA 智能指数 v5 得 59 分居首，SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%，间接提示注入成功率降至 0.0%；介绍期每百万输入/输出 2/10 美元（之后 4/20）；仅通过 Fairwind 计划向审核过的安全防守方开放，配合美国政府发布前自愿测试。（blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/）
+le: AI 动态追踪
 icon: fa6-solid:satellite-dish
 article: false
 order: -9

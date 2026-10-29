@@ -23,6 +23,16 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-10-29-press-conference-vs-commit.html",
   },
   {
+    title: "菜单上有这道菜，服务员说这个不卖",
+    date: "2026-10-29",
+    url: "/blog/2026-10-29-only-on-the-menu.html",
+  },
+  {
+    title: "以后的会还得开，但记录不用出门了",
+    date: "2026-10-29",
+    url: "/blog/2026-10-29-meeting-stays-home.html",
+  },
+  {
     title: "世界有了声音，桌子没了",
     date: "2026-10-28",
     url: "/blog/2026-10-28-world-that-cannot-remember.html",
