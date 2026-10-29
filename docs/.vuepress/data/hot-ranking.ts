@@ -87,6 +87,31 @@ export const hotRanking: HotItem[] = [
     article: "/blog/2026-10-29-only-on-the-menu.html",
   },
   {
+    id: "tencent-hy4-general-release-preview",
+    title: "腾讯宣布 Hy4 正式版「即将发布」：混元第一次能看图，顺带把办公智能体的家底亮了一遍",
+    summary:
+      "10-29 白天，2026 腾讯全球数字生态大会在深圳开，腾讯云宣布混元 Hy4 正式版即将发布、Hy4 Flash 也在准备中。跟 8-28 开源的 Hy4 preview 比，官方口径是三件事：长程任务和真实生产力任务更强、思维链效率更高、第一次有视觉理解。Hy4 Flash 走另一条路——把 Hy4 的视觉和 Agent 能力接过来，主打便宜好用。发布会上真正落在数字上的不是模型，是产品：WorkBuddy 自 3 月上线以来累计处理 90 亿次任务请求，覆盖 50 多个行业，中国 500 强里有一半企业在用，生态里有 5 万开发者和伙伴、20 万个 skills。企业侧的口子是腾讯云 TokenHub，一个 API 同时接 Hy 系列和第三方模型，选型、用量、治理、账单在一个地方管；国内另推 Buddy One，让 WorkBuddy 跨腾讯自家办公应用和业务智能体调任务。海外客户数一年翻了一倍，AI 需求三位数增长，全球 25 个地域、70 个可用区。至于 Hy4 什么时候能用、多少钱、开不开源，官方一句都没说。",
+    keyPoints: [
+      "10-29 腾讯全球数字生态大会宣布 Hy4 正式版「即将发布」，同期预告 Hy4 Flash，均未给日期",
+      "对比 8-28 开源的 Hy4 preview（770B 总参 / 49B 激活 / 1M 上下文）：补长程与生产力任务、提思维链效率，首次引入视觉理解",
+      "数字亮点不在模型在产品：WorkBuddy 上线 7 个月累计 90 亿次任务请求、覆盖 50+ 行业、中国 500 强半数在用、生态 5 万开发者与 20 万 skills",
+      "留白很干净：没说发布日期、没说价格、没说是否开源，视觉能力也没给任何跑分",
+      "企业侧可走腾讯云 TokenHub 一个 API 同时挑混元与第三方模型，换模型不必换接入方式",
+    ],
+    org: "腾讯",
+    category: "模型发布",
+    date: "2026-10-29",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "腾讯官方新闻稿《Tencent Cloud Accelerates International Growth, Advances Enterprise AI, and Expands Global Partnerships》（2026-10-29）",
+    sourceUrl: "https://www.tencent.com/tencent-cloud-accelerates-international-growth-advances-enterprise-ai-and-expands-global-partnerships",
+    refs: [
+      { name: "科技日报（10-29，大会现场口径）", url: "https://www.stdaily.com/web/gdxw/2026-10/29/content_604623.html" },
+      { name: "上海证券报·中国证券网（10-29）", url: "https://www.cnstock.com/commonDetail/818053" },
+    ],
+  },
+  {
     id: "nvidia-nemotron-3-5-transcribe",
     title: "英伟达开源语音模型 Nemotron 3.5 Transcribe：一次录音，转写、认人、翻译、总结全用它一个",
     summary:
@@ -107,6 +132,30 @@ export const hotRanking: HotItem[] = [
     sourceName: "NVIDIA 官方博客《NVIDIA RTX Spark Windows Laptops Gain New Models, Agent Tools and Games》（2026-10-28 PT / 北京时间 10-29）",
     sourceUrl: "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
     article: "/blog/2026-10-29-meeting-stays-home.html",
+  },
+  {
+    id: "etsi-ts-104-275-deepfake",
+    title: "欧洲标准化组织 ETSI 发了份反深伪规范：不是事后鉴伪，是要求产品上线前就把闸门装上",
+    summary:
+      "10-29，ETSI（欧洲电信标准化协会，欧盟正式认可的三家欧洲标准组织之一）在法国索菲亚安蒂波利斯发布技术规范 TS 104 275，由它的安全人工智能技术委员会 TC SAI 制定。思路跟市面上主流做法反过来了：过去打深伪，基本是等内容生成出来再去检测；这份规范要求把预防当成安全和治理问题，放在系统整个生命周期里解决。它列了五件事——上线前做风险评估并先装好护栏、设人工复核与干预流程、内容过滤加 AI 生成内容标识加用户提示、持续盯新威胁并复盘事件、留档证明这些控制真的在跑。更硬的一点是它给了测试场景和通过/失败判据，官方说法是让机构能证明风险确实降下来了，而不是签一份「我们负责任地做 AI」的声明。规范建在 EN 304 223（AI 模型与系统的基线网络安全要求）之上，官方称同时支撑 EU AI Act 的目标，并且把安全要求延伸到不被划为高风险的系统之外。文本 v1.1.1 公开可下载，不收费。",
+    keyPoints: [
+      "10-29 ETSI 发布 ETSI TS 104 275，由其安全 AI 技术委员会 TC SAI 制定，文本 v1.1.1 公开可下载",
+      "路线是「事前防」而非「事后鉴」：把深伪当成贯穿系统生命周期的安全与治理问题",
+      "五件具体事：上线前风险评估与护栏、人工复核与干预、内容过滤+AI 内容标识+用户提示、持续监控、留档举证",
+      "带测试场景与通过/失败判据，官方称目标是能证明风险确实下降，而不只是承诺负责任地做 AI",
+      "建在 EN 304 223 基线上，官方称支撑 EU AI Act 并延伸到非高风险系统；性质是技术规范，不是强制法规",
+    ],
+    org: "ETSI",
+    category: "安全对齐",
+    date: "2026-10-29",
+    heat: 58,
+    authority: "official",
+    precision: "exact",
+    sourceName: "ETSI 官方新闻稿《ETSI unveils new standard to reduce production of harmful deepfakes》（2026-10-29，索菲亚安蒂波利斯）",
+    sourceUrl: "https://www.etsi.org/newsroom/press-releases/etsi-unveils-new-standard-to-reduce-production-of-harmful-deepfakes",
+    refs: [
+      { name: "Telecoms.com（10-29，条款与影响解读）", url: "https://telecoms.com/ai/etsi-deploys-new-standard-to-combat-deepfakes" },
+    ],
   },
   {
     id: "openai-chatgpt-subscription-api-credits",
