@@ -108,6 +108,56 @@ export const hotRanking: HotItem[] = [
     sourceUrl: "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
     article: "/blog/2026-10-29-meeting-stays-home.html",
   },
+  {
+    id: "openai-chatgpt-subscription-api-credits",
+    title: "OpenAI 把订阅费和 API 账单合成一笔：Pro、Business 用户每月能领最高 500 美元 API 额度",
+    summary:
+      "10-28，OpenAI 在 API Changelog 里挂出一条新规：符合条件的 ChatGPT Pro 与 Business 订户，每月可以从订阅里领一笔 API 额度，最高 500 美元，用来自己搭应用和智能体。规则很整齐——Pro 按档位一比一给，交 100 拿 100，交 200 拿 200，交 500 拿 500；Business 按席位算，标准席 20 美元、高级席 100 美元，全工作区合并，封顶每月 500 美元，年付客户一次性发满一年、上限 6000 美元。以前这两套账单是完全分开的：交了订阅费，想调接口还得再绑一张卡。现在额度直接进账户，连付款方式都不用先绑。但门槛也写得明白：订阅必须满 7 天，ChatGPT 账号和 API 组织得是同一个邮箱、同一个人持有，Plus、Go、Free、Enterprise 全不在名单里。额度当月有效、月底清零不结转，第一笔按剩余天数折算。最容易被忽略的一条是：拿 API key 跑 Codex 不吃这笔额度，领了额度也不会提高 ChatGPT 或 Codex 的用量上限。换句话说，这是一笔给「自己动手搭东西」的人准备的试验金，不是给纯聊天用户的补贴。",
+    keyPoints: [
+      "10-28 官方 API Changelog 发布：符合条件的 ChatGPT Pro / Business 订户每月可领 API 额度，最高 500 美元",
+      "Pro 按档位一比一给（100 / 200 / 500 美元）；Business 标准席 20、高级席 100，工作区合并封顶 500",
+      "额度月底清零不结转，首笔按剩余天数折算；须订阅满 7 天、同一邮箱且同时拥有 API 组织",
+      "Plus、Go、Free、Enterprise 均不适用；用 API key 跑 Codex 不能花这笔额度，也不提高聊天用量上限",
+      "实质是订阅费与 API 账单第一次合流，开发者不必再单开一笔预算做原型",
+    ],
+    org: "OpenAI",
+    category: "产品发布",
+    date: "2026-10-28",
+    heat: 86,
+    authority: "official",
+    precision: "section",
+    sourceName: "OpenAI 开发者社区公告《Claim up to $500 in API credits using your ChatGPT Pro or Business subscription》（API Changelog 2026-10-28）",
+    sourceUrl: "https://community.openai.com/t/claim-up-to-500-in-api-credits-using-your-chatgpt-pro-or-business-subscription/1410579",
+    refs: [
+      { name: "深潮 TechFlow（10-28，档位与限制条款逐条梳理）", url: "https://www.techflowpost.com/en-US/article/34947" },
+      { name: "ExplainX（10-28，资格条件与 Codex 例外原文引用）", url: "https://explainx.ai/blog/chatgpt-pro-business-free-api-credits-500-per-month-how-to-claim-what-they-cover-2026" },
+    ],
+  },
+  {
+    id: "github-copilot-fusion",
+    title: "GitHub 让 Copilot 自己挑模型：跑分只差 Opus 5.5 Max 两分，成本砍一半、时间省四成",
+    summary:
+      "10-28，GitHub Universe 2026 在旧金山开，主发布是 Copilot Fusion——开发者不再自己选模型，只选一个「用力程度」，剩下交给系统。三档分别是 Standard、High、Max，背后有三种跑法：一个模型直接做完、便宜模型先起草再判断要不要升级（Cascade）、一个模型写另一个改（Critique）。真正拿得出手的是一个数字：在 Artificial Analysis 的编码智能体指数上，Fusion Max 得 60 分，跟 Claude Code 配 Opus 5.5 Max 差两分以内，但平均每任务 API 成本约是一半，token 用量约一半，时间少 40%。这套东西不是新起炉灶，是把研究预览阶段的 Project HydraFusion 和 Copilot 原有的自动选模型合并了。账单口径值得注意：Fusion 用到的每个模型仍按各自标准价计费，费用会随任务难度浮动，不是一口价；付费计划用户 30 天内用 Fusion 打七折。同场还放了 Copilot 应用、跨仓库并行的 Copilot projects、会话跨端续接，以及企业版不再按席位收 Copilot 费、改为按 token 用量付费。基础设施那边补了 400 万个 CPU 核心、160PB 高速存储，承认过去一年被 AI 生成的提交冲垮过几次。",
+    keyPoints: [
+      "10-28 GitHub Universe 发布，Copilot Fusion 正式可用：开发者只选 Standard / High / Max，模型由系统路由",
+      "三种执行方式：单模型直做、Cascade（便宜模型起草+质检决定是否升级）、Critique（一个写一个改）",
+      "Artificial Analysis 编码智能体指数 Fusion Max 得 60 分，与 Opus 5.5 Max 差 2 分内",
+      "成本约一半、token 约一半、每任务时间少 40%——但这是 GitHub 自己引用的评测，真实仓库表现待验",
+      "账单按各模型标准价计、随任务难度浮动；企业版改为按 token 用量付费，不再按席位收 Copilot 费",
+    ],
+    org: "GitHub（微软）",
+    category: "产品发布",
+    date: "2026-10-28",
+    heat: 82,
+    authority: "official",
+    precision: "exact",
+    sourceName: "GitHub 官方 Changelog《Route and orchestrate models with GitHub Copilot Fusion》（2026-10-28）",
+    sourceUrl: "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/",
+    refs: [
+      { name: "GitHub 官方博客《GitHub Universe 2026: Evolving every layer of the stack》", url: "https://github.blog/news-insights/company-news/github-universe-2026-evolving-every-layer-of-the-stack/" },
+      { name: "The New Stack（10-28，现场与 AT&T 客户证言）", url: "https://thenewstack.io/github-copilot-fusion/" },
+    ],
+  },
 
   {
     id: "meta-muse-singapore-launch",
