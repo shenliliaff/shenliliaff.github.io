@@ -97,6 +97,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-28** — API Changelog 新规：符合条件的 ChatGPT Pro / Business 订户每月可领最高 500 美元 API 额度（Pro 按档位一比一给 100/200/500，Business 标准席 20、高级席 100、工作区合并封顶 500），月底清零不结转、首笔按剩余天数折算，Plus / Go / Free / Enterprise 不适用，用 API key 跑 Codex 不能花这笔额度也不提高聊天用量上限。（community.openai.com/t/claim-up-to-500-in-api-credits-using-your-chatgpt-pro-or-business-subscription/1410579）
 - **2026-10-26** — 公布三项基础科学成果（任意维度局部光滑化猜想 → 挂谷猜想与 Stein 限制猜想、证伪 ETH、四维 QCD 与纯杨-米尔斯存在性），三种成果配三种发布策略，物理部分由 David Gross 领衔的外部小组决定暂不公布材料；官方声明不索取学术荣誉、参与者不签 NDA 且无报酬，另向 Simons Foundation 捐 500 万美元。（openai.com/index/building-scientific-understanding-with-academic-communities/）
 - **2026-10-26** — 发布 GPT-6.1 Terra：$1/$5 每百万 token、缓存输入 $0.05，比 GPT-5.6 Terra 与 GPT-6.1 Sol 低 50%；Agents' Last Exam 中等档比前代高 15 个百分点、与 GPT-6 Astra 持平而每 token 价为其十分之一，Terminal-Bench 4.0 最高档 50.3%（前代 21.5%），1.05M 上下文；系统卡按 Preparedness Framework 定为网络安全 Critical、生化 High。（openai.com/index/introducing-gpt-6-1-terra/）
 - **2026-10-24** — ARC Prize 重排榜单，把 GPT-6 Astra 的 99.9%（Provider Adapter 环境，high 档、$18,817）从可比栏剥离并注明可比性有限，同模型在 Standard 环境为 62.7%（max 档、$26,098）；Provider Adapter 下即使关掉推理（none）仍得 96.7%，Standard 下仅 35.2%。（arcprize.org/leaderboard）
@@ -190,6 +191,7 @@ order: -9
 
 ## 其他巨头动向
 
+- **2026-10-28** — GitHub Universe 发布 Copilot Fusion 正式可用：开发者只选 Standard / High / Max，系统在 Anthropic 与 OpenAI 等多个模型间路由或组合（单模型 / Cascade / Critique），Artificial Analysis 编码智能体指数 Fusion Max 得 60 分、与 Opus 5.5 Max 差 2 分内，成本约一半、时间少 40%，同场企业版改为按 token 用量付费不再按席位收 Copilot 费。（github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/）
 - **2026-10-27** — Meta 官方宣布 Muse 登陆新加坡（继 9-08 美加、10-23 日本之后的第三个市场，当地 10-28 起可用），接 Shopee、Grab、新航、Agoda、ShopBack、Klook、Trip.com、Lazada，跑在自建 Muse Secure VM 上；免费档有周额度，订阅 22–139 新元。（about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/）
 - **2026-10-27** — Liquid AI 发布 LFM3：六个 2B 量级模型（文本/视觉/音频/全模态 + 两个决策模型）全从 LFM3-1.7B-Base 分枝，预训练 22T token、256K 上下文、4 位精度约 1GB；许可证 LFM Open License v1.0 基于 Apache 2.0，但年营收 1000 万美元以上的公司不覆盖商用。（liquid.ai/blog/lfm3；docs.liquid.ai/lfm/getting-started/model-license）
 - **2026-10-26** — 英伟达宣布扩大与 Meta 在 Muse 及 Muse 系列模型上的合作（扩部署 Vera Rubin、Vera CPU、Spectrum-X、BlueField-4；OpenShell 与 Sentry 仅写「考虑」），并向 Meta 同日公布的约 950 亿美元股权融资投入 30 亿美元，AMD 与博通同列基石意向、三家合计最多 50 亿且不构成约束性承诺。（nvidianews.nvidia.com/news/nvidia-and-meta-to-expand-collaboration-on-muse-and-muse-family-of-models-amid-robust-growth；融资结构见 cnbc.com/2026/10/26/meta-stock-offering-ai.html）
