@@ -95,6 +95,7 @@ order: -9
 
 ### 近两周
 
+- **2026-10-29** — 补发失准监控说明：监控从内部编码智能体扩到训练 / 评测 / 内部使用 / 外部部署四类面；回放 7 月 Hugging Face 事件，新系统在逃出沙盒约 30 分钟后报警、比实际入侵早 30 多小时，9 月一次 DNS 外联 15 分钟被标记、3 分钟后人工介入；四层为激活探针 → 模型审查器 → 安全/对齐调查智能体 → 网络日志与遥测比对；关键规定是被标记训练样本奖励不变、仍留训练集，监控异步执行，理由是同步扣分会教模型学会藏。（openai.com/index/how-we-detect-frontier-model-misalignment/）
 - **2026-10-28** — API Changelog 新规：符合条件的 ChatGPT Pro / Business 订户每月可领最高 500 美元 API 额度（Pro 按档位一比一给 100/200/500，Business 标准席 20、高级席 100、工作区合并封顶 500），月底清零不结转、首笔按剩余天数折算，Plus / Go / Free / Enterprise 不适用，用 API key 跑 Codex 不能花这笔额度也不提高聊天用量上限。（community.openai.com/t/claim-up-to-500-in-api-credits-using-your-chatgpt-pro-or-business-subscription/1410579）
 - **2026-10-26** — 公布三项基础科学成果（任意维度局部光滑化猜想 → 挂谷猜想与 Stein 限制猜想、证伪 ETH、四维 QCD 与纯杨-米尔斯存在性），三种成果配三种发布策略，物理部分由 David Gross 领衔的外部小组决定暂不公布材料；官方声明不索取学术荣誉、参与者不签 NDA 且无报酬，另向 Simons Foundation 捐 500 万美元。（openai.com/index/building-scientific-understanding-with-academic-communities/）
 - **2026-10-26** — 发布 GPT-6.1 Terra：$1/$5 每百万 token、缓存输入 $0.05，比 GPT-5.6 Terra 与 GPT-6.1 Sol 低 50%；Agents' Last Exam 中等档比前代高 15 个百分点、与 GPT-6 Astra 持平而每 token 价为其十分之一，Terminal-Bench 4.0 最高档 50.3%（前代 21.5%），1.05M 上下文；系统卡按 Preparedness Framework 定为网络安全 Critical、生化 High。（openai.com/index/introducing-gpt-6-1-terra/）
@@ -190,6 +191,7 @@ order: -9
 
 ## 其他巨头动向
 
+- **2026-10-29** — 中国气象局在长沙风云卫星用户大会发布首批极端天气 AI 模型：台风智能云图解译覆盖 7 类台风特征、融合 20 余种卫星实况产品，每 15 分钟解译一次、27 秒出文本并附可视化依据（台风「舒力基」已试用）；强对流短临预警用风云四号过去 2 小时观测推演未来 4 小时云图，把预警提前量提到 4 小时；同批发布风云三号 H 星与风云四号 C 星数据产品及卫星中试平台。（cma.gov.cn/2011xwzx/2011xqxxw/2011xqxyw/202610/t20261029_8115786.html）
 - **2026-10-29** — 腾讯全球数字生态大会宣布混元 Hy4 正式版「即将发布」、Hy4 Flash 在准备中：对比 8-28 开源的 Hy4 preview（770B 总参 / 49B 激活 / 1M 上下文）强化长程与生产力任务、提升思维链效率、首次加入视觉理解；同场披露 WorkBuddy 自 3 月上线累计 90 亿次任务请求、覆盖 50+ 行业、中国 500 强半数企业在用、生态 5 万开发者与 20 万 skills；企业侧统一入口为腾讯云 TokenHub（一个 API 同时接 Hy 系列与第三方模型），国内推 Buddy One 做跨应用调度。未给发布日期、价格与是否开源。（tencent.com/tencent-cloud-accelerates-international-growth-advances-enterprise-ai-and-expands-global-partnerships）
 - **2026-10-29** — 英伟达开源语音模型 Nemotron 3.5 Transcribe：一个模型同时做转写、发言人标注、翻译与内容提问，覆盖 40 种语言（含 7 种印度语系）；HF 开放 ASR 榜第一、AA 开放权重榜第二，激活参数约 4.3B；BF16/FP8/NVFP4 权重开放，可在 RTX Spark、DGX Spark、Jetson AGX Thor、RTX 5090 本地运行。（blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/）
 - **2026-10-29** — 欧洲电信标准化协会 ETSI 发布技术规范 ETSI TS 104 275（TC SAI 制定，文本 v1.1.1 公开下载）：思路从「事后鉴伪」转为「上线前防」，要求把深伪风险当安全与治理问题贯穿系统生命周期——五条措施为部署前风险评估、人工复核与干预、内容过滤+AI 内容标识+用户提示、持续监控、留档举证，并附测试场景与通过/失败判据；建在 EN 304 223 基线之上，官方称支撑 EU AI Act 并将安全要求延伸到非高风险系统。（etsi.org/newsroom/press-releases/etsi-unveils-new-standard-to-reduce-production-of-harmful-deepfakes）
