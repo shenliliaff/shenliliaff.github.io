@@ -44,9 +44,9 @@ order: -9
 | 腾讯混元 | hunyuan.tencent.com + 腾讯云官博 | 混元系列模型 |
 | MiniMax | minimax.net + 官方 X | MiniMax M 系列模型 |
 
-### GitHub 开源项目（重点新方向）
+### GitHub 开源项目（补充选题，优先级最低）
 
-高 star、高 fork 的开源项目与 AI skill——正在起势的 AI 工具、Agent、MCP、模型与框架。以「项目 GitHub 页 + README + 发布说明」为一手信源，star/fork 数为核实依据。
+高 star、高 fork 的开源项目与 AI skill——**只在当天没有更好的新闻线索时才用**，且项目须是 3 天内新起势的。以「项目 GitHub 页 + README + 发布说明」为一手信源，star/fork 数为核实依据。
 
 | 关注对象 | 官方信源 | 说明 |
 | --- | --- | --- |
