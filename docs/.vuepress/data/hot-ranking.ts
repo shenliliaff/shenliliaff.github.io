@@ -60,10 +60,62 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-30";
+export const hotRankingUpdatedAt = "2026-10-31";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "reddit-logged-in-only-2026q3",
+    title: "Reddit 要把门关上：日活里 59% 是没登录的游客，它决定不再给他们看",
+    summary:
+      "10 月 30 日凌晨（美国时间 10 月 29 日盘后），Reddit 发布 2026 年第三季度致股东信，CEO Steve Huffman 宣布平台将转向「以登录为主」的体验，第四季度先在海外部分市场做全量测试，测试结果用于打磨全球版本。理由写了四条：个性化推荐更准、互动更多、广告定向信号更多，以及「保护 Reddit 极有价值的数据集」并适配各国新规。推着它走的是流量账：Q3 搜索引荐明显下滑，且跌势在季度后期加快；10 月单月搜索引荐平均每周掉 100 万次以上；如果按这个速度，Q4 日活可能从 1.303 亿的基数掉一个「低两位数百分比」。而 Q3 财报本身很漂亮：营收 8.95 亿美元同比 +53%，净利 2.83 亿美元同比 +74%，广告收入 8.47 亿美元 +54%，美国单日活用户平均收入 13.82 美元 +53%。股价年内已跌 44%，财报后盘后再跌超 11%。",
+    keyPoints: [
+      "10-30 股东信：Reddit 转向「仅登录可见」，Q4 先在海外部分市场全量测试，全球版待测试结果",
+      "Q3 日活 1.303 亿，其中游客 7680 万、登录 5350 万——59% 的活跃用户正是这次要被拦在门外的人",
+      "10 月搜索引荐平均每周掉 100 万次以上，公司自己警告 Q4 日活可能掉低两位数百分比",
+      "财报本身很强：营收 8.95 亿美元 +53%、净利 2.83 亿美元 +74%，但 Q4 指引 10-10.3 亿美元低于预期",
+      "Huffman 对 CNBC 承认 Google 的 AI 概览与 AI 模式是主因；股价年内跌 44%，盘后再跌超 11%",
+    ],
+    org: "Reddit",
+    category: "产品发布",
+    date: "2026-10-30",
+    heat: 85,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Reddit《Q3 2026 Letter to shareholders》（SEC 8-K 附件 99.2）",
+    sourceUrl: "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/exhibit992q326.htm",
+    refs: [
+      { name: "Ars Technica（10-30，登录墙与旧账梳理）", url: "https://arstechnica.com/gadgets/2026/10/reddit-will-require-you-to-log-in-eventually-ceo-confirms/" },
+      { name: "Investor's Business Daily（10-29 盘后，财务与指引）", url: "https://investors.com/news/technology/reddit-stock-q3-2026-rddt-news/" },
+    ],
+    article: "/blog/2026-10-31-reddit-closes-the-door.html",
+  },
+  {
+    id: "ietf-aipref-policy-token-1030",
+    title: "四条大汉签了字：网站写两行 robots.txt 就能拒绝被训练，但要等到 2027 年才有人看",
+    summary:
+      "10 月 30 日，OpenAI、Google、Microsoft 三家同一天表态支持 robots.txt 里的共享「策略令牌」__usage_ai-training——网站只要写一个以该令牌为 User-Agent 的分组，就能一次性对多家 AI 厂商表达「别拿我的内容训练」。机制来自 IETF AI Preferences 工作组的一份草案《Machine-Readable Training Preference Signal》，作者是 Anthropic 的 Kevin Kelley，草案当天发布、2027 年 5 月 3 日过期，属个人提交，IETF 明示「未获认可、在标准流程中没有正式地位」。Anthropic 已开始支持；OpenAI 说「未来几个月」实施；Microsoft 明确 2027 年 2 月 1 日起遵守，并另设「AI 训练」与「AI 引用」两套偏好、支持页面级设置，2027 年 3 月 1 日起不再把 NoArchive/NoCache 当作 AI 偏好；Google 目标 2027 年（爬虫文档写「2027 年初」）。也就是说，今天没有任何一家真的在按它办事。",
+    keyPoints: [
+      "10-30，OpenAI、Google、Microsoft 同日表态支持 robots.txt 共享令牌 __usage_ai-training，Anthropic 起草并已开始支持",
+      "写法就两行：User-Agent: __usage_ai-training 加 Disallow: /，还能用 Allow 给 /press-kit/ 这类目录开口子",
+      "草案是个人提交，IETF 声明「未获认可、无正式地位」，2027-05-03 过期，随时可能改名改语义",
+      "时间表错开：Microsoft 2027-02-01 起遵守，Google 目标 2027 年初，OpenAI 只说「未来几个月」",
+      "它只管训练、不管抓取：不拦爬虫、不影响搜索收录，也不影响 AI 回答引用你的页面",
+    ],
+    org: "OpenAI / Google / Microsoft / Anthropic",
+    category: "行业动态",
+    date: "2026-10-30",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI《Making it easier for websites to express AI training preferences》（2026-10-30）",
+    sourceUrl: "https://openai.com/index/helping-websites-express-ai-training-preferences/",
+    refs: [
+      { name: "Google Search Central（10-30，2027 年支持与 Google-Extended 口径）", url: "https://developers.google.com/search/blog/2026/10/ai-training-control" },
+      { name: "IETF Datatracker（草案原文，2026-10-30）", url: "https://datatracker.ietf.org/doc/draft-kelley-aipref-training-preference-signal/" },
+    ],
+    article: "/blog/2026-10-31-two-lines-nobody-reads-yet.html",
+  },
   {
     id: "nea-compute-power-2030",
     title: "国家能源局给出 AI 的电费单：2030 年算力用电 8000 亿千瓦时，约占全社会 6%，一年新增一个三峡",
