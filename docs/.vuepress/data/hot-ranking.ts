@@ -65,6 +65,32 @@ export const hotRankingUpdatedAt = "2026-10-31";
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
   {
+    id: "apple-intelligence-china-qwen-1031",
+    title: "国行 Apple 智能定了：11 月 4 日开发者测试、12 月随 iOS 27.3 落地，Siri 里接的是千问",
+    summary:
+      "10 月 31 日，Apple 中国官网新闻稿《Apple 智能即将登陆中国》给出时间表：首批核心功能自 11 月 4 日起随最新的 iOS 开发者 Beta 版开放测试，12 月 iOS 27.3 正式发布时面向中国用户推出。同一天阿里巴巴官宣与 Apple 达成合作，在部分 Apple 智能体验中加入对千问的支持：Siri 在处理特定请求时可接入千问的知识作答，用户还能就照片以及含 PDF、演示文稿的文档向千问提问；写作工具里提供「创作」功能，让千问从零生成文字与图像；视觉智能里可选「询问千问」识别眼前所见。开通是自愿的，用户可通过「通过 Apple 登录」或自己的千问账户登录；任何问题、文档、图片发给千问之前都会先征得用户同意；阿里明确用户请求与生成的回复不会被用于模型训练。首批功能包括实时翻译、写作工具、视觉智能、照片 app 的消除工具与自然语言搜索、智绘表情、回忆影片、优先邮件、邮件摘要、智能回复、通知摘要、首要通知、减少干扰、备忘录音频转录摘要、通话转录摘要，以及「输入文字与 Siri 对话」。设备门槛：iPhone 16 及后续机型、iPhone Duo、iPhone 15 Pro、iPhone 15 Pro Max、iPhone Air，且 Siri 与设备语言需设为英文或简体中文。苹果在稿中明确：本次更新不包含 Siri AI 及 WWDC 2026 上宣布的其他下一代 Apple 智能功能；首批仅 iOS，其他平台「将在获得必要审批后推出」。",
+    keyPoints: [
+      "10-31 苹果中国官网发文：首批 Apple 智能 11-04 随 iOS 开发者 Beta 测试，12 月随 iOS 27.3 正式推送，且只有 iPhone",
+      "同日阿里官宣合作：Siri 可调千问知识作答、可就照片与 PDF/演示文稿提问，写作工具有「创作」，视觉智能有「询问千问」",
+      "机型与语言卡得死：iPhone 16 及后续、iPhone Duo、iPhone 15 Pro / Pro Max、iPhone Air，Siri 与设备语言须为英文或简体中文",
+      "隐私口径写在前面：开通自愿、逐次征求同意、请求与回复不被阿里用于训练；可用「通过 Apple 登录」或千问账户登录",
+      "缺的那块最显眼：不含 Siri AI 与 WWDC 2026 的下一代功能，iPad 与 Mac 待审批——国行拿到的是海外 2024 年 10 月起的那批基础功能",
+    ],
+    org: "Apple / 阿里巴巴",
+    category: "产品发布",
+    date: "2026-10-31",
+    heat: 88,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Apple 新闻稿《Apple 智能即将登陆中国》",
+    sourceUrl: "https://www.apple.com.cn/newsroom/2026/10/apple-intelligence-features-are-coming-to-users-in-china/",
+    refs: [
+      { name: "中国日报（英文报道，含阿里 CEO 吴泳铭表态与设备清单）", url: "https://ex.chinadaily.com.cn/exchange/partners/70/rss/channel/www/columns/y38633/stories/WS6ae54463e4b06d4aa0566359.html" },
+      { name: "澎湃新闻（10-31，功能与不含 Siri AI 的说明）", url: "https://www.thepaper.cn/newsDetail_forward_34374782" },
+    ],
+    article: "/blog/2026-10-31-apple-intelligence-lands-in-china.html",
+  },
+  {
     id: "reddit-logged-in-only-2026q3",
     title: "Reddit 要把门关上：日活里 59% 是没登录的游客，它决定不再给他们看",
     summary:
