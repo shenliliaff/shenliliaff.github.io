@@ -60,10 +60,36 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-10-31";
+export const hotRankingUpdatedAt = "2026-11-01";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-fundraising-cut-1031",
+    title: "OpenAI 把融资目标砍掉三分之一：300 亿降到 200 亿，估值从 1.4 万亿退到 1.25 万亿",
+    summary:
+      "10 月 31 日，英国《金融时报》援引知情人士报道：OpenAI 已把最新一轮融资目标从 300 亿美元下调到约 200 亿美元，对应估值从 1.4 万亿美元降到 1.25 万亿美元，缩水 1500 亿、约 10.7%。《华尔街日报》另报已获得约 110 亿美元投资承诺，相当于新目标的 55%。公司给投资者设定的承诺截止日是 10 月 30 日（周五），知情人士称由于部分投资者下调认购额度，首轮交割（First Close）实际到账预计低于 200 亿。一个阿联酋财团预计成为最大参与方，其中包括国家支持的科技投资基金 MGX，作为交易的一部分 OpenAI 另获租用该地区新建算力的选择权；Founders Fund、Coatue、红杉资本、安德森·霍洛维茨与软银在列，后续还会开面向个人投资者的档位。同期市场背景不佳：纳斯达克 100 周五跌 3.5%、三周累计约跌一成，Alphabet 周四跌约 12% 创上市以来最差单日。OpenAI 未回应置评请求，此事为媒体报道、无官方公告。",
+    keyPoints: [
+      "10-31《金融时报》报道：融资目标 300 亿 → 约 200 亿美元（-33%），估值 1.4 万亿 → 1.25 万亿美元（-1500 亿，-10.7%）",
+      "《华尔街日报》另报已获约 110 亿美元承诺，只到新目标的 55%；承诺截止日就是 10-30，首轮交割预计还不到 200 亿",
+      "上个月这套条件被宣传成「OpenAI 明年 IPO 前最后一次上车的机会」，一轮之内变成三三折",
+      "阿联酋财团（含 MGX）预计最大出资方，OpenAI 另获租用当地新建算力的选择权；红杉、a16z、软银计划参与",
+      "媒体报道而非官方公告，OpenAI 拒绝置评；背景是纳指 100 周五再跌 3.5%、Alphabet 周四跌约 12% 创最差单日",
+    ],
+    org: "OpenAI",
+    category: "行业动态",
+    date: "2026-10-31",
+    heat: 90,
+    authority: "verified",
+    precision: "section",
+    sourceName: "英国《金融时报》报道（非官方公告，OpenAI 未回应置评请求）；数字经《华尔街日报》《财富》交叉印证",
+    sourceUrl: "https://fortune.com/2026/10/31/ai-boom-bust-openai-fundraising-target-meta-credit-warning-cash-flow-capex/",
+    refs: [
+      { name: "中新经纬（10-31，转述 FT 与路透）", url: "https://www.jwview.com/jingwei/html/10-31/694985.shtml" },
+      { name: "中国基金报（10-31，融资与估值降幅拆解）", url: "https://www.chnfund.com/article/AR51396433-f078-f5ab-4b4a-3a24a4e301cf" },
+    ],
+    article: "/blog/2026-11-01-last-chance-at-a-discount.html",
+  },
   {
     id: "apple-intelligence-china-qwen-1031",
     title: "国行 Apple 智能定了：11 月 4 日开发者测试、12 月随 iOS 27.3 落地，Siri 里接的是千问",
@@ -89,6 +115,32 @@ export const hotRanking: HotItem[] = [
       { name: "澎湃新闻（10-31，功能与不含 Siri AI 的说明）", url: "https://www.thepaper.cn/newsDetail_forward_34374782" },
     ],
     article: "/blog/2026-10-31-apple-intelligence-lands-in-china.html",
+  },
+  {
+    id: "deepseek-super-agent-1031",
+    title: "DeepSeek 开源 Super-agent 原型：把「人的注意力」当成系统瓶颈来设计",
+    summary:
+      "10 月 31 日晚 20:29，DeepSeek Harness 团队在官方公众号发表技术文章《Super-agent 设计探索：迈向更自主的 Agent 系统》，同日把研究原型 dsh-superagent-prototype 以 MIT 许可开源到 deepseek-ai 仓库。核心判断是：模型能干的活越来越多，瓶颈从「单任务能力」变成「人同时能盯几个会话」——团队观察一个人通常只能同时跟进 3 到 5 个活跃 Session，于是把调度、缓存、存算分离、看门狗这些操作系统的老办法搬进 Agent 架构：Router 只做路由不干活（甚至可以不配 Bash），Worker 各自独立会话；权限边界由程序规则保证、LLM 只在边界内做语义判断；Worker 接手任务后订阅对应 Thread，后续消息直送而不必过 Router；上下文按 Inline & Spill 当缓存管理；「投机执行」允许 Agent 先干可撤销的活再汇报。实验部分基于约 300 条消息、20 项工作请求的合成场景、每种配置重复 5 次：Super-agent 任务完成时间中位 12.4 分钟、95 分位 15.7 分钟，单 Session + Subagent 方案在中性提示下 95 分位 29.5 分钟；去掉订阅直通后 Router 决策数增加约 30%、读缓存 token 从 2323 万涨到 3177 万。官方同时声明：这是工程思路探讨、不是产品功能介绍，仓库代码为研究原型、大量工程由 coding agent 完成、可能有 bug 且风格不统一。",
+    keyPoints: [
+      "10-31 20:29 官方公众号发文 + 同日 GitHub 开源原型（MIT，单 commit，deepseek-ai/dsh-superagent-prototype）",
+      "出发点是一个人的观察数据：同时只能跟进 3 到 5 个活跃 Session——单任务天花板看模型，多任务天花板看人的注意力",
+      "Router 只管路由不干活、可以不配 Bash；权限准入交给程序规则，LLM 只在边界内判断语义，避免「让模型自己决定能干什么」",
+      "实验：300 条消息 / 20 项请求 / 重复 5 次，中位 12.4 分钟、95 分位 15.7 分钟，对手方案 95 分位 29.5 分钟；省时间靠多花 token",
+      "两次自我限定摆在前头：文章「不是产品介绍」，仓库「仅供研究、不是官方产品、代码可能有 bug、风格可能不统一」",
+    ],
+    org: "DeepSeek",
+    category: "开源项目",
+    date: "2026-10-31",
+    heat: 84,
+    authority: "official",
+    precision: "exact",
+    sourceName: "DeepSeek Harness 团队《Super-agent 设计探索：迈向更自主的 Agent 系统》（官方公众号）+ 开源原型仓库",
+    sourceUrl: "https://github.com/deepseek-ai/dsh-superagent-prototype",
+    refs: [
+      { name: "智东西（11-01，五大模块拆解与实验数据）", url: "https://news.qq.com/rain/a/20261101A00GAD00" },
+      { name: "每日经济新闻（10-31 23:19 转载原文）", url: "http://mp.weixin.qq.com/s?__biz=Mzg3NTA5MjkyNQ==&mid=2248605602&idx=1&sn=f6459edaae32372d6ee5c4c0f014e24f" },
+    ],
+    article: "/blog/2026-11-01-only-five-windows.html",
   },
   {
     id: "reddit-logged-in-only-2026q3",
