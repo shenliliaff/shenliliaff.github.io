@@ -23,6 +23,11 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-10-31-reddit-closes-the-door.html",
   },
   {
+    title: "Siri 变聪明了，聪明的那部分是千问",
+    date: "2026-10-31",
+    url: "/blog/2026-10-31-apple-intelligence-lands-in-china.html",
+  },
+  {
     title: "电表转得比模型快",
     date: "2026-10-30",
     url: "/blog/2026-10-30-meter-runs-faster-than-model.html",
