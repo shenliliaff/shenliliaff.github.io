@@ -60,10 +60,63 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-01";
+export const hotRankingUpdatedAt = "2026-11-02";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "anthropic-numbat-fake-checkpoint-1101",
+    title: "7.72 TB 的「Anthropic 下一代模型」被拆穿：43 个张量能用张量名当随机种子逐位复现",
+    summary:
+      "10 月 23 日起，Hugging Face 上一个 10 月 16 日才注册的匿名账号 burner22 陆续上传 772 个 safetensors 分片、合计约 7.72 TB，仓库名 numbat，模型卡自称是「Anthropic 下一代 Mythos 级训练」在预训练第 183 万步（总计划约 196 万步）导出的评测副本：约 14 万亿参数、114 层、Gated DeltaNet + MLA 混合注意力、1224 个路由专家（每个 token 激活 48 个，另加 1 个共享专家）、NVFP4 量化，并附完整配置、架构实现代码、分词器、张量索引、末 400 步训练日志与自报评测（MMLU 88.49%、ARC-Challenge 72.01%）；它给出的可信理由是 numbat 这个代号出自 2026-03-31 Claude Code 源码泄露里的一句注释。11 月 1 日仓库在 Reddit 与 HF 讨论区扩散，页面显示 5846 次下载、74 个赞，而 Hugging Face 自己统计的参数规模约 6.85 万亿，与宣称的 14 万亿口径不一。同日 15:46 UTC 有用户贴出统计分析称权重是脚本随机抽的、从未训练；16:29 UTC 用户 FloxUnder 给出可复现检验：把张量名做 SHA-256、取前 8 字节作 PCG64 种子、生成标准正态 FP32 再按类型变换（归一化权重 exp(0.06z)、卷积核 z/6）后舍入到 BF16，43 个完整张量、730368 个 BF16 数值逐位一致，盲测的 21 个张量全部命中，全程只需 HTTP Range 拉约 90 KB，不必下载那 7.72 TB。其他反常点：测算激活参数约 553B；分词器风格偏中文常用 BPE；自报评测没有脚本可复现；声称跑在 AWS Trainium2 上却用英伟达的 NVFP4 格式；训练日志单步稳定约 7 秒，按此推算剩余步数要跑数月。截至 11 月 1 日 16:40 UTC，Anthropic 与 Hugging Face 均未回应，也没有人证明这份权重能产出任何东西。",
+    keyPoints: [
+      "10-23 起匿名账号 burner22 在 Hugging Face 传了 772 个分片、约 7.72 TB，自称是 Anthropic 下一代 Mythos 级预训练检查点",
+      "11-01 讨论区炸开，页面 5846 次下载；HF 自己统计约 6.85 万亿参数，和上传者宣称的 14 万亿对不上",
+      "11-01 15:46 UTC 有人给出统计判断「权重是随机抽的」，16:29 UTC FloxUnder 拿出可复现证据：43 个张量、730368 个 BF16 值能靠张量名当种子逐位复现",
+      "验证只花了约 90 KB：用 HTTP Range 抽查即可，不必下载 7.72 TB；另有激活参数仅约 553B、Trainium2 配 NVFP4、单步 7 秒等反常",
+      "仓库要开 trust_remote_code=True 才能加载，等于让陌生 Python 代码在你机器上跑；Anthropic 与 Hugging Face 至今未回应",
+    ],
+    org: "Hugging Face（burner22 / numbat 仓库）",
+    category: "安全对齐",
+    date: "2026-11-01",
+    heat: 78,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "Hugging Face 仓库 burner22/numbat 讨论区 #13（FloxUnder 的随机复现审计，11-01）",
+    sourceUrl: "https://huggingface.co/burner22/numbat/discussions/13",
+    refs: [
+      { name: "MACCUS（11-01，含 15:46 / 16:29 UTC 两个时间戳与下载量）", url: "https://maccus.fr/en/claude-mythos-leak-hugging-face" },
+      { name: "Beam Blog（宣称与已验证逐项对照）", url: "https://agentbeam.com/blog/alleged-mythos-class-numbat-checkpoint-hugging-face-claimed-vs-verified" },
+      { name: "AGI知路（11-02，中文完整审计复盘）", url: "https://m.10jqka.com.cn/20261102/c681330582.shtml" },
+    ],
+    article: "/blog/2026-11-02-seven-terabytes-of-craft.html",
+  },
+  {
+    id: "microsoft-school-ai-standard-1101",
+    title: "微软那套校园 AI 合同 11 月 1 日生效：三十一页纸，最狠一条是不许它喜欢你",
+    summary:
+      "11 月 1 日起，微软把 9 月 9 日与 AFT、UFT 谈成的《National AI Safety & Privacy Standard》开放给全美学区：学区可把条款并入现有或新签的微软合同，不必重谈主合同，微软违反时可解约并索赔。这份 31 页备忘录的签约方是 AFT 旗下的 National Academy for AI Instruction 与微软，并留了其他厂商的空签名位。十条保护里最具体的几条是：学生、教师、管理员的数据不得用于训练、微调、更新、benchmark 或改进模型（安全例外只限检测自伤、虐待材料、诱骗、威胁、霸凌与安全攻击，且不得回流做通用模型改进，合同结束后仍有效）；不得做位置与行为追踪、键盘记录、持续被动注意力监测、长期画像、生物特征采集与情绪推断；明文禁止陪伴型功能，以及为延长使用时长而设计的功能；高风险决定须人类实质复核；学生端 agent 默认关闭、需管理员开启；72 小时内通报泄露、180 天内从活跃系统删除；第三方审计须公开结果；须用平实语言向家庭说明；须资助独立的公平与可及性研究。微软是目前唯一签约公司，OpenAI 与 Anthropic 称正与 AFT 谈类似协议，Google 未表态；微软、OpenAI、Anthropic 另向 AFT 的 National Academy for AI Instruction 捐 2300 万美元，目标 2030 年培训 40 万教师。边界也很清楚：只覆盖「为教育设计并营销」的 AI 产品，通用办公与生产力工具明确排除；至于条款是自动适用还是学区主动加入，微软、协议文本与各家报道的表述并不一致。",
+    keyPoints: [
+      "11-01 起全美学区可把这份 31 页标准并入现有微软合同，不用重谈主合同，微软违约时可解约索赔",
+      "学生与教师数据不得用于训练、微调、benchmark；安全例外只限检测自伤、虐待、诱骗、霸凌等，且不得回流做通用改进",
+      "明文禁止陪伴型功能与「为延长使用时长而设计」的功能，也禁止情绪推断、生物特征、键盘记录与持续注意力监测",
+      "72 小时内通报泄露、180 天内从活跃系统删除、第三方审计公开结果；微软是目前唯一签约公司，OpenAI 与 Anthropic 称在谈",
+      "只覆盖「为教育设计并营销」的产品，通用办公工具排除在外；自动生效还是学区主动加入，各方说法不一致",
+    ],
+    org: "Microsoft / AFT / UFT",
+    category: "行业动态",
+    date: "2026-11-01",
+    heat: 72,
+    authority: "official",
+    precision: "exact",
+    sourceName: "微软《National AI Safety & Privacy Standard for Schools》事实清单（11-01 起对全美学区开放）",
+    sourceUrl: "https://aka.ms/AISafetyPrivacyStandard",
+    refs: [
+      { name: "Microsoft Source（09-09 官宣原文与双方引语）", url: "https://news.microsoft.com/source/2026/09/09/aft-uft-and-microsoft-announce-national-ai-safety-privacy-standard-for-schools-to-protect-students-families-and-educators/" },
+      { name: "AFT 协议全文（31 页 PDF）", url: "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf" },
+    ],
+    article: "/blog/2026-11-02-not-allowed-to-like-you.html",
+  },
   {
     id: "wic-open-source-pavilion-1101",
     title: "国内首个开源主题生态体验馆 11 月 1 日在乌镇开馆：一楼摆模型，二楼摆照片，三楼开沙龙",
