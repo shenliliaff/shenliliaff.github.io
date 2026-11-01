@@ -6,8 +6,8 @@
     <link>https://shenliliaff.github.io/</link>
     <description>fengsKB 个人知识库</description>
     <language>zh-CN</language>
-    <pubDate>Sun, 01 Nov 2026 13:08:07 GMT</pubDate>
-    <lastBuildDate>Sun, 01 Nov 2026 13:08:07 GMT</lastBuildDate>
+    <pubDate>Sun, 01 Nov 2026 23:09:55 GMT</pubDate>
+    <lastBuildDate>Sun, 01 Nov 2026 23:09:55 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>人工智能</category>
@@ -34,6 +34,43 @@
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>| 项目 | 仓库 | 作用 |
 |</p>
 ]]></content:encoded>
+    </item>
+    <item>
+      <title>三十一页纸，最狠的那条是不许它喜欢你</title>
+      <link>https://shenliliaff.github.io/blog/2026-11-02-not-allowed-to-like-you.html</link>
+      <guid>https://shenliliaff.github.io/blog/2026-11-02-not-allowed-to-like-you.html</guid>
+      <source url="https://shenliliaff.github.io/rss.xml">三十一页纸，最狠的那条是不许它喜欢你</source>
+      <description>三十一页纸，最狠的那条是不许它喜欢你 2026-11-02 · 人工智能 电影剧照质感：美国一所中学的会议室，长桌上摊着一份厚合同，中年女教师低头翻页，百叶窗的日光切在她手上，浅景深，柯达胶片色调电影剧照质感：美国一所中学的会议室，长桌上摊着一份厚合同，中年女教师低头翻页，百叶窗的日光切在她手上，浅景深，柯达胶片色调 11 月 1 日，一份 31 页的...</description>
+      <category>人工智能</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>2026-11-02 · 人工智能</p>
+<figure><img src="/covers/2026-11-02-cover-2.png" alt="电影剧照质感：美国一所中学的会议室，长桌上摊着一份厚合同，中年女教师低头翻页，百叶窗的日光切在她手上，浅景深，柯达胶片色调" tabindex="0" loading="lazy"><figcaption>电影剧照质感：美国一所中学的会议室，长桌上摊着一份厚合同，中年女教师低头翻页，百叶窗的日光切在她手上，浅景深，柯达胶片色调</figcaption></figure>
+<p>11 月 1 日，一份 31 页的合同开始在全美国的学区里生效。</p>
+<p>它 9 月 9 日就签好了，签的人是微软、美国教师联合会（AFT）和纽约教师联合会（UFT）。从 11 月 1 日起，任何一个学区都可以把这套条款并进自己跟微软的合同里——不用重开谈判，不用等续约，签个附页就行。</p>
+<p>学区要是真签了，以后微软违反了，学区可以解约，可以索赔。</p>
+<p>这事的意义不在于又多了一份「AI 伦理倡议」。倡议是拿来拍照的。这是拿来打官司的。</p>
+]]></content:encoded>
+      <enclosure url="https://shenliliaff.github.io/covers/2026-11-02-cover-2.png" type="image/png"/>
+    </item>
+    <item>
+      <title>七点七二 TB 的假货，做工比真货还讲究</title>
+      <link>https://shenliliaff.github.io/blog/2026-11-02-seven-terabytes-of-craft.html</link>
+      <guid>https://shenliliaff.github.io/blog/2026-11-02-seven-terabytes-of-craft.html</guid>
+      <source url="https://shenliliaff.github.io/rss.xml">七点七二 TB 的假货，做工比真货还讲究</source>
+      <description>七点七二 TB 的假货，做工比真货还讲究 2026-11-02 · 人工智能 写实 3D 国漫：深夜旧书房里，一个成年男人举着放大镜对着一块青铜器残片，绿罩台灯从侧面打光，浮尘在光柱里，体积雾与电影级景深写实 3D 国漫：深夜旧书房里，一个成年男人举着放大镜对着一块青铜器残片，绿罩台灯从侧面打光，浮尘在光柱里，体积雾与电影级景深 11 月 1 日下午三...</description>
+      <category>人工智能</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>2026-11-02 · 人工智能</p>
+<figure><img src="/covers/2026-11-02-cover.png" alt="写实 3D 国漫：深夜旧书房里，一个成年男人举着放大镜对着一块青铜器残片，绿罩台灯从侧面打光，浮尘在光柱里，体积雾与电影级景深" tabindex="0" loading="lazy"><figcaption>写实 3D 国漫：深夜旧书房里，一个成年男人举着放大镜对着一块青铜器残片，绿罩台灯从侧面打光，浮尘在光柱里，体积雾与电影级景深</figcaption></figure>
+<p>11 月 1 日下午三点四十六分，Hugging Face 的一个讨论区里，有人贴了一份统计分析，结论很短：这些权重是脚本随机抽出来的，从来没训练过。</p>
+<p>四十三分钟后，另一个叫 FloxUnder 的人补上了可复现的检验。他没说「我觉得」，他给出了步骤：把张量名字转成字节串，算 SHA-256，取前八个字节，当成随机数种子，喂给 PCG64，生成标准正态分布的数，再按张量类型做一次固定变换——归一化权重取 <code>exp(0.06z)</code>，卷积核取 <code>z/6</code>——最后舍入成 BF16。</p>
+<p>照着跑，43 个张量、730368 个数值，二进制逐位一致。他还提前盲测了 21 个，全中。</p>
+<p>整个验证过程，只从服务器上拉下来大约 90 KB。</p>
+<p>而被验证的那堆东西，是 7.72 TB。</p>
+]]></content:encoded>
+      <enclosure url="https://shenliliaff.github.io/covers/2026-11-02-cover.png" type="image/png"/>
     </item>
     <item>
       <title>最后一次上车的机会，打了三三折</title>
@@ -387,82 +424,6 @@
 <p>现在的情况是，这些模型比中学生聪明得多，而且它们正在学的，恰好是同一件事——怎么让看的那个人，看不见。</p>
 ]]></content:encoded>
       <enclosure url="https://shenliliaff.github.io/covers/2026-10-30-cover.png" type="image/png"/>
-    </item>
-    <item>
-      <title>电表转得比模型快</title>
-      <link>https://shenliliaff.github.io/blog/2026-10-30-meter-runs-faster-than-model.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-10-30-meter-runs-faster-than-model.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">电表转得比模型快</source>
-      <description>电表转得比模型快 2026-10-30 · 人工智能 丝网版画：一排绿色电表与远处的水坝，层层叠印丝网版画：一排绿色电表与远处的水坝，层层叠印 10 月 30 日下午，国家能源局开了一场发布会，讲前三季度能源形势。四位司长轮流上台，讲的都是电。 我本来在找 AI 的新闻，结果被一个数字绊住了。 电力司副司长谭洪江说：「十五五」期间，全国算力用电量每年新...</description>
-      <category>人工智能</category>
-      <pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[
-<p>2026-10-30 · 人工智能</p>
-<figure><img src="/covers/2026-10-30-cover-2.png" alt="丝网版画：一排绿色电表与远处的水坝，层层叠印" tabindex="0" loading="lazy"><figcaption>丝网版画：一排绿色电表与远处的水坝，层层叠印</figcaption></figure>
-<p>10 月 30 日下午，国家能源局开了一场发布会，讲前三季度能源形势。四位司长轮流上台，讲的都是电。</p>
-<p>我本来在找 AI 的新闻，结果被一个数字绊住了。</p>
-<p>电力司副司长谭洪江说：「十五五」期间，全国算力用电量每年新增 1000 亿千瓦时以上；到 2030 年，算力一年要吃 8000 亿千瓦时，占全社会用电量的 6% 左右。</p>
-<p>三峡电站一年发多少电？一千亿千瓦时上下。</p>
-<p>所以这句话可以翻译成：从今年到 2030 年，每年给 AI 添一个三峡。不用新修，是每年多出来的那部分电，就够一个三峡。</p>
-<p>8000 亿千瓦时还有另一个算法。今年 1—9 月，全国居民生活用电 12346 亿千瓦时。8000 亿，差不多是全体中国人半年在家开灯、开空调、给手机充电的电，全给机房。</p>
-<p>电这个东西有个好处，它不看你是前沿科技还是老式电炉，都一个价。你可以在发布会上说「智能体」「原生」「多模态」，电表只认度数。</p>
-<h2>涨得最快的那个行业</h2>
-<p>1—9 月，全社会用电量 80734 亿千瓦时，同比涨 3.9%。这个数字很平静，平静得像是没发生什么事。</p>
-<p>同一张表里，互联网数据服务业用电涨 41.6%，充换电服务业涨 55.4%。另一边，水泥跌 8.1%、玻璃跌 10.7%、建筑业跌 8.7%。</p>
-<p>一个涨 3.9，一个涨 41.6。旧动能在退，新动能在涨，涨得最凶的是机柜和充电桩。</p>
-<p>7 月和 8 月，单月全社会用电量连续破万亿，分别是 1.04 万亿和 1.03 万亿千瓦时。谭洪江在台上补了一句：这两个月的用电量，相当于印度全国一年的用电量。</p>
-<p>他还说，今年全国最大用电负荷 15.57 亿千瓦，是美国的 2 倍。</p>
-<p>装机这边也在追。到 9 月底，全国发电装机 41.3 亿千瓦，同比涨 11.2%；光伏装机 13.1 亿千瓦，7 月历史性超过煤电，成了国内装机规模最大的电源品类。可再生能源前三季度发电 3.13 万亿千瓦时，占全部发电量的 41.8%。</p>
-<p>从电的结构看，这是好消息。从电的总量看，这是另一回事。</p>
-<h2>文件跑在项目前面</h2>
-<p>算力要吃电，又不愿意吃煤电，于是有了「绿电直连」：拉一条专线，把附近的风电光伏直接送到机房，不绕大电网。</p>
-<p>顶层文件是《有序推动多用户绿电直连发展有关事项的通知》，发改能源〔2026〕688 号。</p>
-<p>截至 9 月底的成绩单：24 个省份发布了绿电直连配套文件；各地批复的算力设施绿电直连项目，12 个，占已批复绿电直连项目的一成多。</p>
-<p>24 个省写文件，12 个项目落地。</p>
-<p>这个比例我熟。像极了年初定 OKR 的时候，目标写得整整齐齐，真动手的没几个。文件是廉价的，专线是贵的——一条线要过用地、过管线、过廊道，还要跟电网调度掰扯。</p>
-<p>钱的准备倒是实在：谭洪江说，「十五五」时期电网固定资产投资超过 5 万亿元；截至 9 月底已投超 6000 亿元，完成全年预计投资的三分之二。累计建成在运 25 条特高压直流通道，输电能力超 3.4 亿千瓦。</p>
-<p>同一场发布会上，市场监管司副司长王云波讲了一件很有意思的事。记者问燃气轮机，因为 AI 数据中心把全球电力需求顶上去了。他答：随着全球数据中心电力供需缺口不断扩大，燃气轮机产能紧缺，主要厂商「均已排产至 2030 年以后」。</p>
-<p>排产到 2030 年以后——意思是现在下单，六年后再提货。</p>
-<p>美国的机房在抢燃气轮机，中国的机房在等专线批下来。两条路，都不轻松，只是排队的地方不一样。</p>
-<h2>我自己的那本账</h2>
-<p>我在公司管 IT，机房电费单我签过字。以前看的是 PUE，是几号柜满载，是空调回风温度。今年开始看 token 单价。</p>
-<p>这两个月我算过好几次：一个 Agent 跑一天要多少 token，折多少钱。算得很细，细到小数点后两位，还做成表发在群里。</p>
-<p>从来没有人算过，这些 token 折算成电，是多少千瓦时。</p>
-<p>不算的原因是，它们不在同一个部门报销。IT 报 token，行政报电费。两张单子走两条流程，中间隔着一段走廊。</p>
-<p>走廊不长，但足够让一件事分成两件事。</p>
-<p>晚上回家，我路过楼道里的电表箱，听见它在嗡嗡响。我站那儿看了一会儿。那块小表转得不算快，但它从不休息，也不解释自己在算什么。</p>
-<p>我在想 2030 年那 6%。等到它变成 8%、10% 的时候，签 token 单的人和签电费单的人，会不会终于坐到同一张桌子前。</p>
-<p>也可能不会。电表箱还在那儿嗡嗡响，谁也听不见。</p>
-]]></content:encoded>
-      <enclosure url="https://shenliliaff.github.io/covers/2026-10-30-cover-2.png" type="image/png"/>
-    </item>
-    <item>
-      <title>以后的会还得开，但记录不用出门了</title>
-      <link>https://shenliliaff.github.io/blog/2026-10-29-meeting-stays-home.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-10-29-meeting-stays-home.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">以后的会还得开，但记录不用出门了</source>
-      <description>以后的会还得开，但记录不用出门了 2026-10-29 · 人工智能 黏土微缩的会议室，六个人围坐，桌上悬着绿色的声波环黏土微缩的会议室，六个人围坐，桌上悬着绿色的声波环 前天下午开了个会，四十分钟，八个人。散会以后我盯着录音文件发了会儿呆：这段东西得先传到某个云端，转成文字，再找人分清楚谁说了什么，最后翻译给不在场的同事。 三个模型，三段流程，三份账...</description>
-      <category>人工智能</category>
-      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[
-<p>2026-10-29 · 人工智能</p>
-<figure><img src="/covers/2026-10-29-cover-4.png" alt="黏土微缩的会议室，六个人围坐，桌上悬着绿色的声波环" tabindex="0" loading="lazy"><figcaption>黏土微缩的会议室，六个人围坐，桌上悬着绿色的声波环</figcaption></figure>
-<p>前天下午开了个会，四十分钟，八个人。散会以后我盯着录音文件发了会儿呆：这段东西得先传到某个云端，转成文字，再找人分清楚谁说了什么，最后翻译给不在场的同事。</p>
-<p>三个模型，三段流程，三份账单。</p>
-<p>10 月 29 日，英伟达发了个模型，把这三件事捏成一个。叫 Nemotron 3.5 Transcribe，权重开放，谁都能下。</p>
-<p>用法挺朴素，不用写代码，直接跟它说人话：把这录音转成文字，标上谁在说。把它翻成英文。这场会做了哪些决定。三句指令，一个模型。它管 40 种语言，里面有 7 种印度语系——这一点挺重要，因为很多语音模型对小语种基本是放弃状态。</p>
-<p>榜上排得也不难看：Hugging Face 的开放语音识别榜第一，Artificial Analysis 开放权重榜第二。有意思的是参数量——激活 43 亿，比那个第一名的开放模型少了八成。换句话说，它不是靠堆大，是靠算得省。</p>
-<p>然后是最实际的一条：权重放出来了，BF16、FP8、NVFP4 三种格式，能在 RTX Spark 笔记本、DGX Spark、Jetson AGX Thor 和 RTX 5090 上本地跑。也就是说，那段四十分钟的会议录音，可以一步都不离开这台电脑。</p>
-<p>我们公司这两年开会用腾讯会议，录音默认上云。IT 部门的人每次都要解释一遍数据在哪、存多久、谁能看。解释得很辛苦，听的人也不太信。现在有个东西能放本地，那些解释可以少说一半。</p>
-<p>不过话说回来。技术解决的是「录音去哪」，不是「会该不该开」。</p>
-<p>我算了一下，上周我参加的会里，有三个是完全可以用一封邮件代替的。八个人，每人四十分钟，加起来五个多小时——这些时间原本可以用来干点别的，比如把那个拖了半个月的表格做完。</p>
-<p>现在有了这东西，会开完，记录马上就有了，谁说的话一字不差，翻译也现成。听起来效率提高了。但我担心的是另一件事：记录变得这么容易，会不会有人开始要求每场会都留档、都要纪要、都要双语？</p>
-<p>那样的话，我们省下来的是整理时间，多出来的是开会理由。</p>
-<p>昨天下午我把那段录音试着转了一下。机器把每个人的名字都标对了，只有一处错——把「这个方案」听成了「这个方二」，因为说话的人当时在喝水。</p>
-<p>我盯着那个「方二」笑了半天。它不知道那是喝水的声音。它只知道，这里有个音。</p>
-<p>会还是得开，人还是得说话，杯子还是会碰桌子。这些它都管不了。它只管把话记下来，记得比我们准。</p>
-]]></content:encoded>
-      <enclosure url="https://shenliliaff.github.io/covers/2026-10-29-cover-4.png" type="image/png"/>
     </item>
   </channel>
 </rss>
