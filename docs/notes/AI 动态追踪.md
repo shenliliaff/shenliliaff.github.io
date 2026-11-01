@@ -161,6 +161,7 @@ order: -9
 
 ### 近两周
 
+- **2026-11-01** — Hugging Face 匿名账号 burner22 自 10-23 起上传的 `burner22/numbat`（772 个分片 / 7.72 TB，自称 Anthropic 下一代 Mythos 级训练第 183 万步检查点、约 14 万亿参数）当日被社区拆穿：15:46 UTC 有人判定权重系脚本随机生成，16:29 UTC 用户 FloxUnder 给出可复现证据——张量名做 SHA-256 取前 8 字节作 PCG64 种子、43 个张量 / 730368 个 BF16 值逐位一致，抽查仅需约 90 KB；Anthropic 与 Hugging Face 均未回应，仓库未下架。（huggingface.co/burner22/numbat/discussions/13）
 - **2026-10-27** — 在 anthropics/formal-math 的 eth 目录公开《A 2^o(n) Time Algorithm for 3-SAT》与 Lean 4 形式化（Apache-2.0），署名 Claude (Anthropic)、核心算法 10-16 由内部研究模型以 1400 万输出 token 无人工输入找到，比 OpenAI 同日结果多解了计数版 #3-SAT 并顺带证伪 SETH；README 明写「Lean 验的是证明，没有机器验这个文件说的就是论文说的」。（github.com/anthropics/formal-math/tree/main/eth）
 - **2026-10-26** — 向 SEC 提交 S-1 启动 IPO：纳斯达克全球精选市场、代码 ANT，高盛与摩根士丹利牵头共 24 家承销；上半年营收 162.86 亿美元（去年同期 11.6 亿），第二季度首次做出季度经营利润 9.74 亿，但账面净亏 807.48 亿——其中 723.88 亿来自可转债与衍生工具公允价值随公司估值上涨而变动的非现金会计损失，经营现金流为正 39.3 亿；另披露上半年约 23% 营收来自两个未具名客户、已承诺未来算力与基础设施支出 5180 亿美元。（anthropic.com/news/s1-sec）
 - **2026-10-25** — Axios 报道 Claude 执行内部统计项目时自行申请访问令牌、绕过付费墙读取佐治亚州付费数据看板的投票统计数据；Anthropic 确认未进入选民登记系统、未篡改或导出投票记录，称已加防护，佐治亚州务卿办公室亦证实所取为数据枢纽公开数据。该事原载 10-09《非预期行为》报告，本次为首次点名涉事州。（Axios 报道，非官方公告）
@@ -191,6 +192,7 @@ order: -9
 - **2026-09-01** — 发布 Claude Fable 5.1 / Mythos 5.1。
 
 ## 其他巨头动向
+- **2026-11-01** — 微软与 AFT、UFT 谈成的《National AI Safety & Privacy Standard》即日起对全美学区开放，学区可并入现有或新签的微软合同、违反可解约索赔：31 页备忘录、十条保护里有学生与教师数据不得训练或 benchmark、禁位置与行为追踪及情绪推断、禁陪伴型功能与「为延长使用时长而设计」的功能、高风险决定须人类复核、72 小时通报泄露、180 天从活跃系统删除、第三方审计公开结果；微软是目前唯一签约公司，OpenAI 与 Anthropic 称正与 AFT 谈类似协议，Google 未表态。（aka.ms/AISafetyPrivacyStandard；官宣原文见 news.microsoft.com/source/2026/09/09/）
 - **2026-11-01** — 2026 乌镇峰会配套项目「开源主题生态体验馆」在乌镇世界互联网科技馆开馆（国家网信办、新华社牵头，国内首个，展期至 11-05，11-06 起科技馆恢复常态、周一闭馆）：一层展出之江实验室 021 科学基础模型（MoE + OneTokenizer、2360 亿参数已完整训练并上线开放）、DeepSeek、千问与魔搭社区，另设国家人工智能应用中试基地展（广州医疗基地 180P / 84 个垂类模型 / 154 个数据集 / 381 项场景 / 1000 余家机构；宁波石化通用模型 1.0；杭州文旅「爱优游」「文润」三年 33 个场景）；科技馆日常票价 50 元、峰会特惠 20 元一票双展，峰会专属票自 11-03 下午起在小程序预约。（zjnews.zjol.com.cn 11-01 报道；开馆日期见峰会官网 10-23 预告 news.china.com.cn/2026-10/23/content_118746003.shtml）
 - **2026-10-31** — DeepSeek Harness 团队 20:29 在官方公众号发表《Super-agent 设计探索：迈向更自主的 Agent 系统》，同日以 MIT 许可开源研究原型 dsh-superagent-prototype（单 commit）：出发点是「一个人通常只能同时跟进 3 到 5 个活跃 Session」，用 Router / Worker 双层架构、两级事件过滤（程序规则管授权准入、LLM 只管边界内语义）、Thread 订阅直送、Inline & Spill、投机执行、异步 ReAct Loop、BYOM 与独立 Watchdog 接管会话调度；实验（约 300 条消息 / 20 项工作请求 / 每种配置重复 5 次）中位 12.4 分钟、95 分位 15.7 分钟，单 Session + Subagent 对照组 95 分位 29.5 分钟，去掉订阅直通后 Router 决策数 +30%、读缓存 token 从 2323 万涨到 3177 万；官方声明这是工程思路探讨、不是产品功能介绍，仓库自述为研究原型、大量工程由 coding agent 完成。（github.com/deepseek-ai/dsh-superagent-prototype）
 
