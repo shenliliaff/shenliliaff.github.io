@@ -191,6 +191,7 @@ order: -9
 - **2026-09-01** — 发布 Claude Fable 5.1 / Mythos 5.1。
 
 ## 其他巨头动向
+- **2026-11-01** — 2026 乌镇峰会配套项目「开源主题生态体验馆」在乌镇世界互联网科技馆开馆（国家网信办、新华社牵头，国内首个，展期至 11-05，11-06 起科技馆恢复常态、周一闭馆）：一层展出之江实验室 021 科学基础模型（MoE + OneTokenizer、2360 亿参数已完整训练并上线开放）、DeepSeek、千问与魔搭社区，另设国家人工智能应用中试基地展（广州医疗基地 180P / 84 个垂类模型 / 154 个数据集 / 381 项场景 / 1000 余家机构；宁波石化通用模型 1.0；杭州文旅「爱优游」「文润」三年 33 个场景）；科技馆日常票价 50 元、峰会特惠 20 元一票双展，峰会专属票自 11-03 下午起在小程序预约。（zjnews.zjol.com.cn 11-01 报道；开馆日期见峰会官网 10-23 预告 news.china.com.cn/2026-10/23/content_118746003.shtml）
 - **2026-10-31** — DeepSeek Harness 团队 20:29 在官方公众号发表《Super-agent 设计探索：迈向更自主的 Agent 系统》，同日以 MIT 许可开源研究原型 dsh-superagent-prototype（单 commit）：出发点是「一个人通常只能同时跟进 3 到 5 个活跃 Session」，用 Router / Worker 双层架构、两级事件过滤（程序规则管授权准入、LLM 只管边界内语义）、Thread 订阅直送、Inline & Spill、投机执行、异步 ReAct Loop、BYOM 与独立 Watchdog 接管会话调度；实验（约 300 条消息 / 20 项工作请求 / 每种配置重复 5 次）中位 12.4 分钟、95 分位 15.7 分钟，单 Session + Subagent 对照组 95 分位 29.5 分钟，去掉订阅直通后 Router 决策数 +30%、读缓存 token 从 2323 万涨到 3177 万；官方声明这是工程思路探讨、不是产品功能介绍，仓库自述为研究原型、大量工程由 coding agent 完成。（github.com/deepseek-ai/dsh-superagent-prototype）
 
 - **2026-10-31** — 国行 Apple 智能定档：苹果中国官网新闻稿称首批核心功能 11-04 起随 iOS 开发者 Beta 版测试、12 月随 iOS 27.3 面向中国用户推出（首批仅 iPhone，支持 iPhone 16 及后续、iPhone Duo、iPhone 15 Pro / Pro Max、iPhone Air，Siri 与设备语言须为英文或简体中文），同日官宣与阿里合作把千问接入 Siri（可调千问知识、可就照片与 PDF/演示文稿提问）、写作工具的「创作」与视觉智能的「询问千问」；开通自愿、每次发送前征得同意、请求与回复不被阿里用于训练，本期明确不含 Siri AI 及 WWDC 2026 的下一代功能，iPad 与 Mac 待审批。（apple.com.cn/newsroom/2026/10/apple-intelligence-features-are-coming-to-users-in-china/）
