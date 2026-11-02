@@ -65,6 +65,32 @@ export const hotRankingUpdatedAt = "2026-11-02";
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
   {
+    id: "aliyun-qovest-investment-agent-1102",
+    title: "阿里云 11 月 2 日发布投研工作台 Qovest：说一句话出报告，每月 99 元起，但官网只收申请表",
+    summary:
+      "11 月 2 日，阿里云发布面向投研场景的 AI 工作台 Qovest。用法是一句话提研究需求，它自己去查金融数据、读财报和公告、翻研报、做分析、出报告；结果存进「投研空间」，下次接着做，不用每次从零开始；还能设定时任务，按日／周／月自动跑同一批标的并更新看板。官方说团队采购了权威金融数据库、部署在阿里云上，并自研了面向金融场景的 Agent 工程框架 Harness，把数据调用到分析输出串起来；在开源金融评测集 FinFirst 与 IRAB 的内部横评中，回答质量、响应速度、成本均称领先参与评测的主流产品，但没有公开具体分数与测试配置。商业化口径有个拧巴的地方：对外定位写的是「面向专业机构投资者」，实际卖法却是个人申请、按月付费——官网 qovest.cn 目前只有「申请体验」和「查询申请进度」两个入口，注册送积分免费试用，之后是每月 99 元或 199 元两档，各含一定使用额度，额度多少、用完怎么算都没写；面向券商、基金、资管的企业版称近期推出，支持多账号协同与私有数据接入。产品 slogan 是「你负责判断，研究交给 Qovest」，演示看板自己标了不构成投资建议。",
+    keyPoints: [
+      "11-02 阿里云发布投研工作台 Qovest，一句话提需求，自动取数、读财报公告、出报告，按日／周／月定时更新",
+      "价格写在报道里：注册送积分免费试用，之后每月 99 元或 199 元两档；但官网只有「申请体验」，没有价格页，额度也没公开",
+      "官方称采购权威金融数据库＋自研 Agent 框架 Harness，在开源金融评测集 FinFirst 与 IRAB 的内部横评中领先，未公开具体成绩",
+      "对外说「面向专业机构投资者」，实际是个人申请按月付费，机构用的企业版要等「近期」；数据口径与额度留白是主要不确定处",
+      "年费 1188 元起，对标的是自己看财报、请不起研究员的个人；演示看板自带「不构成投资建议」，定位是整理资料而非给结论",
+    ],
+    org: "阿里云（Qovest）",
+    category: "产品发布",
+    date: "2026-11-02",
+    heat: 56,
+    authority: "official",
+    precision: "homepage",
+    sourceName: "Qovest 官网（阿里云 11-02 发布，首页目前仅开放「申请体验」）",
+    sourceUrl: "https://www.qovest.cn",
+    refs: [
+      { name: "阿里云官方公众号发布文（11-02，《给专业投资者配一个「AI 研究员」》含价格与 Harness 说明）", url: "http://mp.weixin.qq.com/s?__biz=MzA4NjI4MzM4MQ==&mid=2660263383&idx=1&sn=63a4732ec7b0f2f5500df7a6b7fd0be3" },
+      { name: "新浪财经 TechWeb（11-02，评测集与产品负责人引语）", url: "https://finance.sina.com.cn/tech/roll/2026-11-02/doc-inixipxc9412663.shtml" },
+      { name: "雷锋网（11-02，官网演示案例与邀测说明）", url: "https://www.leiphone.com/category/industrynews/mUPVr3RF0MHNmn3t.html" },
+    ],
+  },
+  {
     id: "anthropic-numbat-fake-checkpoint-1101",
     title: "7.72 TB 的「Anthropic 下一代模型」被拆穿：43 个张量能用张量名当随机种子逐位复现",
     summary:
