@@ -23,6 +23,11 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-11-02-not-allowed-to-like-you.html",
   },
   {
+    title: "九十九块的研究员，进门得先递申请",
+    date: "2026-11-02",
+    url: "/blog/2026-11-02-ninety-nine-yuan-researcher.html",
+  },
+  {
     title: "给开源盖了个馆，进门二十块",
     date: "2026-11-01",
     url: "/blog/2026-11-01-open-source-with-a-ticket-window.html",
