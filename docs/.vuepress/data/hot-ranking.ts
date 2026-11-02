@@ -89,6 +89,7 @@ export const hotRanking: HotItem[] = [
       { name: "新浪财经 TechWeb（11-02，评测集与产品负责人引语）", url: "https://finance.sina.com.cn/tech/roll/2026-11-02/doc-inixipxc9412663.shtml" },
       { name: "雷锋网（11-02，官网演示案例与邀测说明）", url: "https://www.leiphone.com/category/industrynews/mUPVr3RF0MHNmn3t.html" },
     ],
+    article: "/blog/2026-11-02-ninety-nine-yuan-researcher.html",
   },
   {
     id: "anthropic-numbat-fake-checkpoint-1101",
