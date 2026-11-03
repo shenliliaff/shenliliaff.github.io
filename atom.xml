@@ -4,51 +4,61 @@
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
   <icon>https://ai.upcloudtech.cn/fengskb-icon.svg</icon>
-  <updated>2026-11-03T07:36:50.320Z</updated>
+  <updated>2026-11-03T07:39:06.308Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://ai.upcloudtech.cn/atom.xml"/>
   <link rel="alternate" href="https://ai.upcloudtech.cn/"/>
   <category term="人工智能"/>
   <entry>
-    <title type="text">评论系统部署文档（Waline 双项目架构 · 最终实录）</title>
+    <title type="text">评论系统部署文档（Waline 双项目架构）</title>
     <id>https://ai.upcloudtech.cn/comment-deploy.html</id>
     <link href="https://ai.upcloudtech.cn/comment-deploy.html"/>
-    <updated>2026-11-03T07:35:51.000Z</updated>
+    <updated>2026-11-03T07:38:11.000Z</updated>
     <summary type="html"><![CDATA[
-<p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库</strong>组成。
-本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。</p>
-<blockquote>
-<p><strong>域名现状（2026-11-03 二次更新）</strong></p>
-<ul>
-<li>博客：<code>https://ai.upcloudtech.cn/</code>（自定义域名，GitHub Pages 托管）</li>
-<li>评论后端：<code>https://waline.upcloudtech.cn</code>（新域名 upcloudtech.cn）</li>
-<li>登录中转：<code>https://auth.upcloudtech.cn</code>（自建 auth 项目）</li>
-<li>域名需持续续费，过期会导致评论与 GitHub 登录同时失效。</li>
-</ul>
-</blockquote>]]></summary>
+<p>本站由 <strong>GitHub Pages（博客）+ 两个 Vercel 项目（评论后端 / 登录中转）+ Supabase 数据库</strong> 组成。
+本文档记录当前线上配置与完整部署步骤，含踩坑说明，供运维与故障排查使用。</p>
+<h2>零、当前线上地址</h2>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>地址</th>
+<th>托管</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>博客</td>
+<td><code>https://ai.upcloudtech.cn</code></td>
+<td>GitHub Pages（自定义域名）</td>
+</tr>
+<tr>
+<td>评论后端</td>
+<td><code>https://waline.upcloudtech.cn</code></td>
+<td>Vercel 项目 <code>waline-blog</code></td>
+</tr>
+<tr>
+<td>登录中转</td>
+<td><code>https://auth.upcloudtech.cn</code></td>
+<td>Vercel 项目 <code>auth</code></td>
+</tr>
+<tr>
+<td>评论数据库</td>
+<td>Supabase PostgreSQL（大阪 ap-northeast-2）</td>
+<td>Supabase 免费版</td>
+</tr>
+<tr>
+<td>管理员后台</td>
+<td><code>https://waline.upcloudtech.cn/ui/</code></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>]]></summary>
     <content type="html"><![CDATA[
-<p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库</strong>组成。
-本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。</p>
-<blockquote>
-<p><strong>域名现状（2026-11-03 二次更新）</strong></p>
-<ul>
-<li>博客：<code>https://ai.upcloudtech.cn/</code>（自定义域名，GitHub Pages 托管）</li>
-<li>评论后端：<code>https://waline.upcloudtech.cn</code>（新域名 upcloudtech.cn）</li>
-<li>登录中转：<code>https://auth.upcloudtech.cn</code>（自建 auth 项目）</li>
-<li>域名需持续续费，过期会导致评论与 GitHub 登录同时失效。</li>
-</ul>
-</blockquote>
-<h2>一、架构总览</h2>
-<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>访客浏览器</span></span>
-<span class="line"><span>  │ 匿名评论 / GitHub 登录</span></span>
-<span class="line"><span>  ▼</span></span>
-<span class="line"><span>[项目 1] Waline 后端 (waline-blog)</span></span>
-<span class="line"><span>  域名: waline.upcloudtech.cn</span></span>
-<span class="line"><span>  ├─ 读写评论数据 ──&gt; Supabase PostgreSQL (大阪)</span></span>
-<span class="line"><span>  └─ 登录时跳转 ──&gt; [项目 2] auth 中转</span></span>
-<span class="line"><span>                      域名: auth.upcloudtech.cn</span></span>
-<span class="line"><span>                      └─ GitHub OAuth ──&gt; github.com</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>| 项目 | 仓库 | 作用 |
+<p>本站由 <strong>GitHub Pages（博客）+ 两个 Vercel 项目（评论后端 / 登录中转）+ Supabase 数据库</strong> 组成。
+本文档记录当前线上配置与完整部署步骤，含踩坑说明，供运维与故障排查使用。</p>
+<h2>零、当前线上地址</h2>
+<p>| 用途 | 地址 | 托管 |
 |</p>
 ]]></content>
     <published>2026-10-16T02:29:08.000Z</published>
