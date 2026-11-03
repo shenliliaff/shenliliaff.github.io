@@ -4,10 +4,9 @@
 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。
 
 > **域名现状（2026-11-03 二次更新）**
-> - 博客：`https://shenliliaff.github.io/`（GitHub 默认域名）
+> - 博客：`https://ai.upcloudtech.cn/`（自定义域名，GitHub Pages 托管）
 > - 评论后端：`https://waline.upcloudtech.cn`（新域名 upcloudtech.cn）
 > - 登录中转：`https://auth.upcloudtech.cn`（自建 auth 项目）
-> - 旧域名 `vttjit.tech` 已彻底失效，下文涉及 vttjit 的内容仅作历史参考。
 > - 域名需持续续费，过期会导致评论与 GitHub 登录同时失效。
 
 ## 一、架构总览
