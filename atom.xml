@@ -1,43 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="https://shenliliaff.github.io/atom.xsl"?>
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="https://ai.upcloudtech.cn/atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
-  <id>https://shenliliaff.github.io/</id>
+  <id>https://ai.upcloudtech.cn/</id>
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
-  <icon>https://shenliliaff.github.io/fengskb-icon.svg</icon>
-  <updated>2026-11-03T04:16:30.099Z</updated>
+  <icon>https://ai.upcloudtech.cn/fengskb-icon.svg</icon>
+  <updated>2026-11-03T07:29:35.672Z</updated>
   <generator>@vuepress/plugin-feed</generator>
-  <link rel="self" href="https://shenliliaff.github.io/atom.xml"/>
-  <link rel="alternate" href="https://shenliliaff.github.io/"/>
+  <link rel="self" href="https://ai.upcloudtech.cn/atom.xml"/>
+  <link rel="alternate" href="https://ai.upcloudtech.cn/"/>
   <category term="人工智能"/>
   <entry>
     <title type="text">评论系统部署文档（Waline 双项目架构 · 最终实录）</title>
-    <id>https://shenliliaff.github.io/comment-deploy.html</id>
-    <link href="https://shenliliaff.github.io/comment-deploy.html"/>
-    <updated>2026-11-03T04:15:25.000Z</updated>
+    <id>https://ai.upcloudtech.cn/comment-deploy.html</id>
+    <link href="https://ai.upcloudtech.cn/comment-deploy.html"/>
+    <updated>2026-11-03T07:28:40.000Z</updated>
     <summary type="html"><![CDATA[
 <p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库</strong>组成。
 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。</p>
 <blockquote>
-<p><strong>域名现状（2026-11-03 更新 · 重要）</strong></p>
+<p><strong>域名现状（2026-11-03 二次更新）</strong></p>
 <ul>
 <li>博客：<code>https://shenliliaff.github.io/</code>（GitHub 默认域名）</li>
-<li>评论后端：<code>https://waline-blog-shenliliaff.vercel.app</code>（Vercel 默认域名）</li>
-<li><strong><code>vttjit.tech</code> 已彻底失效</strong>，域名与 <code>waline.</code> / <code>auth.</code> 子域名均不再使用，下文涉及 vttjit 的内容仅作历史记录参考。</li>
-<li>影响：<code>vercel.app</code> 在中国大陆网络经常无法访问，评论在国内可能加载失败；若要国内稳定，需另购域名绑定（步骤见第四节）。</li>
-<li>自建 auth 中转项目仍在，但域名失效后需改用其 Vercel 默认域名，或直接移除 <code>OAUTH_URL</code> 回退公共中转（登录页会显示 5 个社交按钮）。</li>
+<li>评论后端：<code>https://waline.upcloudtech.cn</code>（新域名 upcloudtech.cn）</li>
+<li>登录中转：<code>https://auth.upcloudtech.cn</code>（自建 auth 项目）</li>
+<li>旧域名 <code>vttjit.tech</code> 已彻底失效，下文涉及 vttjit 的内容仅作历史参考。</li>
+<li>域名需持续续费，过期会导致评论与 GitHub 登录同时失效。</li>
 </ul>
 </blockquote>]]></summary>
     <content type="html"><![CDATA[
 <p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库</strong>组成。
 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。</p>
 <blockquote>
-<p><strong>域名现状（2026-11-03 更新 · 重要）</strong></p>
+<p><strong>域名现状（2026-11-03 二次更新）</strong></p>
 <ul>
 <li>博客：<code>https://shenliliaff.github.io/</code>（GitHub 默认域名）</li>
-<li>评论后端：<code>https://waline-blog-shenliliaff.vercel.app</code>（Vercel 默认域名）</li>
-<li><strong><code>vttjit.tech</code> 已彻底失效</strong>，域名与 <code>waline.</code> / <code>auth.</code> 子域名均不再使用，下文涉及 vttjit 的内容仅作历史记录参考。</li>
-<li>影响：<code>vercel.app</code> 在中国大陆网络经常无法访问，评论在国内可能加载失败；若要国内稳定，需另购域名绑定（步骤见第四节）。</li>
-<li>自建 auth 中转项目仍在，但域名失效后需改用其 Vercel 默认域名，或直接移除 <code>OAUTH_URL</code> 回退公共中转（登录页会显示 5 个社交按钮）。</li>
+<li>评论后端：<code>https://waline.upcloudtech.cn</code>（新域名 upcloudtech.cn）</li>
+<li>登录中转：<code>https://auth.upcloudtech.cn</code>（自建 auth 项目）</li>
+<li>旧域名 <code>vttjit.tech</code> 已彻底失效，下文涉及 vttjit 的内容仅作历史参考。</li>
+<li>域名需持续续费，过期会导致评论与 GitHub 登录同时失效。</li>
 </ul>
 </blockquote>
 <h2>一、架构总览</h2>
@@ -45,10 +45,10 @@
 <span class="line"><span>  │ 匿名评论 / GitHub 登录</span></span>
 <span class="line"><span>  ▼</span></span>
 <span class="line"><span>[项目 1] Waline 后端 (waline-blog)</span></span>
-<span class="line"><span>  域名: waline.vttjit.tech</span></span>
+<span class="line"><span>  域名: waline.upcloudtech.cn</span></span>
 <span class="line"><span>  ├─ 读写评论数据 ──&gt; Supabase PostgreSQL (大阪)</span></span>
 <span class="line"><span>  └─ 登录时跳转 ──&gt; [项目 2] auth 中转</span></span>
-<span class="line"><span>                      域名: auth.vttjit.tech</span></span>
+<span class="line"><span>                      域名: auth.upcloudtech.cn</span></span>
 <span class="line"><span>                      └─ GitHub OAuth ──&gt; github.com</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>| 项目 | 仓库 | 作用 |
 |</p>
@@ -57,8 +57,8 @@
   </entry>
   <entry>
     <title type="text">AI 不刷题了，它去造了一只手</title>
-    <id>https://shenliliaff.github.io/blog/2026-11-03-ai-stops-cramming.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-11-03-ai-stops-cramming.html"/>
+    <id>https://ai.upcloudtech.cn/blog/2026-11-03-ai-stops-cramming.html</id>
+    <link href="https://ai.upcloudtech.cn/blog/2026-11-03-ai-stops-cramming.html"/>
     <updated>2026-11-02T23:08:42.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-03 · 人工智能</p>
@@ -115,8 +115,8 @@
   </entry>
   <entry>
     <title type="text">一万六千亿个参数，最后去算一杯奶茶的毛利</title>
-    <id>https://shenliliaff.github.io/blog/2026-11-03-one-trillion-parameters-one-cup-of-tea.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-11-03-one-trillion-parameters-one-cup-of-tea.html"/>
+    <id>https://ai.upcloudtech.cn/blog/2026-11-03-one-trillion-parameters-one-cup-of-tea.html</id>
+    <link href="https://ai.upcloudtech.cn/blog/2026-11-03-one-trillion-parameters-one-cup-of-tea.html"/>
     <updated>2026-11-02T23:08:42.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-03 · 人工智能</p>
@@ -161,8 +161,8 @@
   </entry>
   <entry>
     <title type="text">九十九块的研究员，进门得先递申请</title>
-    <id>https://shenliliaff.github.io/blog/2026-11-02-ninety-nine-yuan-researcher.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-11-02-ninety-nine-yuan-researcher.html"/>
+    <id>https://ai.upcloudtech.cn/blog/2026-11-02-ninety-nine-yuan-researcher.html</id>
+    <link href="https://ai.upcloudtech.cn/blog/2026-11-02-ninety-nine-yuan-researcher.html"/>
     <updated>2026-11-02T13:04:44.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-02 · 人工智能</p>
@@ -202,8 +202,8 @@
   </entry>
   <entry>
     <title type="text">三十一页纸，最狠的那条是不许它喜欢你</title>
-    <id>https://shenliliaff.github.io/blog/2026-11-02-not-allowed-to-like-you.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-11-02-not-allowed-to-like-you.html"/>
+    <id>https://ai.upcloudtech.cn/blog/2026-11-02-not-allowed-to-like-you.html</id>
+    <link href="https://ai.upcloudtech.cn/blog/2026-11-02-not-allowed-to-like-you.html"/>
     <updated>2026-11-01T23:08:55.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-02 · 人工智能</p>
@@ -222,8 +222,8 @@
   </entry>
   <entry>
     <title type="text">七点七二 TB 的假货，做工比真货还讲究</title>
-    <id>https://shenliliaff.github.io/blog/2026-11-02-seven-terabytes-of-craft.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-11-02-seven-terabytes-of-craft.html"/>
+    <id>https://ai.upcloudtech.cn/blog/2026-11-02-seven-terabytes-of-craft.html</id>
+    <link href="https://ai.upcloudtech.cn/blog/2026-11-02-seven-terabytes-of-craft.html"/>
     <updated>2026-11-01T23:08:55.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-02 · 人工智能</p>
@@ -243,8 +243,8 @@
   </entry>
   <entry>
     <title type="text">最后一次上车的机会，打了三三折</title>
-    <id>https://shenliliaff.github.io/blog/2026-11-01-last-chance-at-a-discount.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-11-01-last-chance-at-a-discount.html"/>
+    <id>https://ai.upcloudtech.cn/blog/2026-11-01-last-chance-at-a-discount.html</id>
+    <link href="https://ai.upcloudtech.cn/blog/2026-11-01-last-chance-at-a-discount.html"/>
     <updated>2026-10-31T23:08:36.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-01 · 人工智能</p>
@@ -304,8 +304,8 @@
   </entry>
   <entry>
     <title type="text">能干的活越来越多，能盯的窗口还是五个</title>
-    <id>https://shenliliaff.github.io/blog/2026-11-01-only-five-windows.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-11-01-only-five-windows.html"/>
+    <id>https://ai.upcloudtech.cn/blog/2026-11-01-only-five-windows.html</id>
+    <link href="https://ai.upcloudtech.cn/blog/2026-11-01-only-five-windows.html"/>
     <updated>2026-10-31T23:08:36.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-01 · 人工智能</p>
@@ -364,8 +364,8 @@
   </entry>
   <entry>
     <title type="text">给开源盖了个馆，进门二十块</title>
-    <id>https://shenliliaff.github.io/blog/2026-11-01-open-source-with-a-ticket-window.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-11-01-open-source-with-a-ticket-window.html"/>
+    <id>https://ai.upcloudtech.cn/blog/2026-11-01-open-source-with-a-ticket-window.html</id>
+    <link href="https://ai.upcloudtech.cn/blog/2026-11-01-open-source-with-a-ticket-window.html"/>
     <updated>2026-11-01T13:07:08.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-01 · 人工智能</p>
@@ -414,8 +414,8 @@
   </entry>
   <entry>
     <title type="text">Siri 变聪明了，聪明的那部分是千问</title>
-    <id>https://shenliliaff.github.io/blog/2026-10-31-apple-intelligence-lands-in-china.html</id>
-    <link href="https://shenliliaff.github.io/blog/2026-10-31-apple-intelligence-lands-in-china.html"/>
+    <id>https://ai.upcloudtech.cn/blog/2026-10-31-apple-intelligence-lands-in-china.html</id>
+    <link href="https://ai.upcloudtech.cn/blog/2026-10-31-apple-intelligence-lands-in-china.html"/>
     <updated>2026-10-31T13:04:41.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-10-31 · 人工智能</p>

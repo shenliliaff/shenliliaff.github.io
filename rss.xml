@@ -1,34 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="https://shenliliaff.github.io/rss.xsl"?>
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="https://ai.upcloudtech.cn/rss.xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <atom:link href="https://shenliliaff.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://ai.upcloudtech.cn/rss.xml" rel="self" type="application/rss+xml"/>
     <title>fengsKB</title>
-    <link>https://shenliliaff.github.io/</link>
+    <link>https://ai.upcloudtech.cn/</link>
     <description>fengsKB 个人知识库</description>
     <language>zh-CN</language>
-    <pubDate>Tue, 03 Nov 2026 04:16:30 GMT</pubDate>
-    <lastBuildDate>Tue, 03 Nov 2026 04:16:30 GMT</lastBuildDate>
+    <pubDate>Tue, 03 Nov 2026 07:29:35 GMT</pubDate>
+    <lastBuildDate>Tue, 03 Nov 2026 07:29:35 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>人工智能</category>
     <item>
       <title>评论系统部署文档（Waline 双项目架构 · 最终实录）</title>
-      <link>https://shenliliaff.github.io/comment-deploy.html</link>
-      <guid>https://shenliliaff.github.io/comment-deploy.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">评论系统部署文档（Waline 双项目架构 · 最终实录）</source>
-      <description>评论系统部署文档（Waline 双项目架构 · 最终实录） 本站的评论系统由两个 Vercel 项目 + 一个 Supabase 数据库组成。 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。 域名现状（2026-11-03 更新 · 重要） 博客：https://shenliliaff.github.io/（GitHub 默认域名） ...</description>
+      <link>https://ai.upcloudtech.cn/comment-deploy.html</link>
+      <guid>https://ai.upcloudtech.cn/comment-deploy.html</guid>
+      <source url="https://ai.upcloudtech.cn/rss.xml">评论系统部署文档（Waline 双项目架构 · 最终实录）</source>
+      <description>评论系统部署文档（Waline 双项目架构 · 最终实录） 本站的评论系统由两个 Vercel 项目 + 一个 Supabase 数据库组成。 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。 域名现状（2026-11-03 二次更新） 博客：https://shenliliaff.github.io/（GitHub 默认域名） 评论后...</description>
       <pubDate>Fri, 16 Oct 2026 02:29:08 GMT</pubDate>
       <content:encoded><![CDATA[
 <p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库</strong>组成。
 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。</p>
 <blockquote>
-<p><strong>域名现状（2026-11-03 更新 · 重要）</strong></p>
+<p><strong>域名现状（2026-11-03 二次更新）</strong></p>
 <ul>
 <li>博客：<code>https://shenliliaff.github.io/</code>（GitHub 默认域名）</li>
-<li>评论后端：<code>https://waline-blog-shenliliaff.vercel.app</code>（Vercel 默认域名）</li>
-<li><strong><code>vttjit.tech</code> 已彻底失效</strong>，域名与 <code>waline.</code> / <code>auth.</code> 子域名均不再使用，下文涉及 vttjit 的内容仅作历史记录参考。</li>
-<li>影响：<code>vercel.app</code> 在中国大陆网络经常无法访问，评论在国内可能加载失败；若要国内稳定，需另购域名绑定（步骤见第四节）。</li>
-<li>自建 auth 中转项目仍在，但域名失效后需改用其 Vercel 默认域名，或直接移除 <code>OAUTH_URL</code> 回退公共中转（登录页会显示 5 个社交按钮）。</li>
+<li>评论后端：<code>https://waline.upcloudtech.cn</code>（新域名 upcloudtech.cn）</li>
+<li>登录中转：<code>https://auth.upcloudtech.cn</code>（自建 auth 项目）</li>
+<li>旧域名 <code>vttjit.tech</code> 已彻底失效，下文涉及 vttjit 的内容仅作历史参考。</li>
+<li>域名需持续续费，过期会导致评论与 GitHub 登录同时失效。</li>
 </ul>
 </blockquote>
 <h2>一、架构总览</h2>
@@ -36,10 +36,10 @@
 <span class="line"><span>  │ 匿名评论 / GitHub 登录</span></span>
 <span class="line"><span>  ▼</span></span>
 <span class="line"><span>[项目 1] Waline 后端 (waline-blog)</span></span>
-<span class="line"><span>  域名: waline.vttjit.tech</span></span>
+<span class="line"><span>  域名: waline.upcloudtech.cn</span></span>
 <span class="line"><span>  ├─ 读写评论数据 ──&gt; Supabase PostgreSQL (大阪)</span></span>
 <span class="line"><span>  └─ 登录时跳转 ──&gt; [项目 2] auth 中转</span></span>
-<span class="line"><span>                      域名: auth.vttjit.tech</span></span>
+<span class="line"><span>                      域名: auth.upcloudtech.cn</span></span>
 <span class="line"><span>                      └─ GitHub OAuth ──&gt; github.com</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>| 项目 | 仓库 | 作用 |
 |</p>
@@ -47,9 +47,9 @@
     </item>
     <item>
       <title>AI 不刷题了，它去造了一只手</title>
-      <link>https://shenliliaff.github.io/blog/2026-11-03-ai-stops-cramming.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-11-03-ai-stops-cramming.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">AI 不刷题了，它去造了一只手</source>
+      <link>https://ai.upcloudtech.cn/blog/2026-11-03-ai-stops-cramming.html</link>
+      <guid>https://ai.upcloudtech.cn/blog/2026-11-03-ai-stops-cramming.html</guid>
+      <source url="https://ai.upcloudtech.cn/rss.xml">AI 不刷题了，它去造了一只手</source>
       <description>AI 不刷题了，它去造了一只手 2026-11-03 · 人工智能 写实 3D 国漫质感：深夜实验室台面上悬着一只五指长短依次递增的金属机械手，绿色冷光从下方打上来照亮指节，一位穿深色外套的研究者站在后面看，背景是虚化的屏幕与体积雾写实 3D 国漫质感：深夜实验室台面上悬着一只五指长短依次递增的金属机械手，绿色冷光从下方打上来照亮指节，一位穿深色外套的...</description>
       <category>人工智能</category>
       <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
@@ -100,13 +100,13 @@
 <p>成果都放在 github.com/Tencent-Hunyuan/hyra-results，混元说会持续公开，供社区检验和复用。</p>
 <p>检验这两个字，比「发布」重得多。</p>
 ]]></content:encoded>
-      <enclosure url="https://shenliliaff.github.io/covers/2026-11-03-cover-2.png" type="image/png"/>
+      <enclosure url="https://ai.upcloudtech.cn/covers/2026-11-03-cover-2.png" type="image/png"/>
     </item>
     <item>
       <title>一万六千亿个参数，最后去算一杯奶茶的毛利</title>
-      <link>https://shenliliaff.github.io/blog/2026-11-03-one-trillion-parameters-one-cup-of-tea.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-11-03-one-trillion-parameters-one-cup-of-tea.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">一万六千亿个参数，最后去算一杯奶茶的毛利</source>
+      <link>https://ai.upcloudtech.cn/blog/2026-11-03-one-trillion-parameters-one-cup-of-tea.html</link>
+      <guid>https://ai.upcloudtech.cn/blog/2026-11-03-one-trillion-parameters-one-cup-of-tea.html</guid>
+      <source url="https://ai.upcloudtech.cn/rss.xml">一万六千亿个参数，最后去算一杯奶茶的毛利</source>
       <description>一万六千亿个参数，最后去算一杯奶茶的毛利 2026-11-03 · 人工智能 电影剧照质感：深夜奶茶店收银台，暖黄吊灯下一块平板亮着利润表，店主低头按计算器，玻璃窗外是湿的街和绿色招牌的微光电影剧照质感：深夜奶茶店收银台，暖黄吊灯下一块平板亮着利润表，店主低头按计算器，玻璃窗外是湿的街和绿色招牌的微光 小区门口那家奶茶店，老板姓周。上周我去买一杯少糖的...</description>
       <category>人工智能</category>
       <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
@@ -144,13 +144,13 @@
 <p>至于周老板，他大概还要按一阵计算器。等哪天「妙手」这种工具的价格掉到一个月几十块，掉到跟那张 39 元的月卡差不多，他可能会试着用一下。然后他会发现，模型告诉他该少做几款新品、把那杯少糖的多涨一块钱。</p>
 <p>他信不信，是另一回事。报告写得再漂亮，最后签字的人还是那个按计算器的人。</p>
 ]]></content:encoded>
-      <enclosure url="https://shenliliaff.github.io/covers/2026-11-03-cover.png" type="image/png"/>
+      <enclosure url="https://ai.upcloudtech.cn/covers/2026-11-03-cover.png" type="image/png"/>
     </item>
     <item>
       <title>九十九块的研究员，进门得先递申请</title>
-      <link>https://shenliliaff.github.io/blog/2026-11-02-ninety-nine-yuan-researcher.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-11-02-ninety-nine-yuan-researcher.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">九十九块的研究员，进门得先递申请</source>
+      <link>https://ai.upcloudtech.cn/blog/2026-11-02-ninety-nine-yuan-researcher.html</link>
+      <guid>https://ai.upcloudtech.cn/blog/2026-11-02-ninety-nine-yuan-researcher.html</guid>
+      <source url="https://ai.upcloudtech.cn/rss.xml">九十九块的研究员，进门得先递申请</source>
       <description>九十九块的研究员，进门得先递申请 2026-11-02 · 人工智能 黏土微缩 3D diorama：巴掌大的深夜办公桌上堆满打印的财报，一个绿色黏土小人低头用笔在报表上圈数字，旁边一台矮圆头的绿色小机器人递来一叠整理好的文件，文件上压着放大镜，台灯打出暖黄侧光黏土微缩 3D diorama：巴掌大的深夜办公桌上堆满打印的财报，一个绿色黏土小人低头用笔...</description>
       <category>人工智能</category>
       <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
@@ -184,13 +184,13 @@
 <p>他嗯了一声，把 PDF 关了。屏幕上留着申请表的第一个空，光标在那闪。</p>
 <p>我没问他填了没有。</p>
 ]]></content:encoded>
-      <enclosure url="https://shenliliaff.github.io/covers/2026-11-02-cover-3.png" type="image/png"/>
+      <enclosure url="https://ai.upcloudtech.cn/covers/2026-11-02-cover-3.png" type="image/png"/>
     </item>
     <item>
       <title>三十一页纸，最狠的那条是不许它喜欢你</title>
-      <link>https://shenliliaff.github.io/blog/2026-11-02-not-allowed-to-like-you.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-11-02-not-allowed-to-like-you.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">三十一页纸，最狠的那条是不许它喜欢你</source>
+      <link>https://ai.upcloudtech.cn/blog/2026-11-02-not-allowed-to-like-you.html</link>
+      <guid>https://ai.upcloudtech.cn/blog/2026-11-02-not-allowed-to-like-you.html</guid>
+      <source url="https://ai.upcloudtech.cn/rss.xml">三十一页纸，最狠的那条是不许它喜欢你</source>
       <description>三十一页纸，最狠的那条是不许它喜欢你 2026-11-02 · 人工智能 电影剧照质感：美国一所中学的会议室，长桌上摊着一份厚合同，中年女教师低头翻页，百叶窗的日光切在她手上，浅景深，柯达胶片色调电影剧照质感：美国一所中学的会议室，长桌上摊着一份厚合同，中年女教师低头翻页，百叶窗的日光切在她手上，浅景深，柯达胶片色调 11 月 1 日，一份 31 页的...</description>
       <category>人工智能</category>
       <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
@@ -202,13 +202,13 @@
 <p>学区要是真签了，以后微软违反了，学区可以解约，可以索赔。</p>
 <p>这事的意义不在于又多了一份「AI 伦理倡议」。倡议是拿来拍照的。这是拿来打官司的。</p>
 ]]></content:encoded>
-      <enclosure url="https://shenliliaff.github.io/covers/2026-11-02-cover-2.png" type="image/png"/>
+      <enclosure url="https://ai.upcloudtech.cn/covers/2026-11-02-cover-2.png" type="image/png"/>
     </item>
     <item>
       <title>七点七二 TB 的假货，做工比真货还讲究</title>
-      <link>https://shenliliaff.github.io/blog/2026-11-02-seven-terabytes-of-craft.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-11-02-seven-terabytes-of-craft.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">七点七二 TB 的假货，做工比真货还讲究</source>
+      <link>https://ai.upcloudtech.cn/blog/2026-11-02-seven-terabytes-of-craft.html</link>
+      <guid>https://ai.upcloudtech.cn/blog/2026-11-02-seven-terabytes-of-craft.html</guid>
+      <source url="https://ai.upcloudtech.cn/rss.xml">七点七二 TB 的假货，做工比真货还讲究</source>
       <description>七点七二 TB 的假货，做工比真货还讲究 2026-11-02 · 人工智能 写实 3D 国漫：深夜旧书房里，一个成年男人举着放大镜对着一块青铜器残片，绿罩台灯从侧面打光，浮尘在光柱里，体积雾与电影级景深写实 3D 国漫：深夜旧书房里，一个成年男人举着放大镜对着一块青铜器残片，绿罩台灯从侧面打光，浮尘在光柱里，体积雾与电影级景深 11 月 1 日下午三...</description>
       <category>人工智能</category>
       <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
@@ -221,13 +221,13 @@
 <p>整个验证过程，只从服务器上拉下来大约 90 KB。</p>
 <p>而被验证的那堆东西，是 7.72 TB。</p>
 ]]></content:encoded>
-      <enclosure url="https://shenliliaff.github.io/covers/2026-11-02-cover.png" type="image/png"/>
+      <enclosure url="https://ai.upcloudtech.cn/covers/2026-11-02-cover.png" type="image/png"/>
     </item>
     <item>
       <title>最后一次上车的机会，打了三三折</title>
-      <link>https://shenliliaff.github.io/blog/2026-11-01-last-chance-at-a-discount.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-11-01-last-chance-at-a-discount.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">最后一次上车的机会，打了三三折</source>
+      <link>https://ai.upcloudtech.cn/blog/2026-11-01-last-chance-at-a-discount.html</link>
+      <guid>https://ai.upcloudtech.cn/blog/2026-11-01-last-chance-at-a-discount.html</guid>
+      <source url="https://ai.upcloudtech.cn/rss.xml">最后一次上车的机会，打了三三折</source>
       <description>最后一次上车的机会，打了三三折 2026-11-01 · 人工智能 电影剧照质感：昏暗的会议室长桌尽头坐着一个穿西装的人，桌上摊着文件与一杯凉透的咖啡，落地窗外是夜里的城市灯火，柯达胶片色调电影剧照质感：昏暗的会议室长桌尽头坐着一个穿西装的人，桌上摊着文件与一杯凉透的咖啡，落地窗外是夜里的城市灯火，柯达胶片色调 10 月 31 日，英国《金融时报》先捅...</description>
       <category>人工智能</category>
       <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
@@ -280,13 +280,13 @@
 <p>车还没开。买票的人站在月台上，一手攥着票，一手在手机上刷纳斯达克。</p>
 <p>我不知道他们心里在想什么。但我猜，多半不是「最后一次机会」，而是「我要是再等等，会不会更便宜」。</p>
 ]]></content:encoded>
-      <enclosure url="https://shenliliaff.github.io/covers/2026-11-01-cover-2.png" type="image/png"/>
+      <enclosure url="https://ai.upcloudtech.cn/covers/2026-11-01-cover-2.png" type="image/png"/>
     </item>
     <item>
       <title>能干的活越来越多，能盯的窗口还是五个</title>
-      <link>https://shenliliaff.github.io/blog/2026-11-01-only-five-windows.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-11-01-only-five-windows.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">能干的活越来越多，能盯的窗口还是五个</source>
+      <link>https://ai.upcloudtech.cn/blog/2026-11-01-only-five-windows.html</link>
+      <guid>https://ai.upcloudtech.cn/blog/2026-11-01-only-five-windows.html</guid>
+      <source url="https://ai.upcloudtech.cn/rss.xml">能干的活越来越多，能盯的窗口还是五个</source>
       <description>能干的活越来越多，能盯的窗口还是五个 2026-11-01 · 人工智能 写实 3D 国漫：深夜办公室里一个成年人独坐，面前五块屏幕泛着冷光，桌上一盏绿色台灯把光打在纸杯上，体积雾与丁达尔光写实 3D 国漫：深夜办公室里一个成年人独坐，面前五块屏幕泛着冷光，桌上一盏绿色台灯把光打在纸杯上，体积雾与丁达尔光 10 月 31 日晚上八点半，DeepSeek...</description>
       <category>人工智能</category>
       <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
@@ -338,13 +338,13 @@
 <p>昨天晚上我在便利店排队，前面那人一边付钱一边对着手机说「等一下，我回个消息」，后面排了四个人。收银员抬头看了他一眼，又把头低回去扫码。五秒钟之后，那人还在打字。</p>
 <p>我们大概都需要一个 Router。问题是，轮到它决定哪条消息该打断你的时候，你放心把那个权限交出去吗。</p>
 ]]></content:encoded>
-      <enclosure url="https://shenliliaff.github.io/covers/2026-11-01-cover.png" type="image/png"/>
+      <enclosure url="https://ai.upcloudtech.cn/covers/2026-11-01-cover.png" type="image/png"/>
     </item>
     <item>
       <title>给开源盖了个馆，进门二十块</title>
-      <link>https://shenliliaff.github.io/blog/2026-11-01-open-source-with-a-ticket-window.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-11-01-open-source-with-a-ticket-window.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">给开源盖了个馆，进门二十块</source>
+      <link>https://ai.upcloudtech.cn/blog/2026-11-01-open-source-with-a-ticket-window.html</link>
+      <guid>https://ai.upcloudtech.cn/blog/2026-11-01-open-source-with-a-ticket-window.html</guid>
+      <source url="https://ai.upcloudtech.cn/rss.xml">给开源盖了个馆，进门二十块</source>
       <description>给开源盖了个馆，进门二十块 2026-11-01 · 人工智能 纸质拼贴：一座三层展馆立在运河边，楼下一扇小小的售票窗口伸出纸条，窗口前排着几个纸片小人，一层摆着纸做的芯片与模型方块，整体为墨绿到浅绿的分层纸料质感纸质拼贴：一座三层展馆立在运河边，楼下一扇小小的售票窗口伸出纸条，窗口前排着几个纸片小人，一层摆着纸做的芯片与模型方块，整体为墨绿到浅绿的分...</description>
       <category>人工智能</category>
       <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
@@ -386,13 +386,13 @@
 <p>真正的开源还在外面跑。在某个凌晨三点的 issue 里，在某个学生第一次提的 PR 里，在一台没人管的旧服务器上。那些东西不要票，也进不了馆。</p>
 <p>我想，哪天这个馆开始办"退役模型展"，那才算真办成了。</p>
 ]]></content:encoded>
-      <enclosure url="https://shenliliaff.github.io/covers/2026-11-01-cover-3.png" type="image/png"/>
+      <enclosure url="https://ai.upcloudtech.cn/covers/2026-11-01-cover-3.png" type="image/png"/>
     </item>
     <item>
       <title>Siri 变聪明了，聪明的那部分是千问</title>
-      <link>https://shenliliaff.github.io/blog/2026-10-31-apple-intelligence-lands-in-china.html</link>
-      <guid>https://shenliliaff.github.io/blog/2026-10-31-apple-intelligence-lands-in-china.html</guid>
-      <source url="https://shenliliaff.github.io/rss.xml">Siri 变聪明了，聪明的那部分是千问</source>
+      <link>https://ai.upcloudtech.cn/blog/2026-10-31-apple-intelligence-lands-in-china.html</link>
+      <guid>https://ai.upcloudtech.cn/blog/2026-10-31-apple-intelligence-lands-in-china.html</guid>
+      <source url="https://ai.upcloudtech.cn/rss.xml">Siri 变聪明了，聪明的那部分是千问</source>
       <description>Siri 变聪明了，聪明的那部分是千问 2026-10-31 · 人工智能 黏土微缩 3D diorama：一台黏土做的手机立在圆形底座上像一栋小楼，屏幕里开了个拱形小窗口，一个黏土小人站在窗口前递上一张纸，窗内透出舍弗勒绿的暖光，可见指纹与黏土肌理黏土微缩 3D diorama：一台黏土做的手机立在圆形底座上像一栋小楼，屏幕里开了个拱形小窗口，一个黏...</description>
       <category>人工智能</category>
       <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
@@ -427,7 +427,7 @@
 <p>12 月之后，这句话大概会变成一个像样的回答。回答里有多少是苹果的，有多少是千问的，他不会知道，也不必知道。他只想弄清楚那瓶酱油能不能买。</p>
 <p>所谓智能落地，大概就是这个样子：没人关心它姓什么。</p>
 ]]></content:encoded>
-      <enclosure url="https://shenliliaff.github.io/covers/2026-10-31-cover-3.png" type="image/png"/>
+      <enclosure url="https://ai.upcloudtech.cn/covers/2026-10-31-cover-3.png" type="image/png"/>
     </item>
   </channel>
 </rss>
