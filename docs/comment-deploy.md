@@ -1,11 +1,15 @@
 # 评论系统部署文档（Waline 双项目架构 · 最终实录）
 
-本站的评论系统由**两个 Vercel 项目 + 一个 Supabase 数据库 + 自有域名**组成。
+本站的评论系统由**两个 Vercel 项目 + 一个 Supabase 数据库**组成。
 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。
 
-> **域名现状（2026-11-03 更新）**：博客已切回 GitHub 默认域名 `https://shenliliaff.github.io/`，
-> 不再使用 `vttjit.tech` 作为站点域名。但 **`waline.vttjit.tech` 与 `auth.vttjit.tech` 两个子域名保留**，
-> 专供评论后端使用（域名需继续续费，否则评论区失效）。`SITE_URL` 应设为 `https://shenliliaff.github.io`。
+> **域名现状（2026-11-03 更新 · 重要）**
+> - 博客：`https://shenliliaff.github.io/`（GitHub 默认域名）
+> - 评论后端：`https://waline-blog-shenliliaff.vercel.app`（Vercel 默认域名）
+> - **`vttjit.tech` 已彻底失效**，域名与 `waline.` / `auth.` 子域名均不再使用，下文涉及 vttjit 的内容仅作历史记录参考。
+> - 影响：`vercel.app` 在中国大陆网络经常无法访问，评论在国内可能加载失败；若要国内稳定，需另购域名绑定（步骤见第四节）。
+> - 自建 auth 中转项目仍在，但域名失效后需改用其 Vercel 默认域名，或直接移除 `OAUTH_URL` 回退公共中转（登录页会显示 5 个社交按钮）。
+
 
 ## 一、架构总览
 
@@ -93,7 +97,7 @@ CREATE TABLE IF NOT EXISTS wl_users (
 | `PG_PASSWORD` | Supabase 数据库密码 |
 | `SITE_NAME` | `fengsKB` |
 | `SITE_URL` | `https://shenliliaff.github.io` |
-| `OAUTH_URL` | `https://auth.vttjit.tech`（指向自建 auth 中转，见第五节）|
+| `OAUTH_URL` | 暂**移除**（回退公共中转 `oauth.lithub.cc`，登录页会显示 5 个社交按钮）；若自建 auth 项目有可用的 vercel.app 域名，也可填它 |
 
 > 改任何环境变量后必须 **Redeploy** 才生效。
 
@@ -164,21 +168,11 @@ CREATE TABLE IF NOT EXISTS wl_users (
 
 ---
 
-## 六、DNS（阿里云云解析，vttjit.tech）
+## 六、DNS（已停用）
 
-> 博客已切回 `shenliliaff.github.io`，`@` 与 `www` 两条解析**不再需要**（留着也无害，只是没人用）。
-> 评论依赖下面两条子域名记录，**不要删**。
-
-| 主机记录 | 记录值 | 用途 |
-|---|---|---|
-| `waline` | `cname.vercel-dns.com` | 评论后端 |
-| `auth` | `cname.vercel-dns.com` | 登录中转 |
-| ~~`@`~~ | ~~`shenliliaff.github.io`~~ | 已停用（博客回 GitHub 默认域名）|
-| ~~`www`~~ | ~~`shenliliaff.github.io`~~ | 已停用 |
-
-> - Vercel 新版会「建议」换成专属 CNAME 值，但那个值可能尚未上线（实测 Non-existent domain），
->   旧值 `cname.vercel-dns.com` 官方承诺继续生效，保持旧值即可
-> - 每加一个子域名都要在对应 Vercel 项目的 Domains 里添加，否则 506/404
+> `vttjit.tech` 域名已彻底失效，本节四条解析记录全部作废，无需再维护。
+> 若将来重新购买域名绑定评论后端：在域名商加一条 CNAME，主机记录 `waline`、记录值 `cname.vercel-dns.com`，
+> 再到 Vercel 项目的 Domains 里添加该域名，最后把前端 `serverURL` 换成新域名即可。
 
 ---
 
