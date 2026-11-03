@@ -5,7 +5,7 @@ import sidebar from "./sidebar.js";
 export default hopeTheme(
   {
     // 主题选项：https://theme-hope.vuejs.press/zh/config/theme/layout.html
-    hostname: "https://shenliliaff.github.io",
+    hostname: "https://ai.upcloudtech.cn",
     author: {
       name: "shenliliaff",
       url: "https://github.com/shenliliaff",
@@ -118,7 +118,7 @@ export default hopeTheme(
       // serverURL 待部署后替换（部署步骤见 docs/comment-deploy.md）
       comment: {
         provider: "Waline",
-        serverURL: "https://waline-blog-shenliliaff.vercel.app",
+        serverURL: "https://waline.upcloudtech.cn",
         // 登录模式：enable = 允许登录（也允许匿名）
         login: "enable",
         // 访客需要填写的信息：昵称必填，邮箱、网址选填

@@ -3,13 +3,12 @@
 本站的评论系统由**两个 Vercel 项目 + 一个 Supabase 数据库**组成。
 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。
 
-> **域名现状（2026-11-03 更新 · 重要）**
+> **域名现状（2026-11-03 二次更新）**
 > - 博客：`https://shenliliaff.github.io/`（GitHub 默认域名）
-> - 评论后端：`https://waline-blog-shenliliaff.vercel.app`（Vercel 默认域名）
-> - **`vttjit.tech` 已彻底失效**，域名与 `waline.` / `auth.` 子域名均不再使用，下文涉及 vttjit 的内容仅作历史记录参考。
-> - 影响：`vercel.app` 在中国大陆网络经常无法访问，评论在国内可能加载失败；若要国内稳定，需另购域名绑定（步骤见第四节）。
-> - 自建 auth 中转项目仍在，但域名失效后需改用其 Vercel 默认域名，或直接移除 `OAUTH_URL` 回退公共中转（登录页会显示 5 个社交按钮）。
-
+> - 评论后端：`https://waline.upcloudtech.cn`（新域名 upcloudtech.cn）
+> - 登录中转：`https://auth.upcloudtech.cn`（自建 auth 项目）
+> - 旧域名 `vttjit.tech` 已彻底失效，下文涉及 vttjit 的内容仅作历史参考。
+> - 域名需持续续费，过期会导致评论与 GitHub 登录同时失效。
 
 ## 一、架构总览
 
@@ -18,10 +17,10 @@
   │ 匿名评论 / GitHub 登录
   ▼
 [项目 1] Waline 后端 (waline-blog)
-  域名: waline.vttjit.tech
+  域名: waline.upcloudtech.cn
   ├─ 读写评论数据 ──> Supabase PostgreSQL (大阪)
   └─ 登录时跳转 ──> [项目 2] auth 中转
-                      域名: auth.vttjit.tech
+                      域名: auth.upcloudtech.cn
                       └─ GitHub OAuth ──> github.com
 ```
 
@@ -97,11 +96,11 @@ CREATE TABLE IF NOT EXISTS wl_users (
 | `PG_PASSWORD` | Supabase 数据库密码 |
 | `SITE_NAME` | `fengsKB` |
 | `SITE_URL` | `https://shenliliaff.github.io` |
-| `OAUTH_URL` | 暂**移除**（回退公共中转 `oauth.lithub.cc`，登录页会显示 5 个社交按钮）；若自建 auth 项目有可用的 vercel.app 域名，也可填它 |
+| `OAUTH_URL` | `https://auth.upcloudtech.cn`（指向自建 auth 中转，见第五节）|
 
 > 改任何环境变量后必须 **Redeploy** 才生效。
 
-**域名**：`waline.vttjit.tech`（阿里云 CNAME → `cname.vercel-dns.com`）
+**域名**：`waline.upcloudtech.cn`（阿里云 CNAME → `cname.vercel-dns.com`）
 
 > Vercel 面板的黄色「DNS Change Recommended」可忽略——它推荐的新专属 CNAME 值可能尚未上线
 > （实测 Non-existent domain），旧值 `cname.vercel-dns.com` 官方承诺继续生效。
@@ -110,9 +109,9 @@ CREATE TABLE IF NOT EXISTS wl_users (
 
 ## 四、管理员注册（重要）
 
-1. 部署完成后访问 `https://waline.vttjit.tech/ui/register` 注册
+1. 部署完成后访问 `https://waline.upcloudtech.cn/ui/register` 注册
 2. **第一个用「邮箱 + 密码」注册的账号自动成为管理员**
-3. 管理员登录 `https://waline.vttjit.tech/ui/` 后可见「评论管理」「用户管理」等菜单
+3. 管理员登录 `https://waline.upcloudtech.cn/ui/` 后可见「评论管理」「用户管理」等菜单
 
 **管理员判定规则与常见坑**：
 
@@ -148,31 +147,36 @@ CREATE TABLE IF NOT EXISTS wl_users (
 **GitHub OAuth App 配置**（GitHub → Settings → Developer settings → OAuth Apps）：
 
 - Homepage URL：`https://shenliliaff.github.io`
-- Authorization callback URL：`https://auth.vttjit.tech/github`
+- Authorization callback URL：`https://auth.upcloudtech.cn/github`
 
-**域名**：`auth.vttjit.tech`（阿里云 CNAME → `cname.vercel-dns.com`；Vercel auth 项目 → Domains 添加）
+**域名**：`auth.upcloudtech.cn`（阿里云 CNAME → `cname.vercel-dns.com`；Vercel auth 项目 → Domains 添加）
 
-**关键：域名必须绑在 auth 项目上**。如果 `auth.vttjit.tech` 打开出现的是 Waline 管理后台
+**关键：域名必须绑在 auth 项目上**。如果 `auth.upcloudtech.cn` 打开出现的是 Waline 管理后台
 （fengsKB 标志 + 5 个图标），说明域名绑错到 waline-blog 了——去 waline-blog 的 Domains 里
 移除，再到 auth 项目的 Domains 里添加。
 
-**让 Waline 使用自建中转**：waline-blog 加环境变量 `OAUTH_URL = https://auth.vttjit.tech` → Redeploy。
+**让 Waline 使用自建中转**：waline-blog 加环境变量 `OAUTH_URL = https://auth.upcloudtech.cn` → Redeploy。
 
 **验证**：
 
 | 地址 | 应该看到 |
 |---|---|
-| `https://auth.vttjit.tech/` | JSON，`services` 数组**只有 github** |
-| `https://waline.vttjit.tech/ui/login`（Ctrl+F5） | 社交图标只剩 GitHub |
+| `https://auth.upcloudtech.cn/` | JSON，`services` 数组**只有 github** |
+| `https://waline.upcloudtech.cn/ui/login`（Ctrl+F5） | 社交图标只剩 GitHub |
 | 评论区点 GitHub 登录 | 跳 GitHub 授权 → 回到评论框带头像 |
 
 ---
 
-## 六、DNS（已停用）
+## 六、DNS（upcloudtech.cn）
 
-> `vttjit.tech` 域名已彻底失效，本节四条解析记录全部作废，无需再维护。
-> 若将来重新购买域名绑定评论后端：在域名商加一条 CNAME，主机记录 `waline`、记录值 `cname.vercel-dns.com`，
-> 再到 Vercel 项目的 Domains 里添加该域名，最后把前端 `serverURL` 换成新域名即可。
+在阿里云云解析（dns7/dns8.hichina.com）添加两条 CNAME：
+
+| 主机记录 | 记录值 | 用途 |
+|---|---|---|
+| `waline` | `cname.vercel-dns.com` | 评论后端 |
+| `auth` | `cname.vercel-dns.com` | 登录中转 |
+
+> 添加后到对应 Vercel 项目的 Domains 里添加同名域名；Vercel 面板的黄色「DNS Change Recommended」可忽略。
 
 ---
 
@@ -201,5 +205,5 @@ CREATE TABLE IF NOT EXISTS wl_users (
 | auth 域名 506 | auth 函数崩溃（如导入错仓库、缺环境变量）| 确认部署的是 walinejs/auth（打开应是 JSON），补齐 env 后 Redeploy |
 | 登录页出现 5 个社交图标 | `OAUTH_URL` 未配或指向公共中转 | 配 `OAUTH_URL` 指向自建 auth 并 Redeploy |
 | 域名打开的是错误的服务 | 域名绑错 Vercel 项目 | 在两个项目的 Domains 里挪正 |
-| 微博登录报 `invalid authorization code` | 回调页不匹配 / code 被复用 | 回调页严格全等 `https://auth.vttjit.tech/weibo`；重新发起授权，别刷新旧报错页 |
+| 微博登录报 `invalid authorization code` | 回调页不匹配 / code 被复用 | 回调页严格全等 `https://auth.upcloudtech.cn/weibo`；重新发起授权，别刷新旧报错页 |
 | 管理员进不去管理面板 | 浏览器残留普通用户 token | 退出登录/清 Local Storage 后用邮箱密码重登 |
