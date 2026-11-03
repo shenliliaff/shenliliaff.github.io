@@ -6,8 +6,8 @@
     <link>https://shenliliaff.github.io/</link>
     <description>fengsKB 个人知识库</description>
     <language>zh-CN</language>
-    <pubDate>Mon, 02 Nov 2026 23:09:43 GMT</pubDate>
-    <lastBuildDate>Mon, 02 Nov 2026 23:09:43 GMT</lastBuildDate>
+    <pubDate>Tue, 03 Nov 2026 04:14:11 GMT</pubDate>
+    <lastBuildDate>Tue, 03 Nov 2026 04:14:11 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>人工智能</category>
@@ -16,11 +16,16 @@
       <link>https://shenliliaff.github.io/comment-deploy.html</link>
       <guid>https://shenliliaff.github.io/comment-deploy.html</guid>
       <source url="https://shenliliaff.github.io/rss.xml">评论系统部署文档（Waline 双项目架构 · 最终实录）</source>
-      <description>评论系统部署文档（Waline 双项目架构 · 最终实录） 本站的评论系统由两个 Vercel 项目 + 一个 Supabase 数据库 + 自有域名组成。 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。 一、架构总览 为什么要两个项目：Waline 默认用公共中转 oauth.lithub.cc，它会返回固定的 5 个社交按钮（Gi...</description>
+      <description>评论系统部署文档（Waline 双项目架构 · 最终实录） 本站的评论系统由两个 Vercel 项目 + 一个 Supabase 数据库 + 自有域名组成。 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。 域名现状（2026-11-03 更新）：博客已切回 GitHub 默认域名 https://shenliliaff.github....</description>
       <pubDate>Fri, 16 Oct 2026 02:29:08 GMT</pubDate>
       <content:encoded><![CDATA[
 <p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库 + 自有域名</strong>组成。
 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。</p>
+<blockquote>
+<p><strong>域名现状（2026-11-03 更新）</strong>：博客已切回 GitHub 默认域名 <code>https://shenliliaff.github.io/</code>，
+不再使用 <code>vttjit.tech</code> 作为站点域名。但 <strong><code>waline.vttjit.tech</code> 与 <code>auth.vttjit.tech</code> 两个子域名保留</strong>，
+专供评论后端使用（域名需继续续费，否则评论区失效）。<code>SITE_URL</code> 应设为 <code>https://shenliliaff.github.io</code>。</p>
+</blockquote>
 <h2>一、架构总览</h2>
 <div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>访客浏览器</span></span>
 <span class="line"><span>  │ 匿名评论 / GitHub 登录</span></span>

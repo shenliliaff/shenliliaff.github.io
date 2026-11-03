@@ -4,7 +4,7 @@
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
   <icon>https://shenliliaff.github.io/fengskb-icon.svg</icon>
-  <updated>2026-11-02T23:09:43.309Z</updated>
+  <updated>2026-11-03T04:14:11.602Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://shenliliaff.github.io/atom.xml"/>
   <link rel="alternate" href="https://shenliliaff.github.io/"/>
@@ -13,24 +13,23 @@
     <title type="text">评论系统部署文档（Waline 双项目架构 · 最终实录）</title>
     <id>https://shenliliaff.github.io/comment-deploy.html</id>
     <link href="https://shenliliaff.github.io/comment-deploy.html"/>
-    <updated>2026-10-21T06:52:21.000Z</updated>
+    <updated>2026-11-03T04:13:12.000Z</updated>
     <summary type="html"><![CDATA[
 <p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库 + 自有域名</strong>组成。
 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。</p>
-<h2>一、架构总览</h2>
-<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>访客浏览器</span></span>
-<span class="line"><span>  │ 匿名评论 / GitHub 登录</span></span>
-<span class="line"><span>  ▼</span></span>
-<span class="line"><span>[项目 1] Waline 后端 (waline-blog)</span></span>
-<span class="line"><span>  域名: waline.vttjit.tech</span></span>
-<span class="line"><span>  ├─ 读写评论数据 ──&gt; Supabase PostgreSQL (大阪)</span></span>
-<span class="line"><span>  └─ 登录时跳转 ──&gt; [项目 2] auth 中转</span></span>
-<span class="line"><span>                      域名: auth.vttjit.tech</span></span>
-<span class="line"><span>                      └─ GitHub OAuth ──&gt; github.com</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>]]></summary>
+<blockquote>
+<p><strong>域名现状（2026-11-03 更新）</strong>：博客已切回 GitHub 默认域名 <code>https://shenliliaff.github.io/</code>，
+不再使用 <code>vttjit.tech</code> 作为站点域名。但 <strong><code>waline.vttjit.tech</code> 与 <code>auth.vttjit.tech</code> 两个子域名保留</strong>，
+专供评论后端使用（域名需继续续费，否则评论区失效）。<code>SITE_URL</code> 应设为 <code>https://shenliliaff.github.io</code>。</p>
+</blockquote>]]></summary>
     <content type="html"><![CDATA[
 <p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库 + 自有域名</strong>组成。
 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。</p>
+<blockquote>
+<p><strong>域名现状（2026-11-03 更新）</strong>：博客已切回 GitHub 默认域名 <code>https://shenliliaff.github.io/</code>，
+不再使用 <code>vttjit.tech</code> 作为站点域名。但 <strong><code>waline.vttjit.tech</code> 与 <code>auth.vttjit.tech</code> 两个子域名保留</strong>，
+专供评论后端使用（域名需继续续费，否则评论区失效）。<code>SITE_URL</code> 应设为 <code>https://shenliliaff.github.io</code>。</p>
+</blockquote>
 <h2>一、架构总览</h2>
 <div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>访客浏览器</span></span>
 <span class="line"><span>  │ 匿名评论 / GitHub 登录</span></span>
