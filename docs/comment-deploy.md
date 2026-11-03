@@ -3,6 +3,10 @@
 本站的评论系统由**两个 Vercel 项目 + 一个 Supabase 数据库 + 自有域名**组成。
 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。
 
+> **域名现状（2026-11-03 更新）**：博客已切回 GitHub 默认域名 `https://shenliliaff.github.io/`，
+> 不再使用 `vttjit.tech` 作为站点域名。但 **`waline.vttjit.tech` 与 `auth.vttjit.tech` 两个子域名保留**，
+> 专供评论后端使用（域名需继续续费，否则评论区失效）。`SITE_URL` 应设为 `https://shenliliaff.github.io`。
+
 ## 一、架构总览
 
 ```
@@ -88,7 +92,7 @@ CREATE TABLE IF NOT EXISTS wl_users (
 | `PG_USER` | `postgres.<项目标识符>` |
 | `PG_PASSWORD` | Supabase 数据库密码 |
 | `SITE_NAME` | `fengsKB` |
-| `SITE_URL` | `https://vttjit.tech` |
+| `SITE_URL` | `https://shenliliaff.github.io` |
 | `OAUTH_URL` | `https://auth.vttjit.tech`（指向自建 auth 中转，见第五节）|
 
 > 改任何环境变量后必须 **Redeploy** 才生效。
@@ -139,7 +143,7 @@ CREATE TABLE IF NOT EXISTS wl_users (
 
 **GitHub OAuth App 配置**（GitHub → Settings → Developer settings → OAuth Apps）：
 
-- Homepage URL：`https://vttjit.tech`
+- Homepage URL：`https://shenliliaff.github.io`
 - Authorization callback URL：`https://auth.vttjit.tech/github`
 
 **域名**：`auth.vttjit.tech`（阿里云 CNAME → `cname.vercel-dns.com`；Vercel auth 项目 → Domains 添加）
@@ -162,12 +166,15 @@ CREATE TABLE IF NOT EXISTS wl_users (
 
 ## 六、DNS（阿里云云解析，vttjit.tech）
 
+> 博客已切回 `shenliliaff.github.io`，`@` 与 `www` 两条解析**不再需要**（留着也无害，只是没人用）。
+> 评论依赖下面两条子域名记录，**不要删**。
+
 | 主机记录 | 记录值 | 用途 |
 |---|---|---|
-| `@` | `shenliliaff.github.io` | 博客主域 |
-| `www` | `shenliliaff.github.io` | 博客 www |
 | `waline` | `cname.vercel-dns.com` | 评论后端 |
 | `auth` | `cname.vercel-dns.com` | 登录中转 |
+| ~~`@`~~ | ~~`shenliliaff.github.io`~~ | 已停用（博客回 GitHub 默认域名）|
+| ~~`www`~~ | ~~`shenliliaff.github.io`~~ | 已停用 |
 
 > - Vercel 新版会「建议」换成专属 CNAME 值，但那个值可能尚未上线（实测 Non-existent domain），
 >   旧值 `cname.vercel-dns.com` 官方承诺继续生效，保持旧值即可
