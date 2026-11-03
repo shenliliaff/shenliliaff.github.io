@@ -6,8 +6,8 @@
     <link>https://shenliliaff.github.io/</link>
     <description>fengsKB 个人知识库</description>
     <language>zh-CN</language>
-    <pubDate>Tue, 03 Nov 2026 04:14:11 GMT</pubDate>
-    <lastBuildDate>Tue, 03 Nov 2026 04:14:11 GMT</lastBuildDate>
+    <pubDate>Tue, 03 Nov 2026 04:16:30 GMT</pubDate>
+    <lastBuildDate>Tue, 03 Nov 2026 04:16:30 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>人工智能</category>
@@ -16,15 +16,20 @@
       <link>https://shenliliaff.github.io/comment-deploy.html</link>
       <guid>https://shenliliaff.github.io/comment-deploy.html</guid>
       <source url="https://shenliliaff.github.io/rss.xml">评论系统部署文档（Waline 双项目架构 · 最终实录）</source>
-      <description>评论系统部署文档（Waline 双项目架构 · 最终实录） 本站的评论系统由两个 Vercel 项目 + 一个 Supabase 数据库 + 自有域名组成。 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。 域名现状（2026-11-03 更新）：博客已切回 GitHub 默认域名 https://shenliliaff.github....</description>
+      <description>评论系统部署文档（Waline 双项目架构 · 最终实录） 本站的评论系统由两个 Vercel 项目 + 一个 Supabase 数据库组成。 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。 域名现状（2026-11-03 更新 · 重要） 博客：https://shenliliaff.github.io/（GitHub 默认域名） ...</description>
       <pubDate>Fri, 16 Oct 2026 02:29:08 GMT</pubDate>
       <content:encoded><![CDATA[
-<p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库 + 自有域名</strong>组成。
+<p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库</strong>组成。
 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。</p>
 <blockquote>
-<p><strong>域名现状（2026-11-03 更新）</strong>：博客已切回 GitHub 默认域名 <code>https://shenliliaff.github.io/</code>，
-不再使用 <code>vttjit.tech</code> 作为站点域名。但 <strong><code>waline.vttjit.tech</code> 与 <code>auth.vttjit.tech</code> 两个子域名保留</strong>，
-专供评论后端使用（域名需继续续费，否则评论区失效）。<code>SITE_URL</code> 应设为 <code>https://shenliliaff.github.io</code>。</p>
+<p><strong>域名现状（2026-11-03 更新 · 重要）</strong></p>
+<ul>
+<li>博客：<code>https://shenliliaff.github.io/</code>（GitHub 默认域名）</li>
+<li>评论后端：<code>https://waline-blog-shenliliaff.vercel.app</code>（Vercel 默认域名）</li>
+<li><strong><code>vttjit.tech</code> 已彻底失效</strong>，域名与 <code>waline.</code> / <code>auth.</code> 子域名均不再使用，下文涉及 vttjit 的内容仅作历史记录参考。</li>
+<li>影响：<code>vercel.app</code> 在中国大陆网络经常无法访问，评论在国内可能加载失败；若要国内稳定，需另购域名绑定（步骤见第四节）。</li>
+<li>自建 auth 中转项目仍在，但域名失效后需改用其 Vercel 默认域名，或直接移除 <code>OAUTH_URL</code> 回退公共中转（登录页会显示 5 个社交按钮）。</li>
+</ul>
 </blockquote>
 <h2>一、架构总览</h2>
 <div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>访客浏览器</span></span>
