@@ -4,7 +4,7 @@
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
   <icon>https://ai.upcloudtech.cn/fengskb-icon.svg</icon>
-  <updated>2026-11-03T07:29:35.672Z</updated>
+  <updated>2026-11-03T07:36:50.320Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://ai.upcloudtech.cn/atom.xml"/>
   <link rel="alternate" href="https://ai.upcloudtech.cn/"/>
@@ -13,17 +13,16 @@
     <title type="text">评论系统部署文档（Waline 双项目架构 · 最终实录）</title>
     <id>https://ai.upcloudtech.cn/comment-deploy.html</id>
     <link href="https://ai.upcloudtech.cn/comment-deploy.html"/>
-    <updated>2026-11-03T07:28:40.000Z</updated>
+    <updated>2026-11-03T07:35:51.000Z</updated>
     <summary type="html"><![CDATA[
 <p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库</strong>组成。
 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。</p>
 <blockquote>
 <p><strong>域名现状（2026-11-03 二次更新）</strong></p>
 <ul>
-<li>博客：<code>https://shenliliaff.github.io/</code>（GitHub 默认域名）</li>
+<li>博客：<code>https://ai.upcloudtech.cn/</code>（自定义域名，GitHub Pages 托管）</li>
 <li>评论后端：<code>https://waline.upcloudtech.cn</code>（新域名 upcloudtech.cn）</li>
 <li>登录中转：<code>https://auth.upcloudtech.cn</code>（自建 auth 项目）</li>
-<li>旧域名 <code>vttjit.tech</code> 已彻底失效，下文涉及 vttjit 的内容仅作历史参考。</li>
 <li>域名需持续续费，过期会导致评论与 GitHub 登录同时失效。</li>
 </ul>
 </blockquote>]]></summary>
@@ -33,10 +32,9 @@
 <blockquote>
 <p><strong>域名现状（2026-11-03 二次更新）</strong></p>
 <ul>
-<li>博客：<code>https://shenliliaff.github.io/</code>（GitHub 默认域名）</li>
+<li>博客：<code>https://ai.upcloudtech.cn/</code>（自定义域名，GitHub Pages 托管）</li>
 <li>评论后端：<code>https://waline.upcloudtech.cn</code>（新域名 upcloudtech.cn）</li>
 <li>登录中转：<code>https://auth.upcloudtech.cn</code>（自建 auth 项目）</li>
-<li>旧域名 <code>vttjit.tech</code> 已彻底失效，下文涉及 vttjit 的内容仅作历史参考。</li>
 <li>域名需持续续费，过期会导致评论与 GitHub 登录同时失效。</li>
 </ul>
 </blockquote>

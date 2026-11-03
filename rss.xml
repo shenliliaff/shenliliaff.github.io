@@ -6,8 +6,8 @@
     <link>https://ai.upcloudtech.cn/</link>
     <description>fengsKB 个人知识库</description>
     <language>zh-CN</language>
-    <pubDate>Tue, 03 Nov 2026 07:29:35 GMT</pubDate>
-    <lastBuildDate>Tue, 03 Nov 2026 07:29:35 GMT</lastBuildDate>
+    <pubDate>Tue, 03 Nov 2026 07:36:50 GMT</pubDate>
+    <lastBuildDate>Tue, 03 Nov 2026 07:36:50 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>人工智能</category>
@@ -16,7 +16,7 @@
       <link>https://ai.upcloudtech.cn/comment-deploy.html</link>
       <guid>https://ai.upcloudtech.cn/comment-deploy.html</guid>
       <source url="https://ai.upcloudtech.cn/rss.xml">评论系统部署文档（Waline 双项目架构 · 最终实录）</source>
-      <description>评论系统部署文档（Waline 双项目架构 · 最终实录） 本站的评论系统由两个 Vercel 项目 + 一个 Supabase 数据库组成。 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。 域名现状（2026-11-03 二次更新） 博客：https://shenliliaff.github.io/（GitHub 默认域名） 评论后...</description>
+      <description>评论系统部署文档（Waline 双项目架构 · 最终实录） 本站的评论系统由两个 Vercel 项目 + 一个 Supabase 数据库组成。 本文档是完整的部署实录，包含全部踩坑记录，供运维参考与故障排查。 域名现状（2026-11-03 二次更新） 博客：https://ai.upcloudtech.cn/（自定义域名，GitHub Pages 托...</description>
       <pubDate>Fri, 16 Oct 2026 02:29:08 GMT</pubDate>
       <content:encoded><![CDATA[
 <p>本站的评论系统由<strong>两个 Vercel 项目 + 一个 Supabase 数据库</strong>组成。
@@ -24,10 +24,9 @@
 <blockquote>
 <p><strong>域名现状（2026-11-03 二次更新）</strong></p>
 <ul>
-<li>博客：<code>https://shenliliaff.github.io/</code>（GitHub 默认域名）</li>
+<li>博客：<code>https://ai.upcloudtech.cn/</code>（自定义域名，GitHub Pages 托管）</li>
 <li>评论后端：<code>https://waline.upcloudtech.cn</code>（新域名 upcloudtech.cn）</li>
 <li>登录中转：<code>https://auth.upcloudtech.cn</code>（自建 auth 项目）</li>
-<li>旧域名 <code>vttjit.tech</code> 已彻底失效，下文涉及 vttjit 的内容仅作历史参考。</li>
 <li>域名需持续续费，过期会导致评论与 GitHub 登录同时失效。</li>
 </ul>
 </blockquote>
