@@ -60,10 +60,62 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-04";
+export const hotRankingUpdatedAt = "2026-11-05";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-autonomous-kernel-exploits-1104",
+    title: "OpenAI 用一款未发布的模型自己挖洞：121 万美元，在 Linux 内核里拿到 948 个提权漏洞",
+    summary:
+      "11 月 4 日，OpenAI 发布安全研究报告《A thousand fewer paths to root》，披露一套自主漏洞发现、验证、利用与补丁生成的流水线，全程由一款尚未对外发布的网络安全模型驱动。测试在 2026 年 10 月中旬进行，目标是 Linux 内核 master 分支：Scout 智能体先筛出 5034 个审计目标、约 280 万行代码（相当于内核代码量的 7%），Analyst 在 12 小时内产出 2308 个去重候选漏洞；随后在隔离的 KASAN 虚拟机里自主生成 PoC 并迭代，30 小时内成功复现 1724 个，占 74.7%，只有 3.1% 属于模型分析错误。可利用性评估阶段产出 291 个信息泄露 PoC 与 1169 个可本地提权的利用程序，经变体去重后确认为 948 个唯一提权漏洞。总 API 成本 121.34 万美元，折合每个提权漏洞约 1279 美元；失败的利用尝试单例 3922 美元，成功的只要 360 美元。对照组是今年 7 月下旬的 GPT-5.6 Sol，同一套目标下拿到 166 个唯一提权漏洞、花了 51.37 万美元——四个月后数目翻到 5 倍多，而这期间内核代码还做过三个月的加固。扫描后 10 天内，61 个漏洞已被上游修补、43 个有暂存补丁、约 300 个进入公开讨论。报告里最扎人的两句是：近期到中期，在没打全补丁的系统上握有一个低权限账户，对资源充足的攻击者而言「功能上等于 root」；未来几年，只要代码里有漏洞，前沿模型大概都能找出来。技术侧另有一个细节：代理至少发现了 10 种对第三方内核利用专家也是新的手法，包括 2 种新的持久化对象、2 种新的页面 groom 技术、5 种数据型提权与 1 种任意类型混淆。",
+    keyPoints: [
+      "11-04 官方发布：用一款未公开的网络能力模型驱动「发现—验证—利用—补丁」全自动流水线，10 月中旬对 Linux 内核主分支做了一次端到端扫描",
+      "12 小时出 2308 个去重候选，30 小时复现 1724 个（74.7%），去重后 948 个唯一本地提权漏洞，模型误判只占 3.1%",
+      "总花费 121.34 万美元 API 额度，平均每个提权漏洞 1279 美元；对照 7 月 GPT-5.6 Sol 的 166 个 / 51.37 万美元，四个月翻 5 倍",
+      "报告自曝一次「用错了 0-day」：早期 200 个成功提权里有 20 个其实走的是另一个漏洞——结论是除了验证结果，还得验证路径",
+      "扫描后 10 天内 61 个已上游修补、43 个有暂存补丁；官方结论：没打全补丁的系统上，低权限账户约等于 root",
+    ],
+    org: "OpenAI",
+    category: "安全对齐",
+    date: "2026-11-04",
+    heat: 88,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI《A thousand fewer paths to root》（2026-11-04）",
+    sourceUrl: "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+    refs: [
+      { name: "IT之家（11-05，948 个提权漏洞、121.34 万美元成本与五阶段流程）", url: "https://www.ithome.com/1/022/476.htm" },
+    ],
+    article: "/blog/2026-11-05-one-machine-a-thousand-doors.html",
+  },
+  {
+    id: "openai-images-2-6-chatgpt-gif-1105",
+    title: "ChatGPT 能直接做 GIF 了：Images 2.6 上线，动图可逐帧改，每周出图已超 40 亿张",
+    summary:
+      "11 月 5 日（北京时间），OpenAI 给 ChatGPT 加上原生 GIF 生成：输入一句话或上传一张照片，就能直接得到可播放的动图，还能在对话里调播放速度、逐帧查看、单独修改某一帧，再分享出去。此前 ChatGPT 也能「做」GIF，但得靠写代码或拉第三方工具分步完成，做不到一次生成。这项能力随新一代图像模型 Images 2.6 一同推送，官方给出的另一项变化是出图更快。覆盖面是网页端、桌面端、移动端的全部 ChatGPT 与 Codex 用户。开发者侧同步上了两个 API 型号：GPT-Image-2.6 Flare 主打速度，GPT-Image-2.6 Sunburst 主打画质。OpenAI 同时更新了用量口径：ChatGPT 与 API 合计每周生成的图片已超过 40 亿张，而 9 月公布的数字是 30 亿张，增幅约 33%。按周折算，相当于每秒产出六千多张图。这次发布没有独立的官方公告页，信息来自 The Verge 的报道与 OpenAI 对媒体的确认。",
+    keyPoints: [
+      "11-05 起 ChatGPT 原生支持 GIF：一句话或一张照片直接生成动图，可调速度、逐帧看、改单帧、直接分享",
+      "随 Images 2.6 一起推送，出图速度也变快；覆盖网页、桌面、移动端的全部 ChatGPT 与 Codex 用户",
+      "API 分两个型号：GPT-Image-2.6 Flare 主打快，Sunburst 主打画质",
+      "官方口径：ChatGPT 与 API 每周生成图片超 40 亿张，9 月还是 30 亿，涨了约 33%，折合每秒六千多张",
+      "只发在媒体侧，OpenAI 未出独立公告页——想核实细节只能看 The Verge 与各家转述",
+    ],
+    org: "OpenAI",
+    category: "产品发布",
+    date: "2026-11-05",
+    heat: 78,
+    authority: "verified",
+    precision: "homepage",
+    sourceName: "OpenAI 官方发布（未发独立公告页，经 The Verge 报道）",
+    sourceUrl: "https://openai.com/index/",
+    refs: [
+      { name: "凤凰网科技（11-05，GIF 生成与逐帧编辑细节、40 亿张口径）", url: "https://news.qq.com/rain/a/20261105A030DK00" },
+      { name: "IT时代网（11-05，两个 API 型号与推送范围）", url: "https://news.qq.com/rain/a/20261105A0225800" },
+      { name: "深潮 TechFlow（11-05，转述 The Verge 原始报道）", url: "https://www.techflowpost.com/newsletter/143010" },
+    ],
+    article: "/blog/2026-11-05-chatgpt-can-make-gifs-now.html",
+  },
   {
     id: "tencent-hy4-general-release-1104",
     title: "腾讯混元 11 月 4 日发 Hy4 正式版：770B、第一次能看图，也第一次能自己操作电脑",
