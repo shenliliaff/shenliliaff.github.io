@@ -18,6 +18,11 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-11-04-the-rule-nobody-wrote-down.html",
   },
   {
+    title: "一个不太敢瞎说的模型",
+    date: "2026-11-04",
+    url: "/blog/2026-11-04-model-that-stopped-guessing.html",
+  },
+  {
     title: "下午四点五十八，很多人以为自己的手机坏了",
     date: "2026-11-04",
     url: "/blog/2026-11-04-everyone-thought-their-phone-broke.html",
