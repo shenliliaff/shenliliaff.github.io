@@ -13,6 +13,16 @@ export interface BlogPost {
 /** 全部文章，按日期降序（最新在最前） */
 export const blogPosts: BlogPost[] = [
   {
+    title: "能撬开任何门的那台机器，先被发了张门禁卡",
+    date: "2026-11-06",
+    url: "/blog/2026-11-06-the-machine-that-picks-locks.html",
+  },
+  {
+    title: "一秒七分钱",
+    date: "2026-11-06",
+    url: "/blog/2026-11-06-seven-cents-a-second.html",
+  },
+  {
     title: "机器人也要上户口，一年最多领到产量的三倍",
     date: "2026-11-05",
     url: "/blog/2026-11-05-robot-gets-an-id-card.html",
