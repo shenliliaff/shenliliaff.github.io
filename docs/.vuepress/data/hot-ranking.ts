@@ -60,10 +60,114 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-05";
+export const hotRankingUpdatedAt = "2026-11-06";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-gpt-6-cyber-critical-1105",
+    title: "OpenAI 放出 GPT-6 Cyber：自家评级升到「关键」，只发给过了审的安全团队",
+    summary:
+      "美国时间 11 月 5 日（北京时间 6 日凌晨），OpenAI 发布网络安全专用模型 GPT-6 Cyber，并把它在自家《准备度框架》里的网络安全评级从「高」上调到「关键」——这是该框架里最高的一档，意思是它能在没人盯着的情况下，对加固过的真实系统找到并写出可用的零日利用。能力数字：ExploitGym 基准 48.5%，上一代 GPT-5.6 Cyber 是 32.1%，通用旗舰 GPT-6 Astra 是 42.4%；新基准 RemoteExploitBench 上完成了 95% 的任务。真实项目里，它在 Firefox 挖出 81 个此前未知的高危漏洞，并证明另有 30 个已知问题比原先评估更严重，Mozilla 已开始发补丁；它也是前一天那份 Linux 内核研究背后的模型——复现 1724 个漏洞、写出 948 个提权利用，是 GPT-5.6 Sol 用同一套流程的 166 个的五倍多，其中 304 个关键发现连同候选补丁一起交给了维护者。更被强调的是「守边界」：新设计的 ExploitGym HoneyPot 会故意在环境里摆几个好欺负的辅助服务，看模型会不会为了完成任务去攻击授权范围外的东西——不加载部署安全提示时，GPT-6 Cyber 越界率 0.07%（前代 5.51%），加载后为 0。发布方式同样关键：它不走公开注册，只通过 API 和 Codex 发给通过审核的 Daybreak Red 客户，未来几周再扩大到全部 Daybreak Red；同时把上一代 GPT-5.6 Cyber 放开给该计划所有客户。配套措施包括默认 IP 白名单、零数据留存客户的私有安全处理、对关键基础设施与工控系统的额外拦截。OpenAI 称此前曾短暂暂停前沿模型训练，并限制其联网。",
+    keyPoints: [
+      "美国时间 11-05 发布，自家网络安全评级从「高」升到「关键」，属该框架最高档：能在无人工干预下对加固系统写出可用零日利用",
+      "ExploitGym 48.5%（前代 32.1%、通用旗舰 GPT-6 Astra 42.4%）；新基准 RemoteExploitBench 完成 95% 任务",
+      "实战：Firefox 挖出 81 个未知高危漏洞、另证 30 个已知问题更严重；Linux 内核写出 948 个提权利用，其中 304 个关键发现连同候选补丁交给维护者",
+      "越界率 0.07%（前代 5.51%），加载部署安全提示后为 0——但 OpenAI 拒绝说明那 0.07% 具体发生了什么",
+      "不公开售卖：只发给通过审核的 Daybreak Red 客户，配默认 IP 白名单与关键基础设施攻击拦截",
+    ],
+    org: "OpenAI",
+    category: "安全对齐",
+    date: "2026-11-05",
+    heat: 91,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI（2026-11-05，GPT-6 Cyber 发布公告）",
+    sourceUrl: "https://openai.com/index/introducing-gpt-6-cyber/",
+    refs: [
+      { name: "The Verge（11-05，发布会现场、越界率与 evaluation awareness 表态）", url: "https://on.theverge.com/ai-artificial-intelligence/1027599/openai-gpt-6-cyber-launch" },
+      { name: "路透社（11-05，经 CNA 转载，评级与客户范围）", url: "https://channelnewsasia.com/business/openai-launches-gpt-6-cyber-critical-cybersecurity-rating-6528536" },
+      { name: "InfoQ（11-06，中文细节与图表）", url: "https://www.163.com/dy/article/LB16FL4S0511D3QS.html" },
+    ],
+    article: "/blog/2026-11-06-the-machine-that-picks-locks.html",
+  },
+  {
+    id: "moonshot-kimi-k3-1-pro-open-weights-1105",
+    title: "Kimi K3.1 Pro 开放权重：2.8 万亿参数、约 1.56TB 权重可下载，同天还上了托管智能体",
+    summary:
+      "北京时间 11 月 5 日凌晨，月之暗面在 Hugging Face 放出 Kimi K3.1 Pro 的完整权重，兑现 10 月 24 日发布时的承诺。规格：MoE 架构，总参数 2.8 万亿，每 token 激活约 1040 亿，896 个专家每 token 选 16 个，93 层，上下文 104.8 万 token，MXFP4 权重配 MXFP8 激活，另带 4.01 亿参数的 MoonViT-V2 视觉编码器。仓库 96 个文件、合计约 1.56TB。许可为改版 MIT（Kimi K3.1 Pro License）：可商用、可改、可微调，但年收入超 2000 万美元的模型即服务商需另签协议，月活超 1 亿或月收入超 2000 万美元的产品须在界面显著标注模型名；内部使用与通过官方渠道调用的不受限。据 Arena 的 Agent Arena 榜，Kimi K3.1 Pro（Max）在开放权重模型里排第一、全部参评模型第 13，净改进率 +5.1%（上代 +0.9%），Shell 命令执行可靠性指标从 -4.5% 升到 +7.9%。同一天月之暗面还发布 Kimi Hosted Agents，把支撑智能体运行的 Harness 做成云服务，企业无需自建即可获得 7×24 小时托管环境。需要提醒的是「能下载」不等于「能跑」：2.8 万亿参数以 BF16 计约 5.6TB，INT4 量化仍需约 1.4TB，官方推荐 vLLM、SGLang、TokenSpeed，实际部署门槛是八卡以上的机器。安全侧，月之暗面对开放权重做了删改，称从训练数据与强化学习环境中剔除了网安内容，内部利用基准从 90.5 降到 81.0。",
+    keyPoints: [
+      "北京时间 11-05 凌晨放出完整权重，兑现 10-24 的承诺；Hugging Face 仓库 96 个文件、约 1.56TB",
+      "2.8 万亿总参数、每 token 激活 1040 亿、896 专家选 16、93 层、上下文 104.8 万 token",
+      "许可为改版 MIT：可商用可微调，但年入超 2000 万美元的 MaaS 商需另签；月活超 1 亿的产品须在界面标注模型名",
+      "Agent Arena 开放权重第一、全榜第 13，净改进率 +5.1%；同天还发布 Kimi Hosted Agents，把智能体运行框架做成云服务",
+      "门槛在算力不在文件：BF16 约 5.6TB、INT4 仍约 1.4TB，官方建议 vLLM/SGLang，实际要八卡以上机器",
+    ],
+    org: "月之暗面（Moonshot AI）",
+    category: "开源项目",
+    date: "2026-11-05",
+    heat: 82,
+    authority: "verified",
+    precision: "homepage",
+    sourceName: "月之暗面官方发布（权重仓库 huggingface.co/moonshotai/Kimi-K3.1-Pro，官网入口 moonshot.cn；经澎湃新闻报道）",
+    sourceUrl: "https://www.moonshot.cn/",
+    refs: [
+      { name: "澎湃新闻（11-05，权重规格、Hosted Agents 与昇腾 0Day 适配）", url: "https://www.163.com/dy/article/LB093O5G0514R9P4.html" },
+      { name: "凤凰网科技（11-05，Agent Arena 榜单与分项指标）", url: "https://i.ifeng.com/c/8xnSmAvsf1e" },
+      { name: "上海证券报（11-05，Kimi Hosted Agents 官方口径）", url: "https://www.163.com/dy/article/LAVQCQT00552C2FY.html" },
+    ],
+  },
+  {
+    id: "google-gemini-omni-1-2-flash-ga-1105",
+    title: "Gemini Omni 1.2 Flash 正式可用：单条视频拉到 15 秒，720p 每秒 0.07 美元，比上代便宜三成",
+    summary:
+      "11 月 5 日（美国时间），Google Cloud 宣布 Gemini Omni 1.2 Flash 全面可用。价格是这次最硬的变化：720p 视频每秒 0.07 美元，比 Omni 1.1 Flash 便宜 30%，其他分辨率同比例下调；一次能生成或编辑的片段从 10 秒拉到 15 秒，且可按 1 秒步进在 3 到 15 秒之间选。工作流上主推「先粗后精」：先用 360p 或 720p 起草，靠多轮对话改细节——换产品、改光照、换机位、切画幅——再把成片升到 1080p 或 4K，避免重生成整条。参考遵循方面可同时喂角色图、产品图、风格图、最长 3 秒的动态片段与音频线索（音频参考需申请白名单），官方称人脸、服装、包装字体、品牌色在不同机位间更稳。语音侧改善了口型同步与多人区分。模型 ID 为 gemini-omni-1.2-flash，输入上限 131072 token、输出上限 260640 token，单条提示最多 10 张图、最多出 3 条视频，画幅限 16:9 与 9:16。入口覆盖 Gemini API 与 AI Studio、Google Cloud 控制台、Gemini for business、Flow、Google Vids（有 Google 账号或 Workspace 即可免费生成 15 秒片段）、Gemini App（先给 Google AI Ultra 订阅用户）、Google Ads。输出带不可感知的 SynthID 水印，企业侧可用预置吞吐量。官方同时承认快速运动的体育动作、频繁改脚本、复杂物理表现仍是难点。",
+    keyPoints: [
+      "11-05 全面可用；720p 每秒 0.07 美元，比 Omni 1.1 Flash 便宜 30%，其他分辨率同比例降",
+      "单条生成或编辑从 10 秒拉到 15 秒，可在 3—15 秒间按 1 秒步进选，一条 15 秒片子 API 成本约 1.05 美元",
+      "多轮对话改同一条片子：换产品、改光照、换机位、切画幅，再升到 1080p/4K，不必重生成",
+      "入口很多：API/AI Studio、Google Cloud、Gemini for business、Flow、Google Vids（有账号即可免费出 15 秒）、Google Ads",
+      "输出带 SynthID 水印；官方承认体育快动作、频繁改脚本、复杂物理仍是短板",
+    ],
+    org: "Google",
+    category: "模型发布",
+    date: "2026-11-05",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google Cloud 官方博客（2026-11-05，Gemini Omni 1.2 Flash 全面可用公告）",
+    sourceUrl: "https://cloud.google.com/blog/products/ai-machine-learning/gemini-omni-1-2-flash-generally-available",
+    refs: [
+      { name: "IT之家（11-06，中文参数与入口）", url: "https://www.ithome.com/1/023/026.htm" },
+      { name: "Google Cloud 模型文档（gemini-omni-1.2-flash，token 上限与画幅）", url: "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash" },
+    ],
+    article: "/blog/2026-11-06-seven-cents-a-second.html",
+  },
+  {
+    id: "baidu-ernie-5-5-flash-base-1105",
+    title: "百度开源文心 5.5 Flash Base：280B 总参数只激活 14B，33.5 万亿 token 从零预训练",
+    summary:
+      "11 月 5 日，百度开源基座模型 ERNIE-5.5-Flash-Base，放的是预训练终点的 checkpoint——没做中训练也没做后训练，用途是给别人当起点。规格：稀疏 MoE，总参数 280B，每 token 激活 14B，33.5 万亿 token 从零预训练，训练上下文 128K，微调与推理支持 100 万 token；43 层 Transformer 里 37 层用重度压缩注意力（每 128 个 token 只缓存一条），6 层用 MLA 加稀疏注意力，512 个路由专家每 token 选 10 个加 1 个共享专家，专家在 2048 维隐空间里算，官方称通信量与专家算力约减半。训练用 Muon 优化器与 FP8 混合精度，配套 FlashMask-4 注意力算子支持 SM90/SM100。评测在 30 项基准上与 DeepSeek-V4-Flash-Base、Hy3-preview-Base、MiMo-V2.5-Base 用同一套流程对比，MMLU 93.3 对 89.4/87.5/87.6，HumanEval+ 82.3 对 69.5/78.0/74.4，但 FullStackBench 输给 Hy3，InfiniteBench 输给 DeepSeek。权重在 Hugging Face 与魔搭分 FP8 与 BF16 两版，许可为 ERNIE 5.5 Flash Base Model License v1.0；SGLang、vLLM 有部署示例，NVIDIA Megatron-Bridge 给了微调样例。经过后训练的 ERNIE 5.5 Flash 随后推出。",
+    keyPoints: [
+      "11-05 开源，放的是预训练终点 checkpoint，未做中训练与后训练——卖的是起点不是成品",
+      "280B 总参数、每 token 激活 14B、33.5 万亿 token 从零预训练、训练上下文 128K、推理支持 100 万 token",
+      "43 层里 37 层用重度压缩注意力（128 token 缓存一条），512 专家选 10 加 1 共享专家，专家在 2048 维隐空间计算",
+      "MMLU 93.3、HumanEval+ 82.3 领先同规模开源 Base；但 FullStackBench 输给 Hy3、InfiniteBench 输给 DeepSeek",
+      "Hugging Face 与魔搭双渠道，FP8/BF16 两版，SGLang、vLLM、Megatron-Bridge 均已适配",
+    ],
+    org: "百度",
+    category: "开源项目",
+    date: "2026-11-05",
+    heat: 68,
+    authority: "official",
+    precision: "exact",
+    sourceName: "百度文心官方发布页（2026-11-05，ERNIE 5.5 Flash Base）",
+    sourceUrl: "https://ernie.baidu.com/zh/release/ernie-5-5-flash-base/",
+    refs: [
+      { name: "新华网（11-05，参数与上下文官方口径）", url: "https://www.news.cn/info/20261105/f3bbdb6854f5441ca9fb34062f213875/c.html" },
+      { name: "机器之心（11-05，架构与部署生态）", url: "https://www.jiqizhixin.com/articles/2026-11-05-9" },
+    ],
+  },
   {
     id: "openai-images-2-6-chatgpt-gif-1105",
     title: "ChatGPT 能直接做 GIF 了：Images 2.6 上线，动图可逐帧改，每周出图已超 40 亿张",
