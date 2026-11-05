@@ -140,6 +140,7 @@ export const hotRanking: HotItem[] = [
       { name: "华尔街见闻（11-05，10 个工作日审核、20 个工作日变更、300% 配额与首申请口径）", url: "https://wallstreetcn.com/livenews/3195073" },
       { name: "财联社（11-05，公示期与起草单位）", url: "https://www.cls.cn/detail/2526513" },
     ],
+    article: "/blog/2026-11-05-robot-gets-an-id-card.html",
   },
   {
     id: "openai-autonomous-kernel-exploits-1104",
