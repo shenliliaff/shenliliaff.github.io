@@ -60,10 +60,62 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-06";
+export const hotRankingUpdatedAt = "2026-11-07";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "meta-muse-active-memory-1106",
+    title: "Meta 把「少忘事」蒸馏进 Muse 和 Meta AI：忘事少了 2.4 倍，但成绩单是自己出的",
+    summary:
+      "美国时间 2026 年 11 月 6 日，Meta 研究博客发布《Bringing Specialized Models to Muse and Meta AI》：不是把十月亮相的旗舰 Muse Wonder 开放给所有人，而是用 Wonder 当老师，蒸馏出「现有模型的专用版本」，推到 Muse 与 Meta AI 的用户手里。搬过去的是两个在 Wonder 上首次引入的能力——Active Memory（主动记忆）与 Active Focus（主动专注）。Active Memory 要做三件事：区分临时信息与永久信息、跨时间推理、分辨哪些细节还有效哪些已经过时；官方口径是「Muse 里忘掉关键信息的比例降低 2.4 倍」，配套的 Active Memory 评测从上一代 76% 提到 90%。Active Focus 管的是任务卡住时不撂挑子：用真实世界的瓶颈做训练，让模型在约束变化时再试一次、恢复或者换条路，官方称 Muse 里「遇到意外问题的日常任务」完成率提升 67%。另有一个内部指数 Personal Superintelligence Index，这一代 Muse 47%，上一代 38%。需要留白的部分同样明确：三个数字都是 Meta 自家指标，没有第三方复现；67% 没给基线完成率；Meta AI 侧只有描述没有数字，也没公布模型 ID、参数、地区与推送时间表。同一天 Meta 还上线了 Muse Spaces，用一句话描述就能生成一个可钉在侧边栏的自定义面板；扎克伯格在 X 上确认了这次推送，并称 Muse 在北美装机已过 1000 万。",
+    keyPoints: [
+      "美国时间 11-06 官方博文：用旗舰 Muse Wonder 蒸馏出专用版本，推给 Muse 与 Meta AI，不是把 Wonder 本身开放",
+      "搬过去的是 Active Memory 与 Active Focus：前者管「什么该记、什么已经过时」，后者管「卡住了别停」",
+      "三个数字都是自家指标——忘事降 2.4 倍、关键上下文用对率 76%→90%、意外任务完成率 +67%，且 67% 未给基线",
+      "Meta AI 侧一个数字都没有，模型 ID、参数、上线地区与时间表也未公布；内部指数 PSI 从 38% 升到 47%",
+      "同日上线 Muse Spaces（一句话生成侧边栏面板）；Muse 北美装机过 1000 万，订阅 20 美元/月起",
+    ],
+    org: "Meta",
+    category: "模型发布",
+    date: "2026-11-06",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Meta 研究博客（2026-11-06，Bringing Specialized Models to Muse and Meta AI）",
+    sourceUrl: "https://research.meta.ai/blog/specialized-models-for-muse-and-metaai",
+    refs: [
+      { name: "Digg（11-06，指出官方未给评测方法、样本量与推送时间表）", url: "https://digg.com/ai/vc7xw9zf" },
+      { name: "RuntimeWire（11-06，扎克伯格 X 帖与 Muse 装机量）", url: "https://runtimewire.com/article/meta-gives-muse-and-meta-ai-new-models-that-promise-to-forget-less" },
+    ],
+    article: "/blog/2026-11-07-it-remembers-you-now.html",
+  },
+  {
+    id: "openai-biobasicsbench-1106",
+    title: "OpenAI 出了份湿实验考卷：最高分 66.7，看懂条带却把对照读反了",
+    summary:
+      "2026 年 11 月 6 日，OpenAI 与酶设计公司 Ligo 联合发布 BioBasicsBench：100 道真实湿实验室任务，考的不是论文里挑出来的漂亮图，而是凝胶与印迹、菌落平板、显微镜 z-stack、测序文件、仪器屏幕照片、实验台照片、甚至手写笔记与操作视频。评分用的是专家写的 rubric，给部分分，所以指标是「拿到手的分数占可得满分的比例」，不是「做对的题目比例」。规模：7 个模型、37 种「模型 × 推理强度」组合、每题 5 次尝试，合计 18,500 次结果。全部模型都报告的最高推理强度 xhigh 下：GPT-6 Astra 66.7%（95% 置信区间 60.3–73.1），GPT-6.1 Sol 62.0%，GPT-5.6 Sol 43.8%，GPT-6 Luna 38.3%，GPT-5.5 35.4%，GPT-5.4 33.2%，GPT-5.2 31.2%。成本侧同样反直觉：平均每题输出 token 数 Astra 为 4704，得分最低的 GPT-5.2 用了 27620。分数上去了，短板也写得很具体：菌落 PCR 筛克隆那题，Astra 认出条带分两组，却假定「产物更大＝克隆成功」，选了 4、6、7、8 泳道，标准答案是 5、9、10——分组对了，身份颠倒了，照着做会纯化出错误的质粒；液泡明暗那题它断言「液泡普遍更暗」，同一张图里却有更亮的，而它自己都提到了对比度会随焦平面反转；菌落计数时相邻菌落只打一个点、漏标两个、把空白琼脂算成一个，净多计约 12%。做对的部分也真实：平板边缘标签写着「LB Kan50」（卡那霉素），而实验用的是氨苄，它据此否掉了这个阴性对照；SYTOX 与 FUN-1 的检测窗口在 525–540 nm 重叠，它指出亮度本身不足以判死、要加对照分离信号。OpenAI 自己的结论是：更高的基准分还不等于能在实验室里可靠判断。",
+    keyPoints: [
+      "11-06 与 Ligo 联合发布，100 道真实湿实验题，数据是凝胶、平板、z-stack、测序文件、手写笔记与操作视频，不是论文配图",
+      "7 个模型 × 37 种推理强度 × 每题 5 次 = 18,500 次结果；xhigh 下 GPT-6 Astra 66.7%，GPT-5.6 Sol 43.8%",
+      "66.7% 是「得分占可得满分的比例」，rubric 给部分分，不等于做对了 66.7% 的题",
+      "三个具体错法：PCR 克隆把两组条带的身份读反、只留「液泡更暗」却丢掉同图反例、菌落净多计约 12%",
+      "得分最高的 Astra 每题只用 4704 个输出 token，得分最低的 GPT-5.2 用了 27620 个——想得久不等于想得对",
+    ],
+    org: "OpenAI",
+    category: "学术公益",
+    date: "2026-11-06",
+    heat: 69,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI（2026-11-06，BioBasicsBench 发布博文）",
+    sourceUrl: "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+    refs: [
+      { name: "同花顺财经（11-07，中文口径与 18,500 次评测规模）", url: "https://m.10jqka.com.cn/20261107/c681573278.shtml" },
+      { name: "Superpower Daily（11-06，三个失败案例的逐条拆解）", url: "https://superpowerdaily.com/posts/openai-introduces-100-task-lab-benchmark-as-ai-still-misreads-experimental-evidence" },
+    ],
+    article: "/blog/2026-11-07-sixty-six-point-seven.html",
+  },
   {
     id: "cac-health-rumor-campaign-1106",
     title: "中央网信办专项整治健康谣言：为期两个月，单列一条盯「AI 批量造科普」，连「某医院医师」这种简介写法也点了名",
