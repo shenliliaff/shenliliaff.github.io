@@ -23,6 +23,11 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-11-06-seven-cents-a-second.html",
   },
   {
+    title: "让 AI 编一个死亡率",
+    date: "2026-11-06",
+    url: "/blog/2026-11-06-let-ai-invent-a-death-rate.html",
+  },
+  {
     title: "机器人也要上户口，一年最多领到产量的三倍",
     date: "2026-11-05",
     url: "/blog/2026-11-05-robot-gets-an-id-card.html",
