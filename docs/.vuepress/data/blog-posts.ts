@@ -23,6 +23,11 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-11-07-it-remembers-you-now.html",
   },
   {
+    title: "别问它从哪来的",
+    date: "2026-11-07",
+    url: "/blog/2026-11-07-dont-ask-where-it-came-from.html",
+  },
+  {
     title: "能撬开任何门的那台机器，先被发了张门禁卡",
     date: "2026-11-06",
     url: "/blog/2026-11-06-the-machine-that-picks-locks.html",
