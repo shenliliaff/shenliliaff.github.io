@@ -60,10 +60,36 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-07";
+export const hotRankingUpdatedAt = "2026-11-08";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "nvidia-build-kimi-free-endpoints-1107",
+    title: "英伟达 Build 上架 Kimi K3.1 Pro：网页免费用，但 API 那行小字写着「暂不开放」",
+    summary:
+      "2026 年 11 月 7 日，NVIDIA Build（build.nvidia.com）模型库上架 moonshotai/kimi-k3.1-pro，标注 Free Endpoint；同一平台上 deepseek-ai/deepseek-v4.1-flash 与 z-ai/glm-5.3-flash 的免费 serverless 端点可直接生成 API Key 调用，接口 https://integrate.api.nvidia.com/v1 兼容 OpenAI 格式，注册只要邮箱加手机号（+86 可完成验证），不绑信用卡。唯一拧巴的地方在 Kimi 那页：代码框里明写「API access for this model is not available yet」，只开 Playground，实测用 Key 请求返回 404。三款模型体量分别为：Kimi K3.1 Pro 2.8T 参数、1M 上下文，10 月 23 日发布、11 月 4 日开源；DeepSeek-V4.1-Flash 552B 总参 / 8B 激活、1M 上下文；GLM-5.3-Flash 320B 总参 / 18B 激活。免费端点的官方定位是开发与原型验证，按速率限制而非积分制，且明确说明输入输出会被记录，不要上传机密信息与个人数据。",
+    keyPoints: [
+      "11-07 起 NVIDIA Build 上架 Kimi K3.1 Pro 并标 Free Endpoint，但只开 Playground，代码区写明 API 暂不开放，实测用 Key 调用返回 404",
+      "同一把 Key 可调 DeepSeek-V4.1-Flash 与 GLM-5.3-Flash 的免费端点，接口是 integrate.api.nvidia.com/v1，兼容 OpenAI 格式",
+      "注册零门槛：邮箱加手机号即可，+86 号码能过验证，不用绑信用卡；免费额度已从早期积分制改成按速率限制",
+      "免费有代价：高峰期排队，实测一次最简单的闰年函数请求用了 4 分 22 秒，开始输出后约 40+ token/s",
+      "官方把免费端点定位为开发与原型验证，并声明输入输出会被记录，别把公司代码和隐私数据丢进去",
+    ],
+    org: "NVIDIA",
+    category: "产品发布",
+    date: "2026-11-07",
+    heat: 70,
+    authority: "official",
+    precision: "exact",
+    sourceName: "NVIDIA Build 模型页（2026-11-07，Kimi K3.1 Pro 与 DeepSeek-V4.1-Flash 免费端点）",
+    sourceUrl: "https://build.nvidia.com/moonshotai/kimi-k3_1-pro",
+    refs: [
+      { name: "新浪科技（11-07，实测：DeepSeek、GLM 的 API 免费用，Kimi K3.1 Pro 调用返回 404）", url: "https://tech.sina.cn/2026-11-07/detail-inixwakk5013713.d.html" },
+      { name: "llmperks（11-07 刷新，NVIDIA Build 免费模型目录，62 个模型）", url: "https://www.llmperks.com/nvidia" },
+    ],
+    article: "/blog/2026-11-08-nvidia-free-endpoint-small-print.html",
+  },
   {
     id: "qoder-qoduck-stealth-model-1107",
     title: "Qoder 上了个不肯报名字的模型：官方只说「别问它从哪来的」，个人用户每天白用",
@@ -89,6 +115,32 @@ export const hotRanking: HotItem[] = [
       { name: "AICoder（11-07，国际版同活动的英文口径与入口范围）", url: "https://aicoder.com/news/news-20261107-qoder-qoduck-stealth-model-daily-free-0x-credits" },
     ],
     article: "/blog/2026-11-07-dont-ask-where-it-came-from.html",
+  },
+  {
+    id: "xai-grok-text-watermark-default-1107",
+    title: "Grok API 从 11 月 7 日起默认给文本打隐形水印：七款模型，管理员可按模型关掉",
+    summary:
+      "2026 年 11 月 7 日，xAI 开发者文档的 Output Watermarking 页面所载条款生效：grok-4.7、grok-4.6、grok-4.5、grok-4.3、grok-4.20-reasoning、grok-4.20-non-reasoning、grok-4.20-multi-agent 七款文本模型的输出默认带不可见水印，覆盖 Responses API 与 Chat Completions，包括普通文本、结构化输出与工具调用参数，全球端点与区域端点一视同仁。不需要改请求代码，响应头 x-watermark 为 true 即表示本次输出已打标。官方给出的理由是符合欧盟 AI 法案第 50 条对机器可读标记的要求。团队管理员可在控制台按模型退出，约 5 分钟对新请求生效，开关记入团队审计日志，部分模型可能被锁定不可关。检测需单独申请，结果只有「有水印 / 无水印 / 不确定」三态，长文本信号更强，短文本容易判不出；负结果不能证明是人写的。对照同行：Anthropic 自 8 月 2 日起新发布模型自带水印、11 月 3 日给旧模型补上、11 月 16 日第二批，用户不可关闭；OpenAI 只在欧盟默认开启，API 默认关。",
+    keyPoints: [
+      "11-07 起 Grok API 七款文本模型默认打隐形水印，不必改代码，响应头 x-watermark: true 表示本次输出已打标",
+      "覆盖范围包括结构化输出与工具调用参数，全球端点与区域端点都算；官方理由是欧盟 AI 法案第 50 条",
+      "团队管理员可在控制台按模型退出，约 5 分钟生效并记入审计日志，部分模型可能被锁定关不掉",
+      "检测要单独申请，只给「有 / 无 / 不确定」三态，短文本判不出，负结果不能证明文字出自人手",
+      "三家口径不同：Anthropic 用户关不掉、OpenAI 只在欧盟默认开、xAI 留了管理员开关——合规底线一样，操作空间不一样",
+    ],
+    org: "xAI",
+    category: "安全对齐",
+    date: "2026-11-07",
+    heat: 64,
+    authority: "verified",
+    precision: "homepage",
+    sourceName: "xAI 开发者文档 Output Watermarking（站点兜底：本机访问 docs.x.ai 具体页失败，条款经多家开发者媒体逐条转载）",
+    sourceUrl: "https://docs.x.ai/",
+    refs: [
+      { name: "DEV Community（11-07，欧盟 AI 法案第 50 条实操：Claude 与 Grok 的水印范围对比）", url: "https://dev.to/zirlandia_milkovic_d9ecf0/your-ai-text-is-now-watermarked-article-50-of-the-eu-ai-act-for-developers-3mg9" },
+      { name: "RohitAI（11-07，逐条整理七款模型清单、x-watermark 头与退出流程）", url: "https://rohitai.com/blog/grok-api-text-watermarking-detection-limits" },
+    ],
+    article: "/blog/2026-11-08-the-mark-you-cannot-check.html",
   },
   {
     id: "shanghai-ai-transport-plan-1107",
