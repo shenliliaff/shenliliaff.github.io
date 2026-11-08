@@ -60,10 +60,62 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-08";
+export const hotRankingUpdatedAt = "2026-11-09";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-dots-email-otp-login-1108",
+    title: "OpenAI 的 agent 学会了从你邮箱里取验证码：一次授权，或者永远授权",
+    summary:
+      "2026 年 11 月 8 日，OpenAI 产品团队成员 James Sun 在 X 上公布 dots 的登录能力更新：dot 现在可以使用发送到「已连接邮箱」的一次性验证码，替你完成第三方网站的登录。流程卡在验证码这步时会弹提示，用户可选「仅此一次」或「始终允许自动填充」，选完 dot 接着干原来的活。dots 是 OpenAI 在 9 月 29 日 DevDay 发布的常驻型智能体，跑在 GPT-6 Astra 上，每个 dot 有一台独立的云电脑，可挂 4000 多个应用；面向 Pro（100/200/500 美元三档）与 Business Premium（每席 125 美元/月，2 席起），Free、Go、Plus 不含，欧洲经济区、瑞士、英国的 Pro 个人用户首轮不开放。配套的权限分四档：直接执行、仅在预先批准时执行、执行前询问、交还给人。官方把改密码、确认交易、改动敏感数据列为人不能外包的高风险动作，登录网页用的凭据由系统托管、不交给模型本体；本地文件与浏览器要单独在桌面端点「允许访问」才接通。James Sun 同时预告后续还会继续改登录流程。",
+    keyPoints: [
+      "11-08 起 dot 能读「已连接邮箱」里的一次性验证码，替用户填进第三方网站的登录框，选「仅此一次」或「始终允许」两种授权",
+      "dots 是 9-29 DevDay 发布的常驻智能体，跑 GPT-6 Astra，每个 dot 一台独立云电脑，可挂 4000 多个应用",
+      "门槛不低：只有 Pro（100/200/500 美元）与 Business Premium（125 美元/席/月起）有，Free、Go、Plus 不含",
+      "官方留了三道闸：权限四档（直接做/预批才做/先问/交还）、改密码与付款不许代办、网页凭据由系统托管不给模型",
+      "验证码本来就是「证明你是人」的那道关，现在交给软件代过——欧洲经济区、瑞士、英国的 Pro 用户首轮被排除在外",
+    ],
+    org: "OpenAI",
+    category: "产品发布",
+    date: "2026-11-08",
+    heat: 78,
+    authority: "verified",
+    precision: "homepage",
+    sourceName: "OpenAI 产品团队成员 James Sun 在 X 公布（2026-11-08，无独立公告页，站点兜底）",
+    sourceUrl: "https://x.com/JamesZmSun",
+    refs: [
+      { name: "TechDaily（11-08，dots 验证码代登录与 OpenCode Browse 同日要闻）", url: "https://news.techdou.com/" },
+      { name: "Lumien AI（11-08，dots 的权限四档、订阅门槛与地区限制逐条整理）", url: "https://lumienai.com/news/openai-dots-agents-2fa-email-codes-hesitation" },
+    ],
+    article: "/blog/2026-11-09-the-code-that-proves-you-are-human.html",
+  },
+  {
+    id: "qiyuan-robot-10000th-unit-1108",
+    title: "启元第一万台个人机器人下线：14 天翻一倍，月活 98%，每天在家在线 3 小时",
+    summary:
+      "2026 年 11 月 8 日，上纬新材（688585）旗下启元机器人第 10000 台个人机器人正式下线，距离 10 月 25 日第 5000 台下线只隔 14 天。整机工厂今年 10 月才正式量产，日产能已爬到 240 台；制造上打的是「车规标准 + 3C 量级」，把车规级质量管控和 3C 精密制造工艺拼在一起，蓝思科技把 30 多年的端侧硬件精密制造经验放进产线协同。编号 NO.10000 的启元 Q1 现场交付给用户吴晓波。联席总裁刘东方给的运营数据是：月活超过 98%，日均在线峰值超过 40%，用户日均在线时长 3 小时，平均每人每天交互 100 多次。3 天前，Q1 与 T1 完成上市后首次 OTA，升级近 50 项功能，其中 Q1 新增故事魔法师、科学探险家等 6 个官方角色；开放平台上还长出了「赛博女儿太白」这类用户自制玩法。官方把一万台称作个人机器人走进家庭的关键商业化拐点。",
+    keyPoints: [
+      "11-08 第 10000 台个人机器人下线，距 10-25 第 5000 台只隔 14 天，日产能已到 240 台",
+      "制造走的是「车规标准 + 3C 量级」，蓝思科技把端侧硬件精密制造经验接进产线——消费机器人在借手机的供应链",
+      "月活超过 98%、日均在线时长 3 小时、每人每天交互 100 多次：这台东西不是买回去吃灰的",
+      "3 天前 Q1 与 T1 首次 OTA，升级近 50 项功能，Q1 新增故事魔法师、科学探险家等 6 个官方角色",
+      "编号 NO.10000 的 Q1 现场交给了吴晓波；官方称一万台是「个人机器人走进家庭」的商业化拐点",
+    ],
+    org: "上纬新材 · 启元机器人",
+    category: "硬件航天",
+    date: "2026-11-08",
+    heat: 72,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "澎湃新闻（2026-11-08 现场报道，非公司公告）",
+    sourceUrl: "https://m.thepaper.cn/newsDetail_forward_34432312",
+    refs: [
+      { name: "大河财立方（11-08，日产能 240 台、车规+3C 制造体系、蓝思科技协同与交付细节）", url: "https://app.dahecube.com/nweb/pc/article.html?artid=292233" },
+      { name: "川观新闻（11-08，万台级量产与月活、日均在线数据的同口径报道）", url: "https://cbgc.scol.com.cn/news/8125678" },
+    ],
+    article: "/blog/2026-11-09-a-hundred-times-a-day.html",
+  },
   {
     id: "nvidia-build-kimi-free-endpoints-1107",
     title: "英伟达 Build 上架 Kimi K3.1 Pro：网页免费用，但 API 那行小字写着「暂不开放」",
