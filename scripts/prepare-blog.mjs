@@ -1,11 +1,18 @@
 /**
  * 生成 docs/.vuepress/data/blog-posts.ts
  *
- * 从 docs/blog/*.md 的 frontmatter 读取 title / date，按日期降序输出。
+ * 从 docs/blog/*.md 的 frontmatter 读取 title / date / time，排序后输出。
  * 供两处消费，避免两处各维护一份清单：
- *   1. docs/.vuepress/components/BlogPostList.vue —— /blog/ 文章列表（每页最多 5 篇 + 分页）
- *   2. docs/.vuepress/sidebar.ts —— 侧边栏条目「YYYY-MM-DD 标题」
+ *   1. docs/.vuepress/components/BlogPostList.vue —— /blog/ 文章列表（月 + 周折叠）
+ *   2. docs/.vuepress/sidebar.ts —— 侧边栏「月 → 周 → 文章」
  * 因此新增文章只需把 .md 放进 docs/blog/，文章列表与侧边栏都会自动更新。
+ *
+ * 排序规则（最新在最前）：
+ *   1. date 降序；
+ *   2. 同一天内按 frontmatter 的 time（HH:MM）降序——当天后写的排前面；
+ *      没有 time 的视为当天最早，排在该日最后；
+ *   3. 仍相同则按 url 降序，保证生成结果稳定。
+ * 注意：不能用文件 mtime 排序，GitHub Actions 检出后 mtime 全变，顺序会乱。
  */
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { basename, join } from "node:path";
@@ -27,13 +34,22 @@ for (const fileName of readdirSync(blogDir)) {
   const block = frontmatter[1];
   const title = stripQuotes((/^title:[ \t]*(.+)$/m.exec(block)?.[1] ?? "").trim());
   const date = stripQuotes((/^date:[ \t]*(.+)$/m.exec(block)?.[1] ?? "").trim());
+  const time = stripQuotes((/^time:[ \t]*(.+)$/m.exec(block)?.[1] ?? "").trim());
   if (!title || !date) continue;
 
-  posts.push({ title, date, url: `/blog/${basename(fileName, ".md")}.html` });
+  posts.push({ title, date, time, url: `/blog/${basename(fileName, ".md")}.html` });
 }
 
-// 日期降序；同一天按链接降序，保证每次生成顺序稳定
-posts.sort((a, b) => (a.date === b.date ? b.url.localeCompare(a.url) : a.date < b.date ? 1 : -1));
+// date 降序 → time 降序（无 time 的排当天最后）→ url 降序兜底
+posts.sort((a, b) => {
+  if (a.date !== b.date) return a.date < b.date ? 1 : -1;
+
+  const ta = a.time || "";
+  const tb = b.time || "";
+  if (ta !== tb) return ta < tb ? 1 : -1;
+
+  return b.url.localeCompare(a.url);
+});
 
 const body = posts
   .map(
