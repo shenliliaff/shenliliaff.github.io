@@ -1,7 +1,7 @@
 ---
 title: 让 AI 编一个死亡率
 date: 2026-11-06
-time: "21:03"
+writtenAt: "21:03"
 category:
   - 人工智能
 ---

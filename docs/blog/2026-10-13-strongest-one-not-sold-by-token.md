@@ -1,7 +1,7 @@
 ---
 title: 最强的那个不零卖
 date: 2026-10-13
-time: "08:09"
+writtenAt: "08:09"
 category:
   - 人工智能
 ---

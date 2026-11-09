@@ -1,7 +1,7 @@
 ---
 title: 它终于记住你了
 date: 2026-11-07
-time: "07:06"
+writtenAt: "07:06"
 category:
   - 人工智能
 ---

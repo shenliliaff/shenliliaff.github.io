@@ -1,7 +1,7 @@
 ---
 title: 别问它从哪来的
 date: 2026-11-07
-time: "21:04"
+writtenAt: "21:04"
 category:
   - 人工智能
 ---

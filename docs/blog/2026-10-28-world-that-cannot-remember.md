@@ -1,7 +1,7 @@
 ---
 title: 世界有了声音，桌子没了
 date: 2026-10-28
-time: "07:03"
+writtenAt: "07:03"
 category:
   - 人工智能
 ---

@@ -1,7 +1,7 @@
 ---
 title: 给开源盖了个馆，进门二十块
 date: 2026-11-01
-time: "21:03"
+writtenAt: "21:03"
 category:
   - 人工智能
 ---

@@ -1,7 +1,7 @@
 ---
 title: 一秒七分钱
 date: 2026-11-06
-time: "07:07"
+writtenAt: "07:07"
 category:
   - 人工智能
 ---

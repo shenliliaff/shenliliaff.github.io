@@ -1,7 +1,7 @@
 ---
 title: 它把话说短了，账单也跟着短了
 date: 2026-10-18
-time: "07:03"
+writtenAt: "07:03"
 category:
   - 人工智能
 ---

@@ -1,7 +1,7 @@
 ---
 title: 免费接口底下那行小字
 date: 2026-11-08
-time: "07:06"
+writtenAt: "07:06"
 category:
   - 人工智能
 ---

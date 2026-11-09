@@ -1,7 +1,7 @@
 ---
 title: 一千条通往 root 的路
 date: 2026-11-05
-time: "07:04"
+writtenAt: "07:04"
 category:
   - 人工智能
 ---

@@ -1,7 +1,7 @@
 ---
 title: 一条没有人写下来的规矩
 date: 2026-11-04
-time: "07:04"
+writtenAt: "07:04"
 category:
   - 人工智能
 ---
