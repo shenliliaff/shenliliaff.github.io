@@ -60,10 +60,42 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-09";
+export const hotRankingUpdatedAt = "2026-11-10";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "anthropic-fable-mythos-52-1109",
+    title: "Anthropic 发 Fable 5.2 与 Mythos 5.2：同一个模型两把锁，快三成、便宜两成，还让一千个智能体跑了八天造出操作系统",
+    summary:
+      "美东时间 2026 年 11 月 9 日（北京时间 11 月 10 日凌晨），Anthropic 发布 Claude Fable 5.2 与 Claude Mythos 5.2。两个名字共用一个底层模型，区别只在安全限制与访问权限：Fable 5.2 带网络安全与生物安全防护，当天在 AWS、Google Cloud、Microsoft Azure 与 Claude Platform 全量上线，模型名 claude-fable-5-2；Mythos 5.2 摘掉部分防护，只通过 Cyber Verification Program 与 Life Sciences Verification Program 向过审机构开放，企业客户可在 Claude Security 里用到。官方给的数是：输出速度比 5.1 最多快 30%，价格从每百万输入 10 美元/输出 50 美元降到 8 美元/40 美元，降幅两成；Fast mode 可再快 2.5 倍，价格翻倍到 16/80 美元。基准上 FrontierCode 2.0 从 32.4% 升到 49.1%（Opus 5.5 45.5%、GPT-6 Astra 42.8%、Gemini 4 Carbon 41.1%），Chartography 从 44.8% 到 73.4%，RoboDojo Sim 从 27.6% 到 64.9%，Remote Labor Index 从 17.9% 到 41.3%；唯一落后项是 AutomationBench，51.4% 低于 Gemini 4 Carbon 的 53.9%。案例部分更像 demo 清单：一名工程师从空文件夹起步，由 Fable 5.2 调度 1000 多个子智能体昼夜跑 8 天，产出一套能在笔记本上启动、带内核与驱动的操作系统原型；1000 个智能体 30 小时内完成费马大定理的 Lean 形式化（早期研究版要 11 天，Opus 5.5 跑 30 小时只做完 27%）；与 Diode 合作设计并做出 3 台可工作的电子设备；还解决两个黑洞物理的开放问题、把一项生产服务从 Python 迁到 Rust（启动快约 26 倍）。安全侧官方称 Fable 5.2 的不必要拦截比 5.1 少约 55%（网络安全场景少 60%、生物场景少 40%），被拦下的网络安全问题转由 Opus 4.8 回答。这次发布卡在 IPO 路演前夜：CEO Dario Amodei 9 月刚公开呼吁放慢前沿开发，研究产品负责人 Dianne Penn 的回应是「我们呼吁的是控制节奏，而不是停止开发」。",
+    keyPoints: [
+      "同一个底层模型切成两把锁：Fable 5.2 当天全平台公开，Mythos 5.2 只给通过网络安全/生命科学验证计划的机构",
+      "输出快最多 30%，标准价从 10/50 美元降到每百万输入 8 美元、输出 40 美元；Fast mode 快 2.5 倍但要 16/80 美元",
+      "FrontierCode 2.0 从 32.4% 跳到 49.1%，压过 Opus 5.5、GPT-6 Astra、Gemini 4 Carbon；AutomationBench 是唯一落后项",
+      "演示里 1000 多个子智能体跑 8 天造出可启动的操作系统原型，30 小时完成费马大定理 Lean 形式化（Opus 5.5 跑 30 小时只做完 27%）",
+      "卡在 IPO 路演前夜：9 月才呼吁放慢，研究产品负责人回应「控制节奏不等于停止开发」，这个矛盾已写进招股书风险提示",
+    ],
+    org: "Anthropic",
+    category: "模型发布",
+    date: "2026-11-09",
+    heat: 90,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方公告《Introducing Claude Fable 5.2 and Claude Mythos 5.2》（2026-11-09）",
+    sourceUrl: "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    refs: [
+      {
+        name: "凤凰网科技（11-10 北京时间，转述路透社与官方博客案例细节）",
+        url: "https://original.ifeng.com/c/8xviqDaxyxj",
+      },
+      {
+        name: "财联社（11-10，FrontierCode 2.0 / Chartography / RoboDojo 分数对照）",
+        url: "https://www.cls.cn/detail/2529571",
+      },
+    ],
+    article: "/blog/2026-11-10-a-thousand-of-me.html",
+  },
   {
     id: "bytedance-seedream-5-5-1109",
     title: "Seedream 5.5 发布：改一百轮不崩，2K 方图单张 0.28 元、比上代便宜六成",
@@ -96,6 +128,38 @@ export const hotRanking: HotItem[] = [
       },
     ],
     article: "/blog/2026-11-09-a-hundred-edits-one-wall.html",
+  },
+  {
+    id: "meituan-longcat-2-5-open-weights-1109",
+    title: "美团把 LongCat-2.5 权重放出来了：1.6 万亿参数挂 MIT 协议，商用二次训练都不要授权，还单独给了个能塞进国产卡的 W4A4 版",
+    summary:
+      "2026 年 11 月 9 日，美团把 LongCat-2.5 的模型权重正式对外开放：Hugging Face 与 ModelScope 的 meituan-longcat 组织下同时放出两个 checkpoint——原版权重（含 BF16 等高精度格式，效果与 API 版对齐）和 LongCat-2.5-W4A4（专家权重与激活一起压到 4 比特，配国产加速卡的原生 INT4 矩阵单元）。协议是 MIT，商用推理部署与二次训练都不需要额外授权，也没有申请与审核环节。规格沿用 11 月 2 日发布时的口径：总参数 1.6 万亿、每个 token 激活约 480 亿、上下文 100 万，定位是面向长程智能体任务的原生多模态模型。ModelScope 模型卡给出的自评（in-house，未标第三方复测）包括 Terminal Bench v2.1 88.4、Terminal Bench v4.0 38.5、DeepSWE v1.1 64.6、BrowseComp 91.9、HLE（带工具）63.1。部署侧的口径很具体：单卡显存不到 80GB 的环境靠分片把参数与数据摊到超节点内多卡，配合混合词表并行、MoonEP 动态专家复制与零拷贝通信，长序列 SFT 的单卡吞吐较 DDP 基线提升 86%。视觉没有外挂独立模块，原生分辨率特征做残差向量量化后变成多层级离散 token，与文本共用同一套主干参数。11 月 2 日发布时只有网页与 API 两条路，能用的拿不走；这次补的正是「搬回自己机房」这一条。",
+    keyPoints: [
+      "11-09 起 Hugging Face 与 ModelScope 的 meituan-longcat 组织下可下权重，MIT 协议，商用与二次训练都不需要授权",
+      "两个 checkpoint 分工明确：原版对效果基线，W4A4 版把专家权重与激活都压到 4bit，靠国产卡原生 INT4 单元算",
+      "单卡显存不到 80GB 就分片摊到超节点内多卡，长序列 SFT 单卡吞吐较 DDP 基线 +86%，这是给国产算力写的部署说明",
+      "模型卡自评（in-house，无第三方复测）：Terminal Bench v2.1 88.4、DeepSWE 64.6、BrowseComp 91.9、HLE（带工具）63.1",
+      "11-02 发布时只有网页和 API，能用但拿不走；这次开的是权重，跟两天前 Anthropic 把模型分成两把锁正好相反",
+    ],
+    org: "美团（LongCat）",
+    category: "开源项目",
+    date: "2026-11-09",
+    heat: 71,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "美团 LongCat 官方 ModelScope 模型页（2026-11-09 建仓，MIT 协议）",
+    sourceUrl: "https://www.modelscope.cn/models/meituan-longcat/LongCat-2.5",
+    refs: [
+      {
+        name: "IT之家（11-09，正式开源、MIT 商用授权与两个 checkpoint 区分）",
+        url: "https://news.qq.com/rain/a/20261109A0EE9M00",
+      },
+      {
+        name: "AICHINA.news（ModelScope 建仓日期与模型卡自评基准）",
+        url: "https://aichina.news/news/meituan-lists-longcat-2-5-multimodal-moe-model-on-modelscope-9vpcdw",
+      },
+    ],
+    article: "/blog/2026-11-10-the-key-arrived-the-door-is-small.html",
   },
   {
     id: "qianwen-office-team-agent-1109",
