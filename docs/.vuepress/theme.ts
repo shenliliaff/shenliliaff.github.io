@@ -83,6 +83,7 @@ export default hopeTheme(
     // print: false,
 
     markdown: {
+      mermaid: true,
       align: true, // 启用自定义对齐
       attrs: true, // 使用特殊标记为 Markdown 元素添加属性
       mark: true, // 使用 == == 进行标记，注意两边需要有空格

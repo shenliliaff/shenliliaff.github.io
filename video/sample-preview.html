@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>fengsKB / 第二版女声与画面试听</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #081718;
+        color: #f5f5ed;
+        font-family: "Microsoft YaHei", sans-serif;
+      }
+      main {
+        max-width: 1400px;
+        padding: 48px 32px;
+        margin: auto;
+      }
+      header {
+        border-bottom: 1px solid #345146;
+        padding-bottom: 24px;
+      }
+      small {
+        color: #b2f4cb;
+        letter-spacing: 3px;
+      }
+      h1 {
+        font-size: 32px;
+        font-weight: 600;
+        margin: 16px 0;
+      }
+      p {
+        line-height: 1.9;
+        color: #9bb5a7;
+        font-size: 14px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+        margin: 32px 0;
+      }
+      article {
+        border: 1px solid #365348;
+        padding: 22px;
+        border-radius: 12px;
+        background: #10241f;
+      }
+      h2 {
+        font-weight: 500;
+        font-size: 24px;
+      }
+      video {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16/9;
+        background: #081718;
+        border-radius: 6px;
+      }
+      audio {
+        display: block;
+        width: 100%;
+        margin: 16px 0 22px;
+      }
+      a {
+        color: #b2f4cb;
+        text-underline-offset: 5px;
+      }
+      blockquote {
+        margin: 25px 0;
+        padding: 18px 24px;
+        background: #162c26;
+        border-left: 3px solid #b2f4cb;
+        line-height: 2;
+        font-size: 18px;
+      }
+      .note {
+        color: #bdc8b7;
+      }
+      button {
+        padding: 10px 18px;
+        background: #b2f4cb;
+        color: #081718;
+        border: 0;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      footer {
+        border-top: 1px solid #345146;
+        padding-top: 20px;
+      }
+      @media (max-width: 850px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        main {
+          padding: 24px 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <small>FENGSKB / VOICE & MOTION TEST 02</small>
+        <h1>先听声音，再看节奏。</h1>
+        <p>
+          同一文案 · 原始语速 · 两种在线神经女声 · 约 12
+          秒独立小样。不是完整第二版，也不是真人录音。
+        </p>
+        <button id="stop" type="button">暂停全部播放</button>
+      </header>
+      <blockquote>
+        AI
+        新闻每天都在刷。可真要找一条之前看过的消息，又翻不到了。这个小站，就是想把这些信息整理清楚。
+      </blockquote>
+      <div class="grid">
+        <article>
+          <small>A / XIAOXIAO</small>
+          <h2>晓晓</h2>
+          <p>先听无配乐原声，判断是否符合你想要的自然、成熟女声。</p>
+          <audio controls preload="metadata" src="xiaoxiao.mp3"></audio
+          ><video
+            controls
+            playsinline
+            preload="metadata"
+            poster="poster.png"
+            src="xiaoxiao.mp4"
+          ></video>
+          <p>
+            <a href="xiaoxiao.mp4" download>下载 A 版视频</a> ·
+            <a href="xiaoxiao.mp3" download>下载原声</a>
+          </p>
+        </article>
+        <article>
+          <small>B / XIAOYI</small>
+          <h2>晓伊</h2>
+          <p>相同文案、音量设置和画面方向，对比发音、停顿与整体听感。</p>
+          <audio controls preload="metadata" src="xiaoyi.mp3"></audio
+          ><video
+            controls
+            playsinline
+            preload="metadata"
+            poster="poster.png"
+            src="xiaoyi.mp4"
+          ></video>
+          <p>
+            <a href="xiaoyi.mp4" download>下载 B 版视频</a> ·
+            <a href="xiaoyi.mp3" download>下载原声</a>
+          </p>
+        </article>
+      </div>
+      <footer>
+        <p class="note">
+          这次改变：生活化切入、深色技术界面、鼠标引导、搜索演示、真实页面放大、轻点击音。只用音源自然语速，不为固定时长强行加速。
+        </p>
+        <p>
+          两种均为微软在线合成语音，通过非官方 edge-tts 工具生成；没有付费
+          API、没有克隆他人声音。B
+          站参考页可打开，但视频播放受网络错误限制，未声称复现某位博主的具体风格。请在对话中选择
+          A、B，或指出声音仍不自然的地方。
+        </p>
+      </footer>
+    </main>
+    <script>
+      const media = Array.from(document.querySelectorAll("audio,video"));
+      media.forEach((current) =>
+        current.addEventListener("play", () =>
+          media.forEach((other) => {
+            if (other !== current) other.pause();
+          }),
+        ),
+      );
+      document
+        .getElementById("stop")
+        .addEventListener("click", () => media.forEach((item) => item.pause()));
+    </script>
+  </body>
+</html>

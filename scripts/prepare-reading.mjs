@@ -16,7 +16,10 @@ for (const fileName of readdirSync(readingDir)) {
 
   const sourcePath = join(readingDir, fileName);
   const source = readFileSync(sourcePath, "utf8");
-  const content = source.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, "");
+  const content = source
+    .replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, "")
+    .replace(/(src=["'])\.\/([^"']+)(["'])/g, "$1/reading/$2$3")
+    .replace(/(!\[[^\]]*\]\()\.\//g, "$1/reading/");
   const articleName = basename(fileName, ".md");
   const permalink = `/reading-search/${articleName}.html`;
   const redirect = `/reading/index.html#/${articleName}`;

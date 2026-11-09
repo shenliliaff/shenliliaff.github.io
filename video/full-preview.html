@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>fengsKB / 晓伊完整版 V2</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #081718;
+        color: #f4f5ed;
+        font-family: "Microsoft YaHei", sans-serif;
+      }
+      main {
+        max-width: 1260px;
+        margin: auto;
+        padding: 44px 28px;
+      }
+      small {
+        color: #b2f4cb;
+        letter-spacing: 4px;
+      }
+      h1 {
+        font-size: 36px;
+        font-weight: 600;
+        margin: 16px 0;
+      }
+      p {
+        font-size: 14px;
+        color: #9bb5a7;
+        line-height: 1.9;
+      }
+      video {
+        width: 100%;
+        display: block;
+        aspect-ratio: 16/9;
+        background: #10251e;
+        border: 1px solid #547e64;
+        border-radius: 10px;
+        margin: 28px 0;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      a {
+        color: #b2f4cb;
+        text-decoration: none;
+        border: 1px solid #52795e;
+        border-radius: 5px;
+        padding: 11px 18px;
+        font-size: 14px;
+      }
+      .primary {
+        background: #b2f4cb;
+        color: #081718;
+      }
+      details {
+        margin-top: 28px;
+        padding: 18px 22px;
+        border: 1px solid #365446;
+        border-radius: 8px;
+        color: #b9ccbd;
+      }
+      summary {
+        cursor: pointer;
+      }
+      audio {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+      }
+      footer {
+        margin-top: 28px;
+        padding-top: 18px;
+        border-top: 1px solid #365446;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <small>FENGSKB / PRODUCT FILM V2</small>
+      <h1>看过的东西，下次还能找到。</h1>
+      <p>晓伊自然语速 · 科技工具分享 · 约 45.6 秒 · 1080p / 30fps</p>
+      <video
+        controls
+        playsinline
+        preload="metadata"
+        poster="cover.png"
+        src="fengskb-v2-preview.mp4"
+      ></video>
+      <nav>
+        <a class="primary" href="fengskb-v2.mp4" download>下载 1080p 完整版</a
+        ><a href="fengskb-v2-preview.mp4" download>下载轻量版</a
+        ><a href="fengskb-v2-zh.srt" download>中文字幕 SRT</a
+        ><a href="cover.png" download>封面</a>
+      </nav>
+      <details>
+        <summary>单独试听晓伊旁白</summary>
+        <audio controls preload="metadata" src="xiaoyi-narration.mp3"></audio>
+        <p>完整口播一次合成，保持原速，无配乐。合成语音不是真人录音。</p>
+      </details>
+      <footer>
+        <p>
+          画面采用真实网站截图、搜索与鼠标剪辑演示，配合来源放大、文章重点和阅读内容。音乐与点击音由本工程原创合成。第一版与两种女声短样片已保留，不受这次导出影响。
+        </p>
+      </footer>
+    </main>
+    <script>
+      const media = Array.from(document.querySelectorAll("audio,video"));
+      media.forEach((current) =>
+        current.addEventListener("play", () =>
+          media.forEach((other) => {
+            if (other !== current) other.pause();
+          }),
+        ),
+      );
+    </script>
+  </body>
+</html>

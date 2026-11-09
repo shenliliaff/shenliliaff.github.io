@@ -1,0 +1,46 @@
+{
+  "name": "fengskb-intro-video",
+  "version": "1.0.0",
+  "description": "45-second fengsKB product introduction",
+  "repository": {},
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
+  },
+  "private": true,
+  "dependencies": {
+    "@remotion/captions": "4.0.537",
+    "@remotion/cli": "4.0.537",
+    "@remotion/media": "4.0.537",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.537"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.537",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "9.39.5",
+    "playwright": "^1.64.1",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc",
+    "audio": "powershell -NoProfile -File scripts/voice.ps1 && node scripts/audio.mjs",
+    "test": "node --test scripts/validate.test.mjs",
+    "render:preview": "remotion render FengsKB out/fengskb-preview.mp4 --scale=0.5 --crf=25 --concurrency=2",
+    "render": "remotion render FengsKB out/fengskb-intro.mp4 --crf=18 --concurrency=2",
+    "still": "remotion still FengsKB out/cover.png --frame=1240",
+    "audio:v2": "python scripts/voice-full.py",
+    "render:v2": "remotion render FengsKBV2 out/v2-full/fengskb-v2.mp4 --crf=18 --concurrency=2",
+    "render:v2-preview": "remotion render FengsKBV2 out/v2-full/fengskb-v2-preview.mp4 --scale=0.5 --crf=23 --concurrency=2",
+    "still:v2": "remotion still FengsKBV2 out/v2-full/cover.png --frame=1280"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}

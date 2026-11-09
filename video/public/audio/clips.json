@@ -1,0 +1,142 @@
+[
+    {
+        "file":  "question-0.wav",
+        "text":  "信息不断更新。",
+        "startMs":  350,
+        "endMs":  2238,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "question",
+        "rate":  2
+    },
+    {
+        "file":  "question-1.wav",
+        "text":  "理解，留下多少？",
+        "startMs":  2318,
+        "endMs":  4468,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "question",
+        "rate":  2
+    },
+    {
+        "file":  "brand-0.wav",
+        "text":  "fengsKB，",
+        "startMs":  5350,
+        "endMs":  6929,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "brand",
+        "rate":  1
+    },
+    {
+        "file":  "brand-1.wav",
+        "text":  "连接技术、阅读与生活的个人知识库。",
+        "startMs":  7009,
+        "endMs":  11045,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "brand",
+        "rate":  1
+    },
+    {
+        "file":  "tracking-0.wav",
+        "text":  "从热点榜单出发，追踪 AI 动态，",
+        "startMs":  12350,
+        "endMs":  15762,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "tracking",
+        "rate":  2
+    },
+    {
+        "file":  "tracking-1.wav",
+        "text":  "沿着来源链接，找到信息的出处。",
+        "startMs":  15842,
+        "endMs":  19197,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "tracking",
+        "rate":  2
+    },
+    {
+        "file":  "insight-0.wav",
+        "text":  "再走进博客。不只看发布了什么，",
+        "startMs":  20350,
+        "endMs":  24019,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "insight",
+        "rate":  2
+    },
+    {
+        "file":  "insight-1.wav",
+        "text":  "也关心技术的边界，",
+        "startMs":  24099,
+        "endMs":  26228,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "insight",
+        "rate":  2
+    },
+    {
+        "file":  "insight-2.wav",
+        "text":  "以及变化意味着什么。",
+        "startMs":  26308,
+        "endMs":  28446,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "insight",
+        "rate":  2
+    },
+    {
+        "file":  "reading-0.wav",
+        "text":  "从人工智能，到历史、阅读与生活，",
+        "startMs":  29350,
+        "endMs":  32772,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "reading",
+        "rate":  3
+    },
+    {
+        "file":  "reading-1.wav",
+        "text":  "把零散的观察，",
+        "startMs":  32852,
+        "endMs":  34477,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "reading",
+        "rate":  3
+    },
+    {
+        "file":  "reading-2.wav",
+        "text":  "慢慢沉淀成自己的理解。",
+        "startMs":  34557,
+        "endMs":  36817,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "reading",
+        "rate":  3
+    },
+    {
+        "file":  "outro-0.wav",
+        "text":  "记录，连接，持续思考。",
+        "startMs":  38350,
+        "endMs":  41627,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "outro",
+        "rate":  1
+    },
+    {
+        "file":  "outro-1.wav",
+        "text":  "追寻属于自己的北极星。",
+        "startMs":  41707,
+        "endMs":  44432,
+        "timestampMs":  null,
+        "confidence":  null,
+        "scene":  "outro",
+        "rate":  1
+    }
+]
