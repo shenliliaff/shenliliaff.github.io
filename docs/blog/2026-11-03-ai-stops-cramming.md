@@ -1,7 +1,7 @@
 ---
 title: AI 不刷题了，它去造了一只手
 date: 2026-11-03
-time: "07:03"
+writtenAt: "07:03"
 category:
   - 人工智能
 ---

@@ -1,7 +1,7 @@
 ---
 title: 摄像头装了，说好不扣分
 date: 2026-10-30
-time: "06:05"
+writtenAt: "06:05"
 category:
   - 人工智能
 ---

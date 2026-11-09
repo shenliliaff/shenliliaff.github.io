@@ -1,7 +1,7 @@
 ---
 title: 你说不要，他说明年二月再听
 date: 2026-10-31
-time: "07:03"
+writtenAt: "07:03"
 category:
   - 人工智能
 ---

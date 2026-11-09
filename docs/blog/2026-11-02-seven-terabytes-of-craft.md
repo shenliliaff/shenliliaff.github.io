@@ -1,7 +1,7 @@
 ---
 title: 七点七二 TB 的假货，做工比真货还讲究
 date: 2026-11-02
-time: "07:04"
+writtenAt: "07:04"
 category:
   - 人工智能
 ---

@@ -1,7 +1,7 @@
 ---
 title: 它先说了不，然后说了可以
 date: 2026-10-17
-time: "07:06"
+writtenAt: "07:06"
 category:
   - 人工智能
 ---
