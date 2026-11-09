@@ -33,6 +33,11 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-11-08-nvidia-free-endpoint-small-print.html",
   },
   {
+    title: "别问它从哪来的",
+    date: "2026-11-07",
+    url: "/blog/2026-11-07-dont-ask-where-it-came-from.html",
+  },
+  {
     title: "六十六点七分",
     date: "2026-11-07",
     url: "/blog/2026-11-07-sixty-six-point-seven.html",
@@ -43,14 +48,9 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-11-07-it-remembers-you-now.html",
   },
   {
-    title: "别问它从哪来的",
-    date: "2026-11-07",
-    url: "/blog/2026-11-07-dont-ask-where-it-came-from.html",
-  },
-  {
-    title: "能撬开任何门的那台机器，先被发了张门禁卡",
+    title: "让 AI 编一个死亡率",
     date: "2026-11-06",
-    url: "/blog/2026-11-06-the-machine-that-picks-locks.html",
+    url: "/blog/2026-11-06-let-ai-invent-a-death-rate.html",
   },
   {
     title: "一秒七分钱",
@@ -58,9 +58,9 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-11-06-seven-cents-a-second.html",
   },
   {
-    title: "让 AI 编一个死亡率",
+    title: "能撬开任何门的那台机器，先被发了张门禁卡",
     date: "2026-11-06",
-    url: "/blog/2026-11-06-let-ai-invent-a-death-rate.html",
+    url: "/blog/2026-11-06-the-machine-that-picks-locks.html",
   },
   {
     title: "机器人也要上户口，一年最多领到产量的三倍",
@@ -78,14 +78,14 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-11-05-chatgpt-can-make-gifs-now.html",
   },
   {
-    title: "一条没有人写下来的规矩",
-    date: "2026-11-04",
-    url: "/blog/2026-11-04-the-rule-nobody-wrote-down.html",
-  },
-  {
     title: "一个不太敢瞎说的模型",
     date: "2026-11-04",
     url: "/blog/2026-11-04-model-that-stopped-guessing.html",
+  },
+  {
+    title: "一条没有人写下来的规矩",
+    date: "2026-11-04",
+    url: "/blog/2026-11-04-the-rule-nobody-wrote-down.html",
   },
   {
     title: "下午四点五十八，很多人以为自己的手机坏了",
@@ -103,6 +103,11 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-11-03-ai-stops-cramming.html",
   },
   {
+    title: "九十九块的研究员，进门得先递申请",
+    date: "2026-11-02",
+    url: "/blog/2026-11-02-ninety-nine-yuan-researcher.html",
+  },
+  {
     title: "七点七二 TB 的假货，做工比真货还讲究",
     date: "2026-11-02",
     url: "/blog/2026-11-02-seven-terabytes-of-craft.html",
@@ -113,14 +118,14 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-11-02-not-allowed-to-like-you.html",
   },
   {
-    title: "九十九块的研究员，进门得先递申请",
-    date: "2026-11-02",
-    url: "/blog/2026-11-02-ninety-nine-yuan-researcher.html",
-  },
-  {
     title: "给开源盖了个馆，进门二十块",
     date: "2026-11-01",
     url: "/blog/2026-11-01-open-source-with-a-ticket-window.html",
+  },
+  {
+    title: "最后一次上车的机会，打了三三折",
+    date: "2026-11-01",
+    url: "/blog/2026-11-01-last-chance-at-a-discount.html",
   },
   {
     title: "能干的活越来越多，能盯的窗口还是五个",
@@ -128,9 +133,9 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-11-01-only-five-windows.html",
   },
   {
-    title: "最后一次上车的机会，打了三三折",
-    date: "2026-11-01",
-    url: "/blog/2026-11-01-last-chance-at-a-discount.html",
+    title: "Siri 变聪明了，聪明的那部分是千问",
+    date: "2026-10-31",
+    url: "/blog/2026-10-31-apple-intelligence-lands-in-china.html",
   },
   {
     title: "你说不要，他说明年二月再听",
@@ -143,11 +148,6 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-10-31-reddit-closes-the-door.html",
   },
   {
-    title: "Siri 变聪明了，聪明的那部分是千问",
-    date: "2026-10-31",
-    url: "/blog/2026-10-31-apple-intelligence-lands-in-china.html",
-  },
-  {
     title: "电表转得比模型快",
     date: "2026-10-30",
     url: "/blog/2026-10-30-meter-runs-faster-than-model.html",
@@ -156,6 +156,16 @@ export const blogPosts: BlogPost[] = [
     title: "摄像头装了，说好不扣分",
     date: "2026-10-30",
     url: "/blog/2026-10-30-camera-that-cannot-punish.html",
+  },
+  {
+    title: "以后的会还得开，但记录不用出门了",
+    date: "2026-10-29",
+    url: "/blog/2026-10-29-meeting-stays-home.html",
+  },
+  {
+    title: "菜单上有这道菜，服务员说这个不卖",
+    date: "2026-10-29",
+    url: "/blog/2026-10-29-only-on-the-menu.html",
   },
   {
     title: "答对百分之七，剩下九成说不会",
@@ -168,24 +178,14 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-10-29-press-conference-vs-commit.html",
   },
   {
-    title: "菜单上有这道菜，服务员说这个不卖",
-    date: "2026-10-29",
-    url: "/blog/2026-10-29-only-on-the-menu.html",
-  },
-  {
-    title: "以后的会还得开，但记录不用出门了",
-    date: "2026-10-29",
-    url: "/blog/2026-10-29-meeting-stays-home.html",
+    title: "卖铲子的人，给淘金的人投了三十亿",
+    date: "2026-10-28",
+    url: "/blog/2026-10-28-shovel-seller-takes-a-stake.html",
   },
   {
     title: "世界有了声音，桌子没了",
     date: "2026-10-28",
     url: "/blog/2026-10-28-world-that-cannot-remember.html",
-  },
-  {
-    title: "卖铲子的人，给淘金的人投了三十亿",
-    date: "2026-10-28",
-    url: "/blog/2026-10-28-shovel-seller-takes-a-stake.html",
   },
   {
     title: "便宜的那款，危险等级和旗舰一样",
@@ -263,14 +263,14 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-10-19-four-hundred-pages.html",
   },
   {
-    title: "死了六百零五次，那个停止键始终没人按",
-    date: "2026-10-18",
-    url: "/blog/2026-10-18-nobody-pressed-the-stop-button.html",
-  },
-  {
     title: "它把话说短了，账单也跟着短了",
     date: "2026-10-18",
     url: "/blog/2026-10-18-it-talked-less.html",
+  },
+  {
+    title: "死了六百零五次，那个停止键始终没人按",
+    date: "2026-10-18",
+    url: "/blog/2026-10-18-nobody-pressed-the-stop-button.html",
   },
   {
     title: "它先说了不，然后说了可以",
