@@ -2,6 +2,7 @@
 
 这里记录阅读过程中的思考与摘要。
 
+- [纳瓦尔宝典：财富、幸福与人生选择](2026-11-04-the-almanack-of-naval-ravikant.md)
 - [闻香识女人与触不可及：信任与选择](2026-10-21-scent-of-a-woman-and-intouchables.md)
 - [南苏丹内战：本世纪最大规模的战争和屠杀](2026-09-10-south-sudan-civil-war.md)
 - [动物农场：当猪学会站起来](2026-09-09-animal-farm-george-orwell.md)

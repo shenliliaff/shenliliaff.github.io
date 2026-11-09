@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" role="img" aria-labelledby="title description">
+  <title id="title">北极星神经网络</title>
+  <desc id="description">绿色神经网络节点沿着学习路径汇聚至一颗明亮的北极星</desc>
+  <defs>
+    <linearGradient id="path" x1="64" y1="458" x2="584" y2="92" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d9f7e6" stop-opacity="0.25" />
+      <stop offset="0.6" stop-color="#65c18c" stop-opacity="0.72" />
+      <stop offset="1" stop-color="#3eaf7c" />
+    </linearGradient>
+    <radialGradient id="star">
+      <stop stop-color="#fff" />
+      <stop offset="0.25" stop-color="#e9ffb5" />
+      <stop offset="0.55" stop-color="#a7e6c3" stop-opacity="0.7" />
+      <stop offset="1" stop-color="#65c18c" stop-opacity="0" />
+    </radialGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+  <g transform="translate(588 112)" fill="none" stroke="#65c18c" stroke-linecap="round">
+    <circle r="92" stroke-opacity="0.28" stroke-width="1" stroke-dasharray="3 10">
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="18s" repeatCount="indefinite" />
+    </circle>
+    <circle r="112" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="26 18">
+      <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="26s" repeatCount="indefinite" />
+    </circle>
+    <path d="M-125 0h22M103 0h22M0-125v22M0 103v22" stroke-width="2" stroke-opacity="0.45" />
+  </g>
+  <g fill="none" stroke="url(#path)" stroke-linecap="round">
+    <path d="M74 441 165 372 242 402 326 292 421 328 510 206 588 112" stroke-width="3" />
+    <path d="M165 372 182 262 326 292 362 182 510 206" stroke-width="2" stroke-opacity="0.7" />
+    <path d="M242 402 270 474 421 328 492 410 510 206" stroke-width="2" stroke-opacity="0.6" />
+    <path d="M74 441 182 262 362 182 588 112" stroke-width="1.5" stroke-opacity="0.42" stroke-dasharray="5 11">
+      <animate attributeName="stroke-dashoffset" from="0" to="-64" dur="4s" repeatCount="indefinite" />
+    </path>
+    <path d="M74 441 165 372 242 402 326 292 421 328 510 206 588 112" stroke="#e7fff2" stroke-width="3" stroke-dasharray="1 170" stroke-dashoffset="170" opacity="0.9">
+      <animate attributeName="stroke-dashoffset" from="170" to="-170" dur="3.8s" repeatCount="indefinite" />
+    </path>
+  </g>
+  <g fill="#3eaf7c">
+    <circle cx="74" cy="441" r="8" />
+    <circle cx="165" cy="372" r="10"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.6s" repeatCount="indefinite" /></circle>
+    <circle cx="182" cy="262" r="7" />
+    <circle cx="242" cy="402" r="8"><animate attributeName="opacity" values="0.45;1;0.45" dur="2.1s" repeatCount="indefinite" /></circle>
+    <circle cx="270" cy="474" r="6" />
+    <circle cx="326" cy="292" r="11"><animate attributeName="opacity" values="0.55;1;0.55" dur="3s" repeatCount="indefinite" /></circle>
+    <circle cx="362" cy="182" r="8" />
+    <circle cx="421" cy="328" r="10"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite" /></circle>
+    <circle cx="492" cy="410" r="7" />
+    <circle cx="510" cy="206" r="12"><animate attributeName="opacity" values="0.55;1;0.55" dur="2.8s" repeatCount="indefinite" /></circle>
+  </g>
+  <g fill="#a7e6c3">
+    <circle cx="165" cy="372" r="3" />
+    <circle cx="326" cy="292" r="3" />
+    <circle cx="421" cy="328" r="3" />
+    <circle cx="510" cy="206" r="3" />
+  </g>
+  <g transform="translate(588 112)" filter="url(#glow)">
+    <circle r="72" fill="url(#star)">
+      <animate attributeName="r" values="62;78;62" dur="2.8s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" repeatCount="indefinite" />
+    </circle>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="12s" repeatCount="indefinite" />
+      <path d="M0-30 7-7 30 0 7 7 0 30-7 7-30 0-7-7Z" fill="#fff" />
+      <path d="M0-17 4-4 17 0 4 4 0 17-4 4-17 0-4-4Z" fill="#3eaf7c" />
+    </g>
+  </g>
+</svg>

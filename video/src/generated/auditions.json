@@ -1,0 +1,58 @@
+{
+  "xiaoxiao": {
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "audio": "audio/v2/xiaoxiao.mp3",
+    "durationInFrames": 346,
+    "captions": [
+      {
+        "text": "AI新闻每天都在刷。",
+        "startMs": 350,
+        "endMs": 2800,
+        "timestampMs": null,
+        "confidence": null
+      },
+      {
+        "text": "可真要找一条之前看过的消息，又翻不到了。",
+        "startMs": 2800,
+        "endMs": 6700,
+        "timestampMs": null,
+        "confidence": null
+      },
+      {
+        "text": "这个小站，就是想把这些信息整理清楚。",
+        "startMs": 6700,
+        "endMs": 10550,
+        "timestampMs": null,
+        "confidence": null
+      }
+    ]
+  },
+  "xiaoyi": {
+    "voice": "zh-CN-XiaoyiNeural",
+    "audio": "audio/v2/xiaoyi.mp3",
+    "durationInFrames": 350,
+    "captions": [
+      {
+        "text": "AI新闻每天都在刷。",
+        "startMs": 350,
+        "endMs": 2688,
+        "timestampMs": null,
+        "confidence": null
+      },
+      {
+        "text": "可真要找一条之前看过的消息，又翻不到了。",
+        "startMs": 2688,
+        "endMs": 6738,
+        "timestampMs": null,
+        "confidence": null
+      },
+      {
+        "text": "这个小站，就是想把这些信息整理清楚。",
+        "startMs": 6738,
+        "endMs": 10700,
+        "timestampMs": null,
+        "confidence": null
+      }
+    ]
+  }
+}

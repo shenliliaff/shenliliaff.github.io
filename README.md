@@ -19,3 +19,9 @@ pnpm docs:build
 
 - 网站：https://shenliliaff.github.io/
 - 仓库：https://github.com/shenliliaff/shenliliaff.github.io
+
+## 产品介绍视频
+
+发布于 [GitHub Releases：fengsKB 产品介绍视频 V2（晓伊配音）](https://github.com/shenliliaff/shenliliaff.github.io/releases/tag/product-video-v2)，可[直接下载 1080p MP4](https://github.com/shenliliaff/shenliliaff.github.io/releases/download/product-video-v2/fengskb-v2.mp4)。视频约 45 秒，含中文合成旁白与字幕。
+
+独立的 [Remotion 视频工程](video/README.md) 还提供[口播脚本](video/SCRIPT.md)、配音、字幕和原创合成配乐，不影响主站构建与发布。
