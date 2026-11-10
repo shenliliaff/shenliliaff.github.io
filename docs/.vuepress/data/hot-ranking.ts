@@ -65,6 +65,63 @@ export const hotRankingUpdatedAt = "2026-11-10";
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
   {
+    id: "antgroup-lingbot-touch-tactile-1110",
+    title: "蚂蚁灵波把「手感」做成可搬运的 Token：4983 小时触觉数据，26 项真机任务成功率涨 14–26 个百分点，换一只没见过的灵巧手照样好用",
+    summary:
+      "2026 年 11 月 10 日，蚂蚁集团旗下蚂蚁灵波科技（Robbyant）开源触觉基础模型 LingBot-Touch，技术报告、模型权重与代码同步发布在 Hugging Face、GitHub、魔搭社区，代码仓库采用 Apache-2.0。它要解决的是一个很具体的问题：磁触觉、视触觉、压阻式三类主流传感器记录的原始信号长得完全不一样，模型只学会其中一种，换个传感器或换只灵巧手就得重新采数据、重新训，触觉经验搬不走。LingBot-Touch 的做法是按传感原理分设编码入口，把不同布局的触点映射到统一的指尖坐标空间，再由共享的 Haptic Transformer 学习接触位置与受力随时间的变化，输出统一触觉 Token，供不同动作模型调用。预训练语料为 4983 小时真实触觉记录、46.44 万段交互、约 13.3 亿帧（压阻 2197 小时、磁 1136 小时、视触 1650 小时），训练用自监督方式随机遮挡部分触觉信息、让模型据其余触点预测被遮区域特征。验证分两部分：26 项真机任务（Sharpa Wave 20 项、XHand1 6 项，每项 20 次试跑，含拧瓶盖、翻书页、辨识麻将、拉拉链、双手协同）设三组对照——无触觉、直接输入原始触觉信号、接入 LingBot-Touch 特征；四种动作模型（LingBot-VLA、π0.5、Diffusion Policy、T-Rex）平均成功率较无触觉时提升约 14 至 26 个百分点，其中 Sharpa Wave 上 LingBot-VLA 从 45.60% 升到 72.51%，π0.5 从 47.56% 升到 68.58%，XHand1 上 π0.5 从 49.71% 升到 74.17%。最反直觉的一组是拉拉链：π0.5 直接把原始触觉信号喂进去，成功率从 39% 反而掉到 15%，换成统一触觉 Token 后回到 59%。跨硬件验证在 XHand1 上完成——那只手用的磁触觉传感器型号不在预训练数据里、触点布局也与训练设备不同，团队保持 LingBot-Touch 参数不变，只用操作示范训练下游动作模型，成功率仍获提升。工程侧给了两个容量版本：真机测试全部用 546 万参数的 HaT-Tiny，接入 LingBot-VLA 后整体参数量只增约 0.13%；更大的 Small 版在接近 5000 小时数据时仍在涨，而 Tiny 在约 4000 小时后已趋饱和，触觉预训练的天花板尚未公开。官方另给 12 项仿真强化学习任务，称训练更稳更快。",
+    keyPoints: [
+      "11-10 开源 LingBot-Touch：预训练用了 4983 小时真实触觉数据、46.44 万段交互、约 13.3 亿帧，覆盖压阻（2197h）、磁（1136h）、视触（1650h）三类传感器",
+      "26 项真机任务每项跑 20 次，设「无触觉／直接喂原始信号／用它的触觉特征」三组对照，四种动作模型平均成功率提升 14–26 个百分点",
+      "最反直觉的一组：拉拉链时直接输入原始触觉数据，π0.5 成功率从 39% 掉到 15%；换成统一触觉 Token 后回到 59%——传感器没坏，是信号没被翻译",
+      "XHand1 的磁触觉传感器型号不在预训练数据里，LingBot-Touch 参数一个没改，只训下游动作模型，成功率照样涨：手感可以跨硬件搬",
+      "HaT-Tiny 只有 546 万参数，接进 LingBot-VLA 后整体参数只多 0.13%；但 Tiny 在约 4000 小时后趋于饱和、Small 到 5000 小时还在涨，官方没给上限",
+    ],
+    org: "蚂蚁灵波科技（Robbyant）",
+    category: "模型发布",
+    date: "2026-11-10",
+    heat: 70,
+    authority: "official",
+    precision: "exact",
+    sourceName: "蚂蚁灵波官方项目页《LingBot-Touch Tactile Foundation Model》（2026-11-10）",
+    sourceUrl: "https://technology.robbyant.com/lingbot-touch",
+    refs: [
+      {
+        name: "央广网（11-10 15:37，26 项真机测试与开源地址）",
+        url: "https://www.cnr.cn/tech/techph/20261110/t20261110_527868076.shtml",
+      },
+      {
+        name: "新华网上海频道（11-10，拧瓶盖 56.25%→62.5%→90% 对照）",
+        url: "http://sh.news.cn/20261110/b0111d7a4db04d9183f02b720f2c94fe/c.html",
+      },
+      {
+        name: "GitHub 仓库 Robbyant/lingbot-touch（Apache-2.0，最后提交 2026-11-10）",
+        url: "https://github.com/Robbyant/lingbot-touch",
+      },
+    ],
+    article: "/blog/2026-11-10-feel-has-to-be-translated.html",
+  },
+  {
+    id: "siliconflow-wan22-retire-minimax-h3-1110",
+    title: "硅基流动今天下线 Wan2.2 全系与 GLM-5.1，同一天换上 MiniMax-H3，官方写明「没有过渡窗口」",
+    summary:
+      "2026 年 11 月 10 日，硅基流动（SiliconFlow）按 11 月 3 日发布的平台公告执行模型阵容调整：Wan-AI/Wan2.2-T2V-A14B（文生视频）、Wan-AI/Wan2.2-I2V-A14B（图生视频）与聊天模型 Pro/zai-org/GLM-5.1 自当日起不再接受新请求，公告原文明确「没有过渡窗口，请在此日期前迁移」。同日上线 MiniMaxAI/MiniMax-H3，支持文生视频、首帧生视频、尾帧生视频、首尾帧生视频。视频生成 API（/v1/video/submit）同天更新：新增 duration（秒，5 至 15，默认 5）、resolution（480p/768p）、ratio（画幅比例）、images（参考图列表，role 取 first_frame 或 last_frame）四个参数；计费改为按请求时长结算；原先广泛使用的 negative_prompt 与 image_size 两个参数静默失效——传进去不会报错，但会被忽略。这对仍在用 Wan2.2 跑生产任务的开发者是一天之内必须完成的迁移，对用 negative_prompt 压画质问题的人来说，则是那种「代码没报错、结果变了」的坑。",
+    keyPoints: [
+      "11-10 起 Wan2.2 文生视频、图生视频两个模型与 Pro/zai-org/GLM-5.1 停止接受新请求，公告写明「没有过渡窗口」",
+      "同日上线 MiniMaxAI/MiniMax-H3，支持文生、首帧、尾帧、首尾帧四种视频生成模式，承接 Wan2.2 的空位",
+      "/v1/video/submit 新增 duration（5–15 秒，默认 5）、resolution（480p/768p）、ratio、images 参考图四个参数",
+      "计费改为按请求时长结算；negative_prompt 与 image_size 静默失效——传了不报错，但直接被忽略",
+      "公告 11-03 发出、11-10 生效，只给一周迁移期；官方建议 Wan2.2 用户转 MiniMax-H3，GLM-5.1 用户另选聊天模型",
+    ],
+    org: "硅基流动 SiliconFlow",
+    category: "行业动态",
+    date: "2026-11-10",
+    heat: 46,
+    authority: "official",
+    precision: "exact",
+    sourceName: "硅基流动 Release notes《Model Service Adjustment》（2026-11-03 公告，2026-11-10 生效）",
+    sourceUrl: "https://docs.siliconflow.cn/release-notes/overview",
+  },
+  {
     id: "anthropic-fable-mythos-52-1109",
     title: "Anthropic 发 Fable 5.2 与 Mythos 5.2：同一个模型两把锁，快三成、便宜两成，还让一千个智能体跑了八天造出操作系统",
     summary:
