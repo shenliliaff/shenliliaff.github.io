@@ -60,10 +60,78 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-10";
+export const hotRankingUpdatedAt = "2026-11-11";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "google-gemini-4-carbon-ga-1110",
+    title: "Gemini 4 Carbon 今天对全体付费开发者开门：首发价每百万输入 2 美元，官方脚注写明只到 11 月 30 日，12 月 1 日起翻倍",
+    summary:
+      "美东时间 2026 年 11 月 10 日，Google DeepMind 高级副总裁兼首席 AI 架构师 Koray Kavukcuoglu 在官方博客宣布 Gemini 4 Carbon 正式开放：通过 Google AI Studio 的 Gemini API（模型 ID gemini-4-carbon）与 Gemini for business 面向所有付费开发者和企业开放，同时向 Google AI Ultra 订阅用户推送至 Gemini 应用、搜索中的 AI Mode 与 Google Antigravity。免费用户与低档订阅用户「何时能用、能不能用」，官方没有给时间表。Carbon 于 10 月 28 日首次公布，此前两周只通过 Fairwind 计划给小部分网络安全防御机构使用。定价是这次最硬的一条：首发价与上一代 Gemini 4 Argon 持平，每百万输入 token 2 美元、每百万输出 token 10 美元，但官方脚注 [1] 明确写着「优惠期于 2026 年 11 月 30 日到期，此后适用每百万输入 4 美元、每百万输出 20 美元」，即 12 月 1 日起价格翻倍，且该价格仅适用于面向公众开放的 Carbon。谷歌同时说明 Carbon 与 Argon 的分工：Argon 仍是大多数软件工程与知识工作的选择，Carbon 专为「考验模型智能上限」的任务而生，比如复杂多步编码调试与开放式科研，代价是「比 Argon 消耗更多 token」去做深度探索、推理与扩展验证循环。基准方面谷歌称 Carbon 在 CursorBench 4.0、Perplexity WANDR 与 Zapier AutomationBench 三项独立评测中均列第一，单任务成本比表现次优的外部模型低 2 倍以上；与 Artificial Analysis 合作新建的多模态知识智能体基准 MKA 上 Carbon 列第二，平均单任务成本比第一名低 6 倍以上。安全侧数据：SEC-bench Pro 漏洞发现 88.2%、ExploitGym 漏洞利用 54.8%、CWE-bench 漏洞修复 71.0%，GraySwan 间接提示词注入（IPI）基准攻击成功率 0%，官方同时承认面对部分分布中的复杂攻击防护仍需改进。上下文窗口 1,048,576 token，标准同步请求最大输出 65,536 token，支持 low/medium/high 三档推理强度。配套在 Antigravity 预览 /swarm：一句提示词转成一支可实时追踪的协同智能体团队，Carbon 被分配做架构设计、协调与审计，轻量模型与对抗性验证器在并行隔离工作区里跑。研究者另可申请最高配额的 Argon 与 Carbon 六个月免费使用权，此前该计划已向 1 万名科学家开放 Argon。",
+    keyPoints: [
+      "11-10 起 Gemini 4 Carbon 向所有付费开发者、企业客户与 Google AI Ultra 用户开放；免费用户和低档订阅「何时能用、能否用」，官方没给时间表",
+      "首发价每百万输入 2 美元、输出 10 美元，与 Argon 同价；官方脚注写明优惠 11-30 到期，12-01 起变 4 美元/20 美元，翻一倍",
+      "官方自己承认 Carbon 比 Argon「消耗更多 token」去做深度探索与扩展验证——单价便宜一半，账单不一定便宜",
+      "CursorBench 4.0、Perplexity WANDR、Zapier AutomationBench 三项第一且单任务成本比次优低 2 倍以上；新 MKA 榜第二但平均单任务成本低 6 倍以上",
+      "Antigravity 预览 /swarm：一句提示词变成一支并行协同的智能体团队；研究者可申请 Argon 与 Carbon 六个月免费额度，该计划此前已开放给 1 万名科学家",
+    ],
+    org: "Google DeepMind",
+    category: "模型发布",
+    date: "2026-11-10",
+    heat: 90,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google 官方博客《Gemini 4 Carbon is now available》（2026-11-10）",
+    sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+    refs: [
+      {
+        name: "The Verge（11-10，定价翻倍与免费用户未明）",
+        url: "https://www.theverge.com/ai-artificial-intelligence/1030787/google-gemini-4-carbon-public-rollout",
+      },
+      {
+        name: "凤凰网科技（11-11，脚注与 12-01 调价、ARC Prize 评测成本 7200 美元）",
+        url: "https://news.qq.com/rain/a/20261111A034RR00",
+      },
+    ],
+    article: "/blog/2026-11-11-two-dollars-then-four.html",
+  },
+  {
+    id: "anthropic-claude-meetings-office-suite-1110",
+    title: "Anthropic 在 IPO 路演当天发 Claude 办公套件：白板、表格、数据都能用，最响的 Claude Meetings 却还写着「即将上线」",
+    summary:
+      "美东时间 2026 年 11 月 10 日，Anthropic 在旧金山的一场活动上把 Claude 从编程工具推向普通办公室：Claude Whiteboards 与 Claude Sheets 以 beta 形式向所有付费套餐开放（网页、桌面、移动端），10 月以 beta 亮相的 Claude Dashboards 正式更名 Claude Data 并转为正式可用，交互式连接器也做了升级，可以把 Adobe、Atlassian、Box、Notion、HubSpot 等应用整块开在对话旁边或全屏里，边聊边改。这三样当天就能用。而会上最受关注、媒体标题里排第一的 Claude Meetings，公告口径是「即将上线」：帮助中心给出的只是 Team 与 Enterprise 套餐在 Google Meet 上的实时白板 beta，Microsoft Teams 与 Zoom 均不支持。边界写得比功能还细：Claude 入会要自报身份并在会议聊天里发公告；有外部嘉宾的会议，未经管理员授权它不加入；外部嘉宾一旦进来，它自动退场。管理员默认值也分套餐：Team 三项全开；Enterprise 的白板与表格默认关闭，Claude Data 要到 11 月 19 日才默认开启。Anthropic 产品负责人 Nicholas Lin 对媒体说得更直白：Claude Sheets 目前「相当基础」，不以财务建模这类复杂任务为目标，复杂场景建议用他们给现有表格软件做的插件——需要完整 Excel 功能就导出 .xlsx 或 CSV。也就是说，这一轮不是重做一个 Office，而是把 9000 多个连接器与插件收进同一个对话框，把 Claude 变成入口。市场先按「替代」定价：发布后周二美股午盘，微软股价跌幅陡然扩大，盘中一度跌超 3%。同一天，Anthropic 正式启动 IPO 路演。官方案例侧给的数字集中在重复劳动：法务团队把营销材料审核从 3 天压到 24 小时，客户 Advantage Solutions 的财务团队把每轮预测的材料准备从约 10 小时压到 30 分钟以内。",
+    keyPoints: [
+      "11-10 旧金山活动：Claude Whiteboards 与 Claude Sheets 以 beta 向所有付费套餐开放，Claude Data（原 Dashboards）转正式可用——这三样当天能用",
+      "最响的 Claude Meetings 仍是「即将上线」：帮助中心只给 Team/Enterprise 在 Google Meet 上的实时白板 beta，Teams 与 Zoom 都不支持",
+      "入会边界写得很细：Claude 自报身份并在聊天里公告；有外部嘉宾未经管理员授权不加入，嘉宾一进来它自动退场",
+      "产品负责人自己说 Sheets「相当基础」，复杂财务建模建议用他们的 Excel 插件；Enterprise 默认关白板与表格，Data 到 11-19 才默认开",
+      "发布当天微软盘中一度跌超 3%，但 Anthropic 卖的是「把 9000 多个插件搬进一个对话框」的入口，不是重做一个 Excel",
+    ],
+    org: "Anthropic",
+    category: "产品发布",
+    date: "2026-11-10",
+    heat: 84,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Claude 官方《Introducing Claude Whiteboards, Claude Sheets, and Claude Data》（2026-11-10）",
+    sourceUrl: "https://claude.com/resources/articles/sheets-whiteboards-data",
+    refs: [
+      {
+        name: "TechCrunch（11-10，Meetings 为 beta、仅 Google Meet、外部嘉宾自动退出）",
+        url: "https://techcrunch.com/2009/05/13/2009-the-year-of-the-3d-film",
+      },
+      {
+        name: "财联社（11-11，微软盘中跌超 3%、Nicholas Lin「相当基础」原话、9000 多个连接器）",
+        url: "https://so.html5.qq.com/page/real/search_news?docid=70000021_7006af3658261552",
+      },
+      {
+        name: "Unite.AI（11-10，Meetings 整体标即将上线、白板 beta 属 Team/Enterprise）",
+        url: "https://www.unite.ai/anthropic-announces-claude-meetings-with-a-google-meet-whiteboard-beta/",
+      },
+    ],
+    article: "/blog/2026-11-11-the-loudest-thing-is-coming-soon.html",
+  },
   {
     id: "antgroup-lingbot-touch-tactile-1110",
     title: "蚂蚁灵波把「手感」做成可搬运的 Token：4983 小时触觉数据，26 项真机任务成功率涨 14–26 个百分点，换一只没见过的灵巧手照样好用",
