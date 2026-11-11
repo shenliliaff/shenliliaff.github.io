@@ -65,6 +65,81 @@ export const hotRankingUpdatedAt = "2026-11-11";
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
   {
+    id: "eu-digital-fairness-act-1111",
+    title: "欧盟今天把「关掉按钮」写进提案：成瘾设计用户可关，谎称「只剩 1 件」直接算违法，罚则最高全球年营业额 6%",
+    summary:
+      "2026 年 11 月 11 日，欧盟委员会在布鲁塞尔公布《数字公平法案》（Digital Fairness Act，DFA）提案，同时提出《消费者保护合作条例》（CPC 条例）修订提案与《消费者权利指令》简化修订，合称消费者一揽子计划；委员会称这是 20 多年来欧盟消费者保护规则最大的一次改革。DFA 的核心是把 2005 年《不公平商业行为指令》升格为在成员国直接适用的条例，并补上数字场景条款：消费者有权关闭鼓励过度或强迫性使用的成瘾性设计功能（官方问答举的例子是视频自动播放、与该服务上自身活动无直接关系的通知，发布会上另提「无休止滚动」）；重写「在任何情况下均属不公平」的黑名单，把谎称即将售罄（只剩 1 件、还有 5 位顾客在关注这件商品）、羞辱式挽留（我们很难过看到你离开、我不喜欢好价按钮）、预勾选框与自动加购列为违法，监管机构无需再逐案证明损害；虚拟应用内货币须标明真实货币价格，未成年人账户默认关闭虚拟货币，抽奖箱与付费获胜、付费推进对未成年人禁止；动态定价与虚拟排队须实时显示当前价格与最高可能价格，禁止把附加费藏到结账环节的 drip pricing；订阅须提供简单明确的取消入口，免费试用转付费前须取得主动确认、自动续费前须提醒，合同履行出问题消费者有权联系真人客服；针对未成年人的个性化广告禁令与敏感数据定向禁令从只管在线平台扩展到所有网站与 App，并禁止向未成年人及弱势消费者展示更高的个性化价格。委员会影响评估称这些规定预计每年为欧盟消费者省下最多 137 亿欧元。执法侧另有安排：同步提出的 CPC 条例修订拟授权委员会在影响至少三分之二成员国、覆盖至少三分之二欧盟人口的跨成员国大案中直接调查并罚款，上限为企业全球年营业额的 6%，门槛之一是涉事公司不属于中小企业；非欧盟企业须在欧盟指定法律代表。值得注意的是，AI 陪伴与聊天机器人并未出现在 DFA 的可关清单里——官方问答提到这两个词的位置是解释 DFA 与《欧盟儿童法案》（EU KIDS Act）的关系，后者才对社交媒体、视频分享平台、网络游戏、AI 陪伴与聊天机器人提出安全设计要求，保护对象是未成年人；DFA 里另一处与 AI 直接相关的条款，是消费者用 AI 代理代为购物时享有的明确权利。提案接下来须由欧洲议会与理事会审议，条款仍可能修改。",
+    keyPoints: [
+      "11-11 布鲁塞尔公布：可关的是官方列举的自动播放、与该服务上自身活动无关的通知，发布会另提无休止滚动；媒体标题里的「AI 陪伴」并不在 DFA 的可关清单上",
+      "黑名单直接点名商家文案：只剩 1 件、还有 5 位顾客在关注、我们很难过看到你离开、我不喜欢好价按钮、预勾选加购，一律认定为任何情况下都不公平，不必再证明损害",
+      "订阅与试用这几条最贴体感：须有一键取消、试用转付费前主动确认、续费前提醒，合同出问题时消费者有权找真人客服",
+      "罚款最高全球年营业额 6%，但这条在同步提出的 CPC 条例修订里，且有门槛：影响至少三分之二成员国、至少三分之二欧盟人口、涉事公司非中小企业",
+      "官方算账每年给欧盟消费者省最多 137 亿欧元；提案仍须欧洲议会与理事会审议，AI 陪伴的强制安全设计目前写在只管未成年人的 EU KIDS Act 里",
+    ],
+    org: "欧盟委员会（European Commission）",
+    category: "行业动态",
+    date: "2026-11-11",
+    heat: 84,
+    authority: "official",
+    precision: "exact",
+    sourceName: "欧盟委员会新闻稿 IP/26/2407《Commission strengthens consumer protection laws, making them fit for the digital age》（2026-11-11）",
+    sourceUrl: "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2407",
+    refs: [
+      {
+        name: "欧盟委员会问答 QANDA/26/2408《Questions and answers on the Consumer Package》（11-11，黑名单原话与成瘾设计举例）",
+        url: "https://ec.europa.eu/commission/presscorner/detail/en/qanda_26_2408",
+      },
+      {
+        name: "路透社（11-11，麦格拉斯发布会与 6% 罚款）",
+        url: "https://live.euronext.com/en/financial-news/eu-threatens-significant-fines-unfair-online-trade-practices",
+      },
+      {
+        name: "法新社（11-11，暗黑模式清单、未成年人虚拟货币、真人客服）",
+        url: "https://www.afp.com/en/eu-make-addictive-app-features-easier-switch",
+      },
+      {
+        name: "腾讯新闻转 IT之家（11-11 晚间，彭博口径「AI 聊天机器人也可能被限制」）",
+        url: "https://news.qq.com/rain/a/20261111A0D8ZE00",
+      },
+    ],
+    article: "/blog/2026-11-11-the-robot-is-not-on-the-list.html",
+  },
+  {
+    id: "qwen4-max-preview-token-plan-1111",
+    title: "Qwen4-Max 预览版今天上午 10 点上线，只活到 11 月 25 日：积分 2 折、夜里 0.8 折，正式版的参数与价格一个都没给",
+    summary:
+      "2026 年 11 月 11 日，阿里千问方面宣布新一代大模型 Qwen4 即将发布，同日旗舰版 Qwen4-Max 的预览版首发上线千问 AI 平台 Token Plan，并接入千问办公、Qoder、千问 APP 与 QwenStudio。阿里云百炼帮助中心的 Token Plan 文档把预览权益写得比公告清楚得多：模型 ID 为 qwen4-max-preview（别名 qwen4.0-max-preview，两个 ID 均可调用，账单统一显示后者），预览期为 2026 年 11 月 11 日 10:00 至 11 月 25 日 24:00（UTC+8），期间模型不做变更，预览结束后该模型下线；限时活动期间 Credits 消耗低至 2 折，相当于用量翻 5 倍，每晚 22:00 至次日 08:00 再享 4 折，即原标准的 0.8 折。官方对能力的说法只到定性一层：知识理解更深入、世界感知更立体、Coding 与 Agentic 能力持续进阶，能覆盖复杂编程、专业办公、前端设计、专业软件操作等真实任务；参数规模、上下文窗口、训练数据、评测分数、API 单价与是否开源，一律未披露。由于预览版结束后模型标识会下线、正式版将以新的模型名发布，接入方需要预留改配置的工作量。",
+    keyPoints: [
+      "11-11 10:00 起 qwen4-max-preview 在千问 Token Plan 上线，预览期到 11-25 24:00（UTC+8），期间不做变更，结束后该模型 ID 下线",
+      "个人版与团队版都是 Credits 2 折（相当于用量 5 倍），每晚 22:00 至次日 08:00 再享 4 折，即原标准的 0.8 折",
+      "同步接入千问办公、Qoder、千问 APP、QwenStudio；别名 qwen4.0-max-preview，两个 ID 都能调，账单统一显示别名",
+      "官方只给定性描述：知识理解、世界感知、Coding 与 Agentic 进阶；参数规模、上下文、评测分数、API 价格、是否开源均未披露",
+      "这是「即将发布」之前的预览版：正式版会换新模型名，接入方得预留改配置的工作量，不适合直接扛线上业务",
+    ],
+    org: "阿里云千问（Qwen）",
+    category: "模型发布",
+    date: "2026-11-11",
+    heat: 74,
+    authority: "official",
+    precision: "exact",
+    sourceName: "阿里云百炼帮助中心《Token Plan（个人版）·支持的模型》（2026-11-11 更新）",
+    sourceUrl: "https://help.aliyun.com/zh/model-studio/token-plan-personal-overview",
+    refs: [
+      {
+        name: "千问 AI 平台公众号（11-11，Qwen4-Max 预览版首发 Token Plan、限时 2 折）",
+        url: "http://mp.weixin.qq.com/s?__biz=MzIzOTU0NTQ0MA==&mid=2247562678&idx=1&sn=4bca2da2340d7065386940ee76a34d51",
+      },
+      {
+        name: "上海证券报·中国证券网（11-11，官方宣布 Qwen4 即将发布）",
+        url: "https://www.cnstock.com/commonDetail/826985",
+      },
+      {
+        name: "凤凰网科技（11-11，参数、上下文、价格、开源均未披露）",
+        url: "https://news.qq.com/rain/a/20261111A05I0W00",
+      },
+    ],
+  },
+  {
     id: "google-gemini-4-carbon-ga-1110",
     title: "Gemini 4 Carbon 今天对全体付费开发者开门：首发价每百万输入 2 美元，官方脚注写明只到 11 月 30 日，12 月 1 日起翻倍",
     summary:
