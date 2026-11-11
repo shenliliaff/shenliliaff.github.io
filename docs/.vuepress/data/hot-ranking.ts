@@ -60,10 +60,79 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-11";
+export const hotRankingUpdatedAt = "2026-11-12";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-q3-revenue-10b-loss-10-9b-1111",
+    title: "OpenAI 三季度收 100 亿美元、亏 109 亿：营业亏损第一次大过收入；对手 Anthropic 收 170 亿只亏 5.67 亿",
+    summary:
+      "《华尔街日报》2026 年 11 月 11 日独家报道，OpenAI 于周二（11 月 10 日）向投资者披露了三季度业绩：营收从二季度的约 67 亿美元增至 100 亿美元，环比增长近 50%，约为上年同期的 2.6 倍，是单季首次突破百亿美元；但营业亏损从 101 亿美元扩大到 109 亿美元，亏损额首次超过当季收入。经调整后的营业利润率从二季度的 -150% 改善至 -109%，说明收入增速已经快过亏损扩张速度，但绝对亏损仍在走高。截至 9 月底，OpenAI 年化营收约 500 亿美元，付费用户超过 1 亿，周活跃用户 12 亿；企业业务三季度环比翻倍，目前企业与消费者业务各贡献约一半营收。作为对照，正在冲刺 IPO 的 Anthropic 三季度营收约 170 亿美元、营业亏损仅 5.67 亿美元，收入比 OpenAI 多七成、亏损只有对方的 1/19；但两家口径不同，Anthropic 把云合作伙伴产生的销售额计入营收，OpenAI 只计归属于自身的那部分。另据彭博社 11 月 11 日报道，OpenAI 正在以 1.25 万亿美元估值进行新一轮融资，首期 110 亿美元已到账，上市计划已推迟到明年；台积电同日表示，两家公司上市后将合计投资最多 10 亿美元。",
+    keyPoints: [
+      "三季度营收 100 亿美元、环比近 +50%、同比约 2.6 倍，单季首破百亿；年化营收约 500 亿美元",
+      "营业亏损从 101 亿扩至 109 亿美元，首次超过当季收入；经调整营业利润率 -150% → -109%，亏损仍在扩大但速度慢于收入",
+      "对照 Anthropic：三季度营收约 170 亿、营业亏损 5.67 亿；但 Anthropic 把云伙伴销售额计入营收，OpenAI 只计自有份额，两者不可直接比",
+      "付费用户破 1 亿、周活 12 亿，企业业务三季度环比翻倍，企业与消费各占一半营收",
+      "新一轮融资估值 1.25 万亿美元、首期 110 亿美元已到账，IPO 推迟到明年；台积电称两家上市后合计投资最多 10 亿美元",
+    ],
+    org: "OpenAI",
+    category: "行业动态",
+    date: "2026-11-11",
+    heat: 88,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "《华尔街日报》独家报道（2026-11-11 晨间简报，引 OpenAI 向投资者披露的文件；非官方公告）",
+    sourceUrl:
+      "https://www.wsj.com/podcasts/minute-briefing/openai-continues-to-suffer-heavy-losses-despite-revenue-growth/C8EC7F1C-A4D5-416D-B221-512616C0E997",
+    refs: [
+      {
+        name: "参考消息网（11-11，营收 +50%、利润率 -150%→-109%、亏损 101→109 亿）",
+        url: "https://news.qq.com/rain/a/20261111A0ECN400",
+      },
+      {
+        name: "凤凰网科技（11-12，二季度约 67 亿、同比 2.6 倍、ARR 500 亿、付费用户 1 亿、统计口径差异）",
+        url: "https://news.qq.com/rain/a/20261112A030XG00",
+      },
+      {
+        name: "中新经纬（11-11，Anthropic 三季度 170 亿/亏 5.67 亿、估值 1.25 万亿、首期 110 亿）",
+        url: "https://www.jwview.com/jingwei/html/11-11/696522.shtml",
+      },
+    ],
+    article: "/blog/2026-11-12-one-hundred-in-two-hundred-and-nine-out.html",
+  },
+  {
+    id: "google-gemini-decisions-api-1111",
+    title: "谷歌今天发了个不写答案的模型：一次前向答 1000 道是/否题，150 毫秒，输出 token 免费——因为它不输出",
+    summary:
+      "2026 年 11 月 11 日（美国时间，北京时间已是 12 日凌晨），Google DeepMind 在官方博客发布 Gemini Decisions API，由新模型 Gemini Decision 1（模型 ID gemini-decision-1）提供能力，已在 Google AI Studio 的 Gemini API 上线，另有 OpenRouter、LangChain、Vercel、LiteLLM、Pydantic AI、Pipecat、LiveKit、OpenCode 等集成陆续铺开，Google Cloud 侧标注为「即将支持」。它不逐 token 生成文本，而是在一次前向计算里对你给的封闭问题打分，返回概率与 0—1 的置信度：单次请求可携带最多 256K token 的混合输入（文本、图像、音频、视频、PDF），并挂最多 1000 道问题；题型三种——noul（是/否，返回概率）、choice（2 至 255 个选项，返回胜出项与每个候选的归一化概率）、score（按有序评分标准返回连续加权分与各档概率）。官方给的端到端延迟是 150—250 毫秒，16K 上下文以内模型计算中位数 50—100 毫秒，且从 1 道题到 100 道题延迟几乎不变。定价每百万输入 token 0.10 美元、输出 token 不计费（按输入计一次，挂多少道题都只算一次），AI Studio 另有免费试用额度；谷歌称在共享基准集上比走 Interactions API 的 Gemini 3.5 Flash-Lite 便宜近 5 倍。官方点明的四类用途是工具选择、策略检查、模型路由与上下文分级，并披露四个内部落地：Gemini Notebook 用它做实时路由，把日常查询延迟降低最多 40%；Stitch 的快速画布用它秒出可点原型；Google Labs 的 CC 用它从 200 多个表情里挑一个；Google 搜索用它给 MCP 工具做对抗性行为的安全闸门。",
+    keyPoints: [
+      "11-11 发布 Gemini Decision 1 与 Decisions API：不生成文本，只在一次前向里对封闭问题打分，返回概率 + 0—1 置信度",
+      "一次请求最多 256K token 混合输入（文本/图像/音频/视频/PDF）+ 最多 1000 道题；题型为是/否、2—255 选项、有序评分三种",
+      "端到端 150—250 毫秒，16K 以内计算中位数 50—100 毫秒，题量从 1 到 100 延迟几乎不变",
+      "每百万输入 token 0.10 美元、输出不计费（同一输入只计一次），AI Studio 有免费额度；谷歌称比 Gemini 3.5 Flash-Lite 走 Interactions API 便宜近 5 倍",
+      "四类用途是工具选择、策略检查、模型路由、上下文分级；内部已用于 Gemini Notebook 路由（日常查询延迟降最多 40%）、Stitch 原型、CC 选表情、搜索 MCP 安全闸门；Google Cloud 侧标注即将支持",
+    ],
+    org: "Google DeepMind",
+    category: "模型发布",
+    date: "2026-11-11",
+    heat: 79,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google 官方博客《Gemini Decisions API: Fast, calibrated multimodal decisions》（2026-11-11）",
+    sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+    refs: [
+      {
+        name: "DEV Community 摘要（11-11，定价、延迟、题型、内部用例逐条转述）",
+        url: "https://dev.to/delimitter/google-introduces-gemini-decisions-api-that-scores-1000-closed-set-choices-in-a-single-pass-56om",
+      },
+      {
+        name: "automater.ai（11-11，作者 Min Choi / Felix Yu、Artificial Analysis Decision Index 66 分、Google Cloud 尚未可用）",
+        url: "https://automater.ai/news/google-gemini-decisions-api-gemini-decision-1",
+      },
+    ],
+    article: "/blog/2026-11-12-the-model-that-only-says-yes-or-no.html",
+  },
   {
     id: "eu-digital-fairness-act-1111",
     title: "欧盟今天把「关掉按钮」写进提案：成瘾设计用户可关，谎称「只剩 1 件」直接算违法，罚则最高全球年营业额 6%",
