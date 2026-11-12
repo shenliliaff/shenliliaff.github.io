@@ -13,6 +13,16 @@ export interface BlogPost {
 /** 全部文章，按日期降序（最新在最前） */
 export const blogPosts: BlogPost[] = [
   {
+    title: "你不用挑模型了，谷歌替你挑",
+    date: "2026-11-13",
+    url: "/blog/2026-11-13-you-dont-pick-the-model.html",
+  },
+  {
+    title: "他们开始问，你的股东是谁",
+    date: "2026-11-13",
+    url: "/blog/2026-11-13-who-owns-you.html",
+  },
+  {
     title: "给 Token 按个手印",
     date: "2026-11-12",
     url: "/blog/2026-11-12-give-the-token-a-fingerprint.html",
