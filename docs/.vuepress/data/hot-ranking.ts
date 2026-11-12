@@ -60,10 +60,75 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-12";
+export const hotRankingUpdatedAt = "2026-11-13";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "anthropic-supported-regions-policy-1112",
+    title: "Anthropic 新地区政策 11-12 生效：不只看你在哪，还看你归谁——被不支持地区主体多数控股的公司一律不能用 Claude",
+    summary:
+      "Anthropic 官网《支持地区政策》（Supported Regions Policy）标注生效日 2026 年 11 月 12 日，覆盖 Claude.ai、Claude Code、Cowork、API 与开发者平台，以及通过云平台和授权经销商提供的 Claude 模型。新版权次把「什么算在不支持地区使用」写成三条：一是人实际身处不支持地区，即使受雇于受支持地区的机构；二是在不支持地区注册或设总部的实体及其人员，人不在当地也算；三是由不支持地区的人或实体直接、间接多数持股或控制的实体及其人员，公司注册在哪、人在哪都不算数。第三条是这次真正的变化——管控从 IP 位置、注册地往上一路穿到股权与控制关系，靠海外子公司或第三地主体做隔离的路径被堵。官方名单里没有中国大陆、香港、澳门，也没有俄罗斯；名单含 190 多个国家和地区，另注属地随所属国一并支持，乌克兰一项除外五个地区。政策页本身只给名单与三条禁止情形，未写检测手段与账号处置方式；封号、留存、转售等执行细节见 Anthropic 其他法律文件与媒体披露。",
+    keyPoints: [
+      "生效日 2026-11-12，覆盖 Claude.ai、Claude Code、Cowork、API/开发者平台，以及云平台与授权经销商渠道的 Claude 模型",
+      "三条禁止情形：人在不支持地区；实体在不支持地区注册或设总部；实体被不支持地区主体直接或间接多数持股/控制——后两条均写明「无论个人身处何处」",
+      "官方支持名单约 190 多个国家和地区，不含中国大陆、香港、澳门与俄罗斯；名单未就历史用户的数据与退款给过渡安排",
+      "政策页只列名单与三条情形，未写检测与处置；据 21 世纪经济报道，另有 30 天安全监控数据留存、禁止消费级订阅转发与转售代理",
+      "时点卡在 IPO 路演中：11-18 定价、11-19 以代码 ANT 挂牌；招股书披露前 9 个月约 5%–7% 营收来自事后被认定违规的客户（按 331 亿美元营收估算约 16.55 亿–23.17 亿美元）",
+    ],
+    org: "Anthropic",
+    category: "行业动态",
+    date: "2026-11-12",
+    heat: 86,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic《支持地区政策》官方页（Effective Nov 12, 2026）",
+    sourceUrl: "https://www.anthropic.com/supported-countries",
+    refs: [
+      {
+        name: "21 世纪经济报道（11-12 21:05，三类禁止情形解读、30 天数据留存、封号与申诉数据、IPO 时间表）",
+        url: "https://finance.sina.com.cn/roll/2026-11-12/doc-iniyntut1152832.shtml",
+      },
+      {
+        name: "链捕手（11-12，政策版本与生效日、覆盖范围）",
+        url: "https://uat2049.chaincatcher.info/en/article/2303466",
+      },
+    ],
+    article: "/blog/2026-11-13-who-owns-you.html",
+  },
+  {
+    id: "google-gemini-4-hydrogen-1112",
+    title: "谷歌发 Gemini 4 Hydrogen：1.5/7.5 美元、100 万上下文一口价，免费用户在 Gemini 里是被「自动选中」而不是自己挑",
+    summary:
+      "Google 于 2026 年 11 月 12 日（美东）发布 Gemini 4 Hydrogen，作者署名为 Google DeepMind 高级副总裁、首席 AI 架构师 Koray Kavukcuoglu。定位是 Gemini 4 系列里的「快速执行层」，接替 Gemini 3.8 Flash 的位置，同时把 Gemini 4 下放到所有层级：Gemini API、AI Studio、Android Studio、Gemini for business、Gemini app、Google 搜索，以及付费 Pro/Ultra 用户在 Antigravity 里可用。价格 1.50 美元/百万输入 token、7.50 美元/百万输出 token，且整个 100 万 token 上下文窗口统一计价、不分段阶梯。基准上，Artificial Analysis 智能指数默认 high 思考档 51 分，超过同门旗舰 Argon 的 50 分，xhigh 档到 54；对比 3.8 Flash，同档位完成任务快 2.5 倍，Terminal-Bench 4.1 从 18.2% 升到 57%，虚构陈述减少 5 倍以上。四档思考深度 low/medium/high（默认）/xhigh，原生 100 万 token 输入、最高 100 万 token 输出。同日在 Antigravity 推出 Orchestrator：同一会话里在 Carbon 与 Hydrogen 之间动态切换，Terminal-Bench 4.0 上接近 Carbon 的任务成功率，配额少用 24%、快 19%。一个容易被忽略的细节在脚注：Gemini app 的免费用户不是「可以选择 Hydrogen」，而是在自动模型选择判定合适时被调用。",
+    keyPoints: [
+      "2026-11-12（美东）发布，Google DeepMind 署名 Koray Kavukcuoglu；Gemini API、AI Studio、Android Studio、Gemini for business、Gemini app、Google 搜索、Antigravity 全球上线",
+      "定价 1.50/7.50 美元每百万 token，整个 100 万 token 上下文一口价不分段；比 11-10 的 Carbon（2/10 美元、12-01 起翻倍至 4/20）低一档",
+      "Artificial Analysis 智能指数默认 high 档 51 分，超 Argon 的 50，xhigh 档 54；对比 3.8 Flash 速度快 2.5 倍、Terminal-Bench 4.1 从 18.2% 升至 57%、虚构陈述减 5 倍以上",
+      "免费用户拿到的不是选择权：官方脚注写明 Gemini app 免费用户经「自动模型选择」在合适时被调用；搜索端所有用户可用，Sheets 内仅 Pro/Ultra",
+      "Antigravity 新增 Orchestrator：Carbon 当协调者、Hydrogen 当工人与校验者，Terminal-Bench 4.0 接近 Carbon 成功率、配额少 24%、快 19%；安全侧称智能体越权减 81%、诚实度 96.7%",
+    ],
+    org: "Google DeepMind",
+    category: "模型发布",
+    date: "2026-11-12",
+    heat: 84,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google 官方博客（2026-11-12，Koray Kavukcuoglu 署名）",
+    sourceUrl:
+      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+    refs: [
+      {
+        name: "IT之家（11-13 05:23 起，价格、基准、四档思考深度、Orchestrator 数据）",
+        url: "https://news.qq.com/rain/a/20261113A01Y1900",
+      },
+      {
+        name: "华尔街见闻（11-13，弃用 Flash 命名、免费用户自动选择、Orchestrator 24%/19%）",
+        url: "https://www.163.com/dy/article/LBJEMNTO05198NMR.html",
+      },
+    ],
+    article: "/blog/2026-11-13-you-dont-pick-the-model.html",
+  },
   {
     id: "baidu-wordyuan-token-exchange-1112",
     title: "百度把 Token 摆上柜台：词元所 11-12 正式上线，验模型指纹、给供应商发信用分，同一款模型最多 12 家卖家同台比价",
