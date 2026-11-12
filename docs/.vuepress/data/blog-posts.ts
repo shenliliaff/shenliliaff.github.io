@@ -13,6 +13,11 @@ export interface BlogPost {
 /** 全部文章，按日期降序（最新在最前） */
 export const blogPosts: BlogPost[] = [
   {
+    title: "给 Token 按个手印",
+    date: "2026-11-12",
+    url: "/blog/2026-11-12-give-the-token-a-fingerprint.html",
+  },
+  {
     title: "收一百亿，花两百零九亿",
     date: "2026-11-12",
     url: "/blog/2026-11-12-one-hundred-in-two-hundred-and-nine-out.html",
