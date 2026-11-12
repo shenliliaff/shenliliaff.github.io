@@ -6,8 +6,8 @@
     <link>https://ai.upcloudtech.cn/</link>
     <description>fengsKB 个人知识库</description>
     <language>zh-CN</language>
-    <pubDate>Thu, 12 Nov 2026 13:08:13 GMT</pubDate>
-    <lastBuildDate>Thu, 12 Nov 2026 13:08:13 GMT</lastBuildDate>
+    <pubDate>Thu, 12 Nov 2026 23:09:57 GMT</pubDate>
+    <lastBuildDate>Thu, 12 Nov 2026 23:09:57 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>人工智能</category>
@@ -25,6 +25,82 @@
 <p>| 用途 | 地址 | 托管 |
 |</p>
 ]]></content:encoded>
+    </item>
+    <item>
+      <title>他们开始问，你的股东是谁</title>
+      <link>https://ai.upcloudtech.cn/blog/2026-11-13-who-owns-you.html</link>
+      <guid>https://ai.upcloudtech.cn/blog/2026-11-13-who-owns-you.html</guid>
+      <source url="https://ai.upcloudtech.cn/rss.xml">他们开始问，你的股东是谁</source>
+      <description>他们开始问，你的股东是谁 2026-11-13 · 人工智能 会议室里摊开的股权结构图会议室里摊开的股权结构图 11 月 12 日起，Anthropic 新版《支持地区政策》生效。我昨晚看到这条消息，第一反应不是&amp;quot;又封号了&amp;quot;，而是——他们开始查股东了。 政策页写得很短，短到有点冷。它先说一句：凡是没列在名单上的国家和地区，一律不支持。然后列三种情况，都...</description>
+      <category>人工智能</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>2026-11-13 · 人工智能</p>
+<figure><img src="/covers/2026-11-13-cover.png" alt="会议室里摊开的股权结构图" tabindex="0" loading="lazy"><figcaption>会议室里摊开的股权结构图</figcaption></figure>
+<p>11 月 12 日起，Anthropic 新版《支持地区政策》生效。我昨晚看到这条消息，第一反应不是"又封号了"，而是——他们开始查股东了。</p>
+<p>政策页写得很短，短到有点冷。它先说一句：凡是没列在名单上的国家和地区，一律不支持。然后列三种情况，都算"在不支持地区使用"。</p>
+<p>第一种，人在这儿。你人在不支持地区，哪怕你老板是家美国公司，也不行。</p>
+<p>第二种，公司在这儿。在不支持地区注册、或者总部设在那儿的公司，它的人和用户，人不在当地也算。</p>
+<p>第三种，公司归谁。一家公司，如果被不支持地区的人或者实体直接、间接地多数持股、或者控制，那不管它注册在哪儿、员工在哪儿，一律不能用。</p>
+<p>前两条是老规矩的加固。第三条是新东西。</p>
+<p>打个比方。以前查的是门牌号——你人在哪，公司注册在哪。现在查的是族谱——往上翻，谁拿着这家公司过半的股份，谁说了算。翻到了，门关上。</p>
+<p>落到具体，是这样的：一家在新加坡注册、新加坡办公、员工全是新加坡人的公司，只要控股方在不支持地区，按文本，它也不能用 Claude。海外子公司、第三地主体、换注册地，这些过去用来隔一层的手法，被条款点了名。</p>
+<p>我不是律师，但这句话的大白话我读得懂：从今往后，你要证明的不是"我在哪"，是"我这条链干不干净"。</p>
+<p>麻烦在于，这句话没给标准答案。</p>
+<p>政策页只给两样东西：一张名单，三条禁止。它没写怎么查——看 IP，看账号注册地，看支付卡，还是看工商登记的股权穿透；也没写查到了怎么办——先警告还是直接停，已经付的钱退不退，跑在上面的数据给几天搬走。</p>
+<p>这些空白，媒体补了一部分。据 21 世纪经济报道，新规还禁止用消费级订阅转发请求，转售和代理一并封堵；另外引入 30 天安全监控数据留存，风控不再只看瞬时 IP，还要看调用的时区、语言特征、多账号并发的规律。</p>
+<p>也就是说，判断你的不是一道门禁，是一套打分。</p>
+<p>被封的人有多少？报道引了 Anthropic 透明中心的数据：2025 年下半年封了 145 万个账号，收到 5.2 万次申诉，翻案的 1700 次。2026 年上半年封了约 1140 万个，申诉约 39.8 万次，翻案约 4.2 万次——一成左右。</p>
+<p>翻译一下：上半年封的账号，是去年下半年的将近八倍。而喊冤并且喊成的，十个里不到一个。</p>
+<p>这里还有个细节，我觉得挺值得琢磨。Anthropic 正在冲 IPO：11 月 18 日定价，19 日挂牌，代码 ANT，拟发 8.25 亿股，价格区间 70 到 78 美元。</p>
+<p>招股书里披露了一笔账：2026 年前 9 个月，大约 5% 到 7% 的营收，来自后来被认定违反使用政策或商业条款的客户。按同期约 331 亿美元营收算，是 16.55 亿到 23.17 亿美元。公司的解释是：从发现违规、调查到采取措施，中间有时间差；在限制或者终止访问之前，服务已经提供了，收入就照确认了。</p>
+<p>这句话我读了两遍。钱收了，客户后来被判不该收；这笔钱在报表上还算营收，只是旁边加了一个注——"以后会少"。</p>
+<p>所以这次收紧，可以有两个读法。一个读法是合规：上市之前把口子扎紧，把"哪些客户不该有"写成可执行的条款，是承销商和律师会催的事。另一个读法更朴素：这 5% 到 7%，本来就在灰处，要么洗白，要么关掉。</p>
+<p>两个读法不冲突，甚至互相成全。</p>
+<p>我真正想说的是对我们这边的影响。过去两年，"用不用 Claude"对很多团队是个技术选择——好不好用、贵不贵、稳不稳。现在它变成了法务问题。你要回答的不是"接口能不能调通"，是"我们能不能拿出一张让人信服的股权图"。</p>
+<p>而这张图，很多人画不出来。不是因为不清白，是因为跨境架构本来就层层叠叠：VIE、SPV、员工持股平台、离岸信托，翻到第三层就得去翻当年的文件。文本里一句"直接或间接"，落到实操上，要一个法务团队查两周。</p>
+<p>于是形成一个挺奇怪的场面：被抬高的不是技术门槛，是举证门槛。</p>
+<p>周五下午，我打开那张名单页，Ctrl+F 搜了几个地名。搜完关掉，泡了杯茶。</p>
+<p>名单上有没有你，是一回事。你能不能证明自己没有，是另一回事。</p>
+]]></content:encoded>
+      <enclosure url="https://ai.upcloudtech.cn/covers/2026-11-13-cover.png" type="image/png"/>
+    </item>
+    <item>
+      <title>你不用挑模型了，谷歌替你挑</title>
+      <link>https://ai.upcloudtech.cn/blog/2026-11-13-you-dont-pick-the-model.html</link>
+      <guid>https://ai.upcloudtech.cn/blog/2026-11-13-you-dont-pick-the-model.html</guid>
+      <source url="https://ai.upcloudtech.cn/rss.xml">你不用挑模型了，谷歌替你挑</source>
+      <description>你不用挑模型了，谷歌替你挑 2026-11-13 · 人工智能 深夜站台上低头看手机的人深夜站台上低头看手机的人 美国时间 11 月 12 日，谷歌发了 Gemini 4 Hydrogen。等北京天亮，中文稿已经铺开，标题多半落在两个数字上：1.5 美元，还有 Terminal-Bench 从 18.2% 涨到 57%。 我盯的是脚注里的一句话。 &amp;quot;在...</description>
+      <category>人工智能</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>2026-11-13 · 人工智能</p>
+<figure><img src="/covers/2026-11-13-cover-2.png" alt="深夜站台上低头看手机的人" tabindex="0" loading="lazy"><figcaption>深夜站台上低头看手机的人</figcaption></figure>
+<p>美国时间 11 月 12 日，谷歌发了 Gemini 4 Hydrogen。等北京天亮，中文稿已经铺开，标题多半落在两个数字上：1.5 美元，还有 Terminal-Bench 从 18.2% 涨到 57%。</p>
+<p>我盯的是脚注里的一句话。</p>
+<p>"在 Gemini app 里，免费用户会在自动模型选择判定合适的时候，用上 Gemini 4 Hydrogen。"</p>
+<p>请注意这句话的语法。不是"免费用户可以选择 Hydrogen"，是"被选中"。你没得挑，是它挑你。</p>
+<p>这事放在两年前不算新闻。那时候模型没几个，用户也懒得挑。可现在谷歌手里有 Carbon、Argon、Hydrogen 三个 Gemini 4，加上一堆 3.x 的老型号，下拉菜单长得像饭馆的菜单，几十页。然后它告诉你：不用点了，我给你端。</p>
+<p>菜单还在，只是越来越少有人打开它。</p>
+<p>先把硬信息摆完。Hydrogen 的定位是"快速执行层"，接 3.8 Flash 的班——顺带提一句，"Flash"这个后缀这次被扔了，一个用了好几代的名字说不要就不要，说明产品线在重排：Carbon 管深度推理，Argon 管大多数软件工程和知识工作，Hydrogen 管快。</p>
+<p>价格是 1.50 美元/百万输入 token，7.50 美元/百万输出 token。关键不在数字，在后面半句：整个 100 万 token 的上下文窗口统一价，不分段、不阶梯。你塞 90 万 token 进去，单价还是这个数。两天前发的 Carbon 是 2 美元和 10 美元，而且官方脚注写着 11 月 30 日到期、12 月 1 日起翻倍到 4 和 20。</p>
+<p>一个在涨，一个按平价卖，摆在一起看，意思挺清楚：贵的那个留给真难题，日常活儿交给便宜的。</p>
+<p>分数是这样的。Artificial Analysis 智能指数，默认 high 思考档 51 分，比自家旗舰 Argon 的 50 高一分；开到最高 xhigh 档是 54。跟 3.8 Flash 比，同档位完成任务快 2.5 倍，Terminal-Bench 4.1 从 18.2% 提到 57%，编瞎话的比例少了五倍以上。四档思考深度：low、medium、high（默认）、xhigh，原生 100 万 token 输入、最高 100 万 token 输出。</p>
+<p>安全那栏数字也不少：智能体越权行为最多减少 81%，"服务不足"减少 79%，工具调用里抄近道的行为少了 12 倍，内部诚实度评测 96.7%，思维链保留率 99.9%，间接提示注入的抵抗力提升 2.3 倍以上。</p>
+<p>这些数字我不打算全信，也不打算全不信。厂商自己跑的榜，跟自己出题自己判卷差不多。真正值得看的是它怎么卖。</p>
+<p>现在说那个让我停下来的东西——Orchestrator。</p>
+<p>谷歌在 Antigravity 里加了个调度器，同一个会话里，需要动脑子的时候用 Carbon，写代码、跑测试、验改动的时候切给 Hydrogen，中间不用你插手。官方说，在 Terminal-Bench 4.0 上，这套调度的任务成功率接近纯用 Carbon，但配额平均少花 24%，速度快 19%。</p>
+<p>翻译成生活场景：你点了份硬菜，厨房自己判断哪道该大火、哪道该小火，火候不问你。</p>
+<p>对开发者来说这是好事，省钱省时间。但它顺手改了一件事：谁来决定用哪个模型。以前是工程师看价格表、看榜单、看任务，拍脑袋选一个；现在是一个调度器按成本和成功率自动算。人的判断被替换成了策略函数——而这个策略是厂商写的。</p>
+<p>我不觉得这是阴谋。恰恰相反，这是最正常的工程优化：模型越来越多，人挑不过来，机器挑得比人准。就像打车软件不让你自己跟司机谈价，算法谈得比你会。</p>
+<p>只是有个后果要认：当"选哪个模型"变成一个后台进程，你对成本的感知就断了。上个月账单翻倍，你打开后台，看见一堆模型名字和一堆 token 数，看不出是哪一步贵了。Orchestrator 告诉你配额少了 24%，但它不会告诉你，那 24% 是从哪些任务里省出来的。</p>
+<p>再说免费用户这头。Gemini app 的免费用户能用到 Hydrogen，搜索端所有用户都能用到——这是谷歌这次最实在的一句话，"把 Gemini 4 带给所有人"。但方式是被选中。谷歌的判断标准是"这个 prompt 适不适合 Hydrogen"，你不参与。</p>
+<p>我想起手机里那个下拉菜单。五个名字，我一个都不确定该点哪个。上次认真选过一次，前后花了半分钟，最后选了默认那个。所以谷歌现在做的事，某种程度上是替我省了这半分钟，也省了它自己的解释成本。</p>
+<p>模型越做越多，选择越做越少。这两件事同时发生，听着矛盾，其实是一回事：选择太多的时候，最好的产品设计就是把选择藏起来。</p>
+<p>那天晚上我在站台上等末班车，低头看手机，屏幕的光打在脸上。菜单我打开过一次，看了一眼，又关掉。</p>
+<p>车来了。我上的那趟，是对的。</p>
+]]></content:encoded>
+      <enclosure url="https://ai.upcloudtech.cn/covers/2026-11-13-cover-2.png" type="image/png"/>
     </item>
     <item>
       <title>给 Token 按个手印</title>
@@ -356,41 +432,6 @@
 <p>唯一输的一项也有意思。AutomationBench，考企业业务流程，Fable 5.2 是 51.4%，输给 Gemini 4 Carbon 的 53.9%。写代码、解数学、读图表都赢了，一到「走公司的审批流」就输。我想了想，也不奇怪——现实里的流程，本来就没什么道理可讲。</p>
 ]]></content:encoded>
       <enclosure url="https://ai.upcloudtech.cn/covers/2026-11-10-cover.png" type="image/png"/>
-    </item>
-    <item>
-      <title>手感得先翻译一遍</title>
-      <link>https://ai.upcloudtech.cn/blog/2026-11-10-feel-has-to-be-translated.html</link>
-      <guid>https://ai.upcloudtech.cn/blog/2026-11-10-feel-has-to-be-translated.html</guid>
-      <source url="https://ai.upcloudtech.cn/rss.xml">手感得先翻译一遍</source>
-      <description>手感得先翻译一遍 2026-11-10 · 人工智能 纸质拼贴：一只由层叠纸片剪成的手伸向半开的拉链，指尖的圆点排成一列整齐的绿色小方块纸质拼贴：一只由层叠纸片剪成的手伸向半开的拉链，指尖的圆点排成一列整齐的绿色小方块 今天下午我拉了三遍拉链。外套的，背包的，还有一条裤子的。没一次失败，也没一次觉得这事值得记下来。 11 月 10 日，蚂蚁灵波开源了一...</description>
-      <category>人工智能</category>
-      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[
-<p>2026-11-10 · 人工智能</p>
-<figure><img src="/covers/2026-11-10-cover-3.png" alt="纸质拼贴：一只由层叠纸片剪成的手伸向半开的拉链，指尖的圆点排成一列整齐的绿色小方块" tabindex="0" loading="lazy"><figcaption>纸质拼贴：一只由层叠纸片剪成的手伸向半开的拉链，指尖的圆点排成一列整齐的绿色小方块</figcaption></figure>
-<p>今天下午我拉了三遍拉链。外套的，背包的，还有一条裤子的。没一次失败，也没一次觉得这事值得记下来。</p>
-<p>11 月 10 日，蚂蚁灵波开源了一个触觉基础模型，叫 LingBot-Touch。他们给这个模型喂了 4983 小时的真实触觉数据：46.4 万段交互，13.3 亿帧。压阻式 2197 小时，磁触觉 1136 小时，视触觉 1650 小时。</p>
-<p>我看到这组数字的第一反应是：拉了三十几年拉链，我一次都没想过它有多难。</p>
-]]></content:encoded>
-      <enclosure url="https://ai.upcloudtech.cn/covers/2026-11-10-cover-3.png" type="image/png"/>
-    </item>
-    <item>
-      <title>钥匙寄来了，门太小</title>
-      <link>https://ai.upcloudtech.cn/blog/2026-11-10-the-key-arrived-the-door-is-small.html</link>
-      <guid>https://ai.upcloudtech.cn/blog/2026-11-10-the-key-arrived-the-door-is-small.html</guid>
-      <source url="https://ai.upcloudtech.cn/rss.xml">钥匙寄来了，门太小</source>
-      <description>钥匙寄来了，门太小 2026-11-10 · 人工智能 楼道里一个人抱着一个比自己还大的纸箱，家门只开了一条缝楼道里一个人抱着一个比自己还大的纸箱，家门只开了一条缝 11 月 9 日，美团把 LongCat-2.5 的权重放出来了。 我做的第一件事是算它有多大。1.6 万亿个参数，按 BF16 每参数两字节，三千二百个 G。换成 4 比特的量化版，也要...</description>
-      <category>人工智能</category>
-      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[
-<p>2026-11-10 · 人工智能</p>
-<figure><img src="/covers/2026-11-10-cover-2.png" alt="楼道里一个人抱着一个比自己还大的纸箱，家门只开了一条缝" tabindex="0" loading="lazy"><figcaption>楼道里一个人抱着一个比自己还大的纸箱，家门只开了一条缝</figcaption></figure>
-<p>11 月 9 日，美团把 LongCat-2.5 的权重放出来了。</p>
-<p>我做的第一件事是算它有多大。1.6 万亿个参数，按 BF16 每参数两字节，三千二百个 G。换成 4 比特的量化版，也要八百个 G 左右。这是我拿计算器摁的，不是官方数字，但量级差不了。</p>
-<p>我笔记本的硬盘是 512G。</p>
-<p>所以这条新闻，我读的时候心情有点复杂。它确实是个好消息，而且是那种「门真的开了」的好消息，但你走到门口会发现，你得先有辆卡车。</p>
-]]></content:encoded>
-      <enclosure url="https://ai.upcloudtech.cn/covers/2026-11-10-cover-2.png" type="image/png"/>
     </item>
   </channel>
 </rss>
