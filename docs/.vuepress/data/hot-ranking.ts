@@ -94,6 +94,7 @@ export const hotRanking: HotItem[] = [
         url: "https://news.qq.com/rain/a/20261114A00FQ100",
       },
     ],
+    article: "/blog/2026-11-14-every-purchase-needs-your-fingerprint.html",
   },
   {
     id: "google-gemini-wallet-readonly-1113",
@@ -121,6 +122,7 @@ export const hotRanking: HotItem[] = [
         url: "https://www.aol.com/articles/google-now-lets-people-connect-191532000.html",
       },
     ],
+    article: "/blog/2026-11-14-it-can-only-look.html",
   },
   {
     id: "euco-dublin-ai-summit-1113",
