@@ -60,10 +60,68 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-13";
+export const hotRankingUpdatedAt = "2026-11-14";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-chatgpt-wallet-1113",
+    title: "OpenAI 发 ChatGPT Wallet：dots 智能体能替你结账了，但每一笔都得你按一次指纹",
+    summary:
+      "OpenAI 2026-11-13 在官方博客《Introducing ChatGPT Wallet》宣布代理支付功能上线。官方原文只写「begins rolling out today in dots」，适用范围是年满 18 岁的美国 ChatGPT Pro 订阅者，且持符合条件的美国发行银行卡。付款流程分三道：用户先把卡加进钱包一次；每次购物前核对商户、商品、数量、总额与扣款卡（含配送与周期性扣款条款）；再用 Face ID 或 Touch ID 之类的设备验证批准，每次批准都会生成一条记录，说明这次购买由真人授权。技术和解上，支付网络发给智能体的是针对单笔交易生成的支付令牌——替代真实卡号的卡号、安全码与有效期，dot 与商家都接触不到原始卡信息；款项仍从用户绑定的卡扣，原有积分与符合条件的争议保护继续有效。官方明确这不是银行账户，不储值、不放贷，上线初期也不从交易中抽佣。限制同样写清楚：只在 dot 对话里可用，普通 ChatGPT 对话、ChatGPT Work 与独立 Codex 会话均不支持，虚拟信用卡暂不能添加。官方说后续会加消费限额、购买品类、时间段这类参数，让用户预授权后由智能体自行完成，但那是「以后」。为了让商户放行，OpenAI 同日发了《Commerce Partner Playbook》，教网站用 Web Bot Auth 识别签名请求、别误拦智能体流量，并称正与 Forter、Riskified、Sardine、Signifyd 等反欺诈公司和 Adyen、Checkout.com、Stripe 等支付服务商对接。阻力在商户侧：亚马逊把 AI 智能体挡在外、导去自家 Alexa，美联航 11-11 表示将阻止智能体代订机票，达美同样封禁。",
+    keyPoints: [
+      "2026-11-13 上线，只在 dots 对话里能用，首批限美国 18 岁以上 ChatGPT Pro 订阅者、持符合条件的美国发行卡",
+      "支付靠一次性令牌：卡组织为单笔交易生成替代卡号、安全码与有效期，智能体和商家都拿不到真实卡号",
+      "每笔都要先核对商户、商品、总额与扣款卡，再按 Face ID 或指纹，批准才留下一条可查的授权记录",
+      "官方口径是不开账户、不储值、不放贷，上线初期也不从交易里抽成；设额度、按品类预授权的自主购买被放到「以后」",
+      "门槛在商户侧：亚马逊、美联航、达美都把 AI 智能体挡在门外，OpenAI 只能另发一份商户接入手册求放行",
+    ],
+    org: "OpenAI",
+    category: "产品发布",
+    date: "2026-11-13",
+    heat: 90,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方博客《Introducing ChatGPT Wallet》（2026-11-13）",
+    sourceUrl: "https://openai.com/index/introducing-chatgpt-wallet",
+    refs: [
+      {
+        name: "CNBC（2026-11-13，确认「Friday announced」、与 Amex／Mastercard／Visa 合作、首期不抽佣）",
+        url: "https://www.cnbc.com/2026/11/13/openai-chatgpt-wallet-dot-purchases.html",
+      },
+      {
+        name: "财联社（11-14 讯，口径为「北京时间周五晚间宣布」，并补充仅限 dot 对话、虚拟卡暂不支持）",
+        url: "https://news.qq.com/rain/a/20261114A00FQ100",
+      },
+    ],
+  },
+  {
+    id: "google-gemini-wallet-readonly-1113",
+    title: "谷歌把 Google Wallet 接进 Gemini：能翻你三年的账，一分钱也动不了",
+    summary:
+      "谷歌 2026-11-13 在官方博客宣布，把 Google Wallet 加进 Gemini 的 Personal Intelligence 连接清单，即日起对美国所有 Gemini app 用户开放，网页与 Android、iOS 一起铺。Personal Intelligence 此前已连 Gmail、Photos、YouTube 与搜索，钱包是第一个财务数据入口。用法是在对话里 @Google Wallet 提问，官方给的三个例子分别是：回顾上季支出以规划未来三个月存下 1000 美元；找出仍在扣费且今年涨过价的订阅；按去年礼品与旅行开销定今年的节日预算。回答可在对话内直接生成现金流、资产配置与预算的动态图表。想更深还可以通过 Plaid 把信用卡与银行账户关联到钱包，这一步可选，不关联也能用基础功能。权限边界写死在官方口径里：Gemini 只能读账户信息，不能移动、管理或投资资金；连接由用户主动开启，随时可在 Connected Apps 里关掉。同批上线的还有 Memory Summary——把 Gemini 记住的偏好、兴趣与进行中的目标汇总成一页可读快照，路径是「个人资料 > Personal Intelligence > Memory Summary」，网页与移动端都支持，可随时修改或删除。官方未公布该功能是否、何时进入美国以外市场，也未说明读取的账户数据是否用于模型训练。",
+    keyPoints: [
+      "2026-11-13 起对美国所有 Gemini app 用户开放，网页与 Android、iOS 同步铺开",
+      "接进的是 Personal Intelligence，此前已连 Gmail、Photos、YouTube 与搜索，钱包是第一个财务数据入口",
+      "在对话里 @Google Wallet 就能问，官方例子是查上季支出、揪出今年涨过价的订阅、按去年开销定节日预算，并可当场生成图表",
+      "权限写死为只读：不能转账、不能管理、不能投资；连接需主动开启，随时可关，经 Plaid 关联银行账户属可选项",
+      "同批上线 Memory Summary，让你在一个页面看它记住了你什么并随时改删；美国以外何时开放、数据是否用于训练，官方均未交代",
+    ],
+    org: "Google",
+    category: "产品发布",
+    date: "2026-11-13",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google 官方博客《Connect Google Wallet to Gemini for personal finance insights》（2026-11-13）",
+    sourceUrl: "https://blog.google/innovation-and-ai/products/gemini-app/google-wallet-gemini-app/",
+    refs: [
+      {
+        name: "Google 官方 X 账号（2026-11-13 宣布 Wallet 加入 Personal Intelligence 连接清单）",
+        url: "https://www.aol.com/articles/google-now-lets-people-connect-191532000.html",
+      },
+    ],
+  },
   {
     id: "euco-dublin-ai-summit-1113",
     title: "欧盟 27 国领导人 11-13 在都柏林首次专门开会谈 AI：Mistral 的 Mensch 与 Hinton 到场作开场陈述",
@@ -88,6 +146,33 @@ export const hotRanking: HotItem[] = [
       {
         name: "欧洲理事会 11-03 邀请函（Costa 致成员国，说明首次专门讨论 AI 的理由）",
         url: "https://www.consilium.europa.eu/en/press/press-releases/2026/11/03/informal-meeting-of-heads-of-state-or-government-of-13-november-2026-invitation-letter-by-president-antonio-costa-to-the-members-of-the-european-council",
+      },
+    ],
+  },
+  {
+    id: "sierra-poppy-1-0-shopify-muse-1113",
+    title: "Sierra 的 Poppy 1.0 落地：Shopify 全球每家店自动挂出 poppy.json，Meta 的 Muse 进门先找它",
+    summary:
+      "Sierra 2026-11-13 发布个人智能体协议 Personal Agent Protocol（简称 Poppy）1.0，距 10 月与 Meta、Genesys、Instinct、NiCE、Rocket、Shopify、Stripe、Walmart 八家设计伙伴公布草案只隔五周。协议定义个人智能体如何通过企业智能体、网站与接口同公司打交道，主要基于 MCP、OpenAPI、UCP 等现成标准搭建，认证走 OAuth，由用户控制个人智能体被允许做什么、不许做什么，并可在使用中调整。技术上，企业要在自己域名的 /.well-known/poppy.json 挂一份文件，声明支持哪些通道、能力与登录方式；签名 Session 头标识智能体与匿名化的用户，跨通道串起同一次交互；用户 ID 在同一家公司保持稳定，但在不同公司之间彼此不可对上，企业无法拿它串联用户。安全条款要求把企业返回的内容当数据而不是指令（防提示注入），访问令牌、刷新令牌、Session 令牌、私钥、授权码、设备码一律不得进入模型上下文，消息要标明是人写还是 AI 写，并支持转人工。落地面上，Shopify 在 175 个以上国家默认支持 UCP，现在每家店自动发布 Poppy 文件，商家不用做任何开发；Meta 的 Muse 已对全体用户默认开启，访问任何站点时先找 Poppy。设计伙伴从 8 家扩到 100 家以上，新增含 Salesforce、Intuit、Cisco、Delta、Twilio、Zoom 等，已上线的有 Mercury（查余额、分类消费、发起转账仍走账户审批策略）、土耳其航空（查票价、航班状态、会员升舱，付款前需用户批准）与 Synchrony（探索分期与优惠发现）。Sierra 同时提供企业侧实现工具包与一个零依赖校验器，要求 Node 22.18 以上。注意官方称 v1.0，而规范文档与工具包仍标注 draft 1.0，并写明允许出现不向后兼容的修改。",
+    keyPoints: [
+      "2026-11-13 发 1.0，距 10 月与 Meta、Shopify、Stripe、Walmart 等八家伙伴公布草案只隔五周",
+      "企业在 /.well-known/poppy.json 挂一份文件，声明开放哪些通道、能力与登录方式，可先做基础能力再逐步加",
+      "身份走签名 Session 加 OAuth，用户 ID 在同一家稳定、跨公司彼此对不上，企业没法拿它串联同一个人",
+      "安全条款要求把企业内容当数据不当指令以防提示注入，访问令牌、私钥、授权码一律不得进模型上下文",
+      "Shopify 175 国以上商家默认自动发布、Muse 对所有用户默认先找 Poppy；官方称 v1.0，规范却仍标 draft 1.0 且允许不兼容修改",
+    ],
+    org: "Sierra",
+    category: "产品发布",
+    date: "2026-11-13",
+    heat: 70,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Sierra 官方博客《Releasing Personal Agent Protocol 1.0》（2026-11-13）",
+    sourceUrl: "https://sierra.ai/blog/releasing-poppy",
+    refs: [
+      {
+        name: "Unite.AI（2026-11-13，补充 poppy.json 落点、校验器与 draft 1.0 措辞差异）",
+        url: "https://www.unite.ai/sierra-releases-poppy-1-0-with-shopify-and-meta-muse-support",
       },
     ],
   },
@@ -123,6 +208,33 @@ export const hotRanking: HotItem[] = [
       },
     ],
     article: "/blog/2026-11-13-sing-it-vaguely.html",
+  },
+  {
+    id: "llamacpp-ggml-v1-0-0-1113",
+    title: "llama.cpp 和 ggml 一起升到 1.0.0：三年半的 0.x 结束，公开 API 第一次成了白纸黑字的承诺",
+    summary:
+      "ggml-org 于 2026-11-13 同时发布 llama.cpp v1.0.0 与 ggml v1.0.0，两个仓库同日打的标签。发布说明写清分工：llama.cpp 是用 C 与 C++ 写的推理引擎（libllama），ggml 是它底下的机器学习张量库（libggml）。ggml 此前用的是 0.9.0-dev 这类构建式编号，项目历史上一条「ggml : introduce semantic versioning」的提交与发布脚本试运行一起落地，版本号从 0.9.0-dev 直接走到 1.0.0。语义化版本规则写死三条：只有 include 目录下公开 C API 的破坏性变更才跳主版本号；向后兼容的新功能、后端更新、新增模型家族或新 API 跳次版本号；不碰 API 的修 bug 只跳补丁号。此后 API 与 ABI 的不兼容都会以主版本跳升的形式出现。分发列了 8 个渠道：Linux、macOS、Windows、Android、iOS 的预发布构建，加 Linux 的 Docker 镜像、Debian 包、Homebrew（macOS 与 Linux）、conda-forge（三平台）、MacPorts、Winget、以及面向 iOS 与 macOS 的 XCFramework。官方称当前支持 150 多种模型架构与主流投机解码方法，靠量化、优化过的后端与可移植 C/C++ 实现，覆盖从家用机到企业服务器。功能层面这版几乎没加什么，意义全在承诺：下游过去跟的是一条随时可能变的 0.x 线，现在可以钉住版本、按次版本排升级、把主版本跳升当成上线前的审查关卡。",
+    keyPoints: [
+      "2026-11-13 同日给 llama.cpp 与 ggml 打上 v1.0.0，此前的编号是 0.9.0-dev 这类滚动构建号",
+      "版本规则写死：只有 include 目录下公开 C API 破坏性变更才跳主版本，兼容新增跳次版本，不碰 API 的修复只跳补丁号",
+      "分发铺了 8 个渠道，从五平台预编译到 Docker、Debian、Homebrew、conda-forge、MacPorts、Winget、XCFramework",
+      "官方称支持 150 多种模型架构与主流投机解码，量化加可移植 C/C++ 实现，从家用机一直覆盖到企业服务器",
+      "功能几乎没变，变的是承诺——下游从跟一条随时变的 0.x 线，变成可以钉版本、把主版本跳升当上线前的关卡",
+    ],
+    org: "ggml-org",
+    category: "开源项目",
+    date: "2026-11-13",
+    heat: 64,
+    authority: "official",
+    precision: "exact",
+    sourceName: "GitHub · ggml-org/llama.cpp v1.0.0 Release（2026-11-13）",
+    sourceUrl: "https://github.com/ggml-org/llama.cpp/releases/tag/v1.0.0",
+    refs: [
+      {
+        name: "ggml-org 官方 Hugging Face 博文《llama.cpp v1.0.0: A Stronger Foundation for the Local AI Ecosystem》",
+        url: "https://huggingface.co/blog/ggml-org/llama-cpp-v1",
+      },
+    ],
   },
   {
     id: "anthropic-supported-regions-policy-1112",
