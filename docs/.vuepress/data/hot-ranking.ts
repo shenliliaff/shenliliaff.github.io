@@ -65,6 +65,66 @@ export const hotRankingUpdatedAt = "2026-11-13";
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
   {
+    id: "euco-dublin-ai-summit-1113",
+    title: "欧盟 27 国领导人 11-13 在都柏林首次专门开会谈 AI：Mistral 的 Mensch 与 Hinton 到场作开场陈述",
+    summary:
+      "欧洲理事会官网确认，2026 年 11 月 13 日欧盟成员国国家元首或政府首脑在都柏林举行非正式会议，这是领导人层面第一次专门就人工智能做战略讨论。议程分两块：第一块由 Mistral AI 首席执行官 Arthur Mensch 作开场陈述，谈欧洲在全球 AI 格局中的位置，以及强化竞争力与「AI 主权」要做的战略选择，官方列出的抓手是减少 AI 价值链上的关键依赖、加强欧洲自身能力、配套廉价清洁能源与大规模公私投资，以及推动企业和公共部门加快采用；第二块由诺贝尔奖得主 Geoffrey Hinton 作开场陈述，谈 AI 对社会、安全与信任的冲击，涵盖基本权利（含儿童权利）、民主进程完整性、对欧洲社会模式与劳动力市场的影响、市场集中与网络安全，并讨论欧洲如何参与先进 AI 安全的国际治理。会议指示性开始时间 11:00，乌克兰与阿布扎比和谈被追加为第二议题。官方仅给了议程与议题清单，未给出新的资金规模、立法时间表或结论文件；会前 11 月 3 日由欧洲理事会主席 António Costa 发出邀请函，理事会另挂出一份《Steering note on AI》PDF 作为讨论底稿。",
+    keyPoints: [
+      "2026-11-13 都柏林，欧盟领导人首次在领导人层面专门讨论 AI，此前只在 2 月 Alden Biesen 静修与 3 月 19 日欧洲理事会上零散涉及",
+      "Mistral AI 首席执行官 Arthur Mensch 作首场开场陈述，主题是欧洲在全球 AI 竞争中的位置与「AI 主权」",
+      "诺奖得主 Geoffrey Hinton 作第二场开场陈述，议题为 AI 对社会、安全与信任的冲击，含儿童权利、民主进程、劳动力市场、市场集中与网络安全",
+      "官方抓手是减少 AI 价值链关键依赖、配套廉价清洁能源与大规模公私投资、推动企业与公共部门采用，全程未给新资金数字与立法时间表",
+      "会议只产出讨论、不出结论文件；乌克兰与阿布扎比和谈被加为第二议题，会前 11-03 已发 Costa 邀请函并挂出《Steering note on AI》底稿",
+    ],
+    org: "欧洲理事会（European Council）",
+    category: "行业动态",
+    date: "2026-11-13",
+    heat: 72,
+    authority: "official",
+    precision: "exact",
+    sourceName: "欧洲理事会官网 · 2026 年 11 月 13 日国家元首或政府首脑非正式会议页",
+    sourceUrl: "https://www.consilium.europa.eu/en/meetings/european-council/2026/11/13/",
+    refs: [
+      {
+        name: "欧洲理事会 11-03 邀请函（Costa 致成员国，说明首次专门讨论 AI 的理由）",
+        url: "https://www.consilium.europa.eu/en/press/press-releases/2026/11/03/informal-meeting-of-heads-of-state-or-government-of-13-november-2026-invitation-letter-by-president-antonio-costa-to-the-members-of-the-european-council",
+      },
+    ],
+  },
+  {
+    id: "tencent-hy-realtime-voice-1113",
+    title: "腾讯混元 11-13 发实时语音模型 Hy Realtime：会唱歌、能调工具，先上元宝和腾讯客服，API 还要等「近期」",
+    summary:
+      "腾讯混元 2026 年 11 月 13 日 16:32 通过官方公众号发布实时语音模型 Hy Realtime。官方自述三项变化：一是对含糊、说半截、中途改口这类不完整输入的意图还原准确率提升，多轮指令遵循与上下文管理加强；二是新增 Agentic 工具调用，模型自行判断要不要联网搜索并统一「决策—调工具—作答」链路；三是新增唱歌能力，与腾讯音乐 TME 灵音 AI 团队 Co-Design，用户可按歌手、专辑、曲风、语种、发行年份和热度组合点歌，并承接前文继续选。官方给出的唯一量化指标是后训练 SFT 阶段的跨模态折损：把高质量文本数据迁移到语音任务的有效保留率从 21% 提升到 69%，表述为「说人话而不掉智商」。预训练语料称达千万小时级，配 51 套纯文本集与 50 余套语音评测集。落地顺序上，元宝语音通话（「初语」音色）与腾讯客服已上线，腾讯云对外 API 只写「近期」。官方未公布参数量、定价与技术报告，双工交互、长期个性化记忆、前后台 Agent 交互被列进「下一步」，演唱曲目的版权与授权安排全文未提。",
+    keyPoints: [
+      "2026-11-13 16:32 官方公众号发布，全文未给参数量、未给定价、无独立技术报告，仅称「多个公开 Benchmark 处于领先」",
+      "唯一硬指标是 SFT 阶段文本智能向语音任务的迁移保留率由 21% 升至 69%，官方用它解释「说人话而不掉智商」",
+      "新增唱歌能力：与腾讯音乐 TME 灵音 AI 团队 Co-Design，按歌手、专辑、曲风、语种、发行年份、热度六维组合点歌，可承接上下文继续点",
+      "落地顺序是元宝语音通话（「初语」音色）与腾讯客服先上，腾讯云对外 API 只写「近期」，开发者当下还调不到",
+      "双工交互被写进「下一步」，即现在仍不能被打断；全文未提演唱内容的版权、授权与分成怎么处理",
+    ],
+    org: "腾讯混元",
+    category: "模型发布",
+    date: "2026-11-13",
+    heat: 68,
+    authority: "official",
+    precision: "exact",
+    sourceName: "腾讯混元官方公众号（2026-11-13 16:32）",
+    sourceUrl:
+      "https://mp.weixin.qq.com/s?__biz=MzkwODU2OTQyNQ==&mid=2247498965&idx=1&sn=fc0a8fa819b333cf16814ae46d6ccd4f",
+    refs: [
+      {
+        name: "IT之家（11-13 16:55，转载官方介绍全文并提供元宝与网页 Demo 入口）",
+        url: "https://tech.ifeng.com/c/8y1QBPLjByO",
+      },
+      {
+        name: "每日经济新闻（11-13，官方口径「已在元宝语音通话、腾讯客服上线，近期上线腾讯云」）",
+        url: "https://www.nbd.com.cn/articles/2026-11-13/4647109.html",
+      },
+    ],
+    article: "/blog/2026-11-13-sing-it-vaguely.html",
+  },
+  {
     id: "anthropic-supported-regions-policy-1112",
     title: "Anthropic 新地区政策 11-12 生效：不只看你在哪，还看你归谁——被不支持地区主体多数控股的公司一律不能用 Claude",
     summary:
