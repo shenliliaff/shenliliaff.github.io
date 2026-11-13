@@ -13,6 +13,16 @@ export interface BlogPost {
 /** 全部文章，按日期降序（最新在最前） */
 export const blogPosts: BlogPost[] = [
   {
+    title: "它只能看，不能动",
+    date: "2026-11-14",
+    url: "/blog/2026-11-14-it-can-only-look.html",
+  },
+  {
+    title: "每一笔都要你按一次指纹",
+    date: "2026-11-14",
+    url: "/blog/2026-11-14-every-purchase-needs-your-fingerprint.html",
+  },
+  {
     title: "点歌的时候，请说得含糊一点",
     date: "2026-11-13",
     url: "/blog/2026-11-13-sing-it-vaguely.html",
