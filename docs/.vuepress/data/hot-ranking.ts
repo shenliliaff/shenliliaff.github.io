@@ -60,10 +60,86 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-14";
+export const hotRankingUpdatedAt = "2026-11-15";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "microsoft-365-outage-recovery-1114",
+    title: "微软 365 断了三十六个小时：Copilot 一起挂了，微软专门澄清「不是 AI 智能体干的」",
+    summary:
+      "美国东部时间 2026 年 11 月 12 日 13:25，Microsoft 365 开始大面积故障，Outlook、Exchange Online、Teams、SharePoint Online、OneDrive、Microsoft 365 Copilot、Defender XDR、Power BI、Windows 365 与 M365 管理中心陆续降级，故障一小时内扩散到至少 74 个国家和地区，北京时间 11 月 14 日微软宣布底层问题处置完成、剩余受影响客户与区域全部恢复，前后约 36 小时。官方事件编号 EX1550543（邮箱）与 MO1550821（全家桶），微软自己的口径是：故障由一次更早的网络容量升级中引入的问题、在近期一次网络变更后暴露，导致多台服务器未通过自动健康检查意外下线，剩余基础设施负载过高，负责建立安全连接的进程被流量压垮；处置手段是暂停部署变更、回滚与故障起点吻合的配置变更、迁移流量、分批重启服务器并追加虚拟机配额。微软 11 月 13 日公开致歉，并明确表态这属于技术故障，与网络攻击或人工智能/智能体无关——这句澄清本身成了当天的传播焦点。故障监测平台 Downdetector 收到全球超 740 万份报告，峰值接近每分钟 2 万条、约为正常水平的 1500 倍，仅 Outlook 一项峰值约 13.8 万条。真实世界的后果比数字具体：英国 NHS 让医院回到纸笔记录，曼彻斯特 Minshull Street 刑事法庭的工作人员去找传真机，部分陪审团被提前遣散、在押人员没能出庭；美国众议院有员工整整丢了一天；科罗拉多一处拘留所无法在线缴纳保释金，要求当事人到现场办理；日本数字大臣古川俊治称政府共通数字底座 GSS 受影响、改用电话；新西兰移民局暂停处理所有签证申请；Euronext 邮件中断，英国保险公司 Aviva 为财报电话会议启动备用方案，马士基警告客户更新延迟，印度 IndiGo、Akasa Air、Air India 的邮件客服受影响；OpenAI 与 Anthropic 通过微软连接器的服务也被带慢。MorningstarDBRS 估算全球保险损失 3 亿至 5 亿美元，低于 2024 年 CrowdStrike 事件的 4 亿至 15 亿美元。微软称将在审查完成后发布完整事后报告，未给时间表。",
+    keyPoints: [
+      "美东 11-12 13:25 起、北京时间 11-14 全部恢复，前后约 36 小时，Outlook／Exchange Online／Teams／Copilot 一起降级，波及至少 74 个国家和地区",
+      "官方口径是「更早一次网络容量升级埋的问题在近期网络变更后暴露」：多台服务器未过自动健康检查下线，剩下的负载过高把安全连接进程压垮",
+      "微软 11-13 致歉并专门澄清「与网络攻击或 AI／智能体无关」——连故障归因都要先撇清 AI，这件事本身成了传播焦点",
+      "Downdetector 全球超 740 万份报告、峰值约每分钟 2 万条（正常水平的 1500 倍）；英国 NHS 回到纸笔，曼彻斯特法庭去找传真机，新西兰移民局暂停签证处理",
+      "MorningstarDBRS 估全球保险损失 3 亿至 5 亿美元（低于 CrowdStrike 的 4 亿至 15 亿）；完整事后报告微软称审查完再发，时间未定",
+    ],
+    org: "Microsoft",
+    category: "行业动态",
+    date: "2026-11-14",
+    heat: 88,
+    authority: "verified",
+    precision: "exact",
+    sourceName:
+      "The Guardian 报道（非官方公告，引微软 @MSFT365Status 声明与 M365 事件公告 MO1550821）（2026-11-14）",
+    sourceUrl:
+      "https://www.theguardian.com/technology/2026/nov/14/microsoft-says-services-fully-restored-after-global-outage",
+    refs: [
+      {
+        name: "RTÉ（2026-11-14，740 万份报告、峰值每分钟 2 万条、MorningstarDBRS 保险损失估算）",
+        url: "https://www.rte.ie/news/2026/1114/1599205-microsoft-outage/",
+      },
+      {
+        name: "The Hindu 直播页（2026-11-14，逐条记录微软状态页「All products are operational」与恢复时点）",
+        url: "https://www.thehindu.com/sci-tech/technology/microsoft-outlook-outage-status-microsoft-365-services-live-updates-november-14-2026/article71700692.ece",
+      },
+      {
+        name: "IT之家／凤凰网科技（2026-11-14，MO1550821 公告原文口径：13:25 起、网络容量升级、与 AI 无关）",
+        url: "https://tech.ifeng.com/c/8y2OrdzqIml",
+      },
+    ],
+    article: "/blog/2026-11-15-fax-machines-are-back.html",
+  },
+  {
+    id: "meta-garante-gallery-fine-1114",
+    title: "意大利罚了 Meta 8.05 亿欧元：那个写着「启用其他功能」的勾，把整个相册交了出去",
+    summary:
+      "2026 年 11 月 14 日，意大利个人数据保护局（Garante）公告对 Meta Platforms Ireland Limited 罚款 8.05 亿欧元（约 8.87 亿美元、59 亿元人民币），事由是安卓版 Facebook 应用在未取得专项同意、也未充分告知的情况下访问了意大利用户手机里存储的照片、视频及相关元数据。涉事功能是 2023 年上线的「Ottieni suggerimenti dalla galleria quando navighi su Facebook」（浏览 Facebook 时从相册获取建议），把你手机相册里的照片视频当成待发布的素材推给你。Garante 查出的三个问题都很具体：相册访问权是用一个覆盖整个 App、服务多种不同用途的授权一次性拿到的；这个授权前置的提示只写「启用其他功能」（abilitare altre funzioni），用户根本看不出自己同时在授权相册建议；该功能本身还是默认开启的。授权一旦全量给出，App 就能读取设备里整个照片库，通常是永久性的，用户和监管机构都无法核查到底用了哪些内容。处罚依据是意大利隐私法第 122 条（落实欧盟 ePrivacy 指令），该条把手机视为个人私人领域的延伸，任何对其中信息的访问都要求自由且知情的同意，不以数据是否传出、是否造成损害为前提。Garante 同时驳回了 Meta 提出的「应由爱尔兰监管机构管辖」抗辩，理由是 ePrivacy 规则不设「一站所」（sportello unico）机制。整改要求有硬期限：60 天内该功能必须默认关闭（对已经授权过的人也一样），并以单独、具体的方式重新征求同意，说清用途、涉及访问相册以及怎么关闭；逾期未改，未给出有效同意的用户不得再启用该功能；30 天内报告启动的整改动作、90 天内报告采取的措施。罚款按约 2000 万意大利安卓用户、违规仍在持续（未更新 App 的人与已授权的人）、2019 年已有一次处罚、调查期间配合不足综合确定，事后所做的修改只被部分减责，且被认定为「来得太迟、只惠及更新了 App 的人」；金额约为集团全球营收的 0.47%。Meta 回应称强烈不同意事实认定与法律适用，罚款不成比例，强调这只是一个帮助人们分享照片视频的发布辅助功能、必须先在设备上授权才能运行、随时可在设置中修改，并表示将上诉。Garante 明确本次程序不涉及这些内容是否用于训练 AI（Meta 否认），但对 2026 年新上线的「把相册内容放到云端处理」的功能保留单独调查。",
+    keyPoints: [
+      "2026-11-14 公告，罚 Meta 爱尔兰公司 8.05 亿欧元（约 59 亿元人民币），涉安卓版 Facebook 自 2023 年上线的「浏览时从相册获取建议」功能",
+      "三个认定：授权是一个管全 App 多用途的授权、前置提示只写「启用其他功能」、功能默认开启；全量授权可永久读取整个相册，用户与监管都无法核查用了哪些",
+      "罚的是意大利隐私法第 122 条（ePrivacy）：手机算私人领域延伸，访问就要自由知情同意，不管数据有没有传出去、有没有造成损害",
+      "60 天内必须默认关闭（连已授权的人也要关）、改成单独明确的同意请求并说清用途与关闭方式；30 天报动作、90 天报措施",
+      "金额约合集团全球营收 0.47%；Meta 称罚款不成比例、将上诉；Garante 另对 2026 年「相册内容上云处理」新功能保留单独调查",
+    ],
+    org: "意大利个人数据保护局（Garante）／Meta",
+    category: "行业动态",
+    date: "2026-11-14",
+    heat: 80,
+    authority: "official",
+    precision: "exact",
+    sourceName:
+      "Garante Privacy 新闻稿《Facebook: il Garante Privacy sanziona Meta per 805 milioni di euro》（2026-11-14）",
+    sourceUrl:
+      "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/10321080",
+    refs: [
+      {
+        name: "Le Monde／AFP（2026-11-14，Meta 营收 2010 亿美元、罚款占比约 0.4%、2021 年亚马逊 11 亿欧元上诉后降至 7.52 亿先例）",
+        url: "https://www.lemonde.fr/en/international/article/2026/11/14/italy-fines-meta-880mn-over-photo-privacy_6780820_4.html",
+      },
+      {
+        name: "L'Unione Sarda（2026-11-14，Meta 回应「强烈不同意」「不成比例」并宣布上诉、30/90 天报告义务）",
+        url: "https://www.unionesarda.it/en/italy/meta-faces-a-massive-805-million-fine-and-the-company-is-preparing-to-appeal-oz56mokc",
+      },
+      {
+        name: "新华社（2026-11-14，2000 万意大利安卓用户、调查起于 2025-07 博尔扎诺消费者中心投诉）",
+        url: "http://chinaview.cn/europe/20261115/31d4057006424e83b7bbe0b7e49a748b/c.html",
+      },
+    ],
+    article: "/blog/2026-11-15-one-checkbox-whole-album.html",
+  },
   {
     id: "apec-abac-shenzhen-1114",
     title: "APEC 工商咨询理事会 11-14 在深圳开场，中方要和加拿大一起发一本《亚太「AI+」案例合集》",
