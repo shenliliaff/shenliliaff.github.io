@@ -60,10 +60,78 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-15";
+export const hotRankingUpdatedAt = "2026-11-16";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-science-blog-lattice-1115",
+    title: "OpenAI 自己办了个科学博客：第一篇讲为什么办，第二篇是 GPT-6 Astra 帮忙推出来的「格点标准模型」",
+    summary:
+      "2026 年 11 月 15 日，OpenAI 上线官方科学博客（science blog），定位是给科学家与研究者一个发「AI 做出来的科学」的地方。公告写明三类内容：研究与发现（自家、合作方与更广科学界的成果）、方法与实用指南（怎么用模型做科学计算、数据分析、文献探索、实验规划，以及怎么验证、哪里靠不住）、科学界的第一手经验与开放式讨论。同一批还挂了一篇研究贴《A step toward defining the Standard Model on a lattice》，讲一个非微扰的格点标准模型定义候选，以及 GPT-6 Astra 如何把一个想法推成一份详细证明；官方给出的摘要只有一句，正文未随公告页一并公开。博客公告本身回顾了近期成果：9 月内部系统给出纳维-斯托克斯（Navier–Stokes）存在性与光滑性问题的证明；10 月初发布一批数学结果，含准黎曼假设与更锐利的素数计数估计；10 月晚些又放了数学、计算机科学、物理三块（波如何聚集、高效计算的极限、交织量子场论的数学基础）；生物学方向与 PerturbAI、Scripps Research 合作，由 GPT-Rosalind 驱动的数千个智能体在 32 分钟内分析了数百万个小鼠脑细胞的数据，另有 César de la Fuente 团队用 ChatGPT 与 Codex 搭算法筛抗生素分子。这条渠道真正的分量在发表权：10 月 OpenAI 一口气放出 700 多篇未经评审的手稿，被数学家叫作「slop drop」；随后请 2004 年诺贝尔物理学奖得主 David Gross 牵头组了个五人「护送委员会」先审再放，11 月 10 日夜里在 GitHub 放出杨-米尔斯存在性那一半的 Lean 代码与评审文件，质量间隙仍未证出，100 万美元悬赏还挂着。审稿人自己请、发布日自己定、作者栏写模型的名字——这些现在都收进了一个官方域名下。",
+    keyPoints: [
+      "11-15 上线：OpenAI 官方科学博客开张，三类内容——研究发现、方法与实用指南、科学界的第一手经验，明说会讲「哪里靠不住」",
+      "同日第二篇是研究贴《A step toward defining the Standard Model on a lattice》：一个非微扰格点标准模型定义候选，由 GPT-6 Astra 把想法推成详细证明，官方摘要只有一句",
+      "公告自列的战绩：9 月纳维-斯托克斯证明、10 月初数学（准黎曼假设与素数计数）、10 月晚些数学/CS/物理三块，外加 32 分钟分析数百万小鼠脑细胞的生物学案例",
+      "背景是 10 月那次「slop drop」：700 多篇未评审 AI 手稿一次倒出，数学家抗议，于是有了 David Gross 牵头的五人护送委员会，11-10 才放出杨-米尔斯存在性证明的 Lean 代码",
+      "留白照旧：质量间隙没证出来、无穷体积极限的唯一性没证出来、100 万美元还挂在克雷研究院；审稿人自己请、发布日自己定，这套流程没有第三方",
+    ],
+    org: "OpenAI",
+    category: "学术公益",
+    date: "2026-11-15",
+    heat: 79,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方博客《Our new blog for science》（2026-11-15，Science 栏目）",
+    sourceUrl: "https://openai.com/index/our-new-blog-for-science/",
+    refs: [
+      {
+        name: "OpenAI 新闻列表（2026-11-15 同日两条：新科学博客、格点标准模型研究贴）",
+        url: "https://openai.com/news/",
+      },
+      {
+        name: "凤凰网科技（11-15，David Gross 五人护送委员会、11-10 GitHub 放 Lean 代码、质量间隙未证、100 万美元悬赏）",
+        url: "https://tech.ifeng.com/c/8y1Qkj2YD9G",
+      },
+    ],
+    article: "/blog/2026-11-16-they-started-their-own-journal.html",
+  },
+  {
+    id: "huawei-openpangu-2-1-pro-1115",
+    title: "华为云上线开源盘古 openPangu-2.1-Pro：512K 上下文，输入 0.8 元/百万 tokens，重点优化鸿蒙 ArkTS 与昇腾算子",
+    summary:
+      "2026 年 11 月 15 日，华为云 MaaS 模型即服务平台上线开源盘古模型 openPangu-2.1-Pro。华为云帮助中心的《MaaS 模型发布公告》记下版本号 20261115，落区西南-贵阳一，支持 512K 上下文，带 Function Call、前缀续写、前缀缓存与思维链，提供预置服务，公共池与专属池部署都不开放。官方口径是三个方向升级：Agent 能力上，用 10 万余条专项数据优化 Skills 触发、工具选择与调用，深度研究与鸿蒙系统操控两个场景增强；代码能力上，重点面向鸿蒙 App 开发与昇腾算子生成做适配，围绕鸿蒙 ArkTS 语言提升生成准确性；推理侧通过关键算子与推理链路优化提升吞吐。模型同步接入华为云智果 AgentArts、码道 CodeArts、果办 OfficeAce 三条产品线。定价按 IT 之家转述的官方价格：推理输入 0.8 元/百万 tokens、输出 3.2 元/百万 tokens、缓存命中输入 0.016 元/百万 tokens。上一代 openPangu-2.0-Pro 在模型广场的描述是约 505B 参数、每 token 激活约 18B、512K 上下文、训练数据约 34T tokens，这一代的参数规模官方公告里没有写。同一天华为云还预告了 11 月 16 日下午的 CloudRobo 具身世界模型发布会，两条线合起来看，它在把模型能力往「鸿蒙 + 昇腾」这条自家产业链上收。",
+    keyPoints: [
+      "11-15 正式上线华为云 MaaS，版本号 20261115、落区西南-贵阳一，支持 512K 上下文与 Function Call、前缀续写、前缀缓存、思维链",
+      "价格：推理输入 0.8 元/百万 tokens，输出 3.2 元/百万 tokens，缓存命中输入 0.016 元/百万 tokens",
+      "升级重心不在通用跑分，而在两件具体事——鸿蒙 ArkTS 代码生成、昇腾算子开发流程适配",
+      "Agent 侧用 10 万余条专项数据优化 Skills 触发与工具调用，并接进智果 AgentArts、码道 CodeArts、果办 OfficeAce 三条产品线",
+      "留白：这一代参数规模官方公告未披露（上一代 2.0-Pro 约 505B 总参、18B 激活），只开放预置服务，公共池与专属池部署都不支持",
+    ],
+    org: "华为云",
+    category: "模型发布",
+    date: "2026-11-15",
+    heat: 68,
+    authority: "official",
+    precision: "section",
+    sourceName: "华为云帮助中心《MaaS 模型发布公告》（2026-11 栏，openPangu-2.1-Pro 版本 20261115）",
+    sourceUrl: "https://support.huaweicloud.com/bulletin-maas/bulletin-maas-0001.html",
+    refs: [
+      {
+        name: "华为云 MaaS 模型广场（openPangu-2.1-Pro 入口与 openPangu-2.0-Pro 的 505B/18B 参数口径）",
+        url: "https://www.huaweicloud.com/product/modelarts/studio.html",
+      },
+      {
+        name: "IT 之家（11-15，官方定价 0.8/3.2/0.016 元每百万 tokens、三条产品线接入）",
+        url: "https://news.qq.com/rain/a/20261115A0CD5H00",
+      },
+      {
+        name: "每日经济新闻（11-15 22:21，引华为云官微上线口径）",
+        url: "https://www.nbd.com.cn/articles/2026-11-15/4648133.html",
+      },
+    ],
+    article: "/blog/2026-11-16-a-model-that-only-knows-its-own-yard.html",
+  },
   {
     id: "korea-ai-exam-cheating-1115",
     title: "韩国税务师考试第一名用 AI 作弊、当天自首：成绩作废、禁考 5 年，四天后就是高考，先查眼镜",
