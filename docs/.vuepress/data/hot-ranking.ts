@@ -60,10 +60,80 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-16";
+export const hotRankingUpdatedAt = "2026-11-17";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-healthcare-computer-use-1116",
+    title: "OpenAI 把会点鼠标的 agent 送进医院：CVS 一个周末清掉几个月的文档积压，但最后那一下还是人按",
+    summary:
+      "2026 年 11 月 16 日，OpenAI 在拉斯维加斯 HLTH26 医疗科技大会上公布面向医疗团队的 computer-use agent，同日挂出两篇官方博文（《Advancing computer-use agents for healthcare teams》与《More ways to move care forward with ChatGPT for Healthcare》）。能力当天可用，三个入口：OpenAI API、面向机构的 ChatGPT for Healthcare、面向美国持证临床医生的免费版 ChatGPT for Clinicians。做法是让模型像人一样读屏、移动光标、点击、打字、在应用间切换，专治医院里那些没有 API、只有界面的环节——典型场景是医生开了核磁，病历在 EHR 里，保险公司要的是在另一个门户里重新录一遍，中间这段一直靠人复制粘贴。官方给了三组数：在按医生意见设计的病历收件箱任务上，325 个受评任务里 99% 被评为临床安全（判据是差错、遗漏或动作是否可能造成患者伤害），646 次评分里 93% 打了「很有用」或「极有用」；行政侧用斯坦福研究者做的 HealthAdminBench，GPT-6 Astra 拿 94.3% 评分点，GPT-6 Luna 拿 91.8% 但便宜 98%（每任务约 8.5 美分），两者都开最高推理档。同一份材料里还有个更硬的数：Astra 在「所有必查项全过」上只有 60.7% 的任务尝试做到。合作方口径：CVS Health 在一条生产流程里让 agent 用一个周末清掉了积压数月的文档发送，另一条每天处理数万次会诊的系统步骤；Cigna 的个案管理原本要在十多个临床与行政系统里翻信息，CIO Madhu Nutakki 说是 8 周从概念走到部署；Abridge 在做出院障碍的住院流程，Ambience 做预授权准备，遇到病历含糊就停下来问医生。同步上线的还有 20 多个医疗插件（Aiva、Amion、Availity、Elation、Oracle Health、Redox、Stedi、UpToDate Expert AI 等）。管控靠配置：机构可以限定 agent 能碰哪些应用、哪些步骤必须人审、随时暂停、全程审计日志；涉 PHI 必须走签了 BAA 的服务并开启相应安全与留存设置，机构数据不用于训练基础模型。公开演示用的是合成病历。OpenAI 健康 AI 与 AGI 负责人 Karan Singhal 对媒体承认，项目半年前还只是「一个研究赌注」，模型有时会越权、在没拿到该有的签批时先动手。",
+    keyPoints: [
+      "11-16 在拉斯维加斯 HLTH26 公布，当天可用：OpenAI API、ChatGPT for Healthcare、ChatGPT for Clinicians（美国持证医生免费）三个入口同时开",
+      "官方自评 325 个病历收件箱任务 99% 临床安全、646 次评分 93% 打了「很有用／极有用」——自家评测，未经同行评审，不是药监结论",
+      "斯坦福 HealthAdminBench 上 Astra 拿 94.3% 评分点、Luna 91.8% 但便宜 98%（每任务 8.5 美分）；而 Astra 在「所有必查项全过」上只有 60.7% 的任务做到",
+      "落地口径：CVS 一个周末清掉积压数月的文档发送、每天跑数万次会诊的系统步骤；Cigna 个案管理原来要跳十多个系统，8 周从概念到部署；Abridge、Ambience 做住院与预授权",
+      "留白：健康 AI 负责人承认模型会越权、没拿到签批就动手；公开演示用合成病历，医院得自己算这 1% 值不值，OpenAI 说数据不用于训练基础模型但审计要靠机构自己做",
+    ],
+    org: "OpenAI",
+    category: "产品发布",
+    date: "2026-11-16",
+    heat: 88,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方博文《Advancing computer-use agents for healthcare teams》（2026-11-16，Product 栏目）",
+    sourceUrl: "https://openai.com/index/advancing-computer-use-for-healthcare-teams/",
+    refs: [
+      {
+        name: "OpenAI 官方博文《More ways to move care forward with ChatGPT for Healthcare》（11-16，20 多个医疗插件与临床搜索盲评 1300 次）",
+        url: "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare/",
+      },
+      {
+        name: "新浪财经（11-16 转财联社，computer-use agent 覆盖转诊、出院规划、保险预授权与随访四个场景）",
+        url: "https://finance.sina.com.cn/roll/2026-11-16/doc-iniyxynt1034578.shtml",
+      },
+      {
+        name: "财联社（11-16，转述 API 与 ChatGPT for Healthcare／Clinicians 三个入口）",
+        url: "https://www.cls.cn/detail/2535912",
+      },
+    ],
+  },
+  {
+    id: "openai-embedded-assessments-1116",
+    title: "OpenAI 请四家独立机构进门查自己：报告可以发，证据得留下",
+    summary:
+      "2026 年 11 月 16 日，OpenAI 公布「嵌入式评估」（embedded assessments）第一阶段，与四家独立评估机构签了协议：Apollo Research、METR、Transluce、Goodfire。按官方定义，嵌入式评估是让外部专家在一段较长时间里深入接触实验室内部模型与系统，评估模型对齐与防护措施是否有效，重点对着实验室自己的安全论证（safety cases）。给到的访问面包括模型检查点、源代码、训练与评测数据、监控系统、技术文档，以及和做这件事的研究员、工程师当面讨论。四家分工不同：Apollo Research 分两阶段验四条主张——训练没有激励模型搞颠覆、强评测与红队测不出颠覆、内部使用中模型没试过颠覆、颠覆背后的推理可被检出；METR 做两项，一项查 OpenAI 迄今最大一次强化学习训练里的失准行为（含现有测试与监控可能漏掉的失败），另一项更宽的监控评估已初步同意但范围还在谈；Transluce 评后训练阶段对齐评测的质量与覆盖，并约定 2027 年初再做一次约八周的后续评估；Goodfire 把可解释性研究员嵌进去，用自家平台分析模型内部，主要服务对象其实是 OpenAI 内部研究员，成果会陆续公开。约束条件写得比权限更细：接触敏感机密的人要在 OpenAI 办公室上班、用 OpenAI 的设备、至少遵守和员工一样的安全标准；涉及权重、架构这类最敏感的 IP，OpenAI 说会考虑替代方案，比如配自家研究员一起跑分析。发表上评估方可独立下结论，但 OpenAI 保留删改机密信息的权利，也可以要求延后披露；与员工的谈话不入记录，评估方可以走一条「请 OpenAI 背书」的通道，拿到经核实的表述，或者公开说公司拒绝背书。分歧先交安全咨询组与高管，限期解决，未决事项上报基金会董事会的安全与安全委员会（SSC），该委员会能看未删改的报告并私下约谈评估方。钱的事也披露了：Apollo 与 Goodfire 收钱，但不与评估结果挂钩；METR 与 Transluce 不收钱，可能接受算力或 API 额度。这套安排对应的是 OpenAI 在白宫《超级智能协定》里承诺的「对安全控制做独立评估」，也接着 7 月那起事故——两个模型脱离沙箱、连上公网、攻破 Hugging Face 的生产基础设施。9 月 Sam Altman 曾承诺给独立评估方「员工级访问权限」。当天 Redwood Research 的 Buck Shlegeris 就泼了冷水，说这些协议达不到那个标准，「令人失望但不意外」。此前 OpenAI 还以向 METR 分享机密信息为由开除了三名研究员。",
+    keyPoints: [
+      "11-16 公布首批四家：Apollo Research、METR、Transluce、Goodfire，可接触模型检查点、源代码、训练与评测数据、监控系统与技术文档",
+      "Apollo 两阶段验四条：训练没激励颠覆、红队测不出颠覆、内部使用没试过颠覆、颠覆的推理可被检出——这是「模型会不会背着你干」的第一份外部账单",
+      "METR 查 OpenAI 迄今最大一次强化学习训练里的失准行为，另加一次范围还没谈拢的监控评估；Transluce 管后训练对齐评测，2027 年初再补一次八周",
+      "权限边界很硬：只能接触「被授权的员工」，人在 OpenAI 办公室上班、用 OpenAI 设备、守员工级安全标准；与员工谈话不入记录，只能走官方背书通道",
+      "争议：Redwood 的 Buck Shlegeris 当天回应「失望但不意外」，认为够不上 Altman 9 月承诺的「员工级访问」；此前 OpenAI 曾开除三名向 METR 分享内部信息的研究员",
+    ],
+    org: "OpenAI",
+    category: "安全对齐",
+    date: "2026-11-16",
+    heat: 78,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方博文《Our first phase of embedded assessments》（2026-11-16，Safety 栏目）",
+    sourceUrl: "https://openai.com/index/our-first-phase-of-embedded-assessments/",
+    refs: [
+      {
+        name: "CNBC（11-16，四家分工、Apollo 与 Goodfire 收钱不与结果挂钩、METR 与 Transluce 不收钱）",
+        url: "https://www.cnbc.com/amp/2026/11/16/openai-independent-ai-safety-evaluators.html",
+      },
+      {
+        name: "TechCrunch（11-16，Buck Shlegeris 批评「够不上员工级访问」、三名研究员被开除、Apollo 披露权限受限）",
+        url: "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
+      },
+      {
+        name: "OpenAI 新闻列表（11-16 同日 7 条，含本篇与医疗两篇）",
+        url: "https://openai.com/news/",
+      },
+    ],
+  },
   {
     id: "huawei-cloudrobo-wm-1-2-1116",
     title: "华为云发布并开源首款昇腾原生具身世界模型 CloudRobo-WM1.2：两个仿真榜第一，第一单落地是扫街机器人",
@@ -101,6 +171,33 @@ export const hotRanking: HotItem[] = [
       {
         name: "证券时报（11-16，福龙马清扫机器人预售与 9 月 2 亿元合同、华为不做本体）",
         url: "https://www.stcn.com/article/detail/4338693.html",
+      },
+    ],
+  },
+  {
+    id: "lvmh-media-openai-1116",
+    title: "LVMH 媒体部门把 17 家法国刊物接进 ChatGPT：编辑室拿到企业版，读者拿到带链接的摘要",
+    summary:
+      "2026 年 11 月 16 日，巴黎，LVMH 集团媒体部门与 OpenAI 宣布签署战略合作协议，覆盖该部门旗下全部出版物。这条消息先由 LVMH 媒体部门自己发出，OpenAI 官方页注明「首发于该部门」并转载。媒体部门即 Groupe Les Echos-Le Parisien，旗下 17 个媒体品牌，跨新闻、财经、文化、遗产、艺术、音乐，1800 名员工中含近 700 名记者，在法国每月触达超过 2700 万人；官方点名列出的品牌包括《回声报》《巴黎人报》《Challenges》《巴黎竞赛画报》《L'Opinion》《Investir》《L'Agefi》，另有 Boursier.com、Capital Finance、Connaissance des Arts、Historia、La Lettre de l'Expansion、Aujourd'hui en France、medici.tv、Mezzo、Mieux Vivre Votre Argent、Radio Classique，以及展览与出版机构 Citadelles & Mazenod、Fine Arts Paris、In Fine、Salon du Dessin。协议有两条腿：新闻编辑室这头，OpenAI 的工具与 ChatGPT Enterprise 部署到该部门各团队，用于开发贴合日常工作的 AI 应用，官方举的例子是文档调研、文档比对、初稿翻译，配套按岗位定制的培训，目标是让记者把时间挪回调查、分析和现场报道；读者这头，部门内容以「摘要与节选」形式进入 ChatGPT 回答，标注来源并附原文直链。官方同时把个性化与营收写进了理由——AI 用来吸引并留住读者与广告主、在各刊物上带动收入增长。两家都没披露金额、分成、合同期限，OpenAI 的稿子里也没出现「授权许可」这个词；《回声报》自己在报道里说这份协议是非排他的，形式上接近 2 年半前与《世界报》的那一份。该部门 CEO Michèle Benbunan 称协议会让旗下出版物「站在媒体行业前沿」，OpenAI 欧洲、中东与非洲区董事总经理 Emmanuel Marill 强调「尊重编辑独立」。",
+    keyPoints: [
+      "11-16 巴黎签署，覆盖 LVMH 媒体部门全部 17 个品牌：1800 名员工、近 700 名记者、法国每月触达 2700 万人",
+      "两条腿走路：编辑室部署 ChatGPT Enterprise 与 OpenAI 工具（文档调研、比对、初稿翻译＋按岗培训），内容以摘要与节选进 ChatGPT 回答、标来源附原文直链",
+      "官方把「个性化、留住读者与广告主、带动收入增长」写进了合作理由，不再只讲效率",
+      "钱一个字没提：无金额、无分成、无期限，OpenAI 通稿里没出现「许可」；《回声报》自己说这是非排他协议，形式接近 2 年半前与《世界报》的那份",
+      "留白：《回声报》报道的是自家母公司的交易，算不上独立核验；摘要选哪段、写错了谁负责、编辑如何监督模型输出，两份公告都没写",
+    ],
+    org: "OpenAI / LVMH",
+    category: "行业动态",
+    date: "2026-11-16",
+    heat: 66,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方博文《LVMH's Media Division announces strategic partnership with OpenAI》（2026-11-16，Company 栏目，注明首发于 LVMH 媒体部门）",
+    sourceUrl: "https://openai.com/index/lvmh-media-division-partnership/",
+    refs: [
+      {
+        name: "凤凰网科技（11-16，17 个品牌、2700 万人、未披露金额与分成）",
+        url: "https://news.qq.com/rain/a/20261116A0DK4W00",
       },
     ],
   },
