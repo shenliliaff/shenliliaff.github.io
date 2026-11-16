@@ -6,7 +6,7 @@
     <title>读书笔记 | fengsKB</title>
     <link rel="icon" href="reading-icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="https://unpkg.com/docsify@4/lib/themes/vue.css" />
-    <link rel="stylesheet" href="https://unpkg.com/@waline/client@3/dist/waline.css" />
+    <link rel="stylesheet" href="/vendor/waline.css" />
     <style>
       .sidebar .app-name img {
         display: inline-block;
@@ -14,6 +14,23 @@
         height: 28px;
         margin-right: 8px;
         vertical-align: middle;
+      }
+
+      /* mermaid 图：居中、超宽可横向滚动、不撑破容器 */
+      .markdown-section .mermaid {
+        margin: 18px 0;
+        text-align: center;
+        overflow-x: auto;
+      }
+
+      .markdown-section .mermaid svg {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* 语法错误时的兜底框，避免整页空白 */
+      .markdown-section .mermaid[data-processed] foreignObject {
+        overflow: visible;
       }
     </style>
   </head>
@@ -31,6 +48,7 @@
           maxAge: 86400000,
           paths: [
             "README.md",
+            "2026-11-04-the-almanack-of-naval-ravikant.md",
             "2026-10-21-scent-of-a-woman-and-intouchables.md",
             "2026-09-10-south-sudan-civil-war.md",
             "2026-09-09-animal-farm-george-orwell.md",
@@ -42,6 +60,88 @@
           noData: "没有找到匹配的笔记",
         },
         plugins: [
+          // mermaid：页面里有 ```mermaid 代码块时才按需加载脚本，渲染成 SVG
+          function (hook) {
+            var loading = null;
+
+            function loadMermaid() {
+              if (window.mermaid) return Promise.resolve(window.mermaid);
+              if (loading) return loading;
+
+              // 这个构建是 classic script（内部用全局 var 挂到 globalThis.mermaid），
+              // 不能用 import() 加载，否则变量只在模块作用域，末尾赋值会失败。
+              loading = new Promise(function (resolve, reject) {
+                var script = document.createElement("script");
+                script.src = "/vendor/mermaid.min.js";
+                script.onload = function () {
+                  if (!window.mermaid) {
+                    reject(new Error("mermaid 未挂载到 window"));
+                    return;
+                  }
+                  window.mermaid.initialize({
+                    startOnLoad: false,
+                    // strict 会把节点标签里的 <br/> 转义掉，笔记里需要换行，所以用 loose
+                    securityLevel: "loose",
+                    theme: "default",
+                    flowchart: { useMaxWidth: true },
+                    sequence: { useMaxWidth: true },
+                  });
+                  resolve(window.mermaid);
+                };
+                script.onerror = function () {
+                  reject(new Error("mermaid.min.js 加载失败"));
+                };
+                document.head.appendChild(script);
+              });
+
+              return loading;
+            }
+
+            function mermaidLangOf(pre) {
+              var lang = (pre.getAttribute("data-lang") || "").toLowerCase();
+              if (lang) return lang;
+              var code = pre.querySelector("code");
+              var matched = code && (code.className || "").match(/lang-([\w-]+)/);
+              return matched ? matched[1].toLowerCase() : "";
+            }
+
+            function renderMermaid() {
+              var section = document.querySelector(".markdown-section");
+              if (!section) return;
+
+              var blocks = [];
+              section.querySelectorAll("pre").forEach(function (pre) {
+                if (mermaidLangOf(pre) === "mermaid") blocks.push(pre);
+              });
+              if (!blocks.length) return;
+
+              loadMermaid()
+                .then(function (mm) {
+                  blocks.forEach(function (pre) {
+                    var code = pre.querySelector("code");
+                    var text = ((code ? code.textContent : pre.textContent) || "").trim();
+                    var holder = document.createElement("div");
+                    holder.className = "mermaid";
+                    holder.textContent = text;
+                    pre.parentNode.replaceChild(holder, pre);
+                  });
+
+                  var targets = [].slice.call(
+                    section.querySelectorAll(".mermaid:not([data-processed])"),
+                  );
+                  if (targets.length) {
+                    mm.run({ nodes: targets, suppressErrors: true }).catch(function (err) {
+                      console.warn("[mermaid] 渲染失败", err);
+                    });
+                  }
+                })
+                .catch(function (err) {
+                  console.warn("[mermaid]", err);
+                });
+            }
+
+            hook.doneEach(renderMermaid);
+          },
           function (hook) {
             hook.beforeEach(function (content) {
               return content.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, "");
@@ -65,19 +165,30 @@
                 '<div style="font-weight:600;margin-bottom:12px;">评论</div>' +
                 '<div id="waline"></div>';
               main.appendChild(wrap);
-              if (window.Waline) {
-                window.Waline.init({
-                  el: "#waline",
-                  serverURL: "https://waline.upcloudtech.cn",
-                  path: "/reading" + location.hash.replace(/^#/, ""),
-                  login: "enable",
-                  meta: ["nick", "mail", "link"],
-                  requiredMeta: ["nick"],
-                  dark: false,
-                  pageSize: 10,
-                  lang: "zh-CN",
-                });
-              }
+              // Waline 走 module 异步加载，可能比 doneEach 晚就绪，轮询等它（最多约 8 秒）
+              var commentPath = "/reading" + location.hash.replace(/^#/, "");
+              var tries = 0;
+              (function mountWaline() {
+                if (window.Waline && typeof window.Waline.init === "function") {
+                  window.Waline.init({
+                    el: "#waline",
+                    serverURL: "https://waline.upcloudtech.cn",
+                    path: commentPath,
+                    login: "enable",
+                    meta: ["nick", "mail", "link"],
+                    requiredMeta: ["nick"],
+                    dark: false,
+                    pageSize: 10,
+                    lang: "zh-CN",
+                  });
+                  return;
+                }
+                if (++tries > 40) {
+                  console.warn("[waline] 客户端未就绪，跳过本页评论");
+                  return;
+                }
+                setTimeout(mountWaline, 200);
+              })();
             });
           },
         ],
@@ -96,6 +207,12 @@
     </script>
     <script src="https://unpkg.com/docsify@4"></script>
     <script src="https://unpkg.com/docsify@4/lib/plugins/search.min.js"></script>
-    <script src="https://unpkg.com/@waline/client@3/dist/waline.js"></script>
+    <!-- Waline 3 只提供 ESM 构建，必须用 type="module" 引入，普通 script 会报 Unexpected token 'export' -->
+    <script type="module">
+      import { init } from "/vendor/waline.js";
+
+      window.Waline = { init };
+      window.dispatchEvent(new Event("waline-ready"));
+    </script>
   </body>
 </html>
