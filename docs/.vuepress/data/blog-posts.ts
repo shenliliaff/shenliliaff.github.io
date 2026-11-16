@@ -233,6 +233,11 @@ export const blogPosts: BlogPost[] = [
     url: "/blog/2026-11-01-only-five-windows.html",
   },
   {
+    title: "十月：算力在绕圈，人在等机器回话",
+    date: "2026-10-31",
+    url: "/blog/2026-10-monthly-review.html",
+  },
+  {
     title: "Siri 变聪明了，聪明的那部分是千问",
     date: "2026-10-31",
     url: "/blog/2026-10-31-apple-intelligence-lands-in-china.html",
@@ -501,6 +506,11 @@ export const blogPosts: BlogPost[] = [
     title: "Google 把最强的模型先给了补漏洞的人，还替他把护栏拆了",
     date: "2026-10-01",
     url: "/blog/2026-10-01-google-argon-first-to-patch-finders.html",
+  },
+  {
+    title: "九月：一边降价，一边把门关上",
+    date: "2026-09-30",
+    url: "/blog/2026-09-monthly-review.html",
   },
   {
     title: "OpenAI 头一天废掉一个更聪明的模型，第二天发了个便宜的",
