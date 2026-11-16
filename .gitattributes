@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# 第三方压缩产物（mermaid / waline）：不按文本处理，避免换行转换改写内容
+docs/.vuepress/public/vendor/* -text
