@@ -98,6 +98,7 @@ export const hotRanking: HotItem[] = [
         url: "https://www.cls.cn/detail/2535912",
       },
     ],
+    article: "/blog/2026-11-17-the-most-expensive-job-is-copy-paste.html",
   },
   {
     id: "openai-embedded-assessments-1116",
@@ -133,6 +134,7 @@ export const hotRanking: HotItem[] = [
         url: "https://openai.com/news/",
       },
     ],
+    article: "/blog/2026-11-17-evidence-stays-behind.html",
   },
   {
     id: "huawei-cloudrobo-wm-1-2-1116",
