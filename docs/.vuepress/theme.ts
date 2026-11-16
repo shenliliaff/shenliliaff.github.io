@@ -125,8 +125,8 @@ export default hopeTheme(
         // 访客需要填写的信息：昵称必填，邮箱、网址选填
         meta: ["nick", "mail", "link"],
         requiredMeta: ["nick"],
-        // 每条评论字数上限
-        wordLimit: 500,
+        // 每条评论字数上限（原 500 偏小，长评论写不下）
+        wordLimit: 2000,
         // 每页评论条数
         pageSize: 10,
       },
