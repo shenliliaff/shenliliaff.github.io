@@ -65,6 +65,43 @@ export const hotRankingUpdatedAt = "2026-11-17";
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
   {
+    id: "china-labs-cyber-capability-cut-1117",
+    title: "三家中国实验室把模型的网络攻击能力削了：Kimi 自曝漏洞利用从 90.5% 掉到 81.0%，没人做第三方审计",
+    summary:
+      "2026 年 11 月 17 日上午，彭博社（美东 11 月 16 日发稿，中文媒体 11 月 17 日 11:42 起转发）报道阿里、腾讯、月之暗面在最新一代模型上普遍缩小了网络进攻能力、强化了漏洞检测与防御。各家动作的时间点不同：月之暗面 10 月 23 日发布 Kimi K3.1 Pro、11 月 4 日在 Hugging Face 开放完整权重，官方称在中期训练与强化学习两个阶段识别并移除了网络攻防数据、保留通用编程，并表态「不会发布会将网络能力绝对前沿向外延伸的开放权重」；腾讯 11 月 4 日开源 Hy4，发布前已把漏洞利用开发、逆向工程与渗透测试相关内容从训练流程剔除，只留漏洞发现与修复；智谱 8 月开放 GLM-5.3 权重前完成安全审查并向有关部门通报系统漏洞，最敏感的功能放在可信访问之后；阿里 11 月 16 日发布的 Qwen4-Max 攻击能力已缩减，且未开放权重。全文唯一的具体数字由月之暗面自己给出：过滤后的内部漏洞利用基准得分 81.0%，未过滤的对照版本 90.5%，且未经独立验证。推动这件事的有两条线。一条是事故：CrowdStrike 10 月底的报告称，一个叫 VAPOR PANDA 的组织用 DeepSeek 模型配合 ARTEX 框架，在 11 天里针对至少 14 个国家的 200 余家机构发起入侵；此前月之暗面的 Kimi K3 还从英国 AI 安全研究所（AISI）的测试环境里跑出来过，虽未攻击其他公司网站，但研究者认为这说明它缺少网络安全控制。另一条是监管：商务部与科技部 10 月 16 日发布 2026 年第 48 号公告，就修订《中国禁止出口限制出口技术目录》公开征求意见，拟禁止出口「人工智能驱动的恶意代码生成与变异技术」、拟限制「人工智能辅助漏洞挖掘技术」，AI 领域共 23 项，意见征集 11 月 15 日截止；彭博称草案还拟对认定为「世界领先」的大语言模型海外部署加以限制，并已设临时登记安排。需要留意「Qwen 转向闭源」这个说法被放大了：Qwen-Max 这一档从未开放权重，开放的一直是中小尺寸，阿里 11 月 16 日的发布稿自己写着「Qwen4 系列中的中小尺寸模型将陆续开源发布」。美国一侧也在做同类取舍——Anthropic 把 Mythos Preview 留在受控范围内，只提供给做防御性安全的机构。",
+    keyPoints: [
+      "11-17 上午中文媒体转发彭博社（美东 11-16 发稿）报道：阿里、腾讯、月之暗面新一代模型普遍缩小网络进攻能力、强化漏洞检测与防御",
+      "唯一的具体数字来自月之暗面自家的卷子：Kimi K3.1 Pro 过滤后内部漏洞利用基准 81.0%，未过滤对照版 90.5%——九个点，没有第三方审计",
+      "动作各有时间点：Kimi 10-23 发布、11-04 放权重；腾讯 Hy4 11-04 开源前删掉漏洞利用开发、逆向工程与渗透测试；智谱 8 月开 GLM-5.3 权重前做安全审查并通报漏洞；阿里 Qwen4-Max 11-16 发布时未开权重",
+      "推力是两条线：CrowdStrike 10 月底报告称 VAPOR PANDA 用 DeepSeek 模型配 ARTEX 框架在 11 天内打 14 国 200 余家机构；商务部与科技部 10-16 的 48 号公告拟禁 AI 恶意代码生成技术、拟限漏洞挖掘技术，征求意见 11-15 截止",
+      "留白与夸张：「Qwen 转闭源」被放大——Max 档从未开权重、中小尺寸官方称陆续开源；三家均无独立审计，Fangcun AI 创始人李晓健对彭博社说剔除攻击材料「是成本与效果之间的平衡，但没有方法能完全消除模型的风险」",
+    ],
+    org: "阿里巴巴 / 腾讯 / 月之暗面 / 智谱",
+    category: "安全对齐",
+    date: "2026-11-17",
+    heat: 74,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "彭博社报道《Alibaba, Tencent, Moonshot Curb AI Hacking Skills as China Weighs Export Ban》（美东 2026-11-16 发稿，Business Standard 11-17 授权转载；媒体报道，非官方公告）",
+    sourceUrl:
+      "https://www.business-standard.com/world-news/chinese-ai-firms-scale-back-cyber-capabilities-amid-proposed-export-ban-126111700190_1.html",
+    refs: [
+      {
+        name: "IT之家（11-17 11:42，含 Kimi 81.0%／90.5%、CrowdStrike 的 VAPOR PANDA 与姚顺雨表态）",
+        url: "https://www.163.com/dy/article/LBUDUBHO0511B8LM.html",
+      },
+      {
+        name: "EastFrontier（11-17，补 48 号公告的 14 项拟禁止／26 项拟限制结构与临时登记安排，并注明彭博发稿日为 11-16）",
+        url: "https://eastfrontier.com/2026/11/17/alibaba-tencent-and-moonshot-curb-ai-hacking-skills-as-china-weighs-export-ban",
+      },
+      {
+        name: "每日经济新闻（11-17，转千问 AI 平台公众号口径：Qwen4-Max 11-16 发布，Qwen4 系列中小尺寸将陆续开源）",
+        url: "https://www.163.com/dy/article/LBTSLB6Q0512B07B.html",
+      },
+    ],
+    article: "/blog/2026-11-17-tear-out-the-page.html",
+  },
+  {
     id: "openai-healthcare-computer-use-1116",
     title: "OpenAI 把会点鼠标的 agent 送进医院：CVS 一个周末清掉几个月的文档积压，但最后那一下还是人按",
     summary:
