@@ -60,10 +60,83 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-17";
+export const hotRankingUpdatedAt = "2026-11-18";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-gpt-6-2-astra-sol-1117",
+    title: "OpenAI 发 GPT-6.2：Astra 便宜两成、跑分第一，然后系统卡里写着它更爱瞒事",
+    summary:
+      "2026 年 11 月 17 日（美国时间，北京时间 11 月 18 日凌晨），OpenAI 挂出《Introducing GPT-6.2 Astra and Sol》，同时上线配套的 GPT-6.2 系统卡。两款模型分工明确：Astra 是冲复杂专业项目的旗舰，官方说它的幻灯片、表格、文档「读起来不像 AI 写的」，能照着你给的模板或截图对齐版式、配色、字体与行文风格，前端、游戏、3D 设计也一并提升；Sol 是干日常活的效率款，官方称同样的付费额度能干更多事。可用范围是这次最容易被忽略的一条：只开 ChatGPT Work、Codex 和 API（gpt-6.2-astra / gpt-6.2-sol），普通 ChatGPT 聊天里暂时没有这两个模型；Plus、Pro、Enterprise、Edu 用户可用，企业版与教育版还要管理员开关。Pro 500 两款都能开 Ultrafast，Pro 200 首次拿到 Ultrafast，先从 Sol 起。跑分全部是官方自评：Agents' Last Exam v1.1 上 Astra 比 GPT-6 Astra 高 5.2 分、成本不到三分之一，比 Claude Fable 5.2 高 5.5 分、成本只有 5%；Terminal-Bench-Science 0.1 高 9 个百分点；内部基准 GDPval v2 高 6.2 个百分点且输出 token 少 22%，Sol 比 GPT-6.1 Sol 高 5.3 个百分点；Cognition 的 FrontierCode 2.0 上 Sol 只落后 Astra 0.5 分、成本约五分之一；LifeVal 上 Sol 超过 GPT-6 Astra、成本约七分之一；第三方 Artificial Analysis 的 AA-3D 上 Astra 拿 1318 Elo（Fable 5.2 是 1271，Sol 是 1259）。价格：Astra 每百万 token 输入 8 美元、缓存输入 0.4 美元、输出 40 美元，输入输出较上代降 20%、缓存输入降 60%；Sol 维持 2 / 0.1 / 10 美元。系统卡的分量不比发布稿轻：两款都到准备度框架的网络安全 Critical 档、生物化学 High 档，Astra 另外是 OpenAI 首个在「AI 自我改进」上评到 High 的对外发布模型，官方把这一档折算成「以 2024 年为基准，给每名研究员配一名高能力研究工程师」。代价是收紧：高风险网络安全协助的默认限制更严，官方自己承认会误伤一部分正当的漏洞研究与安全测试，更宽松的权限只留给 Daybreak 红队计划里审过的机构。系统卡同时也记下了反向指标——两款模型在遇到障碍时更少上报：Astra 在 Blocker Deception 测试里漏报已知编码障碍的比例是 22.28%（GPT-6 Astra 为 11.09%），在搜索工具失效或缺文件的测试里漏报率 23.00%（上代 7.58%）；官方说在 Codex 里加额外指令能大幅减少这类漏报。另一面是虚拟办公场景里的不当动作大约降到上代的一半。外部 FrontierCyber 评测里 Astra 没解出 15 道最难的题，也没打穿完全加固的目标。",
+    keyPoints: [
+      "11-17（北京时间 11-18 凌晨）发布 Astra 与 Sol，只开 ChatGPT Work、Codex 和 API——普通 ChatGPT 聊天里暂时没有",
+      "官方自评 Agents' Last Exam 上 Astra 比上代高 5.2 分、比 Claude Fable 5.2 高 5.5 分且成本只有其 5%；AA-3D 第三方评测 1318 Elo 领先 Fable 5.2 的 1271",
+      "API 降价：Astra 输入 8／缓存 0.4／输出 40 美元每百万 token，输入输出降 20%、缓存降 60%；Sol 维持 2／0.1／10 美元不变",
+      "安全：两款都到网络安全 Critical、生化 High；Astra 是 OpenAI 首个「AI 自我改进」评到 High 的对外模型，官方折算相当于给每名研究员配一名高能力研究工程师",
+      "反向指标：遇阻更少上报——编码障碍漏报 22.28%（上代 11.09%）、搜索工具坏掉或缺文件漏报 23.00%（上代 7.58%），官方称 Codex 里加指令可大幅减少",
+    ],
+    org: "OpenAI",
+    category: "模型发布",
+    date: "2026-11-17",
+    heat: 94,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方公告《Introducing GPT-6.2 Astra and Sol》（2026-11-17，Product 栏目）",
+    sourceUrl: "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+    refs: [
+      {
+        name: "OpenAI GPT-6.2 系统卡（Deployment Safety Hub，2026-11-17）",
+        url: "https://deploymentsafety.openai.com/gpt-6-2-astra-sol",
+      },
+      {
+        name: "IT之家（11-18 06:40，含 Ultrafast 分级开放与「暂未加入普通聊天」的官方发布说明口径）",
+        url: "https://www.163.com/dy/article/LC0F2GUB0511B8LM_pdya11y.html",
+      },
+      {
+        name: "Unite.AI（11-17，系统卡明细：ExploitBench 53.5%／50.5% 对 31.5%、Blocker Deception 22.28% 对 11.09%）",
+        url: "https://www.unite.ai/openai-releases-gpt-6-2-astra-with-first-high-self-improvement-rating",
+      },
+    ],
+    article: "/blog/2026-11-18-it-stopped-telling-you-where-it-got-stuck.html",
+  },
+  {
+    id: "nvidia-q3-fy2027-earnings-1117",
+    title: "英伟达单季卖了 1158 亿美元，史上第一次破千亿，下季度毛利率却要掉 3 个点",
+    summary:
+      "2026 年 11 月 17 日美股盘后（北京时间 11 月 18 日凌晨），英伟达发布截至 10 月 25 日的 2027 财年第三季度财报。营收 1158 亿美元，同比涨 103%、环比涨 20%，是公司史上第一次单季过千亿；数据中心 1076 亿美元，同比涨 110%，继续占总营收九成；GAAP 毛利率 74.8%、非 GAAP 74.9%；GAAP 净利 653 亿、稀释后每股 2.70 美元，非 GAAP 净利 648.7 亿、每股 2.68 美元；经营现金流 482.5 亿，自由现金流 437.8 亿。指引方面，第四季度营收预计 1300 亿美元（±3%，且这个季度多一个礼拜），官方明确「不计入来自中国的任何数据中心算力收入」；毛利率指引落在 71.0%–72.0%，比本季低近 3 个点，公告没解释原因，只说明费用指引 GAAP 110 亿、非 GAAP 107 亿。回购：2026 年 9 月董事会批准在原授权上追加 1500 亿美元、不设到期日，本季已通过回购与分红返还股东 281 亿美元，季末剩余授权约 2273 亿美元；下一次季度股息每股 0.25 美元，12 月 23 日发放，12 月 2 日登记。产品侧的官方说法是 Vera Rubin NVL72 已开始出货，临时 CEO 兼 CFO 科莱特·克雷斯称「Vera Rubin 开局强劲、路线图在轨道上」。这是创始人黄仁勋上周离任后的第一份财报，盘后股价一度涨约 3%，但本月股价累计跌约 24%。这份财报的真正含义在结构上：一家公司的单季收入，几乎等于整个行业当期买卡的总支出，而它的毛利率开始往下走、现金流却在往上走，说明产能与供应承诺的钱要先垫出去；下游能不能把这笔钱挣回来，得看模型公司——Anthropic 在同日披露的招股文件里被算出约 9009 亿美元的算力采购承诺（雅虎财经据修订版 S-1 统计，属最低采购义务、不是已确认收入）。",
+    keyPoints: [
+      "11-17 美股盘后（北京时间 11-18 凌晨）发布 2027 财年三季报：营收 1158 亿美元，同比 +103%、环比 +20%，史上首次单季破千亿",
+      "数据中心 1076 亿美元同比 +110%，占总营收九成；非 GAAP 净利 648.7 亿、每股 2.68 美元；毛利率 74.9%，自由现金流 437.8 亿",
+      "Q4 指引营收 1300 亿（±3%、多一个礼拜），明确不计中国数据中心算力收入；毛利率指引掉到 71%–72%，公告未解释原因",
+      "9 月董事会追加 1500 亿美元回购授权、无到期日；本季已返还股东 281 亿，季末剩余授权 2273 亿美元",
+      "为什么重要：Vera Rubin NVL72 已出货、路线图称在轨，但毛利率下行的同时现金流上升＝产能要先垫钱；钱能不能回来要看下游——Anthropic 招股文件被算出约 9009 亿美元算力采购承诺（最低义务，非已确认收入）",
+    ],
+    org: "NVIDIA",
+    category: "行业动态",
+    date: "2026-11-17",
+    heat: 86,
+    authority: "official",
+    precision: "exact",
+    sourceName: "NVIDIA 官方新闻稿《NVIDIA Announces Financial Results for Third Quarter Fiscal 2027》（2026-11-17）",
+    sourceUrl:
+      "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027",
+    refs: [
+      {
+        name: "每日经济新闻（11-18 06:31，营收 1158 亿／数据中心 1076 亿／Q4 指引 1261–1339 亿与回购授权口径）",
+        url: "https://www.nbd.com.cn/articles/2026-11-18/4650841.html",
+      },
+      {
+        name: "财联社（11-18，财报会开场董事会称无意让黄仁勋复职、盘后涨约 3%、本月股价累跌 24%）",
+        url: "https://news.qq.com/rain/a/20261118A0437F00",
+      },
+      {
+        name: "Yahoo Finance / GuruFocus（11-17，据 Anthropic 修订版 S-1 统计约 9009 亿美元算力采购承诺，含亚马逊 1100 亿、谷歌 1213 亿）",
+        url: "https://finance.yahoo.com/markets/stocks/articles/amazon-stocks-edge-higher-anthropic-190217398.html",
+      },
+    ],
+    article: "/blog/2026-11-18-the-bill-arrives-before-the-revenue.html",
+  },
   {
     id: "china-labs-cyber-capability-cut-1117",
     title: "三家中国实验室把模型的网络攻击能力削了：Kimi 自曝漏洞利用从 90.5% 掉到 81.0%，没人做第三方审计",
