@@ -60,10 +60,47 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-18";
+export const hotRankingUpdatedAt = "2026-11-19";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "anthropic-ipo-priced-83-1118",
+    title: "Anthropic 定价 83 美元：市场给到 1.5 万亿，公司自己一句话没说",
+    summary:
+      "美国时间 2026 年 11 月 18 日收盘后，Anthropic 把 IPO 发行价定在每股 83 美元，高于 11 月 10 日递交的 70 至 78 美元区间 6.4 个百分点，公司对此拒绝置评，价格由彭博社先报、路透与 CNBC 跟进确认。按发行在外股份算市值约 1.08 万亿美元，把全部股份与期权算进去（完全稀释）约 1.5 万亿，路透在定价前给出的口径是最高 1.4 万亿。原计划发行 8.25 亿股，按 83 美元至少募资 680 亿美元，另向英伟达、谷歌、微软、AMD 等七家科技公司私募配售 260 亿美元，合计超过 940 亿，超过 SpaceX 六月 IPO 的 750 亿（含超额配售 862.5 亿）。需求侧：机构下单约 4000 亿美元、散户近 1000 亿美元，均为非约束性意向。财务面：截至 9 月 30 日的前九个月收入 332.4 亿美元，同比增约 1200%；净亏损 1040 亿美元，主要来自可转债与衍生负债的公允价值变动，属非现金科目；第三季度收入 169.6 亿美元、同比增 47%，经营亏损 5.67 亿美元，而第二季度还是 9.74 亿美元经营利润；10 月 31 日年化收入约 810 亿美元，比 9 月底多出 100 亿；年付 10 万美元以上的客户 1.19 万家，去年底是 1500 多家。真正压在资产负债表外的是采购承诺：未来 12 个月 700 亿美元，2030 年前 4500 亿，2045 年前再 4500 亿，合计约 9000 亿；上半年算力与基础设施已花掉近 90 亿（同比近四倍），第三季度又增 50 亿算力成本，另有 62 亿美元债务。发行由高盛与摩根士丹利牵头、22 家银行组成承销团，20% 股份留给散户，七位联合创始人各减持约 2.6 亿美元。股票 11 月 19 日在纳斯达克全球精选市场挂牌，代码 ANT，Dario Amodei 与联合创始人敲开市钟。背景并不友好：2026 年美国规模最大的十宗 IPO 平均比发行价跌约 20%，Morningstar 给的公允价值是 92 美元。",
+    keyPoints: [
+      "定价 83 美元/股，比 11-10 公布的 70–78 美元区间上限还高 6.4%，公司拒绝置评，价格由彭博先报、路透与 CNBC 跟进",
+      "至少募资 680 亿美元，加 260 亿美元私募配售合计逾 940 亿，超过 SpaceX 六月 IPO 的 750 亿；基本市值 1.08 万亿、完全稀释约 1.5 万亿",
+      "前九个月收入 332.4 亿美元同比增约 1200%，净亏 1040 亿几乎全是可转债与衍生负债的公允价值变动，不掏现金",
+      "第三季度经营已转亏 5.67 亿美元（二季度还是 9.74 亿经营利润），而 2030 年前算力承诺 4500 亿、2045 年前再 4500 亿",
+      "机构下单 4000 亿、散户近 1000 亿美元全是非约束意向；对照 2026 年美国前十大 IPO 平均跌破发行价约 20%，今晚挂牌才是真考场",
+    ],
+    org: "Anthropic",
+    category: "行业动态",
+    date: "2026-11-18",
+    heat: 92,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "Investopedia／路透社报道（非官方公告，Anthropic 拒绝置评，2026-11-18 定价 83 美元）",
+    sourceUrl:
+      "https://www.investopedia.com/anthropic-has-priced-its-ipo-what-investors-need-to-know-ant-stock-12263112",
+    refs: [
+      {
+        name: "路透社（11-18，发行规模扩大、Q3 收入 169.6 亿与经营亏损 5.67 亿、1.19 万家企业客户、22 家承销行）",
+        url: "https://www.aol.com/articles/anthropic-prices-blockbuster-ipo-83-212611000.html",
+      },
+      {
+        name: "美联社／雅虎财经（11-18，1.5 万亿估值、62 亿美元债务、9000 亿算力承诺、700 亿未来 12 个月）",
+        url: "https://finance.yahoo.com/markets/stocks/articles/anthropic-prices-ipo-83-per-222443646.html",
+      },
+      {
+        name: "Axios（11-18，基本市值 1.08 万亿与完全稀释 1.5 万亿的口径差、绿鞋与配售安排）",
+        url: "https://finance.yahoo.com/markets/stocks/articles/anthropic-valued-over-1-trillion-221632090.html",
+      },
+    ],
+    article: "/blog/2026-11-19-the-loss-is-paper-the-bill-is-real.html",
+  },
   {
     id: "tencent-hy4-flash-open-weights-1118",
     title: "腾讯把 Hy4 flash 的权重放了：220B 只激活 12B，许可证第十条给云厂商留了道门槛",
@@ -99,6 +136,34 @@ export const hotRanking: HotItem[] = [
       },
     ],
     article: "/blog/2026-11-18-read-section-ten-first.html",
+  },
+  {
+    id: "openai-models-chip-design-1118",
+    title: "OpenAI 让自家模型改芯片：AMD 旗舰 GPU 多挤出 14%，Jalapeño 省下 13% 面积",
+    summary:
+      "美国时间 2026 年 11 月 18 日，OpenAI 发布技术报告《Advancing chip design with OpenAI models》，把「模型改电路」从演示推进到产线：自研推理芯片 Jalapeño 从 2025 年初起就有 GPT-4o 参与，向量计算单元的标准单元面积最终减少约 13%、矩阵单元减少约 10%，这些改动在 Jalapeño 的硅片调试（silicon bring-up）中得到验证；单个部件上，一次乘法器重写让综合后单元面积少约 15%、延迟从两个时钟周期压到一个，另一次加法器重写省下约 15% 面积但保持两个周期。对外合作方面，OpenAI 与 AMD 在已经高度优化的旗舰 GPU IP 上做出最高 14% 的功耗性能面积（PPA）改善，手段是让模型重写描述电路的 SystemVerilog RTL，官方称这相当于不到五个月干完约一年的设计进展，AMD 已把其中一部分放进近期送去制造的版本，其余写进生产设计文件留给后续型号，下一代旗舰 CPU 的关键模块也验到个位数百分比的 PPA 提升。为量化代际差距，OpenAI 在两个开源 32 位 RISC-V 核（PicoRV32 与 OpenTitan 用的 Ibex）上做了 9881 次计分运行的评测，在每次约 11.2 万 token 的可比预算下 GPT-6.2 Astra 在两个核上的平均分都是最高，PicoRV32 上约为 GPT-6 Astra 的两倍，GPT-6.1 Sol 也高于 GPT-5.6 Sol。报告同时留了两处口子：从文字规格从头生成 RTL 的得分普遍高于优化现有设计，因为模型可以省掉性能计数器或多余指令，所以高分不等于新设计在真产品里同样好；且目前成果集中在特定模块，不能直接换算成整颗 GPU 或 CPU 的提升。下一步 OpenAI 与 Synopsys 合作训练名为 GPT-Synopsys 的模型，让它像工程师一样使用电子设计自动化工具。",
+    keyPoints: [
+      "11-18 技术报告：Jalapeño 从 2025 年初就有 GPT-4o 参与，向量单元标准单元面积减约 13%、矩阵单元减约 10%，已在硅片调试中验证",
+      "一次乘法器重写省约 15% 面积、延迟从两个时钟周期压到一个；另一处加法器省同样面积但保持两周期",
+      "AMD 旗舰 GPU 的已高度优化 IP 上再挤出最高 14% PPA，官方称相当于不到五个月干完约一年，部分改动已进 AMD 送去制造的版本",
+      "评测用两个开源 RISC-V 核跑 9881 次计分运行，约 11.2 万 token 预算下 GPT-6.2 Astra 两个核平均分最高，PicoRV32 上约为 GPT-6 Astra 两倍",
+      "官方自曝漏洞：从规格从头生成 RTL 的得分普遍高于优化现成设计，因为模型可以省掉性能计数器与多余指令——分数不能直接当产品力；下一步与 Synopsys 合训 GPT-Synopsys",
+    ],
+    org: "OpenAI",
+    category: "硬件航天",
+    date: "2026-11-18",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方技术报告《Advancing chip design with OpenAI models》（2026-11-18）",
+    sourceUrl: "https://openai.com/index/advancing-chip-design-with-our-models/",
+    refs: [
+      {
+        name: "凤凰网科技（北京时间 11-19，AMD 14% 与五个月折一年、9881 次计分运行、GPT-Synopsys 合作）",
+        url: "https://i.ifeng.com/c/8yAXcSbk5wZ",
+      },
+    ],
+    article: "/blog/2026-11-19-who-saved-the-clock-cycle.html",
   },
   {
     id: "cac-ai-chaos-cases-1118",
