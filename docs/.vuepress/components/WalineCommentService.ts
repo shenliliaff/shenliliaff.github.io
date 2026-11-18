@@ -224,15 +224,21 @@ export default defineComponent({
 		return () =>
 			h(ClientOnly, null, {
 				default: () =>
-					h(Waline, {
-						...(typeof __COMMENT_OPTIONS__ === "object" ? __COMMENT_OPTIONS__ : {}),
-						path: props.identifier,
-						lang: lang.value === "zh-CN" ? "zh-CN" : "en",
-						dark: "[data-theme='dark']",
-						// 只在配好 anon key 后接管上传；否则不传 imageUploader，
-						// Waline 回退到内置的 Base64 方案，评论贴图不会因 401 而失败
-						...(SUPABASE_ANON_KEY.startsWith("eyJ") ? { imageUploader: uploadImage } : {}),
-					}),
+					// 这层 div 不能省：plugin-comment 默认组件就是
+					// <div id="comment" class="waline-wrapper"> + <Waline />，
+					// .waline-wrapper 上挂了 Waline 的主题变量（背景/文字/边框/主色），
+					// 少了它评论区会退回默认配色，暗色模式下几乎看不清。
+					h("div", { id: "comment", class: "waline-wrapper" }, [
+						h(Waline, {
+							...(typeof __COMMENT_OPTIONS__ === "object" ? __COMMENT_OPTIONS__ : {}),
+							path: props.identifier,
+							lang: lang.value === "zh-CN" ? "zh-CN" : "en",
+							dark: "[data-theme='dark']",
+							// 只在配好 anon key 后接管上传；否则不传 imageUploader，
+							// Waline 回退到内置的 Base64 方案，评论贴图不会因 401 而失败
+							...(SUPABASE_ANON_KEY.startsWith("eyJ") ? { imageUploader: uploadImage } : {}),
+						}),
+					]),
 			});
 	},
 });

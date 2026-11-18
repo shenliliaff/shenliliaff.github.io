@@ -1,6 +1,13 @@
 import { defineClientConfig } from "vuepress/client";
 import { onMounted, onUnmounted } from "vue";
 
+// Waline 的基础样式表。替换了 plugin-comment 的默认评论组件后，
+// 原有的 import 也一起没了，缺了它评论区会退化成无样式的裸 DOM
+// （表情全铺开、输入框变原生控件）。必须在客户端入口重新引入。
+import "@waline/client/waline.css";
+// 评论者头像 / 表情图标用的图标字体
+import "@waline/client/waline-meta.css";
+
 import BlogPostList from "./components/BlogPostList.vue";
 import HotRanking from "./components/HotRanking.vue";
 import HotRankingEntry from "./components/HotRankingEntry.vue";

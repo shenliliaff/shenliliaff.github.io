@@ -68,3 +68,22 @@
 		justify-self: center;
 	}
 }
+
+// Waline 主题变量映射。
+// 自定义评论区（components/WalineCommentService.ts）替换了插件默认组件，
+// 这层 .waline-wrapper 原本由插件自带样式提供，这里补回来，否则评论区会退回
+// Waline 默认配色（白底黑字 + 蓝色主色），暗色模式下几乎看不清。
+.waline-wrapper {
+	--waline-bg-color: var(--vp-c-bg);
+	--waline-bg-color-light: var(--vp-c-bg-alt);
+	--waline-bg-color-hover: var(--vp-c-bg-alt);
+	--waline-text-color: var(--vp-c-text);
+	--waline-border: 1px solid var(--vp-c-border);
+	--waline-border-color: var(--vp-c-border);
+	--waline-disable-bg-color: var(--vp-c-bg-alt);
+	--waline-disable-color: var(--vp-c-text-mute);
+	--waline-theme-color: var(--vp-c-accent);
+	--waline-active-color: var(--vp-c-accent-hover);
+	--waline-info-bg-color: var(--vp-c-bg-alt);
+	--waline-info-color: var(--vp-c-text-mute);
+}
