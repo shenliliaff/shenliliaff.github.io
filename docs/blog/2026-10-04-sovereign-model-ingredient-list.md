@@ -9,7 +9,7 @@ category:
 
 2026-10-04 · 人工智能
 
-<img src="/covers/2026-10-04-cover.png" alt="一只悬停的蜂鸟与它身后的流水线" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-04-cover.webp" alt="一只悬停的蜂鸟与它身后的流水线" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 十月三号，德国统一日。海德堡一家叫 Aleph Alpha 的公司发了个模型，取名 Kolibri。德语里的蜂鸟。
 

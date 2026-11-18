@@ -9,7 +9,7 @@ category:
 
 2026-10-01 · 人工智能
 
-<img src="/covers/2026-10-01-cover.png" alt="Gemini 4 Argon 先给防御者" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-01-cover.webp" alt="Gemini 4 Argon 先给防御者" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 九月三十号，Google 发了新模型，Gemini 4 Argon。按官方说法，这是它目前最强的一个。
 

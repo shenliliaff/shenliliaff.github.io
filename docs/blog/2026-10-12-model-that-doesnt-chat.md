@@ -10,7 +10,7 @@ category:
 
 2026-10-12 · 人工智能
 
-<img src="/covers/2026-10-12-cover-2.png" alt="深黑背景中一只由发光线路构成的手悬停在一个巨大的霓虹绿按钮上方，周围漂浮着细小的数据粒子和概率刻度" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-12-cover-2.webp" alt="深黑背景中一只由发光线路构成的手悬停在一个巨大的霓虹绿按钮上方，周围漂浮着细小的数据粒子和概率刻度" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 10 月 9 日，a16z 在一篇投资公告里写了句话，我看了两遍："Jev 的上线是今年我们见过的**最大的叙事违背**——而且是最好的那种。"
 

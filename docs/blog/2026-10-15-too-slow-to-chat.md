@@ -10,7 +10,7 @@ category:
 
 2026-10-15 · 人工智能
 
-<img src="/covers/2026-10-15-cover.png" alt="深黑客厅里一堆廉价联网设备（电视盒、摄像头、扫地机器人）的轮廓依次亮起，每一台内部都渗出霓虹绿的光；一团缓慢移动的发光絮状体穿过它们之间，像黏液霉菌一样铺开，体积光与数据粒子流弥漫四周" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-15-cover.webp" alt="深黑客厅里一堆廉价联网设备（电视盒、摄像头、扫地机器人）的轮廓依次亮起，每一台内部都渗出霓虹绿的光；一团缓慢移动的发光絮状体穿过它们之间，像黏液霉菌一样铺开，体积光与数据粒子流弥漫四周" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 10 月 12 日，Anthropic 的前沿红队发了一篇研究。两位作者，William Zhou 和 Daniel Freeman。标题写得很直白：《AI 模型或许可以在不接触数据中心的前提下自我复制》。
 

@@ -10,7 +10,7 @@ category:
 
 2026-10-12 · 人工智能
 
-<img src="/covers/2026-10-12-cover.png" alt="深黑空间中一片密集排列的发光智能体节点，中央一个较亮的主节点向下分裂出成百上千条霓虹绿光线" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-12-cover.webp" alt="深黑空间中一片密集排列的发光智能体节点，中央一个较亮的主节点向下分裂出成百上千条霓虹绿光线" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 10 月 9 日，Anthropic 给 Claude 管理智能体加了一个叫"动态工作流"的功能。官方文档写得很克制，但数字很抓人：一次运行最多可以调度 **1,000 个智能体**。同一天，一家叫 Vals AI 的评测公司发了一篇报告，标题是个问句——《组队到底值不值？基于 Vibe Code Bench 的一个案例研究》。
 

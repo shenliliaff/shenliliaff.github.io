@@ -10,7 +10,7 @@ category:
 
 2026-10-11 · 人工智能
 
-<img src="/covers/2026-10-11-cover-2.png" alt="深黑房间中一只发光的文件夹敞开着，绿色光从里面涌出，上方悬浮着一页半透明的全息文档" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-11-cover-2.webp" alt="深黑房间中一只发光的文件夹敞开着，绿色光从里面涌出，上方悬浮着一页半透明的全息文档" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 10 月 7 日，安全公司 CrowdStrike 发了一份报告，讲的是 9 月底到 10 月初发生在韩国的一串攻击：至少九家金融机构被列为目标，客户的个人信息被拉走。袭击者用了很多工具，其中有一样最近很流行——一个叫 ARTEX 的中国开源智能体，专门用来自动化渗透测试。
 

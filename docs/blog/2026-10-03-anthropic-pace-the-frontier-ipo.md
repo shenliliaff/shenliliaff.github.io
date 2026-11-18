@@ -9,7 +9,7 @@ category:
 
 2026-10-03 · 人工智能
 
-<img src="/covers/2026-10-03-cover.png" alt="刹车与算力" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-03-cover.webp" alt="刹车与算力" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 十月一号，彭博社放出消息：Anthropic 最快十一月九号那一周启动 IPO 路演，争取十一月二十六号感恩节前开始交易。市场给的估值，一万八千亿到两万亿美元之间。据报道，上一笔纪录是今年六月的 SpaceX，对应估值约一万七千七百亿美元。
 

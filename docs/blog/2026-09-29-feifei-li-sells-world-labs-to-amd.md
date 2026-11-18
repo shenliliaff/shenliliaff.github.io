@@ -9,7 +9,7 @@ category:
 
 2026-09-29 · 人工智能
 
-<img src="/covers/2026-09-29-cover.png" alt="AMD 收购 World Labs" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-09-29-cover.webp" alt="AMD 收购 World Labs" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 九月二十八号，周一。AMD 发了条新闻稿：以全股票交易收购 World Labs，价值约 82 亿美元，折人民币约 550 亿。
 

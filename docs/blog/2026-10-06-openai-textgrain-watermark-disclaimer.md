@@ -9,7 +9,7 @@ category:
 
 2026-10-06 · 人工智能
 
-<img src="/covers/2026-10-06-cover.png" alt="一枚正在消散的发光印章悬在数据流上方，边缘化作细碎的粒子" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-06-cover.webp" alt="一枚正在消散的发光印章悬在数据流上方，边缘化作细碎的粒子" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 十月五号，OpenAI 发了一篇不长的东西，标题叫《我们对欧盟文本溯源规则的处理方式》。按惯例，这类文章扫一眼就过去了：合规、术语、几行技术说明。我本来也是这个打算。
 

@@ -10,7 +10,7 @@ category:
 
 2026-10-10 · 人工智能
 
-<img src="/covers/2026-10-10-cover-2.png" alt="深黑空间中一串发光的钥匙与门锁连成网络，霓虹绿数据粒子从左向右穿过" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-10-cover-2.webp" alt="深黑空间中一串发光的钥匙与门锁连成网络，霓虹绿数据粒子从左向右穿过" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 10 月 8 日，一家叫 Zenity Labs 的安全公司公开了一组研究，代号 AgentCorruption，讲的是他们在亚马逊云的 Bedrock AgentCore 上找到的东西。AgentCore 是 AWS 用来托企业智能体的平台——你把智能体交上去，它负责部署、监控、接工具、记记忆。
 

@@ -10,7 +10,7 @@ category:
 
 2026-11-16 · 人工智能
 
-![](/covers/2026-11-16-cover.png)
+![](/covers/2026-11-16-cover.webp)
 
 11 月 15 日，OpenAI 官网上多了一个栏目，叫科学博客。
 

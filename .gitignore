@@ -19,6 +19,9 @@ docs/.vuepress/public/reading/
 # 自定义草稿箱
 docs/_temp/
 
+# 已移除的 Live2D 看板娘资源（137 MB，623 个文件，源码零引用）
+docs/.vuepress/public/live2d-widget/
+
 # GoodSync
 _gsdata_/
 # pnpm 本地构建配置

@@ -10,7 +10,7 @@ category:
 
 2026-11-12 · 人工智能
 
-![给每个 Token 按手印的柜台](/covers/2026-11-12-cover-3.png)
+![给每个 Token 按手印的柜台](/covers/2026-11-12-cover-3.webp)
 
 我们部门每年都要买几次 API。
 

@@ -6,7 +6,7 @@ article: false
 
 # AI科技博客
 
-<img src="/covers/blog-overview-cover.png" alt="AI 前沿动态追踪" style="width:100%;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/blog-overview-cover.webp" alt="AI 前沿动态追踪" style="width:100%;border-radius:8px;margin:8px 0 20px;" />
 
 这里追踪 AI 前沿动态，**写的必须是当天的新事**——事件发生在今天，最迟不超过昨天，且会在正文里写明具体日期。每期聚焦一两个点，写深写透。
 

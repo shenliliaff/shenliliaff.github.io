@@ -9,7 +9,7 @@ category:
 
 2026-10-05 · 人工智能
 
-<img src="/covers/2026-10-05-cover.png" alt="核电站式控制室里亮着绿灯的仪表盘，操作台前只剩一把空椅子" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-05-cover.webp" alt="核电站式控制室里亮着绿灯的仪表盘，操作台前只剩一把空椅子" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 十月三号，《大西洋月刊》登了一篇文章，标题直白得像一封邮件的主题：《我辞去 OpenAI 的工作，因为它的文化已经崩了》。
 

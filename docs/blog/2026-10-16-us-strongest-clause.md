@@ -10,7 +10,7 @@ category:
 
 2026-10-16 · 人工智能
 
-![两台桌面级主机承载一个大模型](/covers/2026-10-16-cover.png)
+![两台桌面级主机承载一个大模型](/covers/2026-10-16-cover.webp)
 
 10 月 15 日，Meta 放出了一个模型的权重，叫 Muse Spark Open。
 

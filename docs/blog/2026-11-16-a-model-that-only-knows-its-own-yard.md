@@ -10,7 +10,7 @@ category:
 
 2026-11-16 · 人工智能
 
-![](/covers/2026-11-16-cover-2.png)
+![](/covers/2026-11-16-cover-2.webp)
 
 11 月 15 日，华为云在 MaaS 平台上架了一个新模型，叫 openPangu-2.1-Pro，开源盘古的最新一代。
 

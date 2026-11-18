@@ -10,7 +10,7 @@ category:
 
 2026-10-13 · 人工智能
 
-<img src="/covers/2026-10-13-cover-2.png" alt="深黑空间中一枚巨大发光芯片悬浮半空、周围环绕同心光环，下方是密密麻麻、向上涌出光束的机架模块阵列" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-13-cover-2.webp" alt="深黑空间中一枚巨大发光芯片悬浮半空、周围环绕同心光环，下方是密密麻麻、向上涌出光束的机架模块阵列" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 10 月 12 日，微软在官方博客上宣布：从 2027 年起，把 Azure Maia 系列扩到**数吉瓦**规模，让 Maia 成为微软产品和服务的**主要推理系统**。博客里这番话由微软云业务的 Scott Guthrie 出面讲。
 

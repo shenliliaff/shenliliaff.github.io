@@ -10,7 +10,7 @@ category:
 
 2026-10-15 · 人工智能
 
-<img src="/covers/2026-10-15-cover-2.png" alt="深黑空间中央悬浮着一只由光构成的电话听筒，从中涌出层叠的霓虹绿声波环与数据粒子流；听筒下方是成排空着的客服工位剪影，工位桌上只剩亮着的屏幕，没有任何人" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-15-cover-2.webp" alt="深黑空间中央悬浮着一只由光构成的电话听筒，从中涌出层叠的霓虹绿声波环与数据粒子流；听筒下方是成排空着的客服工位剪影，工位桌上只剩亮着的屏幕，没有任何人" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 先说一个数字，跟模型没什么关系。
 

@@ -10,7 +10,7 @@ category:
 
 2026-10-13 · 人工智能
 
-<img src="/covers/2026-10-13-cover.png" alt="深黑空间中并排的透明展柜：左侧柜门被厚重发光锁环封住、柜中是一颗炽亮的能量核心，右侧柜门敞开、柜中只有一枚暗淡的小方块" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-13-cover.webp" alt="深黑空间中并排的透明展柜：左侧柜门被厚重发光锁环封住、柜中是一颗炽亮的能量核心，右侧柜门敞开、柜中只有一枚暗淡的小方块" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 10 月 12 日，Meta 发布了自己的前沿模型，家族叫 Muse Wonder，里面有两个型号：Muse Wonder 和 Muse Wonder Full。
 

@@ -10,7 +10,7 @@ category:
 
 2026-10-20 · 人工智能
 
-![六个悬浮的发光窗口同时向中央一个暗淡的人形轮廓发出光索](/covers/2026-10-20-cover.png)
+![六个悬浮的发光窗口同时向中央一个暗淡的人形轮廓发出光索](/covers/2026-10-20-cover.webp)
 
 10 月 16 日，Anthropic 在自己研究页上挂了一份报告，标题一点不性感：《How employment is changing at Anthropic》，Anthropic 的就业是怎么变的。
 

@@ -10,7 +10,7 @@ category:
 
 2026-10-17 · 人工智能
 
-![1997 年的时钟吐出一串发光的种子](/covers/2026-10-17-cover.png)
+![1997 年的时钟吐出一串发光的种子](/covers/2026-10-17-cover.webp)
 
 Anthropic 在 10 月 16 日挂出一篇研究笔记，标题很平：Claude reveals ECDSA curve origins。内容是，公司内部一个研究模型用不到半个小时，把一桩挂了二十六年的悬案解了。
 

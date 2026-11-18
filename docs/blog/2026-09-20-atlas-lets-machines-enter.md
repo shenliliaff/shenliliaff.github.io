@@ -9,7 +9,7 @@ category:
 
 2026-09-20 · 人工智能
 
-<img src="/covers/2026-09-20-cover.png" alt="Atlas 让机器学会进入" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-09-20-cover.webp" alt="Atlas 让机器学会进入" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 九月初，李飞飞创办的 World Labs 发布了一款新模型，叫 Atlas。
 

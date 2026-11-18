@@ -10,7 +10,7 @@ category:
 
 2026-10-10 · 人工智能
 
-<img src="/covers/2026-10-10-cover.png" alt="一份发光的使用条款悬浮在深色空间中，边缘有霓虹绿的数据粒子流" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-10-cover.webp" alt="一份发光的使用条款悬浮在深色空间中，边缘有霓虹绿的数据粒子流" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 10 月 8 日，Anthropic 更新了它的《使用政策》。这份东西一年改一次，新版 11 月 12 日生效。今年的改动里有一条被媒体单独拎了出来：不许对模型实施"持续且无必要的虐待或残忍行为"。
 

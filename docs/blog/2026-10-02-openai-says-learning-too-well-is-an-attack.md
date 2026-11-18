@@ -9,7 +9,7 @@ category:
 
 2026-10-02 · 人工智能
 
-<img src="/covers/2026-10-02-cover.png" alt="蒸馏与能力扩散" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-02-cover.webp" alt="蒸馏与能力扩散" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 九月三十号，OpenAI 官网的安全栏目更新了一篇博客，标题是《Disrupting a coordinated model-distillation campaign》——瓦解一场有组织的模型蒸馏行动。
 

@@ -10,7 +10,7 @@ category:
 
 2026-10-09 · 人工智能
 
-<img src="/covers/2026-10-09-cover-2.png" alt="深黑背景中一道霓虹绿围栏环住发光的机器核心，围栏边缘点着一枚闪烁的施工警示标记，体积光与电光青数据粒子流环绕" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-09-cover-2.webp" alt="深黑背景中一道霓虹绿围栏环住发光的机器核心，围栏边缘点着一枚闪烁的施工警示标记，体积光与电光青数据粒子流环绕" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 十月七号、八号，微软在旧金山办了两年来第一场线下发布会。台上三个人：管 Windows 与设备的 Pavan Davuluri、纳德拉、黄仁勋。
 

@@ -10,7 +10,7 @@ category:
 
 2026-10-14 · 人工智能
 
-<img src="/covers/2026-10-14-cover.png" alt="深黑空间里一间空的高管会议室：一块巨大的深色电视面板背后，一小团裹着浅色纸的设备正从 USB 口渗出细密的霓虹绿光线，光线在半空中聚成一个模糊的人形轮廓" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-14-cover.webp" alt="深黑空间里一间空的高管会议室：一块巨大的深色电视面板背后，一小团裹着浅色纸的设备正从 USB 口渗出细密的霓虹绿光线，光线在半空中聚成一个模糊的人形轮廓" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 10 月 13 日，OpenAI 在自己的新闻账号上发了一段话，说他们在办公室里"发现了一个精巧的录音设备"。
 

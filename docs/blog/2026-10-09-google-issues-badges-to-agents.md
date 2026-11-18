@@ -10,7 +10,7 @@ category:
 
 2026-10-09 · 人工智能
 
-<img src="/covers/2026-10-09-cover.png" alt="深黑背景中一个半透明的发光人形剪影在桌前接过一枚霓虹绿工牌，旁边悬浮着发光的邮件信封与环形预算仪表，体积光与青绿色数据粒子流穿插" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-09-cover.webp" alt="深黑背景中一个半透明的发光人形剪影在桌前接过一枚霓虹绿工牌，旁边悬浮着发光的邮件信封与环形预算仪表，体积光与青绿色数据粒子流穿插" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 十月八号，谷歌云办了 Gemini at Work。台上是谷歌云 CEO 托马斯·库里安，皮柴也来了。
 

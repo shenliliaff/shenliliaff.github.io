@@ -9,7 +9,7 @@ category:
 
 2026-10-08 · 人工智能
 
-<img src="/covers/2026-10-08-cover.png" alt="深黑背景中一叠厚厚的手稿悬空堆叠，一侧是冷青色的机械审阅臂，霓虹绿色数据粒子流从纸缝间穿过" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-08-cover.webp" alt="深黑背景中一叠厚厚的手稿悬空堆叠，一侧是冷青色的机械审阅臂，霓虹绿色数据粒子流从纸缝间穿过" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 十月六号，周二。美国东岸下午一点，《连线》先发了一篇报道：几位数学家集体抱怨 OpenAI。
 

@@ -9,7 +9,7 @@ category:
 
 2026-10-07 · 人工智能
 
-<img src="/covers/2026-10-07-cover.png" alt="深黑背景中一片由光点构成的巨大书架，几道霓虹绿色粒子流从中穿过，留下一串淡淡的便签光痕" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-07-cover.webp" alt="深黑背景中一片由光点构成的巨大书架，几道霓虹绿色粒子流从中穿过，留下一串淡淡的便签光痕" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 十月五号，周一。维基媒体基金会发了一篇博客，署名的是他们的首席产品与技术官 Selena Deckelmann。点进去之前我没抱什么期待——这类基金会发的技术说明，通常是写给内部看的：流量增长、架构调整、成本上升。
 

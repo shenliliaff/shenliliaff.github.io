@@ -10,7 +10,7 @@ category:
 
 2026-10-14 · 人工智能
 
-<img src="/covers/2026-10-14-cover-2.png" alt="深黑空间里两块悬浮的全息条形图：前面那块中，一根霓虹绿的柱子立在第一位；它后面那块一模一样的图上，同一根柱子落到了第五位。一旁，一条流线型的机械臂正把一枚发光的小球抛向远处的光环" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-10-14-cover-2.webp" alt="深黑空间里两块悬浮的全息条形图：前面那块中，一根霓虹绿的柱子立在第一位；它后面那块一模一样的图上，同一根柱子落到了第五位。一旁，一条流线型的机械臂正把一枚发光的小球抛向远处的光环" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 10 月 13 日，Google 把 Gemini 4 Argon 开卖了。
 

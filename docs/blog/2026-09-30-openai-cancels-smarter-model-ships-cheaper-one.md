@@ -9,7 +9,7 @@ category:
 
 2026-09-30 · 人工智能
 
-<img src="/covers/2026-09-30-cover.png" alt="OpenAI DevDay 2026" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
+<img src="/covers/2026-09-30-cover.webp" alt="OpenAI DevDay 2026" style="width:100%;max-width:420px;border-radius:8px;margin:8px 0 20px;" />
 
 九月二十八号，周一。OpenAI 告诉《华尔街日报》，原定十月上线的 GPT-6.1 Astra 不发了。
 

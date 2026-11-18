@@ -10,7 +10,7 @@ category:
 
 2026-10-18 · 人工智能
 
-![四个发光轮廓在方块荒野上分头行动](/covers/2026-10-18-cover.png)
+![四个发光轮廓在方块荒野上分头行动](/covers/2026-10-18-cover.webp)
 
 先把结果说了。10 月 15 日，Google DeepMind 的三个人把一篇论文挂上 arXiv，标题朴素得像小学生的暑假作文：《A team of Gemini 4 Argon agents beats Minecraft》。四个智能体被丢进一个随机生成的《我的世界》生存世界，只给一句话的目标：打败末影龙。27 小时 14 分钟之后，龙死了。
 
