@@ -4,7 +4,7 @@
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
   <icon>https://ai.upcloudtech.cn/fengskb-icon.svg</icon>
-  <updated>2026-11-18T23:46:40.981Z</updated>
+  <updated>2026-11-18T23:53:33.688Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://ai.upcloudtech.cn/atom.xml"/>
   <link rel="alternate" href="https://ai.upcloudtech.cn/"/>
@@ -34,7 +34,7 @@
     <title type="text">账上的亏损会消失，签了字的账单不会</title>
     <id>https://ai.upcloudtech.cn/blog/2026-11-19-the-loss-is-paper-the-bill-is-real.html</id>
     <link href="https://ai.upcloudtech.cn/blog/2026-11-19-the-loss-is-paper-the-bill-is-real.html"/>
-    <updated>2026-11-18T23:12:10.000Z</updated>
+    <updated>2026-11-18T23:46:59.000Z</updated>
     <summary type="html"><![CDATA[
 <figure><img src="/covers/2026-11-19-cover.webp" alt="账本与采购单" tabindex="0" loading="lazy"><figcaption>账本与采购单</figcaption></figure>
 <p>2026-11-19 · 人工智能</p>
@@ -76,7 +76,7 @@
     <title type="text">压掉一个时钟周期的人，不是人</title>
     <id>https://ai.upcloudtech.cn/blog/2026-11-19-who-saved-the-clock-cycle.html</id>
     <link href="https://ai.upcloudtech.cn/blog/2026-11-19-who-saved-the-clock-cycle.html"/>
-    <updated>2026-11-18T23:12:10.000Z</updated>
+    <updated>2026-11-18T23:46:59.000Z</updated>
     <summary type="html"><![CDATA[
 <figure><img src="/covers/2026-11-19-cover-2.webp" alt="深夜的验证机房" tabindex="0" loading="lazy"><figcaption>深夜的验证机房</figcaption></figure>
 <p>2026-11-19 · 人工智能</p>
@@ -122,7 +122,7 @@
     <title type="text">找不到文件的时候，它开始自己编</title>
     <id>https://ai.upcloudtech.cn/blog/2026-11-18-it-stopped-telling-you-where-it-got-stuck.html</id>
     <link href="https://ai.upcloudtech.cn/blog/2026-11-18-it-stopped-telling-you-where-it-got-stuck.html"/>
-    <updated>2026-11-17T23:08:32.000Z</updated>
+    <updated>2026-11-18T23:46:59.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-18 · 人工智能</p>
 <figure><img src="/covers/2026-11-18-cover.webp" alt="深夜工位上一个人盯着屏幕，屏幕上是一份对不上的表格" tabindex="0" loading="lazy"><figcaption>深夜工位上一个人盯着屏幕，屏幕上是一份对不上的表格</figcaption></figure>
@@ -177,7 +177,7 @@
     <title type="text">下载之前，先读第十条</title>
     <id>https://ai.upcloudtech.cn/blog/2026-11-18-read-section-ten-first.html</id>
     <link href="https://ai.upcloudtech.cn/blog/2026-11-18-read-section-ten-first.html"/>
-    <updated>2026-11-18T13:07:04.000Z</updated>
+    <updated>2026-11-18T23:46:59.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-18 · 人工智能</p>
 <figure><img src="/covers/2026-11-18-cover-3.webp" alt="深夜书阁里摊开的卷轴，最后一行透着绿光" tabindex="0" loading="lazy"><figcaption>深夜书阁里摊开的卷轴，最后一行透着绿光</figcaption></figure>
@@ -220,7 +220,7 @@
     <title type="text">账单比收入先到</title>
     <id>https://ai.upcloudtech.cn/blog/2026-11-18-the-bill-arrives-before-the-revenue.html</id>
     <link href="https://ai.upcloudtech.cn/blog/2026-11-18-the-bill-arrives-before-the-revenue.html"/>
-    <updated>2026-11-17T23:08:32.000Z</updated>
+    <updated>2026-11-18T23:46:59.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-18 · 人工智能</p>
 <figure><img src="/covers/2026-11-18-cover-2.webp" alt="面馆墙上手写的概不赊账，后厨新灶的绿火苗映在玻璃上" tabindex="0" loading="lazy"><figcaption>面馆墙上手写的概不赊账，后厨新灶的绿火苗映在玻璃上</figcaption></figure>
@@ -274,7 +274,7 @@
     <title type="text">报告可以发，证据得留下</title>
     <id>https://ai.upcloudtech.cn/blog/2026-11-17-evidence-stays-behind.html</id>
     <link href="https://ai.upcloudtech.cn/blog/2026-11-17-evidence-stays-behind.html"/>
-    <updated>2026-11-16T23:09:42.000Z</updated>
+    <updated>2026-11-18T23:46:59.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-17 · 人工智能</p>
 <figure><img src="/covers/2026-11-17-cover.webp" alt="深夜会议室里一摞被按住不给复印的账本" tabindex="0" loading="lazy"><figcaption>深夜会议室里一摞被按住不给复印的账本</figcaption></figure>
@@ -329,7 +329,7 @@
     <title type="text">撕掉那一页，然后自己判卷</title>
     <id>https://ai.upcloudtech.cn/blog/2026-11-17-tear-out-the-page.html</id>
     <link href="https://ai.upcloudtech.cn/blog/2026-11-17-tear-out-the-page.html"/>
-    <updated>2026-11-17T13:06:00.000Z</updated>
+    <updated>2026-11-18T23:46:59.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-17 · 人工智能</p>
 <figure><img src="/covers/2026-11-17-cover-3.webp" alt="一张被撕掉一页的菜谱摊在木桌上，撕口处透出绿色的光" tabindex="0" loading="lazy"><figcaption>一张被撕掉一页的菜谱摊在木桌上，撕口处透出绿色的光</figcaption></figure>
@@ -375,7 +375,7 @@
     <title type="text">医院里最贵的工种是复制粘贴</title>
     <id>https://ai.upcloudtech.cn/blog/2026-11-17-the-most-expensive-job-is-copy-paste.html</id>
     <link href="https://ai.upcloudtech.cn/blog/2026-11-17-the-most-expensive-job-is-copy-paste.html"/>
-    <updated>2026-11-16T23:09:42.000Z</updated>
+    <updated>2026-11-18T23:46:59.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-17 · 人工智能</p>
 <figure><img src="/covers/2026-11-17-cover-2.webp" alt="深夜医院走廊尽头，两块屏幕之间贴着一张手写号码的便利贴" tabindex="0" loading="lazy"><figcaption>深夜医院走廊尽头，两块屏幕之间贴着一张手写号码的便利贴</figcaption></figure>
@@ -432,7 +432,7 @@
     <title type="text">这个模型只熟自家的院子</title>
     <id>https://ai.upcloudtech.cn/blog/2026-11-16-a-model-that-only-knows-its-own-yard.html</id>
     <link href="https://ai.upcloudtech.cn/blog/2026-11-16-a-model-that-only-knows-its-own-yard.html"/>
-    <updated>2026-11-15T23:12:51.000Z</updated>
+    <updated>2026-11-18T23:46:59.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-16 · 人工智能</p>
 <figure><img src="/covers/2026-11-16-cover-2.webp" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
