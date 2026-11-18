@@ -65,6 +65,90 @@ export const hotRankingUpdatedAt = "2026-11-18";
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
   {
+    id: "tencent-hy4-flash-open-weights-1118",
+    title: "腾讯把 Hy4 flash 的权重放了：220B 只激活 12B，许可证第十条给云厂商留了道门槛",
+    summary:
+      "2026 年 11 月 18 日，腾讯混元开放 Hy4 flash 系列模型权重，一次三个版本：指令微调的 Hy4 flash、FP8 量化的 Hy4 flash-FP8、未做指令微调的 Hy4 flash-base，同步上线 GitHub、Hugging Face、ModelScope、GitCode，社区另有 GGUF 量化版。模型卡口径为总参数 220B——主干 155.5B、Engram 表 63.5B、视觉编码器 0.43B、内置草稿模型 DFly2 0.85B，每个 token 激活 11.3B 文本参数加 0.43B 视觉，上下文 1,048,576 token；官方发布稿另写 224B，与模型卡零件相加的 220.3B 属口径差。架构改四处：稀疏注意力（IndexPool）与滑窗注意力按 1:3 交替，LatentMoE 每 token 从 512 个路由专家选 16 个并配一个共享专家，Engram 用多头哈希检索二元三元词表示，DFly2 五层草稿模型直接复用主模型 KV cache 与稀疏索引；官方称 KV cache 降到 Hy4 的 1/6、Hy3 的 1/24，解码超 150 token/s。部署门槛写得很实：标准权重约 440.5 GB、FP8 约 287.1 GB，官方 vLLM / SGLang 镜像示例均为八路张量并行，Engram 表默认卸载到 CPU 内存，示例起始上下文 8192（1M 是能力上限、不是配置默认值），Transformers 支持尚未进正式版本、需从 pull request ref 安装。评测全为官方自评：内部基准 WorkIndex 42.1（Hy4 preview 39.7、完整 Hy4 51.4），单任务成本为 preview 的 1/13、Hy4 的 1/20、DeepSeek-V4.1-Flash-1017 的 1/8；85 人 259 任务盲测满意度 2.79/4（Claude Haiku 5.5 为 2.81/4），中位完成 6.7 分钟、每任务 0.26 元。真正的门槛在许可证：Tencent Hy License 1.0 基于 Apache 2.0 并附第十条商业条款，把 MaaS 定义为向第三方远程开放推理或微调能力，两种情形须另取书面授权——任意连续 12 个月全球总营收超 5000 万美元的 MaaS 经营者（原文注明 whether or not such revenue is derived from the Work），以及用于月活超 1 亿的产品或服务；纯内部使用、能力限定在特定功能或流程的终端产品、单纯转发给第三方模型服务三种情形不适用。腾讯同时称正在加速开源 770B 的完整版 Hy4，未给时间表。",
+    keyPoints: [
+      "11-18 一次放出三个版本权重（指令微调／FP8／base），GitHub、Hugging Face、ModelScope、GitCode 均可下载，社区另有 GGUF 量化版",
+      "模型卡 220B 总参、每 token 激活 11.3B 文本加 0.43B 视觉、1,048,576 上下文；官方发布稿写 224B，与模型卡零件相加的 220.3B 是口径差",
+      "省的是显存不是算力：KV cache 降到 Hy4 的 1/6、Hy3 的 1/24，DFly2 复用主模型 cache，官方称解码超 150 token/s——但标准权重 440.5 GB，官方示例用八路张量并行",
+      "许可证第十条：MaaS 经营者全球年营收超 5000 万美元（不论这笔钱是否来自该模型）、或用于月活超 1 亿的产品，须先拿单独书面授权；纯内部使用豁免",
+      "全部评测为官方自评：WorkIndex 42.1 对 Hy4 preview 的 39.7，盲测满意度 2.79/4 对 Claude Haiku 5.5 的 2.81/4——差 0.02 分，落在自家 85 名员工打的卷子上",
+    ],
+    org: "腾讯混元",
+    category: "模型发布",
+    date: "2026-11-18",
+    heat: 78,
+    authority: "official",
+    precision: "exact",
+    sourceName: "腾讯混元官方仓库《Tencent-Hunyuan/Hy4-flash》（README 模型卡与 LICENSE，2026-11-18 放权重）",
+    sourceUrl: "https://github.com/Tencent-Hunyuan/Hy4-flash",
+    refs: [
+      {
+        name: "Hugging Face 模型卡 tencent/Hy4-flash（权重可下载，40 万级分片体积以 index 记录为准）",
+        url: "https://huggingface.co/tencent/Hy4-flash",
+      },
+      {
+        name: "IT之家／凤凰网科技（11-18，三个版本与四个下载渠道、224B／64B Engram／12B 激活口径）",
+        url: "https://tech.ifeng.com/c/8y9QrCEt8K3",
+      },
+      {
+        name: "Pandaily（11-18，三个权重仓库逐一校验、标准 440.5 GB／FP8 287.1 GB、八路张量并行与 Transformers PR ref）",
+        url: "https://tpsreport.news/news/tencent-hy4-flash-open-weights-three-variants",
+      },
+    ],
+    article: "/blog/2026-11-18-read-section-ten-first.html",
+  },
+  {
+    id: "cac-ai-chaos-cases-1118",
+    title: "网信办通报「清朗·整治AI应用乱象」典型案例：清 561 万条、处置 2400 余个应用，智能体的封面和简介也被点名",
+    summary:
+      "2026 年 11 月 18 日，中央网信办通报「清朗·整治AI应用乱象」专项行动第二阶段典型案例（原文经「网信中国」发布，新浪财经当日 11:30 转载；cac.gov.cn 站内截至发稿未见对应页面）。通报给出三组总量：累计清理违法违规信息 561 万余条、查处账号 4.9 万余个、处置违规网站与应用程序等 2400 余个。七类典型案例依次是：用 AI「魔改」《三国演义》《西游记》等名著、生成「数字泔水」；用 AI 合成虚假灾害现场与救援画面、编造社会热点、打造数字人虚假带货误导老年人；用换脸换声假冒公众人物生成低俗图片视频牟利；批量发布 AI 生成的恐怖诡异与暴力低俗内容；生成未成年人怀孕、打架等「毒动画」「邪典」视频；为 AI「托管」软件引流、模拟真人运营账号做网络水军；以及 AI 产品服务与应用违规——多个网站平台的智能体封面、简介和生成对话中含有淫秽色情及其他危害未成年人身心健康的信息，对拒不改正的依法警告、罚款、下架或关闭。前六类处置对象都是账号，第七类第一次把「智能体的封面和简介」写进了通报正文。",
+    keyPoints: [
+      "11-18 通报第二阶段典型案例：原文经「网信中国」发布、新浪财经 11:30 转载，cac.gov.cn 站内尚未检索到对应页面",
+      "三组总量：清理违法违规信息 561 万余条、查处账号 4.9 万余个、处置违规网站与应用程序等 2400 余个",
+      "七类里前六类处置的都是账号——魔改名著造「数字泔水」、AI 合成灾害画面、换脸换声假冒公众人物、暴力低俗、侵害未成年人、AI 托管做水军",
+      "第七类换了对象：多个平台「智能体」的封面、简介和生成对话含违规内容，拒不改正的按程序警告、罚款、下架或关闭",
+      "为什么重要：做智能体的人第一次被明确告知，头像、简介和默认对话也是被审查的内容，不只是生成结果",
+    ],
+    org: "中央网信办",
+    category: "安全对齐",
+    date: "2026-11-18",
+    heat: 68,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "中央网信办通报《中央网信办通报「清朗·整治AI应用乱象」专项行动典型案例》（新浪财经 2026-11-18 11:30 转载「网信中国」原文；媒体报道，非官方公告页）",
+    sourceUrl: "https://finance.sina.cn/2026-11-18/detail-inizcrpi6977216.d.html",
+    refs: [
+      {
+        name: "「网信中国」原文转发（地方号 11-18 转载，注明来源为网信中国，正文与新浪版逐段一致）",
+        url: "http://mp.weixin.qq.com/s?__biz=MzIwODEwMzkyMQ==&mid=2652081235&idx=8&sn=02fd1c733e836859b4c277e24050c050",
+      },
+    ],
+  },
+  {
+    id: "jiangsu-genai-filing-1118",
+    title: "江苏省生成式 AI 备案更新：一次新增 13 款，累计 125 款",
+    summary:
+      "2026 年 11 月 18 日 17:13，江苏网信网发布《江苏省生成式人工智能服务已备案信息公告（2026年11月18日）》：截至当日，全省新增 13 款完成备案的生成式人工智能服务，累计备案 125 款。公告重申，已上线的生成式人工智能应用或功能应在显著位置或产品详情页面公示所使用已备案服务情况、注明模型名称及备案号，并按《人工智能生成合成内容标识办法》添加生成合成内容标识；附件为新增已备案信息清单，另附备案咨询电话。",
+    keyPoints: [
+      "11-18 17:13 江苏网信网发公告：全省新增 13 款生成式 AI 服务完成备案，累计 125 款",
+      "公告重申已上线应用须在显著位置或产品详情页公示所用服务的模型名称与备案号",
+      "同时要求按《人工智能生成合成内容标识办法》添加生成合成内容标识",
+      "口径只到省：全国备案仍按网信办分批公告推进（上一批为 10-30 发布的第十九批深度合成服务算法备案）",
+      "为什么重要：备案是按省逐批推进的硬门槛，125 款的省域存量说明中小服务商仍在持续进场，不是一次性出清",
+    ],
+    org: "江苏省委网信办",
+    category: "行业动态",
+    date: "2026-11-18",
+    heat: 40,
+    authority: "official",
+    precision: "exact",
+    sourceName: "江苏网信网《江苏省生成式人工智能服务已备案信息公告（2026年11月18日）》（页面时间戳 2026-11-18 17:13）",
+    sourceUrl: "https://www.jswx.gov.cn/fwhd/tzgg/202611/t20261118_1373147.shtml",
+  },
+  {
     id: "openai-gpt-6-2-astra-sol-1117",
     title: "OpenAI 发 GPT-6.2：Astra 便宜两成、跑分第一，然后系统卡里写着它更爱瞒事",
     summary:
