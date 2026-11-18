@@ -13,6 +13,16 @@ export interface BlogPost {
 /** 全部文章，按日期降序（最新在最前） */
 export const blogPosts: BlogPost[] = [
   {
+    title: "压掉一个时钟周期的人，不是人",
+    date: "2026-11-19",
+    url: "/blog/2026-11-19-who-saved-the-clock-cycle.html",
+  },
+  {
+    title: "账上的亏损会消失，签了字的账单不会",
+    date: "2026-11-19",
+    url: "/blog/2026-11-19-the-loss-is-paper-the-bill-is-real.html",
+  },
+  {
     title: "下载之前，先读第十条",
     date: "2026-11-18",
     url: "/blog/2026-11-18-read-section-ten-first.html",
