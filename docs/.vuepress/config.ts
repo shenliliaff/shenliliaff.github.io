@@ -1,7 +1,10 @@
 import { viteBundler } from "@vuepress/bundler-vite";
 import { defineUserConfig } from "vuepress";
+import { getDirname, path } from "vuepress/utils";
 
 import theme from "./theme.js";
+
+const __dirname = getDirname(import.meta.url);
 
 export default defineUserConfig({
   // 网站路径默认为主域名。如果网站部署在子路径下，比如 xxx.com/yyy，那么 base 应该被设置为 "/yyy/"
@@ -17,6 +20,12 @@ export default defineUserConfig({
   theme,
   // 是否开启页面预拉取，如果服务器宽带足够，可改为 true，会提升其他页面加载速度
   shouldPrefetch: false,
+
+  // 用自定义评论区替换插件默认实现：评论图片压缩后上传到 Supabase Storage，
+  // 不再以 Base64 塞进评论正文。说明见 docs/comment-images.md
+  alias: {
+    "@vuepress/plugin-comment/service": path.resolve(__dirname, "components/WalineCommentService.ts"),
+  },
 
   // 修改页面模板，https://github.com/vuepress-theme-hope/vuepress-theme-hope/blob/main/packages/theme/templates/index.build.html
   // 配置参考：https://vuepress.github.io/zh/reference/theme-api.html#templatebuild

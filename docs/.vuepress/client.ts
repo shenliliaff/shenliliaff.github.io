@@ -4,13 +4,19 @@ import { onMounted, onUnmounted } from "vue";
 import BlogPostList from "./components/BlogPostList.vue";
 import HotRanking from "./components/HotRanking.vue";
 import HotRankingEntry from "./components/HotRankingEntry.vue";
+import SongPlayer from "./components/SongPlayer.vue";
+import BiliPlayer from "./components/BiliPlayer.vue";
+import QQMusicBar from "./components/QQMusicBar.vue";
 
 export default defineClientConfig({
-	// 全局注册自定义组件，Markdown 中可直接写 <HotRanking /> / <HotRankingEntry /> / <BlogPostList />
+	// 全局注册自定义组件，Markdown 中可直接写 <HotRanking /> / <HotRankingEntry /> / <BlogPostList /> / <SongPlayer /> / <BiliPlayer /> / <QQMusicBar />
 	enhance({ app }) {
 		app.component("HotRanking", HotRanking);
 		app.component("HotRankingEntry", HotRankingEntry);
 		app.component("BlogPostList", BlogPostList);
+		app.component("SongPlayer", SongPlayer);
+		app.component("BiliPlayer", BiliPlayer);
+		app.component("QQMusicBar", QQMusicBar);
 	},
 	setup() {
 		const openReadingApp = (event: MouseEvent) => {

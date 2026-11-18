@@ -115,8 +115,8 @@ export default hopeTheme(
         assets: "iconify",
       },
 
-      // 评论系统：Waline（匿名 + 昵称/邮箱选填 + GitHub/微信/知乎/微博登录）
-      // serverURL 待部署后替换（部署步骤见 docs/comment-deploy.md）
+      // 评论系统：Waline（匿名 + 昵称/邮箱选填 + GitHub 登录）
+      // 架构、部署与使用说明见根目录 README.md
       comment: {
         provider: "Waline",
         serverURL: "https://waline.upcloudtech.cn",
@@ -129,6 +129,15 @@ export default hopeTheme(
         wordLimit: 2000,
         // 每页评论条数
         pageSize: 10,
+        // 表情包本地托管。Waline 默认从 unpkg.com 拉 GIF，国内经常超时导致表情全部裂图，
+        // 资源在 docs/.vuepress/public/vendor/emojis/，来源 @waline/emojis@1.4.0
+        emoji: [
+          "/vendor/emojis/tw-emoji",
+          "/vendor/emojis/bilibili",
+          "/vendor/emojis/alus",
+          "/vendor/emojis/weibo",
+          "/vendor/emojis/tieba",
+        ],
       },
 
       // 组件库

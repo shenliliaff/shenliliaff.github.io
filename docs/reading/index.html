@@ -182,6 +182,14 @@
                     wordLimit: 2000,
                     pageSize: 10,
                     lang: "zh-CN",
+                    // 表情包本地托管，与主站同一套（Waline 默认从 unpkg 拉，国内会裂图）
+                    emoji: [
+                      "/vendor/emojis/tw-emoji",
+                      "/vendor/emojis/bilibili",
+                      "/vendor/emojis/alus",
+                      "/vendor/emojis/weibo",
+                      "/vendor/emojis/tieba",
+                    ],
                   });
                   return;
                 }

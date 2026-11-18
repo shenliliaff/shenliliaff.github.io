@@ -1,10 +1,10 @@
 ---
-title: 博客
+title: AI科技博客
 icon: fa6-solid:blog
 article: false
 ---
 
-# 博客
+# AI科技博客
 
 <img src="/covers/blog-overview-cover.png" alt="AI 前沿动态追踪" style="width:100%;border-radius:8px;margin:8px 0 20px;" />
 
@@ -38,6 +38,8 @@ article: false
 | Techmeme | 聚合 | ~15 分钟 | 算法精选头条，带来源聚类 |
 | 机器之心 / 量子位 | 中文垂直 | 每日 | 中文 AI 动态 |
 | 各公司 newsroom / 官方博客 | 一手 | 每日 | 核实发布日与参数（最高优先级） |
+| [Artificial Analysis](https://artificialanalysis.ai/) | 榜单 | 实时 | 模型质量/速度/价格的横向对比，写模型类稿子的量化依据；指数本身是第三方测算，引用时注明「第三方评测」 |
+| [AI Release Tracker](https://aireleasetracker.com/) | 追踪 | 每日 | 各家模型与产品的发布流水账，用来补漏和校准发布时间；**只当线索**，成稿必须回到官方页核实 |
 | 监管机构与政策公告 | 一手 | 不定期 | 合规、隐私、市场准入等影响用户的变化 |
 | arXiv cs.AI | 学术 | 每日 | 最新 AI 论文（偏圈内，优先级低） |
 | Hugging Face | 学术/工具 | 每日 | Daily Papers + 模型发布 |
