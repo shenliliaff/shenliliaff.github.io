@@ -558,7 +558,7 @@ export function BloggerSample({ voice }: SampleProps) {
         <Audio src={staticFile(data.audio)} />
       </Sequence>
       <Audio
-        src={staticFile("audio/music.wav")}
+        src={staticFile("audio/music.mp3")}
         trimBefore={10 * fps}
         volume={(f) =>
           interpolate(

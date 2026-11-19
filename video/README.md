@@ -83,8 +83,8 @@ npm run audio
 
 每句单独合成，读取真实 WAV 时长，再对齐字幕；镜头时长固定，脚本不能容纳时明确报错，不截断旁白。生成文件包括：
 
-- `public/audio/voice.wav`：45 秒独立旁白。
-- `public/audio/music.wav`：45 秒、90 BPM、无歌词的简单原创合成伴奏。
+- `public/audio/voice.mp3`：45 秒独立旁白。
+- `public/audio/music.mp3`：45 秒、90 BPM、无歌词的简单原创合成伴奏。
 - `public/audio/clips.json`：逐句实测时间和语速。
 - `src/generated/captions.json`：Remotion Caption 格式。
 - `out/fengskb-zh.srt`：可导入剪辑工具的字幕。

@@ -711,7 +711,7 @@ export function BloggerFull() {
         <Audio src={staticFile(timeline.audio)} />
       </Sequence>
       <Audio
-        src={staticFile("audio/music.wav")}
+        src={staticFile("audio/music.mp3")}
         volume={(f) => {
           const ms = (f / fps) * 1000;
           const speech = Math.max(

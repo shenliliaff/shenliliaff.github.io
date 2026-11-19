@@ -693,8 +693,8 @@ export function FengsKBVideo() {
           backgroundColor: GREEN,
         }}
       />
-      <Audio src={staticFile("audio/voice.wav")} volume={1} />
-      <Audio src={staticFile("audio/music.wav")} volume={musicVolume} />
+      <Audio src={staticFile("audio/voice.mp3")} volume={1} />
+      <Audio src={staticFile("audio/music.mp3")} volume={musicVolume} />
     </AbsoluteFill>
   );
 }
