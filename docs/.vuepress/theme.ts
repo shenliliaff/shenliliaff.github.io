@@ -129,6 +129,9 @@ export default hopeTheme(
         wordLimit: 2000,
         // 每页评论条数
         pageSize: 10,
+        // 关闭 GIF 搜索：Waline 的该功能走 api.giphy.com，国内直连不通，
+        // 点开只有空白。要发动图请用「图片」按钮直接上传文件。
+        search: false,
         // 表情包本地托管。Waline 默认从 unpkg.com 拉 GIF，国内经常超时导致表情全部裂图，
         // 资源在 docs/.vuepress/public/vendor/emojis/，来源 @waline/emojis@1.4.0
         emoji: [
