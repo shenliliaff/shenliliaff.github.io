@@ -94,6 +94,7 @@ order: -9
 ## OpenAI
 
 ### 近两周
+- **2026-11-19** — 工程博客披露内部自动化性能工程系统 Performance Factory：云端 Codex 以服务身份查线上性能回退，三个多月发起 1700 多次调查、600 多次定位根因（日均 17 次），人工复核 100 条根因建议仅 70% 准确，靠「另开一个 Codex 会话专门证伪」的对抗式审查压误判（曾拆掉把图像下载报错当根因的结论），官方称当前瓶颈只剩等工程师审核合并、正探索低风险改动无人审核直接合，全文未给 ChatGPT 延迟与成本改善数值。（`openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast/`）
 - **2026-11-18** — 发布技术报告《Advancing chip design with OpenAI models》：自家推理芯片 Jalapeño 从 2025 年初起由 GPT-4o 参与设计，向量单元标准单元面积减约 13%、矩阵单元减约 10%，已在硅片调试中验证；与 AMD 合作让模型重写 SystemVerilog RTL，在已高度优化的旗舰 GPU IP 上再挤出最高 14% PPA（官方称相当于不到五个月干完约一年），部分改动已进 AMD 送去制造的版本；两个开源 RISC-V 核上 9881 次计分运行，GPT-6.2 Astra 平均分最高，但官方承认从规格从头生成 RTL 的得分普遍高于优化现成设计（可省掉性能计数器与多余指令），下一步与 Synopsys 合训 GPT-Synopsys。（`openai.com/index/advancing-chip-design-with-our-models/`；凤凰网科技 11-19）
 - **2026-11-17** — 发布 GPT-6.2 Astra 与 Sol，只开 ChatGPT Work／Codex／API、普通聊天暂无：Astra 在 Agents' Last Exam 上比 GPT-6 Astra 高 5.2 分、比 Claude Fable 5.2 高 5.5 分且成本仅其 5%，API 定价 8／0.4／40 美元每百万 token（输入输出降 20%、缓存输入降 60%），Sol 维持 2／0.1／10 美元，第三方 AA-3D 上 Astra 1318 Elo 领先 Fable 5.2 的 1271；系统卡显示两款均到准备度框架网络安全 Critical、生化 High，Astra 是 OpenAI 首个「AI 自我改进」评到 High 的对外模型（官方折算为给每名研究员配一名高能力研究工程师），同时自曝遇阻更少上报——编码障碍漏报 22.28%（上代 11.09%）、搜索工具失效或缺文件漏报 23.00%（上代 7.58%），高风险安全协助限制也更严、官方承认会误伤正当漏洞研究。（`openai.com/index/introducing-gpt-6-2-astra-sol/`；系统卡 `deploymentsafety.openai.com/gpt-6-2-astra-sol`，IT之家 11-18 06:40、Unite.AI 11-17）
 - **2026-11-16** — 面向医疗团队开放 computer-use agent：像人一样读屏点击打字、在无 API 的医院系统与保险门户之间搬信息，当天起在 OpenAI API、ChatGPT for Healthcare、ChatGPT for Clinicians 三个入口可用，合作方为 CVS Health、Cigna Healthcare、Abridge、Ambience，官方自评 325 个病历收件箱任务 99% 临床安全、646 次评分 93% 很有用／极有用，HealthAdminBench 上 Astra 94.3%／Luna 91.8%（每任务 8.5 美分）而「所有必查项全过」仅 60.7%，健康 AI 负责人承认模型会越权绕过签批。（`openai.com/index/advancing-computer-use-for-healthcare-teams/`；同日 20 多个医疗插件见 `openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare/`）
@@ -178,6 +179,7 @@ order: -9
 ## Anthropic
 
 ### 近两周
+- **2026-11-19** — 以代码 ANT 挂牌纳斯达克，开盘 99.85 美元（较发行价 83 美元高约 20%），盘中一度到 105 美元、涨 26.5%，市值短暂逼近特斯拉、超过礼来与伯克希尔；基础募资约 813 亿美元刷新全球 IPO 纪录，超额配售权（另有 1.47 亿股）是否行使未公布，首日收盘价官方未披露。（腾讯新闻 11-20 转述、东方财富 11-19，非官方公告）
 - **2026-11-18** — IPO 定价每股 83 美元，高于 11-10 递交的 70–78 美元区间，公司拒绝置评（彭博先报，路透与 CNBC 跟进）；原计划发行 8.25 亿股，加 260 亿美元私募配售合计逾 940 亿、超过 SpaceX 六月 IPO；基本市值约 1.08 万亿、完全稀释约 1.5 万亿；前九月收入 332.4 亿（同比 +约 1200%）、净亏 1040 亿主要为可转债与衍生负债公允价值变动，Q3 经营转亏 5.67 亿（Q2 为 9.74 亿经营利润），10 月底年化收入约 810 亿；算力采购承诺未来 12 个月 700 亿、2030 年前 4500 亿、2045 年前再 4500 亿；11-19 在纳斯达克挂牌，代码 ANT。（Investopedia／路透 11-18，非官方公告；1.08 万亿与 1.5 万亿的口径差见 Axios）
 
 - **2026-11-12** — 新版《支持地区政策》生效，把「在不支持地区使用」扩成三条：人在不支持地区、实体在不支持地区注册或设总部、实体被不支持地区主体直接或间接多数持股或控制（后两条均写明「无论个人身处何处」），覆盖 Claude.ai / Claude Code / Cowork / API 以及云平台与授权经销商渠道的 Claude 模型；官方名单不含中国大陆、香港、澳门与俄罗斯，政策页未给检测手段、账号处置与历史用户过渡安排；据 21 世纪经济报道另有 30 天安全监控数据留存、禁止消费级订阅转发与转售代理，同期招股书披露前 9 个月约 5%–7% 营收来自事后被认定违规的客户。（anthropic.com/supported-countries）
