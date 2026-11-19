@@ -60,10 +60,64 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-19";
+export const hotRankingUpdatedAt = "2026-11-20";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "anthropic-ant-first-day-1119",
+    title: "ANT 挂牌首日：开盘 99.85 美元，盘中摸到 105，813 亿落袋",
+    summary:
+      "2026 年 11 月 19 日，Anthropic 以代码 ANT 在纳斯达克挂牌，联合创始人达里奥·阿莫代伊与丹妮拉·阿莫代伊敲响开市钟。发行价 83 美元、发行 9.8 亿股 A 类普通股，基础募资约 813 亿美元，超过 SpaceX 今年 6 月的 750 亿美元，成为史上最大规模 IPO；若承销商全额行使 30 天超额配售权（另有 1.47 亿股），募资上限约 935 亿美元，加上同步进行的 260 亿美元私募配售（谷歌、英伟达、微软、AMD 等参与），总融资额超过 1070 亿美元。开盘价 99.85 美元，较发行价高约 20%；北京时间 11 月 19 日 22:51 前后盘中报 99.6 至 105 美元区间，按 105 美元计较发行价高出 26.5%，市值一度逼近特斯拉、超过礼来与伯克希尔。以 83 美元发行价计，完全稀释估值约 1.5 万亿美元。路透报道此次 IPO 有望让数千名现任与前员工进入「纸面百万富翁」行列。需要注意的口径：开盘价与盘中价来自媒体报道，首日收盘价截至本条目核验时未见官方披露；超额配售权是否行使亦未公布。",
+    keyPoints: [
+      "11-19 挂牌纳斯达克、代码 ANT，83 美元发行 9.8 亿股，基础募资约 813 亿美元，超过 SpaceX 的 750 亿创史上最大 IPO",
+      "开盘 99.85 美元，盘中一度到 105 美元、较发行价高 26.5%，1.5 万亿的完全稀释估值暂时被市场认下",
+      "另有 260 亿美元私募配售同步进行，谷歌、英伟达、微软、AMD 都在认购名单里",
+      "承销商手里还攥着 1.47 亿股的超额配售权，行权与否将决定最终募资是 813 亿还是 935 亿——官方没给答案",
+      "公司从此要按季度交作业：Claude 的定价、用量限制与毛利率会被公开投资人逐季追问，企业客户的合同条款可能要跟着变",
+    ],
+    org: "Anthropic",
+    category: "行业动态",
+    date: "2026-11-19",
+    heat: 90,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "腾讯新闻《美国股市转跌！Anthropic 首秀涨至 105 美元/股》（2026-11-20 转述首日交易，非官方公告）",
+    sourceUrl: "https://news.qq.com/rain/a/20261120A00BJT00",
+    refs: [
+      {
+        name: "腾讯新闻（2026-11-19，敲开市钟、开盘指示价 100 美元、超额配售权口径）",
+        url: "https://news.qq.com/rain/a/20261119A0GBCH00",
+      },
+      {
+        name: "东方财富网（2026-11-19，发行价 83 美元、募资 813.4 亿美元、北京时间 22:51 撮合价 99.6 美元）",
+        url: "https://finance.eastmoney.com/a/202611193935393183.html",
+      },
+    ],
+  },
+  {
+    id: "openai-performance-factory-1119",
+    title: "OpenAI 把 1700 次性能事故交给机器查：七成查对，剩下三成靠另一台机器反驳",
+    summary:
+      "2026 年 11 月 19 日，OpenAI 工程博客发布《How OpenAI's Performance Factory keeps ChatGPT fast》，披露一套跑在云端的自动化性能工程系统。它由四部分组成：用 Markdown 配置文件定义状态机的任务服务、周期性派活的调度循环、以服务身份在内网调用代码仓库与可观测性工具（指标、日志、链路追踪、CPU profile、内存快照）的云端 Codex，以及等 PR 评审或 CI 时挂起、事件到了再唤醒的订阅机制。系统跑了三个多月，累计发起 1700 多次调查，其中 600 多个定位到根因，日均 17 次自动调查。官方人工复核 100 条根因建议，70% 判为准确，30% 需要修正或没能完整确立因果关系。为压住误判，OpenAI 加了一道对抗式审查：由另一个独立的 Codex 会话专门去证伪——例如有一次智能体把对话失败归因于图像下载报错，审查者发现负责定位文件的服务早已恢复而图像请求仍在失败，于是重开调查。修复环节同样加了对抗式审查。官方明说当前瓶颈是等工程师审核合并，正在探索让智能体自己识别低风险改动、最终实现无人审核合并。文章未披露 ChatGPT 的具体延迟、容量或成本改善数值。",
+    keyPoints: [
+      "11-19 官方工程博客：三个多月跑了 1700 多次调查、600 多个定位到根因，日均 17 次，全部由云端 Codex 以服务身份完成",
+      "人工复核 100 条根因建议：70% 准确，30% 需修正或没能完整确立因果——这个数字是 OpenAI 自己给的",
+      "关键设计是「对抗式审查」：另开一个 Codex 会话专门证伪，曾拆掉一个把图像下载报错当根因的误判",
+      "官方承认瓶颈只剩「等工程师点合并」，下一步要让智能体自己判断低风险改动、无人审核直接合",
+      "没给的是效果：ChatGPT 到底快了多少、省了多少成本，全文只有流程与吞吐量，没有延迟和成本数据",
+    ],
+    org: "OpenAI",
+    category: "行业动态",
+    date: "2026-11-19",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官方博客《How OpenAI's Performance Factory keeps ChatGPT fast》（2026-11-19，Engineering）",
+    sourceUrl:
+      "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast/",
+    article: "/blog/2026-11-20-seven-out-of-ten-needs-a-second-opinion.html",
+  },
   {
     id: "bytedance-seedrealtime-1-0-1119",
     title: "豆包把「边看边说」的接口放开了：语音一分钟两毛，开摄像头四毛",
