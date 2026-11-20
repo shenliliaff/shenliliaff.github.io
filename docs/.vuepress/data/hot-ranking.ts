@@ -65,6 +65,97 @@ export const hotRankingUpdatedAt = "2026-11-20";
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
   {
+    id: "tencent-hy4-full-open-source-1120",
+    title: "混元 Hy4 全量开源：770B 的旗舰放出来了，许可证还是自己写的那份",
+    summary:
+      "2026 年 11 月 20 日，腾讯混元宣布 Hy4 正式开源，模型权重同步上线 GitHub、Hugging Face、ModelScope 与 GitCode 四个平台。Hy4 于 11 月 4 日发布，采用 MoE 架构，总参数 770B、激活参数 49B，上下文窗口 100 万 Token。至此混元 LLM 系列实现全量开放，覆盖 Hy3 preview、Hy3、Hy4 preview、Hy4 与 Hy4 flash。同批放出模型安全评估卡片（System Card）：官方称训练数据只纳入 PoC 生成、漏洞修复等防守性网络安全内容，剔除了漏洞利用、逆向工程与渗透等攻击性数据，腾讯玄武与科恩实验室的审计未发现明显的进攻性能力风险。许可证口径需要说清：仓库 LICENSE 为 Tencent Hy License, Version 1.0，正文自述「由 Apache License 2.0 派生、主要增加第 10 条面向大型模型即服务（MaaS）业务的商用条款」，并明确「本许可证不是 Apache 2.0，也未获 Apache 基金会背书」；部分媒体稿写成「采用 Apache 2.0 许可证」，与仓库原文不符，以仓库为准。第 10 条对应的是月活超过 1 亿的产品或大型 MaaS 经营者需另行取得授权，纯内部使用豁免。",
+    keyPoints: [
+      "11-20 权重上线 GitHub / Hugging Face / ModelScope / GitCode 四平台：770B 总参、49B 激活、100 万 Token 上下文",
+      "混元 LLM 系列至此全量开放，从 11-04 发布 Hy4 到 11-20 放出权重用了 16 天",
+      "许可证是自写的 Tencent Hy License 1.0，正文写明「由 Apache 2.0 派生、增加第 10 条」，还专门声明「本许可证不是 Apache 2.0」——媒体稿的「Apache 2.0」说法与仓库不符",
+      "同批给了 System Card：训练数据剔除漏洞利用、逆向工程与渗透类内容，玄武与科恩实验室审计称未见明显进攻性能力",
+      "770B 的体量即便开源，多数人还是只能走 API 或量化版；「开源」对普通用户的实际含义，依旧是有没有人提供便宜的托管",
+    ],
+    org: "腾讯混元",
+    category: "模型发布",
+    date: "2026-11-20",
+    heat: 80,
+    authority: "official",
+    precision: "exact",
+    sourceName: "GitHub 仓库 Tencent-Hunyuan/Hy4（权重与 LICENSE 原文，2026-11-20 更新）",
+    sourceUrl: "https://github.com/Tencent-Hunyuan/Hy4",
+    refs: [
+      {
+        name: "IT之家（2026-11-20 11:47，开源范围与四个平台同步上线）",
+        url: "https://www.ithome.com/1/029/841.htm",
+      },
+      {
+        name: "Hugging Face 模型页（tencent/Hy4）",
+        url: "https://huggingface.co/tencent/Hy4",
+      },
+    ],
+  },
+  {
+    id: "deepseek-funding-1120",
+    title: "DeepSeek 千亿融资落地：注册资本涨 21%，梁文锋仍握 67.42%",
+    summary:
+      "2026 年 11 月 20 日，工商信息显示 DeepSeek 运营主体杭州深度求索人工智能基础技术研究有限公司完成变更：注册资本由 1644.7496 万元增至 1991.8707 万元，增加 347.1211 万元、增幅约 21.1%，新增股东杭州程砚企业管理咨询合伙企业（有限合伙）。据证券时报援引知情交易人士，本轮募资规模在 1000 亿至 1055 亿元区间，投后估值约 6155 亿元；叠加 2026 年 6 月首轮约 510 亿元，两轮累计吸纳资金超过 1500 亿元。持股平台杭州程砚同步增资至 343897.9 万元，新增 31 家合伙人、合计 32 名，出资比例靠前的是腾讯系上海珩岫商业管理有限公司 9.5653%，宁德时代通过三只基金合计 9.5653%，中移投资控股与中信证券投资各 7.6522%，砺思资本相关主体 7.1740%；合伙人名单还包含中国电信、美团龙珠、网易雷火、小红书、携程系、vivo、美的、立讯体系、吉利产投、兆易创新、中芯聚源等，以及博裕、IDG、高榕、君联、国寿股权、中金系等机构。控制权未变：梁文锋直接与间接持股合计约 67.42%，杭州程砚的执行事务合伙人杭州程策商务咨询有限公司仍由梁文锋持股 99%，31 家外部股东通过持股平台间接享有经济收益。需注明口径：上述金额与估值为媒体援引知情人士的测算，公司未发布融资公告。",
+    keyPoints: [
+      "11-20 工商变更：注册资本 1644.7496 万元增至 1991.8707 万元，新增股东杭州程砚，增幅约 21.1%",
+      "媒体援引知情人士称本轮募资 1000 亿至 1055 亿元、投后估值约 6155 亿元，加 6 月首轮的 510 亿，两轮超 1500 亿",
+      "31 家新合伙人一次入场：腾讯系与宁德时代各约 9.57% 并列居前，中移投资、中信证券投资各 7.65%",
+      "梁文锋直接间接持股约 67.42%，执行事务合伙人仍由他持股 99% 的公司担任——钱进来了，投票权没动",
+      "公司没有融资公告，金额与估值都来自「知情交易人士」，工商信息只确认了注册资本与股东名单",
+    ],
+    org: "DeepSeek",
+    category: "行业动态",
+    date: "2026-11-20",
+    heat: 78,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "IT之家（2026-11-20 18:47，援引国家企业信用信息公示系统与证券时报，非官方公告）",
+    sourceUrl: "https://www.ithome.com/1/030/199.htm",
+    refs: [
+      {
+        name: "IT之家（2026-11-20，31 家合伙人名单与出资比例）",
+        url: "https://www.ithome.com/1/030/199.htm",
+      },
+    ],
+  },
+  {
+    id: "tencent-workbuddy-computer-use-1120",
+    title: "WorkBuddy 长出鼠标手：不用软件开接口也能点，条件是敏感操作时你在旁边坐着",
+    summary:
+      "2026 年 11 月 20 日 18:35，腾讯 WorkBuddy 官方公众号宣布上线电脑操控（Computer Use）能力：识别当前页面、看懂客户端界面，执行点击、输入、滚动，不需要目标软件开放接口即可在后台操作。适用于没有接口、连接器接不上、也没有网页版的老旧系统与内部客户端。功能处于公测体验阶段，支持 macOS 与 Windows，客户端需更新至 5.11.0 及以上，并在「设置 → 智能体 → 电脑应用操控」开启，首次使用时需在系统隐私设置里为 WorkBuddy Computer Use 打开「辅助功能」与「录屏与系统录音」两项授权；官方说明使用过程中可能截屏或读取窗口内容，权限可随时在系统设置收回，功能可随时停止，并提供「禁止 WorkBuddy 操作的应用」黑名单。使用上分五步：更新客户端、完成授权、在对话框里说清应用与流程与结果、在侧边画中画小窗看进度、完成后回原系统抽查核对。官方建议涉及登录、授权、支付、提交、删除等敏感操作时保持在场实时监控，演示中两次填单都在提交前交给用户确认；并提醒任务执行期间不要同时操作它正在使用的那个应用，想接手要先停止任务。三个演示场景（教务查询、资产领用登记、跨仓储与资产两套系统对单号）均使用自建的模拟客户端，官方注明数据虚构、「不代表真实业务系统的使用效果」。界面识别效果会因软件而异。",
+    keyPoints: [
+      "11-20 18:35 官方公众号宣布：能看懂客户端界面并点击、输入、滚动，不需要目标软件开放接口",
+      "公测阶段，macOS 与 Windows 双端，客户端 5.11.0 起可用，入口在「设置 → 智能体 → 电脑应用操控」",
+      "代价是两项系统级授权：辅助功能 + 录屏，官方承认使用中可能截屏或读取窗口内容，但权限可收回、可设应用黑名单",
+      "官方要求登录、支付、提交、删除这类操作「保持在场」，演示里的填单也都停在你确认这一步——活交出去了，人还得坐着",
+      "三个演示全是自建的模拟客户端、数据虚构，官方自己写明「不代表真实业务系统的使用效果」——真实的老系统长什么样，没演示",
+    ],
+    org: "腾讯 WorkBuddy",
+    category: "产品发布",
+    date: "2026-11-20",
+    heat: 76,
+    authority: "official",
+    precision: "exact",
+    sourceName: "腾讯 WorkBuddy 官方公众号《你说一句，它来点：WorkBuddy 上线电脑操控能力》（2026-11-20 18:35）",
+    sourceUrl:
+      "http://mp.weixin.qq.com/s?__biz=MzYzODgxODMzNQ==&mid=2247498160&idx=1&sn=e1bcfd33d11e1f56f9d63871167fc34d",
+    refs: [
+      {
+        name: "IT之家（2026-11-20 19:25，版本要求与敏感操作提示）",
+        url: "https://www.ithome.com/1/030/222.htm",
+      },
+      {
+        name: "每日经济新闻（2026-11-20 19:30 转载官方公众号）",
+        url: "https://mp.weixin.qq.com/s?__biz=Mzg3NTA5MjkyNQ==&mid=2248614798&idx=2&sn=bf1b5c691c7691b018372c992f975e29",
+      },
+    ],
+    article: "/blog/2026-11-20-it-learned-to-click.html",
+  },
+  {
     id: "anthropic-ant-first-day-1119",
     title: "ANT 挂牌首日：开盘 99.85 美元，盘中摸到 105，813 亿落袋",
     summary:
@@ -116,7 +207,7 @@ export const hotRanking: HotItem[] = [
     sourceName: "OpenAI 官方博客《How OpenAI's Performance Factory keeps ChatGPT fast》（2026-11-19，Engineering）",
     sourceUrl:
       "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast/",
-    article: "/blog/2026-11-20-seven-out-of-ten-needs-a-second-opinion.html",
+    article: "/blog/2026-11-20-another-machine-says-look-again.html",
   },
   {
     id: "bytedance-seedrealtime-1-0-1119",
