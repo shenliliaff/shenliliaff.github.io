@@ -87,7 +87,7 @@ flowchart TB
 - **贴图**：点图片按钮，浏览器先把图压成 WebP 再上传，正文里只留一个链接
 - **表情**：五套（推特 / B博 / ALUS / 微博 / 贴吧），全部本地托管
 
-### 三个非默认配置
+### 四个非默认配置
 
 **1. 评论组件被替换了。** `theme-hope` 会把评论配置 JSON.stringify 后注入客户端常量，函数会在序列化时丢失，所以 `imageUploader` 无法从 `theme.ts` 传进去。解法是在 `config.ts` 里用别名把插件内部的组件入口指向 `components/WalineCommentService.ts`：
 
@@ -107,6 +107,35 @@ alias: {
 - 实测：Chrome 的 `canvas.toBlob("image/avif")` 不受支持会静默回落 PNG（反而更大），代码里校验了返回的 MIME
 
 **3. 表情本地托管。** Waline 默认从 unpkg 拉 GIF，国内常超时，表现为表情面板能开、图全裂。五套表情包已放进 `docs/.vuepress/public/vendor/emojis/`，主站和读书笔记站两处都指向本地。
+
+**4. 头像不走 Waline 默认逻辑。**
+
+Waline 的 Vercel 版有个坑：`@waline/vercel/src/service/avatar.js` 里写死了一段模板，头像是**按邮箱和昵称现算**的，从头到尾不读 `wl_users.avatar`。所以：
+
+- 用 GitHub 登录、数据库里头像也对，前台照样显示邮箱算出来的图
+- 只要邮箱是 `数字@qq.com`，就永远命中 `https://q1.qlogo.cn/g?b=qq&nk=<QQ号>` 那条分支
+- 改数据库、重新登录、清缓存，全都没用——它根本不看那个字段
+
+解法是覆盖环境变量 `GRAVATAR_STR`（Vercel 项目 `waline-blog`），用 GitHub 的**动态头像端点**，而不是写死某张图：
+
+```nunjucks
+{%- set numExp = r/^[0-9]+$/g -%}
+{%- set qqMailExp = r/^[0-9]+@qq.com$/ig -%}
+{%- if mail == '1304610940@qq.com' -%}
+https://github.com/shenliliaff.png?size=200
+{%- elif numExp.test(nick) -%}
+https://q1.qlogo.cn/g?b=qq&nk={{nick}}&s=100
+{%- elif qqMailExp.test(mail) -%}
+https://q1.qlogo.cn/g?b=qq&nk={{mail|replace('@qq.com', '')}}&s=100
+{%- else -%}
+https://seccdn.libravatar.org/avatar/{{mail|trim|lower|md5}}
+{%- endif -%}
+```
+
+关键在 `github.com/<用户名>.png?size=200` 这个地址：它 302 跳转到当前的 `avatars.githubusercontent.com/u/<id>?...`，重定向响应是 `Cache-Control: no-cache`，图片本身只缓存 5 分钟。**以后在 GitHub 换头像，这里最多 5 分钟就跟着变，不需要再改任何配置。**
+
+> 改环境变量后必须 Redeploy 才生效。验证：
+> `curl -s "https://waline.upcloudtech.cn/api/comment?path=<页面路径>" | grep -o '"avatar":"[^"]*"'`
 
 ### 管理员
 
