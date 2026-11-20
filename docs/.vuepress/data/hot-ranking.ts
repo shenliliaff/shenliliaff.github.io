@@ -60,10 +60,73 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-20";
+export const hotRankingUpdatedAt = "2026-11-21";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "signal-block-ai-screen-capture-1120",
+    title: "Signal 把截屏关了：端到端加密保住了路上，没保住那块屏幕",
+    summary:
+      "2026 年 11 月 20 日，Signal 官方博客（署名总裁 Meredith Whittaker）宣布限制操作系统内置 AI 助手抓取 Signal 内容。具体做法分两端：iOS 27 上新增「Block Siri AI」设置并默认开启，应用内默认禁止截屏；Android 上不做一刀切，而是在检测到有 AI 助手试图读屏时，自动打开已有的「屏幕安全」功能。官方解释原因是系统级 agent 的读屏机制——Google 把 Gemini Intelligence、Apple 把 Siri AI 的 Onscreen Awareness 做进系统，它们靠扫描屏幕上的文字取数据，端到端加密只保护传输，消息在屏幕上解密后就是普通文本，被抓走之后 Signal 管不了它落到本地数据库还是远端服务器。Signal 同时承认这套办法不完整：文件系统读取、辅助功能权限（官方称其为「万能钥匙」，点名 Meta 的 Muse）仍可绕过，macOS 上目前无法实现同类保护，只建议用户把 Signal 加进系统「Siri 排除的应用」。用户可以自行关掉保护，但官方提示这会同时暴露对话另一方的消息，并破坏其隐私保证。文中也交代了先例：去年为挡微软 Windows 11 的 Recall，Signal 用过同样的截屏封锁。Signal 借此呼吁 Apple、Google、Microsoft 提供「让应用一键退出 AI 数据访问」的接口与更完整的技术文档。",
+    keyPoints: [
+      "11-20 官方博客：iOS 27 上默认禁止应用内截屏（开关名 Block Siri AI），Android 上检测到助手读屏就自动开「屏幕安全」",
+      "针对的是系统自带 agent——Google 的 Gemini Intelligence、Apple 的 Siri AI「屏幕感知」，它们靠扫描屏幕文字拿数据",
+      "用户可以关，但关掉的不只是自己的隐私：对话另一头的消息一起暴露，官方说这等于放弃隐私保证",
+      "Signal 自己承认堵不住：文件系统还能读，辅助功能权限被它称作「万能钥匙」，macOS 上干脆做不了",
+      "这是第二次：去年为挡微软 Recall 在 Windows 11 上关过截屏——防的对象从「截图的人」变成了「手机自带的助手」",
+    ],
+    org: "Signal",
+    category: "安全对齐",
+    date: "2026-11-20",
+    heat: 86,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Signal 官方博客《Signal is Serious About Protecting Your Privacy》（2026-11-20）",
+    sourceUrl: "https://signal.org/blog/protecting-your-privacy",
+    refs: [
+      {
+        name: "The Register（2026-11-20，iOS/Android 两端实现差异与 macOS 现状）",
+        url: "https://www.theregister.com/security/2026/11/20/signal-slams-door-on-prying-ai-agents-to-protect-privacy/5311466",
+      },
+      {
+        name: "Mashable（2026-11-20，Reuters 对 Meta Muse 读取 Signal 消息的实测）",
+        url: "https://mashable.com/tech/signal-blocks-screenshots-ai-assistants",
+      },
+    ],
+    article: "/blog/2026-11-21-signal-turned-off-the-screenshots.html",
+  },
+  {
+    id: "anthropic-ipo-close-greenshoe-1120",
+    title: "Anthropic 收官：绿鞋全额行使，募资 935 亿美元，第二天股价跌 8.5%",
+    summary:
+      "2026 年 11 月 20 日，Anthropic 发布公告宣布 IPO 交割完成：承销商全额行使 1.47 亿股超额配售权，最终以每股 83 美元发行 11.27 亿股 A 类普通股，其中公司卖出 11.03 亿股、老股东卖出 2364.86 万股。募资毛额约 935 亿美元，扣除承销费用前约 916 亿美元归公司，老股东那部分公司不取分文。同步完成的还有一笔约 260 亿美元的私募：按 83 美元向 AMD、博通、Google、美光、微软、英伟达、台积电七家发行 3.13 亿股 Class N 普通股，这部分不在纳斯达克流通。IPO 与私募合计募资约 1195 亿美元。股票 11 月 19 日以 ANT 挂牌，首日开盘 111.50 美元、收 97.17 美元。据 Bloomberg，第二个交易日（11-20）收 88.91 美元、跌 8.5%，距 83 美元发行价只剩 6 美元出头；同日亚洲芯片股集体下挫，FT 记录软银跌约 15%、台积电跌 5% 以上、三星与 SK 海力士跌 6% 以上。承销由高盛与摩根士丹利牵头。",
+    keyPoints: [
+      "11-20 官方公告：绿鞋全额行使，最终发行 11.27 亿股、每股 83 美元，募资毛额约 935 亿美元",
+      "约 916 亿美元归公司，老股东卖出约 2364.86 万股、套现近 20 亿美元，公司不取分文",
+      "外加 260 亿美元私募：AMD、博通、Google、美光、微软、英伟达、台积电七家按同一价格买入 3.13 亿股 Class N",
+      "挂牌第二日收 88.91 美元、跌 8.5%（Bloomberg），离发行价只剩 6 美元出头，首日涨幅回吐大半",
+      "同一天亚洲芯片股跟着跌：软银约 -15%、台积电 -5% 以上、三星与 SK 海力士 -6% 以上（FT）——最大的一单 IPO 没托住板块",
+    ],
+    org: "Anthropic",
+    category: "行业动态",
+    date: "2026-11-20",
+    heat: 82,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Anthropic 官方公告《Anthropic announces closing of initial public offering…》（2026-11-20）",
+    sourceUrl: "https://www.anthropic.com/news/ipo-close",
+    refs: [
+      {
+        name: "CNBC（2026-11-20，绿鞋额外 122 亿美元、IPO 总额 935 亿美元）",
+        url: "https://www.cnbc.com/2026/11/20/anthropic-ipo-greenshoe.html",
+      },
+      {
+        name: "财联社（2026-11-20，第二日开盘跌超 9%、盘中约 90.5 美元）",
+        url: "https://www.cls.cn/detail/2540586",
+      },
+    ],
+  },
   {
     id: "tencent-hy4-full-open-source-1120",
     title: "混元 Hy4 全量开源：770B 的旗舰放出来了，许可证还是自己写的那份",
@@ -154,6 +217,34 @@ export const hotRanking: HotItem[] = [
       },
     ],
     article: "/blog/2026-11-20-it-learned-to-click.html",
+  },
+  {
+    id: "thinking-machines-inkling-2-mini-1120",
+    title: "Thinking Machines 放出 Inkling 2 Mini：26B 能在笔记本跑，中间几层循环三遍",
+    summary:
+      "2026 年 11 月 20 日，Thinking Machines Lab 发布 Inkling 2 Mini，开放权重，同时在自家 Tinker 平台提供推理与定制。模型是 looped transformer：24 层分四个六层块，首尾块各跑一遍，中间两块各跑三遍，等于用 24 层存储的权重做 48 次层运算，总参数 26.4B、激活 3.4B，因循环按 5.4B 权重激活量计。官方称这是「跑在笔记本上的模型」，权重主体原生 NVFP4、最后四层 MXFP8，总内存占用约 20GB；研究人员带着它在航班上用一台 M5 Pro/48GB 的 MacBook Pro 离线跑，几分钟做出一个能玩的飞行模拟器。跑分方面官方称其在 100B 以下开放权重模型里领先：DeepSWE v1.1 48.2%、Vals Index v2.2 46.5%；第三方评测 Artificial Analysis 的说法是，它以 5.4B 激活参数追平 Qwen3.8 27B（xhigh）的智能指数。官方同时公布了循环的副作用：循环提高了单 token 的内部串行深度，模型可以「在心里算」而不写进思维链，可读的 CoT 变短，靠读草稿做监控会更难；配套发布的可变循环研究版显示，无 CoT 时间跨度从单遍 16 秒提升到三遍 37 秒，CoT 更短但仍可读，agentic sabotage 测试未随循环上升。",
+    keyPoints: [
+      "11-20 开放权重：26.4B 总参数、3.4B 激活，因循环按 5.4B 权重激活量计，官方称可跑在笔记本上",
+      "24 层分四块，中间两块各跑三遍，24 层的权重做出每个 token 48 次层运算——用循环换深度，不加参数",
+      "权重主体原生 NVFP4、约 20GB，官方在航班上用 M5 Pro/48GB 的 MacBook 离线几分钟做出飞行模拟器",
+      "官方称 100B 以下开放权重模型里最强（DeepSWE v1.1 48.2%、Vals Index v2.2 46.5%），第三方 Artificial Analysis 说它追平 Qwen3.8 27B、激活参数少约 5 倍",
+      "官方自己点出代价：循环让模型在内部多想、少写，可读的思维链变短，靠读草稿监控模型会越来越难",
+    ],
+    org: "Thinking Machines Lab",
+    category: "模型发布",
+    date: "2026-11-20",
+    heat: 74,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Thinking Machines Lab 官方博客《Introducing Inkling 2 Mini》（2026-11-20）",
+    sourceUrl: "https://thinkingmachines.ai/news/inkling-2-mini/",
+    refs: [
+      {
+        name: "Artificial Analysis（2026-11-20，Inkling 2 Mini 以 5.4B 激活参数追平 Qwen3.8 27B 智能指数，第三方测算）",
+        url: "https://artificialanalysis.ai/",
+      },
+    ],
+    article: "/blog/2026-11-21-a-model-that-thinks-in-silence.html",
   },
   {
     id: "anthropic-ant-first-day-1119",
