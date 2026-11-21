@@ -60,10 +60,42 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-21";
+export const hotRankingUpdatedAt = "2026-11-22";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "riemann-lean-verified-1121",
+    title: "17 万段 Lean 代码通过全部检查器：黎曼猜想的证明被机器认证，但还没人读过",
+    summary:
+      "2026 年 11 月 21 日 13:55（UTC），Lean 与 Mathlib 社区发布联合声明，由 Lean FRO 与 Mathlib Initiative 背书，认证 Anthropic 数学家 Levent Alpöge 于 11 月 20 日发布的黎曼猜想 Lean 证明「陈述与证明均正确」，并称「full confidence」。四条判据沿用 Xena Project 的标准：被证明的陈述就是 Mathlib 自带的 RiemannHypothesis 定义，经 Lean 与数论专家审核；数十人独立编译、复现出同一份 raw proof export；用 comparator 与 con-leche --compare 两个独立工具确认所证定理与该陈述完全一致；导出的证明被 Lean 官方内核、con-leche、con-ron 以及多个用不同语言实现的第三方检查器接受，其中 con-leche 与 con-ron 自带相对集合论的形式化证明、保证不会接受错误证明。所有检查都跑在 inert export 上，避开源码里可能藏有的恶意代码。规模：175,187 个 Lean 模块、约 1700 万行，分 14 个压缩包共 239 MB，解包后导出的证明文件约 61.6 GB；Rust 写的独立内核 nanoda 用 80 线程 27 分 42 秒接受全量导出，con-leche 用 64 线程 3 分 15 秒接受 1,468,418 条声明。五个主定理只依赖 Lean 的三条标准公理 propext、Classical.choice、Quot.sound。Alpöge 称与 Claude 一起工作了约 6 周，声明里写「Claude 在终点线附近远远甩开了我」。留白有三处：他自己说翻成人能读的论文会超过 25 万页，至今无人通读；此次「广义」部分只覆盖 Dirichlet L 函数，Dedekind、Hecke 与一般自守 L 函数不在已检查的陈述之内；克雷数学研究所官网仍把黎曼猜想列为未解决，奖金要求正式发表、满两年、并获学界普遍接受。同日另有对照：美国数学学会主席 Ravi Vakil 挂出独立数学家 Alessandro Masullo 历时 12 年、940 页、明确未借助 AI 的广义黎曼猜想草稿，约 8 小时后 Vakil 更新称已有多人借助不同 AI 模型在草稿中指出问题。",
+    keyPoints: [
+      "11-21 13:55 UTC，Lean 与 Mathlib 社区联合声明：Alpöge 的黎曼猜想证明「陈述与证明均正确」，Lean FRO 与 Mathlib Initiative 背书",
+      "体量：175,187 个模块、约 1700 万行、14 个分包 239 MB，解包导出 61.6 GB；nanoda 独立内核 80 线程 27 分 42 秒验完",
+      "五道关：Mathlib 自带陈述、数十人编译复现同一份导出、两个工具比对陈述、Lean 内核加 con-leche/con-ron 与第三方检查器、全程跑在 inert export 上",
+      "只依赖 propext、Classical.choice、Quot.sound 三条公理；Alpöge 称与 Claude 合作约 6 周，Claude 在终点线前「远远甩开」了他",
+      "留白：人读版超 25 万页至今无人通读，「广义」只覆盖 Dirichlet L 函数，克雷仍列为未解决；同日 Masullo 940 页纯人工草稿挂出 8 小时即被 AI 挑出错",
+    ],
+    org: "Lean FRO / Mathlib Initiative（Alpöge @ Anthropic）",
+    category: "学术公益",
+    date: "2026-11-21",
+    heat: 92,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Lean 社区博客《Lean verification of the Riemann Hypothesis》联合声明（2026-11-21 13:55）",
+    sourceUrl: "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+    refs: [
+      {
+        name: "The Guardian（2026-11-21）《Two groups verify mathematician's claim that Claude helped prove mathematics problem》",
+        url: "https://www.theguardian.com/technology/2026/nov/21/anthropic-riemann-hypothesis-solved-claude-ai",
+      },
+      {
+        name: "MIT 验证页（Andrew Sutherland 维护，逐项检查与耗时记录）",
+        url: "https://math.mit.edu/~drew/grh/",
+      },
+    ],
+    article: "/blog/2026-11-22-five-hundred-reams.html",
+  },
   {
     id: "rmrb-opensource-10b-downloads-1121",
     title: "100 亿次下载、每周 119.1 万亿词元：国产开源模型的两本账",
