@@ -60,10 +60,73 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-22";
+export const hotRankingUpdatedAt = "2026-11-23";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-perplexity-common-limits-1122",
+    title: "OpenAI 把自家预训练困惑度公开了：0.99、0.91、0.76，然后提议全行业共设一道上限",
+    summary:
+      "2026 年 11 月 22 日，OpenAI 首席科学家 Jakub Pachocki 在公司官网发布长文《Perplexity and Intelligence》，署名「Chief Scientist at OpenAI」，论文分类标为 Research + Safety。这是 OpenAI 首次公开自家预训练阶段的对数困惑度（等价于交叉熵损失），口径是自 GPT-3.5 起一直跟踪的那份内部代码库固定留出集。文中给出的刻度：GPT-3.5 约 0.99，能力对应流畅对话，是初代 ChatGPT 的地基；GPT-4 约 0.91，对应能有效使用思维链推理，这一发现促成了后来推理模型的方向性投入；困惑度降到 0.8 以下，他说 OpenAI 在网络安全与数学领域看到了「变革性能力」；升到约 0.76 的模型开始接连产出「突破性结果」——写的是同事们看着长期思考的数学问题「在一个 Slack 线程里一个接一个被解出来」，他用了 deeply surreal。据此外推：当模型进入 0.68 至 0.7 这个区间，应当预期出现进一步的变革性能力，但他不知道会是什么，「我们今天可能根本没在测它」。政策主张有三层：前沿开发者应在模型首次使用前共同建立评估与红队规范、建立共享的透明度标准；在此基础上提出 common limits——由各家承诺在某项可跨实验室跟踪的指标上不越过第一条线，直到理解与监控能力达到某个具体里程碑（他举例「思维链监控的继任者」）才算解禁，之后再由同一框架设第二条、第三条线。他自己列了四条难点：跨实验室不可直接比较（各家评测集与数据配比不同，这组数字来自 OpenAI 自家代码库）、与具体任务脱节、思维链推理不降低困惑度却大幅提升能力、以及「地面」未知——损失降到 0 不可能，数据本身的熵是多少没人知道。另有一个时间判断：AI 参与预训练算法研究可能带来一次台阶式变化，最早 2027 年就可能出现基础性进展的雪崩，而对齐与监控的进度大概率跟不上。脚注里他承认 2026 年曲线上有一段陡降，主因是长期研究与算力投入，自动化只占小部分，但最近几代模型「已经能看到来自 AI 的实质性设计贡献」。Sam Altman 同日转发称这是 OpenAI 近期发表的最重要的内容之一，并希望各家能就共同上限达成一致。留白：只公开一条曲线与三个刻度，没有给出当前最前沿模型的具体困惑度，也没有说明这条「上限」由谁来测、谁来裁定违反。",
+    keyPoints: [
+      "11-22，OpenAI 首席科学家 Jakub Pachocki 发文《Perplexity and Intelligence》，首次公开自家预训练对数困惑度：GPT-3.5 约 0.99、GPT-4 约 0.91、约 0.76 的模型开始接连解出悬置多年的数学题",
+      "口径是自 GPT-3.5 起跟踪的内部代码库固定留出集，不是公开数据集；他本人承认跨实验室暂不可直接比较，这是「共享指标」的第一个坎",
+      "能力刻度：低于 0.8 出现网络安全与数学的变革性能力，0.68—0.7 区间预期下一次跃迁但他不知道是什么，也「可能今天根本没在测」",
+      "政策主张：前沿实验室共设 common limits——某项跨实验室可跟踪的指标上的第一条线，直到监控达到具体里程碑（如思维链监控的继任者）才解禁",
+      "留白：未公布当前最前沿模型的困惑度，未说明上限由谁测、谁来裁定；Altman 称这是 OpenAI 近期最重要的发布，但没有配套的行业协议文本",
+    ],
+    org: "OpenAI",
+    category: "安全对齐",
+    date: "2026-11-22",
+    heat: 88,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI 官网《Perplexity and Intelligence》（Jakub Pachocki，页面标注 November 22, 2026）",
+    sourceUrl: "https://openai.com/index/perplexity-and-intelligence/",
+    refs: [
+      {
+        name: "新浪财经（2026-11-23）《刚刚，OpenAI 首次公开预训练核心指标》",
+        url: "https://finance.sina.com.cn/tech/roll/2026-11-23/doc-inizskhk5580620.shtml",
+      },
+      {
+        name: "腾讯新闻（2026-11-23）《OpenAI 公开预训练困惑度数据 提议共享指标》",
+        url: "https://news.qq.com/rain/a/20261123A0247U00",
+      },
+    ],
+    article: "/blog/2026-11-23-the-number-on-the-wall.html",
+  },
+  {
+    id: "minimax-mim-cryptanalysis-1122",
+    title: "MiniMax 让未发布的内部模型去破密码：COLM 两次查询伪造密文，LOCKER 求解矩阵从 42PB 压到 58MB",
+    summary:
+      "2026 年 11 月 22 日晚，MiniMax 通过官方渠道公布基于最新内部模型的密码分析研究成果，模型代号 MIM（MiniMax Internal Model），未对外发布、未披露参数与训练细节；技术报告与可运行的概念验证代码此前已于 11 月 20 日发布在官方英文博客与 GitHub 的 MiniMax-AI/Research 仓库（README 标注 Released on November 20, 2026，仓库 Apache-2.0）。核心战果分三层。第一层是历届 NIST 竞赛候选：SHA-3 候选 Waterfall-224/256/384/512 单核 0.045 秒构造碰撞（此前只有理论攻击、无人做出实例），Blender-256 全轮碰撞 0.73 秒，后量子候选 LOCKER 的九套参数全部被被动恢复密文，求解矩阵从 42PB 压到 58MB、LOCKER-I 约 1.15 秒，2019 版 ROLLO-I-128 用 5.97 秒还原等价私钥。第二层是经过同行评审的前沿方案：CAESAR 优胜、2024 年发表于 Journal of Cryptology 的 COLM，在标准模型下只用 2 次加密查询、不解密就伪造出合法密文；ASIACRYPT 2025 的后量子签名 SBC-VOLE 及带消息变体，被一条签名压缩缺陷变成密钥恢复，0.06 秒拿全私钥；NSA 2024 年发布的内存加密算法 ARADI，实用密钥恢复从 5 轮推进到 8 轮（单核 16 秒内），并对 9 至 12 轮刷新全密钥积分攻击纪录。第三层是公钥数学难题：TII McEliece 挑战恢复 94 个 Track-2 私钥（安全参数 83 至 254 比特），其中 55 个为此前无公开解，官方称在已有纪录的实例上比 CRYPTO 2026 的 9.20 小时纪录与 Anthropic 的多卡 GPU 方案快 6,180 至 43,400 倍；对 Anthropic 7 月攻破的 HAWK，MIM 在同一问题上把 HAWK-256 私钥恢复压到单核 30.9 分钟（约 690 倍核时效率），并把三档参数的安全强度估计再往下压 9.3 至 23.7 比特。评测基准用 CryptanalysisBench（官方称由 ETH Zurich、Anthropic 等联合构建）。官方明确写明：研究对象是学术方案、历史竞赛候选与公开挑战参数，不影响 AES、RSA、SHA-256 等已部署标准。边界同样明确：所有数字均为 MiniMax 单方自述，公开渠道尚无独立密码学家复现；MIM 本身不开放，外界只能申请试用；跨硬件、跨实现的倍数折算本身有误差空间。",
+    keyPoints: [
+      "11-22 晚 MiniMax 官方公布内部模型 MIM 的密码分析成果（英文研究与 GitHub 代码 11-20 已发布），模型未开放、参数未披露",
+      "COLM（CAESAR 优胜、Journal of Cryptology 2024）被 2 次加密查询伪造出合法密文；SBC-VOLE 用 1 个已知签名 0.06 秒恢复全部参数集私钥",
+      "老候选：Waterfall-256 单核 0.045 秒碰撞、LOCKER 求解矩阵 42PB→58MB、ROLLO-I-128 5.97 秒还原私钥、NSA 的 ARADI 密钥恢复从 5 轮推到 8 轮",
+      "TII McEliece 挑战恢复 94 个私钥、55 个首次攻破；HAWK-256 从 Anthropic 的 96 核 3 小时 42 分压到单核 30.9 分钟，官方称约 690 倍核时效率",
+      "边界：官方写明不影响 AES/RSA/SHA-256 等已部署标准；仓库 Apache-2.0 但结果全部为厂商单方自述，尚无独立复现，MIM 需申请才能试用",
+    ],
+    org: "MiniMax",
+    category: "学术公益",
+    date: "2026-11-22",
+    heat: 82,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "广州日报新花城 2026-11-22 22:49《AI 科研作用延伸至可验证成果，大模型竞赛进入 AI4S 深水区》（媒体报道，非官方公告；官方原文为 MiniMax 英文博客 11-20 与 GitHub MiniMax-AI/Research）",
+    sourceUrl: "https://news.dayoo.com/finance/202611/22/171077_55026438.htm",
+    refs: [
+      {
+        name: "MiniMax-AI/Research（README 标注 Cryptanalysis Results 发布于 2026-11-20，Apache-2.0）",
+        url: "https://github.com/MiniMax-AI/Research",
+      },
+      {
+        name: "上观新闻 / 新民晚报（2026-11-23 转载）《大模型竞赛进入 AI4S 深水区，「沪牌」模型在密码学领域取得重要突破》",
+        url: "https://www.163.com/dy/article/LCD5RF8L055040N3.html",
+      },
+    ],
+  },
   {
     id: "ant-afu-health-conference-1122",
     title: "1.5 亿人每天问诊 2000 万次，其中 16% 发生在凌晨零点到六点",
