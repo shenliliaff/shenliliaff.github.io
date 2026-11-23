@@ -60,7 +60,7 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-23";
+export const hotRankingUpdatedAt = "2026-11-24";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
@@ -129,6 +129,38 @@ export const hotRanking: HotItem[] = [
         url: "https://news.qq.com/rain/a/20261123A0EEN000",
       },
     ],
+  },
+  {
+    id: "openai-cisco-shirudo-1123",
+    title: "OpenAI 和思科做了面「盾」：补丁还没打上的机器，先自己扛住",
+    summary:
+      "2026 年 11 月 23 日，OpenAI 与思科（Cisco）联合发布开源项目 Shirudo（日语「シールド」，盾），定位是一个帮助运维团队在补丁铺开之前保护正在运行的生产系统的运行时安全平台。技术底座是 eBPF：不重启、不改源码，在系统调用的关键点装一段小程序，把漏洞利用要走的那条路堵掉。Shirudo 把这类小程序叫 shield，在 README 里叫 upatch（签名的微补丁），由运维侧签名后打成 .bee 包推到 OCI 仓库，目标机一次性拉取，加载前由内核校验签名，加载或卸载都会扩展一个每次开机重置的 TPM 寄存器，运维可以离线核验这台机器上到底装了什么。它没有常驻守护进程，只有一个一次性 CLI，启动时的守卫从 initrd 里挂上。公开的唯一实测是 Java4Shell（OpenJDK 的一个新漏洞）：用 Codex 当控制面，自动写出复现器、选定缓解点、生成一段 Java 字节码，注入到正在运行的 Elasticsearch 9.5.5 进程的 java.util.Base64$Decoder.decode0 上，随后 exploit 被拒，日志里留下「Base64 guard rejected candidate: length=65, padding=1, remainder=1」。思科 Isovalent 团队（Thomas Graf、Liz Rice 署名）给出的理由是「平均利用时间已经变成负数」——越来越多漏洞在被公开披露之前就已经被人利用了，而一个关键修复从写出来到铺满大多数系统还要几天、几周甚至几个月。思科方面说 Shirudo 是 Tetragon 的重写版（Tetragon 2022 年由 Isovalent 开源，也是思科产品里 Live Protect 能力的地基），关键改动是「不再把智能体限制在为人设计的策略语言里，让它们用母语说话：代码」，因此「故意不做配置 DSL」。留白很硬：仓库 README 自己写着 shirudo is pre-release，生产环境要求一个带 signed-loader ABI 和 shirudo 内核补丁的 Linux 内核，外加 TPM 2.0——也就是说，这个「保护你还没打补丁的系统」的工具，前提是你先给自己的内核打了补丁；riscv64 的验证还在等；性能开销官方两份公告都没提；截至北京时间 11 月 24 日早间仓库 190 star、13 fork、30 个 open issue，代码 BSD 2-Clause、BPF 程序 BSD 与 GPL 双许可，12 月 15 日有一场技术深潜 webinar。",
+    keyPoints: [
+      "11-23 OpenAI 与思科发布开源项目 Shirudo：eBPF 运行时，不重启、不改源码就把漏洞利用路径堵住，等正式补丁铺开",
+      "公开唯一实测是 Java4Shell：Codex 自动生成 Java 字节码注入运行中的 Elasticsearch 9.5.5，拦下 Base64 覆写型 exploit",
+      "签名 + TPM：shield 由内核校验签名后加载，每次开机扩展 TPM 寄存器，运维可离线核验这台机器装了什么",
+      "思科给出的理由很直接——「平均利用时间已经变成负数」，漏洞在被披露前就被利用，而补丁铺满要几周甚至几个月",
+      "硬留白：README 自标 pre-release，生产要求带 shirudo 内核补丁的 Linux 与 TPM 2.0；性能开销未公布，riscv64 未验证",
+    ],
+    org: "OpenAI / 思科（Cisco）",
+    category: "安全对齐",
+    date: "2026-11-23",
+    heat: 80,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI《OpenAI and Cisco introduce Shirudo》（页面标注 November 23, 2026）",
+    sourceUrl: "https://openai.com/index/introducing-shirudo/",
+    refs: [
+      {
+        name: "思科 Isovalent 博客（2026-11-23，Thomas Graf / Liz Rice 署名）《Cisco and OpenAI introduce Shirudo》",
+        url: "https://isovalent.com/blog/post/cisco-openai-shirudo/",
+      },
+      {
+        name: "思科新闻室（2026-11-23）《Cisco and OpenAI Launch Shirudo, A New Project to Safeguard Agentic AI》",
+        url: "https://newsroom.cisco.com/content/r/newsroom/en/us/a/y2026/m11/cisco-and-openai-launch-shirudo-a-new-project-to-safeguard-agentic-ai.html",
+      },
+    ],
+    article: "/blog/2026-11-24-patch-the-kernel-first.html",
   },
   {
     id: "openai-perplexity-common-limits-1122",
