@@ -65,6 +65,72 @@ export const hotRankingUpdatedAt = "2026-11-23";
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
   {
+    id: "glm-54-loop-transformer-1123",
+    title: "智谱把 28 层跑了两遍，然后说这等于一个 2 万亿到 3 万亿参数的模型",
+    summary:
+      "2026 年 11 月 23 日，智谱（Z.ai）通过官方技术博客与官方公众号发布新一代旗舰模型 GLM-5.4，称其为第一代采用 Loop Transformer 架构的旗舰模型。做法是不加参数、加深度：把 GLM-5 基座第 27 至 54 层共 28 层权重共享，在一次前向里跑两遍，第二遍在第一遍的隐状态上继续推演。基座规模 750B（官方口径约 7500 亿参数），官方称其智能水平达到 2 万亿至 3 万亿参数级模型的效果，但没有公布 GLM-5.4 本身的任何跑分。能查到的量化数据全部来自一个同架构 30B 模型的等参对照——参数完全相同、训练算力只多约 10%：AIME25 从 19.17 升到 30.42、GPQA-Diamond 47.58→56.26、AA-LCR 40.33→47.67、MMLU-Pro 71.65→75.05、IFBench 50.20→53.47，同时平均输出长度反而降了 2%–14.9%，官方解释是一部分推理从 token 流搬进了循环带来的额外深度。为压住部署成本做了三处工程改动：每轮独立的逐 token 门控（第一轮保守写回、第二轮放开）、KV Cache 跨轮共享加滑窗独立、稀疏注意力索引直接复用第一轮结果；官方称在 1M 上下文下相对 GLM-5.3 的部署成本增幅「可控」，非高峰最高 200 token/s、高峰 70–80 token/s。可用性上，即日起向 GLM Coding Plan 全量用户开放，同步上线 ZCode、Trae、WorkBuddy、Qoder 等编码平台，Coding Plan V2/V3/团队版额度提升至 1.5 倍；API 需等安全评估完成，权重「计划以负责任的方式开源」但要先做完安全加固，两项均未给时间表。模型对比的胜平负来自 200 个真实场景的编程实战评测：对 GLM-5.3 是 51.1%/25.7%/23.1%，对 Kimi K3.1 Pro 是 41.8%/26.9%/31.3%，对 DeepSeek-V4.1-Flash-1017 是 36.6%/30.2%/33.2%。官方主动写出的短板是模型容易陷入过长的「马拉松式思考」循环，但称这种反复自省确实能让准确率超出其参数规模。同篇博客预告下一个模型「规模显著更大，很快见面」。留白：2T-3T 是自评、无第三方复现，AI Release Tracker 与 Artificial Analysis 当晚均未收录该模型，API 与权重都还没有确切日期。",
+    keyPoints: [
+      "11-23 智谱发布 GLM-5.4：750B 基座不变，把第 27–54 层共 28 层权重共享跑两遍，官方称智能水平相当于 2 万亿—3 万亿参数模型",
+      "唯一量化证据是同架构 30B 的等参对照：训练算力只多约 10%，AIME25 19.17→30.42、GPQA-Diamond 47.58→56.26，平均输出长度反降 2%–14.9%",
+      "即日起向 GLM Coding Plan 全量用户开放，接入 ZCode、Trae、WorkBuddy、Qoder，V2/V3/团队版额度提到 1.5 倍；非高峰 200 token/s、高峰 70–80 token/s",
+      "API 要等安全评估，权重「计划开源」但须先完成安全加固，两项均无时间表；官方预告下一个模型规模显著更大",
+      "官方自曝短板：容易陷入过长的「马拉松式思考」循环；GLM-5.4 自身未公布任何跑分，两家第三方追踪站当晚均未收录",
+    ],
+    org: "智谱（Z.ai）",
+    category: "模型发布",
+    date: "2026-11-23",
+    heat: 85,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Z.ai 官方技术博客《GLM-5.4: Toward Generalized Coding with Our First Loop Transformer》（页面标注 2026-11-23）",
+    sourceUrl: "https://z.ai/blog/glm-5.4",
+    refs: [
+      {
+        name: "上海证券报·中国证券网（2026-11-23 晚）《智谱GLM-5.4上线》",
+        url: "https://www.cnstock.com/commonDetail/832502",
+      },
+      {
+        name: "新浪科技（2026-11-23 19:22）《智谱GLM-5.4发布：瞄向泛Coding场景，智能水平达到2-3T级模型》",
+        url: "https://finance.sina.com.cn/jjxw/2026-11-23/doc-iniztrzw2196176.shtml",
+      },
+    ],
+  },
+  {
+    id: "ant-lingsante-medical-family-1123",
+    title: "蚂蚁把医疗模型拆成五件：124B 那件能塞进笔记本，560B 那件排到全球第五",
+    summary:
+      "2026 年 11 月 23 日，蚂蚁阿福集中发布百灵医疗健康大模型家族（统一以「Sante」命名，法语「健康」），官方称这是首次系统展示其医疗健康 AI 的系列技术成果，同日阿福 App 做了一轮升级。家族分五件：面向多模态健康信息理解的 LingSante-3.1-air-VL，总参 124B、激活 5.5B，支持文字、图片、视频，可在笔记本电脑等本地设备部署；面向专业医疗机构深度推理的 LingSante-3.1-flash，总参 560B、支持最长 1M token 上下文，可多轮检索资料、核对医学证据并调用工具；另有健康预测模型 LingSante Pulse、医疗安全防护模型 LingSante MedGuard，以及实时多模态智能体 LingSante Live（同时处理语音与视觉，用户可视频通话让阿福实时查看症状、药品与检查报告）。两款核心模型当天同步开源，官方称多款模型将陆续开源。数字方面：据第三方全球医疗 AI 评测平台 InclusionMed 综合指数，LingSante-3.1-flash 得 45.1 分、位列全球第五、开源模型第一，前四为 Gemini 4 Argon 49.1、Claude Opus 5.5 48.9、Claude Fable 5.1 48.9、GPT-6 Astra 45.1（同分）；LingSante Pulse 称可做 150 余项疾病未来六年的风险预测。阿福当前服务 1.5 亿用户、日均近 2000 万次健康咨询。同场还发布湾区成果：广州市卫健委与阿福共建的 AI 就医助理「穗小伊」升级到 2.0，接入广州健康通全市医检互认平台后跨院报告回溯从 1 年提到 3 年，已接入全市 75 家等级医院、180 家基层医疗卫生机构、覆盖 11 个区。留白：「多项权威医疗评测基准位居全球第一」未指明具体基准名称；开源的许可证、权重地址与时间表未公布；InclusionMed 为第三方平台，45.1 与 GPT-6 Astra 同分而排名靠后一位。",
+    keyPoints: [
+      "11-23 蚂蚁阿福集中发布百灵医疗健康大模型家族 LingSante，覆盖专业推理、多模态理解、风险预测、安全防护、实时智能体五个方向",
+      "LingSante-3.1-air-VL 总参 124B、激活 5.5B，支持文字图片视频，可在笔记本本地部署；LingSante-3.1-flash 总参 560B、1M 上下文，两款当天开源",
+      "InclusionMed 综合指数 45.1 分排全球第五、开源模型第一；前四为 Gemini 4 Argon 49.1、Claude Opus 5.5 与 Fable 5.1 各 48.9、GPT-6 Astra 45.1（同分）",
+      "LingSante Pulse 称可预测 150 余项疾病未来六年风险；LingSante Live 支持视频通话实时看症状，阿福现有 1.5 亿用户、日均近 2000 万次咨询",
+      "留白：「多项基准全球第一」未点名是哪几项，开源许可证与权重地址未公布，其余模型只写「将陆续开源」",
+    ],
+    org: "蚂蚁集团 / 蚂蚁阿福",
+    category: "模型发布",
+    date: "2026-11-23",
+    heat: 68,
+    authority: "verified",
+    precision: "exact",
+    sourceName: "环球网 2026-11-23《蚂蚁阿福同款大模型宣布开源，全球医生一台电脑就能解锁专业医疗AI能力》（发布稿报道，非官网公告）",
+    sourceUrl: "https://3w.huanqiu.com/a/c36dc8/4U8tv4KNhdK?agt=23",
+    refs: [
+      {
+        name: "中国网财经（2026-11-23）《从看懂健康到专业推理，蚂蚁阿福发布百灵医疗健康大模型家族》",
+        url: "https://finance.stockstar.com/IG2026112300026968.shtml",
+      },
+      {
+        name: "21 世纪经济报道（2026-11-23）《蚂蚁发布百灵医疗健康大模型》",
+        url: "https://m.21jingji.com/article/20261123/herald/2aa126e4459353215c25576a5e8ad1d8.html",
+      },
+      {
+        name: "腾讯新闻·南都N视频（2026-11-23）《AI医生也能“远程查体”了！蚂蚁医疗AI模型首次集体亮相》",
+        url: "https://news.qq.com/rain/a/20261123A0EEN000",
+      },
+    ],
+  },
+  {
     id: "openai-perplexity-common-limits-1122",
     title: "OpenAI 把自家预训练困惑度公开了：0.99、0.91、0.76，然后提议全行业共设一道上限",
     summary:
