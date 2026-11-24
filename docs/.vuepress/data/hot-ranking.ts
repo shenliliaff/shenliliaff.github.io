@@ -60,10 +60,55 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-24";
+export const hotRankingUpdatedAt = "2026-11-25";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-gpt6-protein-design-1124",
+    title: "他们把 322 个小蛋白送去实验室，35 个粘上了",
+    summary:
+      "2026 年 11 月 24 日，OpenAI 在官网发布预印本配套博文《GPT-6 Models Demonstrate Intrinsic Protein-Design Capabilities》，论文题为《GPT-6 as a Universal Foundation Model for Protein Biology: Beyond Specialized Models》。核心主张是 GPT-6 家族具备「内生的」蛋白质设计能力：只靠推理与通用编程工具，不调用 RFdiffusion、ProteinMPNN 这类专用生物模型，就能设计新的蛋白质三维形状和氨基酸序列，还能用自然语言指定结合位点、螺旋与片层的数量与排布。硬数字：与实验伙伴 Onava 做湿实验，322 个 minibinder 对 5 个靶点，35 个（10.9%）检出结合，分布为 PD-L1 5 个、IL-7Rα 3 个、TrkA 1 个、VEGF-A 8 个、IL-17A 18 个；OpenAI 自己注明 RFdiffusion 原论文命中率更高，但命中率高度取决于筛选严格程度与「结合」的定义。只给结构不给序列的再设计实验中，MDM2 88 个里 75 个结合（85%）、VEGF-A 42 个里 26 个（62%）、PD-1 59 个里 8 个（14%）；三组未公开结构的新序列 107 个里 14 个（13.1%）结合。抗体侧，6 个 VHH 的三段 CDR 重排 182 个测了 128 个结合（70%），5 个已上市治疗性抗体的 272 个片段里 179 个（66%）保持结合。计算任务上，motif scaffolding 在 MotifBench 30 个挑战上最新内部模型通过率 43.7%，RFdiffusion 27.8%；按 CATH 折行设计 200 个挑战通过率 18.9%，专用模型 Proteina 17.1%；分子对接 PoseBusters 上 GPT-6.2 命中 93%、内部模型 96%、DiffDock-L 50%。抗体-抗原 DockQ 均值从 GPT-5.6 的 0.05 升到 GPT-6 的 0.28、GPT-6.2 的 0.57、内部模型的 0.81。留白：全文最弱的一项是「只给序列预测整体结构」，TM-score 内部模型 0.38，专用模型 ESMFold2 为 0.93，OpenAI 自己写成「clear weakness」；整个设计流程仍靠 Boltz-2、OpenDDE、ESMFold2 过滤候选，官方明确「尚不能证明可零样本端到端生成 minibinder」；预印本未经同行评审，结合只是成药的第一步，特异性、稳定性、生物活性均未验证；生物安全仅提及按 Preparedness Framework 评估。",
+    keyPoints: [
+      "11-24 OpenAI 发预印本与博文：GPT-6 家族只靠推理加通用编程工具，不调用专用生物模型，就能设计蛋白质三维结构与氨基酸序列",
+      "湿实验硬数字：322 个 minibinder 对 5 个靶点，35 个（10.9%）检出结合；OpenAI 自己承认 RFdiffusion 原论文命中率更高",
+      "序列再设计：MDM2 85%（75/88）、VEGF-A 62%（26/42）、PD-1 14%（8/59）；抗体 CDR 重排 70%（128/182），上市抗体片段 66%（179/272）",
+      "计算任务：motif scaffolding 通过率 43.7% 对 RFdiffusion 27.8%，CATH 折行 18.9% 对 Proteina 17.1%，对接 PoseBusters 93% 对 DiffDock-L 50%",
+      "短板与留白：整链结构预测 TM-score 仅 0.38（ESMFold2 0.93），候选仍需 Boltz-2、ESMFold2 过滤，官方称尚不能零样本端到端，预印本未同行评审",
+    ],
+    org: "OpenAI",
+    category: "学术公益",
+    date: "2026-11-24",
+    heat: 88,
+    authority: "official",
+    precision: "exact",
+    sourceName: "OpenAI《GPT-6 models demonstrate intrinsic protein-design capabilities》（页面标注 2026-11-24）",
+    sourceUrl:
+      "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/",
+    article: "/blog/2026-11-25-322-designs-35-binders.html",
+  },
+  {
+    id: "prismml-bonsai-2-5-27b-1124",
+    title: "5.9 GB 的三值化模型，SWE-bench 从 60.8 爬到 75.6，还是 Apache 2.0",
+    summary:
+      "2026 年 11 月 24 日，PrismML（加州理工背景，Khosla Ventures、Cerberus、Google 投资，三星持续支持）发布 Ternary Bonsai 2.5 27B，是 9 月 Bonsai 2 27B 的升级版，基座为 Qwen3.8 27B 的三值化版本，模型体积仍是 5.9 GB。官方给出的对照表：SWE-bench Verified 75.6（上一代 60.8，未压缩基座 80.6）；DeepSWE v1.1 用 mini-swe-agent 跑 27（上一代 0，基座 30.1）；Terminal-Bench 2.1 60.1（52.8 / 70.8）；AppWorld 90.5（51.2 / 93.2）；τ³-Bench 73.9（69.1 / 72.8）；BigCodeBench 60.3（57.2 / 61.5）；LiveCodeBench v6 83.0（83.8 / 87.6，唯一退步项）。改进重点是多轮工具调用的稳定性：解读结果、某一步失败后调整、把任务目标保持到整段交互结束，同时压掉上一代爱反复自省、绕圈的毛病。速度：单张 H100 开 MTP 时 291 tokens/s、2000 token 提示词预填 3200 tokens/s；消费级 RTX 4090 上 204 tokens/s、预填约 3060 tokens/s。部署面覆盖 llama.cpp（NVIDIA、Intel GPU）与 MLX（Mac、iPhone、iPad），权重即日以 Apache 2.0 放出，白皮书给了压缩与评测细节。留白：全部跑分为厂商自测、无第三方复现；「同等内存占用下最强智能体模型」是官方自评；湿活里没给中文与长上下文表现，也未说明三值化对工具调用格式遵循的损耗。",
+    keyPoints: [
+      "11-24 PrismML 发布 Ternary Bonsai 2.5 27B：基于 Qwen3.8 27B 的三值化版本，模型体积仍是 5.9 GB，权重即日以 Apache 2.0 放出",
+      "SWE-bench Verified 75.6（上一代 60.8，未压缩基座 80.6），DeepSWE v1.1 从 0 升到 27，AppWorld 从 51.2 跳到 90.5",
+      "卖点是把长链条智能体任务做稳：某一步失败会调整、目标不跑偏，同时压掉上一代反复自省绕圈的毛病",
+      "消费级硬件可跑：RTX 4090 上 204 tokens/s（开 MTP），H100 上 291 tokens/s；llama.cpp 走 NVIDIA/Intel，MLX 走 Mac 与 iPhone/iPad",
+      "留白：跑分全部厂商自测无第三方复现，LiveCodeBench v6 是唯一退步项（83.0，基座 87.6），中文与长上下文表现未给",
+    ],
+    org: "PrismML",
+    category: "模型发布",
+    date: "2026-11-24",
+    heat: 62,
+    authority: "official",
+    precision: "exact",
+    sourceName: "PrismML 官方发布页《Introducing Ternary Bonsai 2.5 27B》（2026-11-24）",
+    sourceUrl: "https://prismml.com/news/bonsai-2-5-27b",
+    article: "/blog/2026-11-25-five-point-nine-gigabytes.html",
+  },
   {
     id: "samr-ai-intl-standards-1124",
     title: "我国牵头 78 项人工智能国际标准，15 项国标外文版首批出海，里面有高棉语和老挝语",
