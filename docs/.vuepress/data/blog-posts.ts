@@ -13,6 +13,16 @@ export interface BlogPost {
 /** 全部文章，按日期降序（最新在最前） */
 export const blogPosts: BlogPost[] = [
   {
+    title: "5.9 GB，Apache 2.0，能装进一台不让联网的电脑",
+    date: "2026-11-25",
+    url: "/blog/2026-11-25-five-point-nine-gigabytes.html",
+  },
+  {
+    title: "322 个设计，35 个粘上了，剩下 287 个留在服务器里",
+    date: "2026-11-25",
+    url: "/blog/2026-11-25-322-designs-35-binders.html",
+  },
+  {
     title: "七十八项标准，翻成十二种语言，有一种叫高棉语",
     date: "2026-11-24",
     url: "/blog/2026-11-24-seventy-eight-standards-twelve-languages.html",
