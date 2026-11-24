@@ -85,6 +85,7 @@ export const hotRanking: HotItem[] = [
     sourceName: "市场监管总局《人工智能国际标准化工作专题新闻发布会实录》（页面发布 2026-11-24 17:00）",
     sourceUrl:
       "https://www.samr.gov.cn/xw/xwfbt/art/2026/art_7aa3b165c4114ac1ac910a34f8fca79e.html",
+    article: "/blog/2026-11-24-seventy-eight-standards-twelve-languages.html",
     refs: [
       {
         name: "新华社（2026-11-24）《我国牵头制定78项人工智能国际标准》",
@@ -95,7 +96,7 @@ export const hotRanking: HotItem[] = [
         url: "https://www.cnr.cn/jingji/ycbd/20261124/t20261124_527881962.shtml",
       },
       {
-        name: "科技日报（2026-11-24）《从"积极参与"到"牵头主导" 我国已牵头29项人工智能基础共性国际标准研制》",
+        name: "科技日报（2026-11-24）《从「积极参与」到「牵头主导」 我国已牵头29项人工智能基础共性国际标准研制》",
         url: "https://www.stdaily.com/web/gdxw/2026-11/24/content_618455.html",
       },
     ],

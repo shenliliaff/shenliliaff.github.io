@@ -13,6 +13,11 @@ export interface BlogPost {
 /** 全部文章，按日期降序（最新在最前） */
 export const blogPosts: BlogPost[] = [
   {
+    title: "七十八项标准，翻成十二种语言，有一种叫高棉语",
+    date: "2026-11-24",
+    url: "/blog/2026-11-24-seventy-eight-standards-twelve-languages.html",
+  },
+  {
     title: "黄仁勋复职：一个 CEO 的位子，为什么要美国政府点头",
     date: "2026-11-24",
     url: "/blog/2026-11-24-jensen-huang-reinstated.html",
