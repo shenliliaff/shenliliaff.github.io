@@ -13,6 +13,11 @@ export interface BlogPost {
 /** 全部文章，按日期降序（最新在最前） */
 export const blogPosts: BlogPost[] = [
   {
+    title: "黄仁勋复职：一个 CEO 的位子，为什么要美国政府点头",
+    date: "2026-11-24",
+    url: "/blog/2026-11-24-jensen-huang-reinstated.html",
+  },
+  {
     title: "一个专门保护「还没来得及打补丁」的机器的工具，要求你先打补丁",
     date: "2026-11-24",
     url: "/blog/2026-11-24-patch-the-kernel-first.html",

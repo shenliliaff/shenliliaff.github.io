@@ -1,0 +1,37 @@
+[
+  {
+    "text": "十一月十九日，OpenAI 发了篇工程博客，讲他们怎么让聊天机器人一直保持快。",
+    "startMs": 100,
+    "endMs": 7575,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "他们让一群智能体去查性能故障，跑了三个多月，发起一千七百多次调查，六百多次找到了根因。",
+    "startMs": 7575,
+    "endMs": 16162,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "然后他们老老实实补了一句：人工抽查一百条建议，七成判为准确。",
+    "startMs": 16162,
+    "endMs": 22638,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "三成，要么得修，要么根本没把因果关系说圆。",
+    "startMs": 22638,
+    "endMs": 27212,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "这套系统有意思的地方，不是查得多快，是它加了一道对抗式审查。",
+    "startMs": 27212,
+    "endMs": 30000,
+    "timestampMs": null,
+    "confidence": null
+  }
+]
