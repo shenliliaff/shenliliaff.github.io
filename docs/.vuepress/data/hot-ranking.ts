@@ -60,10 +60,39 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-25";
+export const hotRankingUpdatedAt = "2026-11-26";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "google-cogentic-six-papers-1125",
+    title: "六篇论文，一句提示词：Google 的智能体把分解、离散对数、纳什均衡一起做完了",
+    summary:
+      "2026 年 11 月 25 日，Google Research 的官方仓库一次提交（10:11 UTC）加入六篇论文，全部由 Cogentic 生成——这是 Google Research 与 Google DeepMind 共建的数学发现智能体框架，基座模型为 Gemini 4（arXiv:2609.40324，搭框架者为 Yang Cai、Vineet Gupta、Yanchen Jiang、Christopher Liaw、Aranyak Mehta、Grigoris Velegkas、Di Wang）。README 明写「除给 Cogentic 的初始提示词外没有任何人类介入」。六篇分别是：①无条件整数分解，单台固定单带经典图灵机上的零错误 Las Vegas 算法，输出完整素因子分解，最坏情况期望时间 L_N[1/3,105]、工作空间 L_N[1/3,40]，每个素因子用 AKS 素性测试加直接乘回 N 验证，不依赖任何未证明的数论猜想；②确定性、无参数的分解算法，最坏情况 O(exp(3(ln N)^{3/4})) 即 L[3/4,3]，另附 L_p[1/2,O(1)] 的二次非剩余构造；③固定小特征有限域乘法群上的离散对数，无条件零错误 Las Vegas，最坏期望比特复杂度 (pn)^{o(log n)}；④双矩阵博弈 1/5-近似纳什均衡的确定性多项式时间算法，改进此前的多项式时间门槛；⑤对数秩猜想结果，把 Lovett 的 O(√r log r) 改进为 r^{1/2-ε}（ε=5×10⁻⁶，常数 C=2^38）；⑥线性边密度（m≥1000n，最小度≥2000）下的 Harary 边重构猜想。关键留白：六篇的 Lean 4 形式化自称「已完成，将在配套提交中放出」，目前只有 PDF 可下载；README 未自称「首次」；分解的两个结果的指数仍是 1/3 与 3/4 而非常数（非多项式时间），且 105 这个常数远大于实用数域筛法的 1.923，对 RSA-2048 一类实际密钥不构成威胁——粗算同一 2048 位整数的工作量要多乘 2 的六千多次方。同日 Scott Aaronson 在博客中称对实验室尚未公开的密码学结果「几乎确定」，但拒绝转述未经核实的细节。",
+    keyPoints: [
+      "11-25 Google Research 仓库一次提交六篇论文，全部由 Cogentic（Gemini 4 基座，arXiv:2609.40324）生成，除初始提示词外无人类介入",
+      "两篇做整数分解：无条件零错误 Las Vegas 版最坏期望时间 L_N[1/3,105]，确定性无参数版 L[3/4,3]，都不依赖未证明的数论猜想",
+      "另外四篇是固定小特征离散对数 (pn)^{o(log n)}、双矩阵博弈 1/5-近似纳什的确定性多项式算法、对数秩猜想打破平方根壁垒、线性边密度图的边重构",
+      "不是密码学丧钟：指数仍是 1/3 与 3/4 而非常数，常数 105 远大于实用数域筛法的 1.923，2048 位密钥的工作量反而多出 2 的六千多次方量级",
+      "留白：六篇的 Lean 4 形式化自称已完成但「将在配套提交中放出」，眼下只有 PDF；README 未自称首次",
+    ],
+    org: "Google Research / Google DeepMind（Cogentic）",
+    category: "学术公益",
+    date: "2026-11-25",
+    heat: 90,
+    authority: "official",
+    precision: "exact",
+    sourceName: "Google Research 官方仓库提交《Add six Cogentic research papers》（2026-11-25 10:11 UTC）",
+    sourceUrl:
+      "https://github.com/google-research/google-research/tree/master/cogentic_research_papers",
+    refs: [
+      {
+        name: "Scott Aaronson《HOLY SHIT HOLY SHIT HOLY SHIT HOLY SHIT》（2026-11-25）：称对实验室未公开的密码学结果「几乎确定」，但不愿转述未核实传言",
+        url: "https://scottaaronson.blog/?p=10379",
+      },
+    ],
+    article: "/blog/2026-11-26-six-papers-one-prompt-105.html",
+  },
   {
     id: "qianwen-go-free-calls-1125",
     title: "千问Go 把「替你打电话」免费开放了：订包间、找失物、催快递，还带录音",
