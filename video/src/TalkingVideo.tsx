@@ -2,26 +2,63 @@ import { Audio } from "@remotion/media";
 import {
   AbsoluteFill,
   Img,
+  OffthreadVideo,
+  Sequence,
   interpolate,
   spring,
   staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import captions from "./generated/shorts-captions.json";
+import captions from "./generated/captions-copypaste.json";
 
 const FPS = 30;
-const TOTAL_FRAMES = 900;
+const TOTAL_FRAMES = 1687; // 56.23s，对齐口播音频 56.208s
 const GREEN = "#00A651";
 const MINT = "#A7E6C3";
 const WARN = "#FFB74D";
-const TITLE = "一台机器说找到了，另一台说你再看看";
+const TITLE = "医院里最贵的工种是复制粘贴";
+const DATE = "2026.11.17";
 
-// 每句对应的视觉焦点：数字大字卡
+// 时间轴（帧）：kb-in 105 → 4×AI 镜头(2x慢放,各310) → kb-out 342
+const CLIP_FRAMES = 310;
+const KB_IN = 105;
+const KB_OUT = 342;
+const CLIPS = [
+  "media/clips/c1-corridor.mp4",
+  "media/clips/c2-typing.mp4",
+  "media/clips/c3-forms.mp4",
+  "media/clips/c4-dawn.mp4",
+];
+
+// 每句对应的视觉焦点：数字大字卡（取自本篇真实数据）
 const STAT_CARDS: Record<number, { big: string; label: string; warn?: boolean }> = {
-  1: { big: "1700+", label: "次性能调查" },
-  2: { big: "70%", label: "判为准确" },
-  3: { big: "30%", label: "要修或说不清", warn: true },
+  5: { big: "99%", label: "被评为临床安全" },
+  6: { big: "60.7%", label: "必查项全过", warn: true },
+};
+// 收尾金句：放大高亮
+const QUOTE_IDX = 11;
+
+const CoverKenBurns: React.FC<{ mode: "in" | "out"; durationInFrames: number }> = ({
+  mode,
+  durationInFrames,
+}) => {
+  const f = useCurrentFrame();
+  const scale =
+    mode === "in"
+      ? interpolate(f, [0, durationInFrames], [1.02, 1.26], { extrapolateRight: "clamp" })
+      : interpolate(f, [0, durationInFrames], [1.26, 1.03], { extrapolateRight: "clamp" });
+  return (
+    <Img
+      src={staticFile("media/cover.webp")}
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        transform: `scale(${scale})`,
+      }}
+    />
+  );
 };
 
 export const TalkingVideo: React.FC = () => {
@@ -39,12 +76,8 @@ export const TalkingVideo: React.FC = () => {
   const capY = interpolate(enter, [0, 1], [34, 0]);
   const capOpacity = interpolate(local, [0, 10], [0, 1], { extrapolateRight: "clamp" });
 
-  // Ken Burns 缓慢运镜
-  const kenScale = interpolate(frame, [0, TOTAL_FRAMES], [1.08, 1.24], { extrapolateRight: "clamp" });
-  const kenX = interpolate(frame, [0, TOTAL_FRAMES], [0, -46], { extrapolateRight: "clamp" });
-
-  // 标题：开场出现，中段淡出
-  const titleOpacity = interpolate(frame, [0, 24, 660, 740], [0, 1, 1, 0], {
+  // 标题：开场 Ken Burns 段出现，随 AI 镜头切入淡出
+  const titleOpacity = interpolate(frame, [6, 26, 86, 108], [0, 1, 1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -58,24 +91,32 @@ export const TalkingVideo: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ background: "#051b13", fontFamily: '"Microsoft YaHei", "PingFang SC", sans-serif' }}>
-      {/* 封面 + Ken Burns */}
-      <Img
-        src={staticFile("media/cover.webp")}
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          opacity: 0.52,
-          transform: `scale(${kenScale}) translateX(${kenX}px)`,
-        }}
-      />
-      {/* 渐变遮罩：上暗下更暗，中间留出画面 */}
+      {/* ── 背景时间轴 ── */}
+      <Sequence from={0} durationInFrames={KB_IN}>
+        <CoverKenBurns mode="in" durationInFrames={KB_IN} />
+      </Sequence>
+      {CLIPS.map((src, i) => (
+        <Sequence key={src} from={KB_IN + i * CLIP_FRAMES} durationInFrames={CLIP_FRAMES}>
+          <OffthreadVideo
+            src={staticFile(src)}
+            playbackRate={0.5}
+            muted
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        </Sequence>
+      ))}
+      <Sequence from={KB_IN + CLIPS.length * CLIP_FRAMES} durationInFrames={KB_OUT}>
+        <CoverKenBurns mode="out" durationInFrames={KB_OUT} />
+      </Sequence>
+
+      {/* 渐变遮罩：保证字幕可读，中间透出画面 */}
       <AbsoluteFill
         style={{
           background:
-            "linear-gradient(180deg, rgba(4,24,16,.82) 0%, rgba(4,24,16,.28) 38%, rgba(4,24,16,.55) 62%, rgba(3,18,12,.95) 100%)",
+            "linear-gradient(180deg, rgba(4,24,16,.62) 0%, rgba(4,24,16,.10) 38%, rgba(4,24,16,.30) 62%, rgba(3,18,12,.92) 100%)",
         }}
       />
+
       {/* 顶部细线 */}
       <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: 4, background: GREEN }} />
 
@@ -95,10 +136,10 @@ export const TalkingVideo: React.FC = () => {
           <div style={{ width: 10, height: 10, borderRadius: "50%", background: GREEN, boxShadow: `0 0 16px ${GREEN}` }} />
           <div style={{ fontSize: 20, letterSpacing: 6, color: MINT, fontWeight: 600 }}>AI 前沿 · fengsKB</div>
         </div>
-        <div style={{ fontSize: 18, color: "rgba(255,255,255,.55)", letterSpacing: 3 }}>2026.11.20</div>
+        <div style={{ fontSize: 18, color: "rgba(255,255,255,.55)", letterSpacing: 3 }}>{DATE}</div>
       </div>
 
-      {/* 主标题（开场） */}
+      {/* 主标题（开场 Ken Burns 段） */}
       <div
         style={{
           position: "absolute",
@@ -166,7 +207,16 @@ export const TalkingVideo: React.FC = () => {
               boxShadow: "0 12px 40px rgba(0,0,0,.35)",
             }}
           >
-            <div style={{ fontSize: 46, lineHeight: 1.55, color: "#fff", fontWeight: 600, letterSpacing: 1 }}>
+            <div
+              style={{
+                fontSize: idx === QUOTE_IDX ? 58 : 46,
+                lineHeight: 1.55,
+                color: idx === QUOTE_IDX ? MINT : "#fff",
+                fontWeight: idx === QUOTE_IDX ? 800 : 600,
+                letterSpacing: 1,
+                textShadow: idx === QUOTE_IDX ? "0 0 30px rgba(0,166,81,.55)" : "none",
+              }}
+            >
               {active.text}
             </div>
           </div>
@@ -197,7 +247,7 @@ export const TalkingVideo: React.FC = () => {
         <div style={{ width: `${progress * 100}%`, height: "100%", background: GREEN }} />
       </div>
 
-      <Audio src={staticFile("media/2026-11-20-two-machines.mp3")} />
+      <Audio src={staticFile("media/copy-paste.mp3")} />
     </AbsoluteFill>
   );
 };

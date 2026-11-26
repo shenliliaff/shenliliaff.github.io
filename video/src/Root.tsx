@@ -6,14 +6,23 @@ import auditions from "./generated/auditions.json";
 import { BloggerFull } from "./BloggerFull";
 import fullVideo from "./generated/full-video.json";
 import { TalkingVideo } from "./TalkingVideo";
+import { XhsVideo } from "./XhsVideo";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
       <Composition
+        id="XhsVideo"
+        component={XhsVideo}
+        durationInFrames={1687}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
         id="TalkingVideo"
         component={TalkingVideo}
-        durationInFrames={30 * 30}
+        durationInFrames={1687}
         fps={30}
         width={1920}
         height={1080}
