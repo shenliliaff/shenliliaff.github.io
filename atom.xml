@@ -4,7 +4,7 @@
   <title>fengsKB</title>
   <subtitle>fengsKB 个人知识库</subtitle>
   <icon>https://ai.upcloudtech.cn/fengskb-icon.svg</icon>
-  <updated>2026-11-27T23:12:24.987Z</updated>
+  <updated>2026-11-27T23:13:44.940Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://ai.upcloudtech.cn/atom.xml"/>
   <link rel="alternate" href="https://ai.upcloudtech.cn/"/>
@@ -34,7 +34,7 @@
     <title type="text">机器人第一天上班，把老板叫成了雷军</title>
     <id>https://ai.upcloudtech.cn/blog/2026-11-28-iron-clocks-in.html</id>
     <link href="https://ai.upcloudtech.cn/blog/2026-11-28-iron-clocks-in.html"/>
-    <updated>2026-11-27T23:11:20.000Z</updated>
+    <updated>2026-11-27T23:12:36.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-28 · 人工智能</p>
 <figure><img src="/covers/2026-11-28-cover.webp" alt="人形机器人进店上岗" tabindex="0" loading="lazy"><figcaption>人形机器人进店上岗</figcaption></figure>
@@ -73,7 +73,7 @@
     <title type="text">苹果告它偷图纸，它反手告苹果堵工厂</title>
     <id>https://ai.upcloudtech.cn/blog/2026-11-28-openai-countersues-apple.html</id>
     <link href="https://ai.upcloudtech.cn/blog/2026-11-28-openai-countersues-apple.html"/>
-    <updated>2026-11-27T23:11:20.000Z</updated>
+    <updated>2026-11-27T23:12:36.000Z</updated>
     <summary type="html"><![CDATA[
 <p>2026-11-28 · 人工智能</p>
 <figure><img src="/covers/2026-11-28-cover-2.webp" alt="深夜法院走廊里擦肩而过的两拨人" tabindex="0" loading="lazy"><figcaption>深夜法院走廊里擦肩而过的两拨人</figcaption></figure>
