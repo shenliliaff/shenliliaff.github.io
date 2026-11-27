@@ -60,10 +60,69 @@ export interface HotItem {
   article?: string;
 }
 
-export const hotRankingUpdatedAt = "2026-11-27";
+export const hotRankingUpdatedAt = "2026-11-28";
 
 /** 榜单数据：组件按 date 降序（最新在上）渲染，同日按 heat 降序 */
 export const hotRanking: HotItem[] = [
+  {
+    id: "openai-countersues-apple-1127",
+    title: "OpenAI 反诉苹果：指控窃取硬件商业秘密、胁迫共同供应商",
+    summary:
+      "美国时间 2026 年 11 月 27 日（周五），OpenAI 与其硬件公司 io Products、以及两名前苹果员工 Chang Liu 与 Tang Tan，在加州圣何塞联邦法院对苹果提出反诉，把苹果 7 月 10 日发起的商业秘密诉讼变成双向官司。据《金融时报》与 9to5Mac 报道，OpenAI 指控苹果窃取其商业秘密、阻断其接触硬件供应商，称苹果正在「胁迫和威胁」与 OpenAI 合作的供应商，意图「以一切可用手段进行不公平竞争」；诉状还称苹果鼓励员工把公司文件存在个人设备和云账号里，人一离开这些文件就成了追责依据。苹果原案指控 OpenAI 与 io Products 借前员工带走机密工程与硬件开发资料，OpenAI 一直否认，并称该诉讼意在阻止其招聘苹果员工；苹果已申请初步禁令，并获准扩大取证范围，原案定于 2027 年 7 月 19 日开庭。背景是 OpenAI 2025 年收购 Jony Ive 的 io 后筹备自有消费级硬件，双方从「iPhone 里的 ChatGPT」变成设备市场的对手。",
+    keyPoints: [
+      "11-27（美国时间）OpenAI、io Products 与两名前苹果员工在加州圣何塞联邦法院反诉苹果，要求赔偿并申请禁令",
+      "指控核心：苹果窃取硬件商业秘密、胁迫共同供应商、阻挠 OpenAI 接触供应链，称其想「以一切可用手段不公平竞争」",
+      "诉状称苹果让员工把工作文件存在私人 iCloud 与 iMessage 里，人一走这些文件就成了窃密证据",
+      "原案：苹果 7 月 10 日起诉 OpenAI 与 io Products 及两名前员工，已申请初步禁令，2027 年 7 月 19 日开庭",
+      "导火索是硬件：OpenAI 2025 年收购 Jony Ive 的 io，双方从合作伙伴变成设备对手",
+    ],
+    org: "OpenAI / Apple",
+    category: "行业动态",
+    date: "2026-11-27",
+    heat: 92,
+    authority: "verified",
+    precision: "exact",
+    sourceName:
+      "9to5Mac 报道《OpenAI countersues Apple, alleging trade secret theft and supplier threats》（2026-11-27，非官方公告，转引《金融时报》）",
+    sourceUrl:
+      "https://9to5mac.com/2026/11/27/openai-countersues-apple-alleging-trade-secret-theft-and-supplier-threats/",
+    refs: [
+      {
+        name: "The Aigentic 转述 CNBC 报道（2026-11-27）",
+        url: "https://theaigentic.com/wire/wmwzd4petfb69b0f3",
+      },
+    ],
+    article: "/blog/2026-11-28-openai-countersues-apple.html",
+  },
+  {
+    id: "xpeng-iron-guangzhou-1127",
+    title: "小鹏人形机器人 IRON 在广州车展「上岗」：2027 年 1 月量产，先当门店导购",
+    summary:
+      "2026 年 11 月 27 日，第二十四届广州国际汽车展览会开幕，小鹏集团把 8 台自研高阶通用人形机器人 IRON 放上展台「上班」，承担迎宾接待、展区导览与车辆讲解，IRON 还以「发布会发言人」身份登台演讲。官方新闻稿同步给出商业化时间表：2027 年 1 月进入硬件量产，第一季度以导购身份进入部分小鹏门店实习，第二季度面向商业客户正式发布，2027 年下半年全球上市。硬件参数为身高 170 厘米、体重 62 公斤、全身 76 个自由度、超过 1,500 个触觉感知点（核心区域覆盖率超 80%）、3 颗自研图灵 AI 芯片共 2,250 TOPS 端侧算力，采用「强端弱云」架构可断网本地运行，量产首发全固态电池。商业化押在 Token 订阅与场景服务上，先从导购、导览这类流程标准的岗位切入。同日现场花絮：何小鹏称 IRON 一直把他认成雷军，IRON 在演讲里自嘲「上班第一天就干了 CEO 的活」。",
+    keyPoints: [
+      "11-27 广州车展开幕，8 台 IRON 首次公开亮相，在展台承担迎宾、导览与车辆讲解，并登台演讲",
+      "时间表：2027 年 1 月硬件量产 → 一季度进门店当导购实习 → 二季度对商业客户发布 → 2027 下半年全球上市",
+      "参数：170 厘米 / 62 公斤 / 76 个自由度 / 1,500+ 触觉点 / 3 颗图灵芯片 2,250 TOPS 端侧算力 / 量产首发全固态电池",
+      "商业模式押在 Token 订阅与场景服务，切入点是导购、导览这类需求清楚、流程标准的岗位",
+      "现场花絮：何小鹏说机器人一直喊他「雷军」，IRON 自嘲「上班第一天就干了 CEO 的活」",
+    ],
+    org: "小鹏集团",
+    category: "产品发布",
+    date: "2026-11-27",
+    heat: 78,
+    authority: "official",
+    precision: "exact",
+    sourceName:
+      "小鹏汽车官方新闻稿《小鹏集团亮相 2026 广州车展：高阶通用人形机器人 IRON 正式上岗并登台演讲》（2026-11-27）",
+    sourceUrl: "https://www.xiaopeng.com/news/company_news/5627.html",
+    refs: [
+      {
+        name: "腾讯新闻《何小鹏吐槽机器人喊他雷军，IRON 上班第一天干了 CEO 的活》（2026-11-27）",
+        url: "https://news.qq.com/rain/a/20261127A0AVEB00",
+      },
+    ],
+    article: "/blog/2026-11-28-iron-clocks-in.html",
+  },
   {
     id: "hk-ai-stocks-surge-1127",
     title: "国常会谈「国家队」稳市，港股 AI 股午后拉升：智谱收涨 18.57%、MINIMAX 涨 17.19%",
