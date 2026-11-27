@@ -13,6 +13,11 @@ export interface BlogPost {
 /** 全部文章，按日期降序（最新在最前） */
 export const blogPosts: BlogPost[] = [
   {
+    title: "造谣周昊离职的人，把他的名字打错了",
+    date: "2026-11-27",
+    url: "/blog/2026-11-27-qwen-rumor-lawsuit.html",
+  },
+  {
     title: "训练 AI 的数据从哪来，国家数据局划了四条线",
     date: "2026-11-27",
     url: "/blog/2026-11-27-data-rules-four-lines.html",
