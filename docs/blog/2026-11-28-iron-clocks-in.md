@@ -1,7 +1,7 @@
 ---
 title: 机器人第一天上班，把老板叫成了雷军
 date: 2026-11-28
-writtenAt: "07:12"
+writtenAt: "07:04"
 category:
   - 人工智能
 ---
